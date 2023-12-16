@@ -144,6 +144,11 @@ class welcome: UIViewController {
         
     }
     
+    @objc func breakfast_food_click_method() {
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "breakfast_food_id")
+        self.navigationController?.pushViewController(push, animated: true)
+    }
+    
 }
 
 //MARK:- TABLE VIEW -
@@ -178,6 +183,8 @@ extension welcome: UITableViewDataSource , UITableViewDelegate {
         cell.btn_routine_track.addTarget(self, action: #selector(routine_track_click_method), for: .touchUpInside)
         cell.btn_workout_yoga.addTarget(self, action: #selector(workout_yoga_click_method), for: .touchUpInside)
         
+        // dummy
+        cell.btn_workout_yoga.addTarget(self, action: #selector(breakfast_food_click_method), for: .touchUpInside)
         return cell
         
     }
