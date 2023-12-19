@@ -19,23 +19,21 @@ var navigation_title_edit_meals_and_time_en = "edit meals & time".uppercased()
 // edit meals calories
 var navigation_title_edit_meals_calories_en = "edit meals calories".uppercased()
 
+// water intake
+var navigation_title_water_intake_en = "water intake".uppercased()
+
+// water tracker
+var navigation_title_set_up_water_tracker_en = "set up water tracker".uppercased()
+
+// water reminder
+var navigation_title_set_up_water_reminder_en = "water reminder".uppercased()
+
+ 
+
 class all_text: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

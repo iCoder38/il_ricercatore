@@ -870,3 +870,76 @@ class track_meal_reminder_table_cell : UITableViewCell {
     }
     
 }
+
+// /* ************** edit meal and calories ******************** */
+// /* ********************************************************** */
+class water_intake_table_cell : UITableViewCell {
+    
+    @IBOutlet weak var view_glass:UIView! {
+        didSet {
+            view_glass.layer.cornerRadius = 8
+            view_glass.clipsToBounds = true
+            view_glass.backgroundColor = UIColor.init(red: 245.0/255.0, green: 236.0/255.0, blue: 255.0/255.0, alpha: 1)
+        }
+    }
+    
+    @IBOutlet weak var lbl_water_glass_count:UILabel!
+    
+    @IBOutlet weak var view_glass_measure:UIView! {
+        didSet {
+            view_glass_measure.layer.cornerRadius = 8
+            view_glass_measure.clipsToBounds = true
+            view_glass_measure.backgroundColor = UIColor.init(red: 245.0/255.0, green: 236.0/255.0, blue: 255.0/255.0, alpha: 1)
+        }
+    }
+    
+    //
+    @IBOutlet weak var view_reminder:UIView! {
+        didSet {
+            view_reminder.layer.cornerRadius = 8
+            view_reminder.clipsToBounds = true
+            view_reminder.backgroundColor = UIColor.init(red: 245.0/255.0, green: 236.0/255.0, blue: 255.0/255.0, alpha: 1)
+        }
+    }
+    //
+    
+}
+
+// /* ************** WATER TRACKER ***************************** */
+// /* ********************************************************** */
+class water_tracker_table_cell : UITableViewCell {
+    
+    @IBOutlet weak var view_counter:UIView! {
+        didSet {
+            view_counter.layer.cornerRadius = 8
+            view_counter.clipsToBounds = true
+            view_counter.backgroundColor = UIColor.init(red: 245.0/255.0, green: 236.0/255.0, blue: 255.0/255.0, alpha: 1)
+        }
+    }
+    
+    @IBOutlet weak var view_digits_counter:UIView! {
+        didSet {
+            view_digits_counter.layer.cornerRadius = 12
+            view_digits_counter.clipsToBounds = true
+            view_digits_counter.backgroundColor = .white
+        }
+    }
+    
+}
+
+// /* ************** WATER REMINDER ***************************** */
+// /* ********************************************************** */
+class water_reminder_table_cell : UITableViewCell {
+
+    @IBOutlet weak var btn_set_reminders:UIButton! {
+        didSet {
+            btn_set_reminders.layer.cornerRadius = 8
+            btn_set_reminders.clipsToBounds = true
+            btn_set_reminders.setTitle("Set Reminders", for: .normal)
+            btn_set_reminders.setTitleColor(.white, for: .normal)
+        }
+    }
+    
+}
+
+    

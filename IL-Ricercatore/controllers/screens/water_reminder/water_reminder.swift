@@ -1,5 +1,5 @@
 //
-//  track_meal_reminder.swift
+//  water_reminder.swift
 //  IL-Ricercatore
 //
 //  Created by Dishant Rajput on 19/12/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class track_meal_reminder: UIViewController {
+class water_reminder: UIViewController {
 
     @IBOutlet weak var btn_reset:UIButton! {
         didSet {
@@ -17,9 +17,10 @@ class track_meal_reminder: UIViewController {
             btn_reset.setTitleColor(.white, for: .normal)
         }
     }
+    
     @IBOutlet weak var lbl_navigation_title:UILabel! {
         didSet {
-            lbl_navigation_title.text = navigation_title_edit_meals_and_time_en
+            lbl_navigation_title.text = navigation_title_set_up_water_reminder_en
         }
     }
     
@@ -27,28 +28,21 @@ class track_meal_reminder: UIViewController {
         didSet {
             tble_view.delegate = self
             tble_view.dataSource = self
-            tble_view.layer.cornerRadius = 22
+            tble_view.layer.cornerRadius = 0
             tble_view.clipsToBounds = true
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tble_view.separatorColor = .white
         
-        btn_reset.addTarget(self, action: #selector(edit_calorie_budget_click_method), for: .touchUpInside)
+        self.tble_view.separatorColor = .clear
         
     }
-    @objc func edit_calorie_budget_click_method() {
-        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "water_intake_id")
-        self.navigationController?.pushViewController(push, animated: true)
-    }
-    
 }
 
-
 //MARK:- TABLE VIEW -
-extension track_meal_reminder: UITableViewDataSource , UITableViewDelegate {
+extension water_reminder: UITableViewDataSource , UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -59,7 +53,7 @@ extension track_meal_reminder: UITableViewDataSource , UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell:track_meal_reminder_table_cell = tableView.dequeueReusableCell(withIdentifier: "track_meal_reminder_table_cell") as! track_meal_reminder_table_cell
+        let cell:water_reminder_table_cell = tableView.dequeueReusableCell(withIdentifier: "water_reminder_table_cell") as! water_reminder_table_cell
         
         cell.backgroundColor = .clear
         
@@ -79,7 +73,7 @@ extension track_meal_reminder: UITableViewDataSource , UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 466
+        return 338
     }
 
 }

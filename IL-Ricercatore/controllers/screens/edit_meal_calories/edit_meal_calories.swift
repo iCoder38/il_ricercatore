@@ -12,7 +12,7 @@ class edit_meal_calories: UIViewController {
         didSet {
             btn_reset.layer.cornerRadius = 8
             btn_reset.clipsToBounds = true
-            btn_reset.setTitle("reset", for: .normal)
+            // btn_reset.setTitle("reset", for: .normal)
             btn_reset.setTitleColor(.white, for: .normal)
         }
     }

@@ -1,14 +1,28 @@
 //
-//  create_an_account.swift
+//  water_intake.swift
 //  IL-Ricercatore
 //
-//  Created by Dishant Rajput on 16/12/23.
+//  Created by Dishant Rajput on 19/12/23.
 //
 
 import UIKit
 
-class create_an_account: UIViewController, UITextFieldDelegate {
+class water_intake: UIViewController {
 
+    @IBOutlet weak var btn_reset:UIButton! {
+        didSet {
+            btn_reset.layer.cornerRadius = 8
+            btn_reset.clipsToBounds = true
+            // btn_reset.setTitle("reset", for: .normal)
+            btn_reset.setTitleColor(.white, for: .normal)
+        }
+    }
+    @IBOutlet weak var lbl_navigation_title:UILabel! {
+        didSet {
+            lbl_navigation_title.text = navigation_title_water_intake_en
+        }
+    }
+    
     @IBOutlet weak var tble_view:UITableView! {
         didSet {
             tble_view.delegate = self
@@ -20,27 +34,21 @@ class create_an_account: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
         self.tble_view.separatorColor = .white
+        
+         btn_reset.addTarget(self, action: #selector(edit_calorie_budget_click_method), for: .touchUpInside)
+        
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return true
-    }
-    
-    @objc func complete_profile_click_method() {
-        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "complete_profile_id")
+    @objc func edit_calorie_budget_click_method() {
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "set_up_water_tracker_id")
         self.navigationController?.pushViewController(push, animated: true)
-        
-          // let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "track_meal_reminder_id")
-          // self.navigationController?.pushViewController(push, animated: true)
-        
     }
+    
 }
 
 //MARK:- TABLE VIEW -
-extension create_an_account: UITableViewDataSource , UITableViewDelegate {
+extension water_intake: UITableViewDataSource , UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -51,7 +59,7 @@ extension create_an_account: UITableViewDataSource , UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell:create_an_account_table_cell = tableView.dequeueReusableCell(withIdentifier: "create_an_account_table_cell") as! create_an_account_table_cell
+        let cell:water_intake_table_cell = tableView.dequeueReusableCell(withIdentifier: "water_intake_table_cell") as! water_intake_table_cell
         
         cell.backgroundColor = .clear
         
@@ -59,12 +67,7 @@ extension create_an_account: UITableViewDataSource , UITableViewDelegate {
         backgroundView.backgroundColor = .clear
         cell.selectedBackgroundView = backgroundView
         
-        cell.txt_name.delegate = self
-        cell.txt_email.delegate = self
-        cell.txt_phone.delegate = self
-        cell.txt_password.delegate = self
-        
-        cell.btn_create_an_account.addTarget(self, action: #selector(complete_profile_click_method), for: .touchUpInside)
+        // cell.btn_continue.addTarget(self, action: #selector(complete_profile_click_method), for: .touchUpInside)
         
         return cell
         
@@ -76,10 +79,7 @@ extension create_an_account: UITableViewDataSource , UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 600
+        return 466
     }
 
 }
-
-
-
