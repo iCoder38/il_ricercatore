@@ -656,7 +656,7 @@ class calorie_information_table_cell : UITableViewCell {
 }
 
 
-// /* ************** COMPLETE PROFILE 3 ************************* */
+// /* ************** EAT MEAL TIME ***************************** */
 // /* ********************************************************** */
 class eat_meal_time_table_cell : UITableViewCell {
     
@@ -721,26 +721,151 @@ class eat_meal_time_table_cell : UITableViewCell {
     
     
     
-    @IBOutlet weak var btn_reset:UIButton! {
+   
+    
+}
+
+// /* ************** edit meal and calories ******************** */
+// /* ********************************************************** */
+class edit_meals_and_calories_table_cell : UITableViewCell {
+    
+    @IBOutlet weak var view:UIView! {
         didSet {
-            btn_reset.layer.cornerRadius = 8
-            btn_reset.clipsToBounds = true
-            btn_reset.setTitle("reset", for: .normal)
-            btn_reset.setTitleColor(.white, for: .normal)
+            view.layer.cornerRadius = 8
+            view.clipsToBounds = true
+            view.backgroundColor = UIColor.init(red: 245.0/255.0, green: 236.0/255.0, blue: 255.0/255.0, alpha: 1)
+        }
+    }
+    
+    @IBOutlet weak var view_bottom:UIView! {
+        didSet {
+            view_bottom.layer.cornerRadius = 8
+            view_bottom.clipsToBounds = true
+            view_bottom.backgroundColor = dark_purple_color
+        }
+    }
+    
+    @IBOutlet weak var lbl_break_fast_one:UILabel! {
+        didSet {
+            lbl_break_fast_one.backgroundColor = .white
+            lbl_break_fast_one.layer.cornerRadius = 12
+            lbl_break_fast_one.clipsToBounds = true
+            lbl_break_fast_one.text = "25.0"
+        }
+    }
+    
+    @IBOutlet weak var lbl_morning_snack_one:UILabel! {
+        didSet {
+            lbl_morning_snack_one.backgroundColor = .white
+            lbl_morning_snack_one.layer.cornerRadius = 12
+            lbl_morning_snack_one.clipsToBounds = true
+            lbl_morning_snack_one.text = "25.0"
+        }
+    }
+    
+    @IBOutlet weak var lbl_lunch_one:UILabel! {
+        didSet {
+            lbl_lunch_one.backgroundColor = .white
+            lbl_lunch_one.layer.cornerRadius = 12
+            lbl_lunch_one.clipsToBounds = true
+            lbl_lunch_one.text = "25.0"
+        }
+    }
+    
+    @IBOutlet weak var lbl_evening_snack_one:UILabel! {
+        didSet {
+            lbl_evening_snack_one.backgroundColor = .white
+            lbl_evening_snack_one.layer.cornerRadius = 12
+            lbl_evening_snack_one.clipsToBounds = true
+            lbl_evening_snack_one.text = "25.0"
+        }
+    }
+    
+    @IBOutlet weak var lbl_dinner_one:UILabel! {
+        didSet {
+            lbl_dinner_one.backgroundColor = .white
+            lbl_dinner_one.layer.cornerRadius = 12
+            lbl_dinner_one.clipsToBounds = true
+            lbl_dinner_one.text = "25.0"
+        }
+    }
+    
+    // two
+    @IBOutlet weak var lbl_break_fast_two:UILabel! {
+        didSet {
+            lbl_break_fast_two.backgroundColor = .clear
+            lbl_break_fast_two.layer.cornerRadius = 12
+            lbl_break_fast_two.clipsToBounds = true
+            lbl_break_fast_two.text = "212"
+        }
+    }
+    
+    @IBOutlet weak var lbl_morning_snack_two:UILabel! {
+        didSet {
+            lbl_morning_snack_two.backgroundColor = .clear
+            lbl_morning_snack_two.layer.cornerRadius = 12
+            lbl_morning_snack_two.clipsToBounds = true
+            lbl_morning_snack_two.text = "212"
+        }
+    }
+    
+    @IBOutlet weak var lbl_lunch_two:UILabel! {
+        didSet {
+            lbl_lunch_two.backgroundColor = .clear
+            lbl_lunch_two.layer.cornerRadius = 12
+            lbl_lunch_two.clipsToBounds = true
+            lbl_lunch_two.text = "212"
+        }
+    }
+    
+    @IBOutlet weak var lbl_evening_snack_two:UILabel! {
+        didSet {
+            lbl_evening_snack_two.backgroundColor = .clear
+            lbl_evening_snack_two.layer.cornerRadius = 12
+            lbl_evening_snack_two.clipsToBounds = true
+            lbl_evening_snack_two.text = "212"
+        }
+    }
+    
+    @IBOutlet weak var lbl_dinner_two:UILabel! {
+        didSet {
+            lbl_dinner_two.backgroundColor = .clear
+            lbl_dinner_two.layer.cornerRadius = 12
+            lbl_dinner_two.clipsToBounds = true
+            lbl_dinner_two.text = "212"
         }
     }
     
 }
 
-// /* ************** COMPLETE PROFILE 3 ************************* */
+
+// /* ************** edit meal and calories ******************** */
 // /* ********************************************************** */
-class eat_meals_and_calories_table_cell : UITableViewCell {
+class track_meal_reminder_table_cell : UITableViewCell {
     
-    @IBOutlet weak var view_dinner:UIView! {
+    @IBOutlet weak var lbl_breakfast:UILabel! {
         didSet {
-            view_dinner.layer.cornerRadius = 8
-            view_dinner.clipsToBounds = true
-            view_dinner.backgroundColor = UIColor.init(red: 245.0/255.0, green: 236.0/255.0, blue: 255.0/255.0, alpha: 1)
+            lbl_breakfast.backgroundColor = .clear
+        }
+    }
+    @IBOutlet weak var lbl_morning_snack:UILabel! {
+        didSet {
+            lbl_morning_snack.backgroundColor = .clear
+        }
+    }
+    @IBOutlet weak var lbl_lunch:UILabel! {
+        didSet {
+            lbl_lunch.backgroundColor = .clear
+        }
+    }
+    @IBOutlet weak var lbl_evening_snack:UILabel! {
+        didSet {
+            lbl_evening_snack.backgroundColor = .clear
+        }
+    }
+    @IBOutlet weak var lbl_dinner:UILabel! {
+        didSet {
+            lbl_dinner.backgroundColor = .clear
         }
     }
     

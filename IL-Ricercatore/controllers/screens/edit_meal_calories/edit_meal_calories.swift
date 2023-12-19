@@ -8,10 +8,17 @@
 import UIKit
 
 class edit_meal_calories: UIViewController {
-
+    @IBOutlet weak var btn_reset:UIButton! {
+        didSet {
+            btn_reset.layer.cornerRadius = 8
+            btn_reset.clipsToBounds = true
+            btn_reset.setTitle("reset", for: .normal)
+            btn_reset.setTitleColor(.white, for: .normal)
+        }
+    }
     @IBOutlet weak var lbl_navigation_title:UILabel! {
         didSet {
-            lbl_navigation_title.text = navigation_title_edit_meals_and_time_en
+            lbl_navigation_title.text = navigation_title_edit_meals_calories_en
         }
     }
     
@@ -27,10 +34,49 @@ class edit_meal_calories: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tble_view.separatorColor = .white
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+        
+        btn_reset.addTarget(self, action: #selector(edit_calorie_budget_click_method), for: .touchUpInside)
         
     }
+    @objc func edit_calorie_budget_click_method() {
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "track_meal_reminder_id")
+        self.navigationController?.pushViewController(push, animated: true)
+    }
+}
+
+//MARK:- TABLE VIEW -
+extension edit_meal_calories: UITableViewDataSource , UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell:edit_meals_and_calories_table_cell = tableView.dequeueReusableCell(withIdentifier: "edit_meals_and_calories_table_cell") as! edit_meals_and_calories_table_cell
+        
+        cell.backgroundColor = .clear
+        
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = .clear
+        cell.selectedBackgroundView = backgroundView
+        
+        // cell.btn_continue.addTarget(self, action: #selector(complete_profile_click_method), for: .touchUpInside)
+        
+        return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+         
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 434
+    }
+
 }

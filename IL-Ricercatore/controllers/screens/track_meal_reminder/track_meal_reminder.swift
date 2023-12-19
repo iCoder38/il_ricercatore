@@ -1,5 +1,5 @@
 //
-//  eat_meal_time.swift
+//  track_meal_reminder.swift
 //  IL-Ricercatore
 //
 //  Created by Dishant Rajput on 19/12/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class eat_meal_time: UIViewController {
+class track_meal_reminder: UIViewController {
 
     @IBOutlet weak var btn_reset:UIButton! {
         didSet {
@@ -17,7 +17,6 @@ class eat_meal_time: UIViewController {
             btn_reset.setTitleColor(.white, for: .normal)
         }
     }
-    
     @IBOutlet weak var lbl_navigation_title:UILabel! {
         didSet {
             lbl_navigation_title.text = navigation_title_edit_meals_and_time_en
@@ -37,19 +36,14 @@ class eat_meal_time: UIViewController {
         super.viewDidLoad()
         self.tble_view.separatorColor = .white
         
-        btn_reset.addTarget(self, action: #selector(edit_calorie_budget_click_method), for: .touchUpInside)
+        // btn_reset.addTarget(self, action: #selector(edit_calorie_budget_click_method), for: .touchUpInside)
         
     }
-    
-    @objc func edit_calorie_budget_click_method() {
-        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "edit_meal_calories_id")
-        self.navigationController?.pushViewController(push, animated: true)
-    }
-    
 }
 
+
 //MARK:- TABLE VIEW -
-extension eat_meal_time: UITableViewDataSource , UITableViewDelegate {
+extension track_meal_reminder: UITableViewDataSource , UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -60,7 +54,7 @@ extension eat_meal_time: UITableViewDataSource , UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell:eat_meal_time_table_cell = tableView.dequeueReusableCell(withIdentifier: "eat_meal_time_table_cell") as! eat_meal_time_table_cell
+        let cell:track_meal_reminder_table_cell = tableView.dequeueReusableCell(withIdentifier: "track_meal_reminder_table_cell") as! track_meal_reminder_table_cell
         
         cell.backgroundColor = .clear
         
@@ -80,7 +74,7 @@ extension eat_meal_time: UITableViewDataSource , UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 600
+        return 466
     }
 
 }

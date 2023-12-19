@@ -20,6 +20,7 @@
 		B977AE612B2D8BE200EF12BA /* complete_profile_two.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977AE602B2D8BE200EF12BA /* complete_profile_two.swift */; };
 		B977AE642B2D90F000EF12BA /* complete_profile_three.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977AE632B2D90F000EF12BA /* complete_profile_three.swift */; };
 		B977AE672B2D97E500EF12BA /* breakfast_food.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977AE662B2D97E500EF12BA /* breakfast_food.swift */; };
+		B9DD5A172B31B303006B2D60 /* track_meal_reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DD5A162B31B303006B2D60 /* track_meal_reminder.swift */; };
 		B9E745362B29C1E9007E018A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E745352B29C1E9007E018A /* AppDelegate.swift */; };
 		B9E745382B29C1E9007E018A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E745372B29C1E9007E018A /* SceneDelegate.swift */; };
 		B9E7453A2B29C1E9007E018A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E745392B29C1E9007E018A /* ViewController.swift */; };
@@ -72,6 +73,7 @@
 		B977AE602B2D8BE200EF12BA /* complete_profile_two.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = complete_profile_two.swift; sourceTree = "<group>"; };
 		B977AE632B2D90F000EF12BA /* complete_profile_three.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = complete_profile_three.swift; sourceTree = "<group>"; };
 		B977AE662B2D97E500EF12BA /* breakfast_food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = breakfast_food.swift; sourceTree = "<group>"; };
+		B9DD5A162B31B303006B2D60 /* track_meal_reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = track_meal_reminder.swift; sourceTree = "<group>"; };
 		B9E745322B29C1E9007E018A /* IL-Ricercatore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IL-Ricercatore.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E745352B29C1E9007E018A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9E745372B29C1E9007E018A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				B939EF0E2B31845500B9556C /* calorie_information */,
 				B939EF112B318E3100B9556C /* eat_meal_time */,
 				B939EF142B3190DF00B9556C /* edit_meal_calories */,
+				B9DD5A152B31B2EB006B2D60 /* track_meal_reminder */,
 			);
 			path = screens;
 			sourceTree = "<group>";
@@ -256,6 +259,14 @@
 				B977AE662B2D97E500EF12BA /* breakfast_food.swift */,
 			);
 			path = breakfast_food;
+			sourceTree = "<group>";
+		};
+		B9DD5A152B31B2EB006B2D60 /* track_meal_reminder */ = {
+			isa = PBXGroup;
+			children = (
+				B9DD5A162B31B303006B2D60 /* track_meal_reminder.swift */,
+			);
+			path = track_meal_reminder;
 			sourceTree = "<group>";
 		};
 		B9E745292B29C1E9007E018A = {
@@ -559,6 +570,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9DD5A172B31B303006B2D60 /* track_meal_reminder.swift in Sources */,
 				B939EF162B3190F300B9556C /* edit_meal_calories.swift in Sources */,
 				B939EF0A2B316F0900B9556C /* all_text.swift in Sources */,
 				B939EF072B316DF400B9556C /* dashboard.swift in Sources */,
