@@ -511,3 +511,237 @@ class breakfast_food_table_cell : UITableViewCell {
     @IBOutlet weak var lbl_cal_count:UILabel!
     @IBOutlet weak var btn_add:UIButton!
 }
+
+// /* ************** DASHBOARD ********************************* */
+// /* ********************************************************** */
+class dashboard_table_cell : UITableViewCell {
+    
+    @IBOutlet weak var view_profile_name:UIView! {
+        didSet {
+            view_profile_name.layer.cornerRadius = 12
+            view_profile_name.clipsToBounds = true
+            view_profile_name.backgroundColor = light_purple_color
+        }
+    }
+    
+    @IBOutlet weak var view_weight:UIView! {
+        didSet {
+            view_weight.layer.cornerRadius = 12
+            view_weight.clipsToBounds = true
+            view_weight.backgroundColor = .clear
+        }
+    }
+    
+    // profile view
+    @IBOutlet weak var img_view_profile:UIImageView! {
+        didSet {
+            img_view_profile.layer.cornerRadius = 30
+            img_view_profile.clipsToBounds = true
+            img_view_profile.layer.borderWidth = 0.8
+            img_view_profile.layer.borderColor = UIColor.gray.cgColor
+        }
+    }
+    
+    @IBOutlet weak var lbl_name:UILabel!
+    @IBOutlet weak var lbl_email:UILabel!
+   
+    // weight
+    @IBOutlet weak var lbl_weight:UILabel! {
+        didSet {
+            lbl_weight.textColor = .white
+        }
+    }
+    @IBOutlet weak var lbl_weight_status:UILabel! {
+        didSet {
+            lbl_weight_status.textColor = .white
+        }
+    }
+   
+    @IBOutlet weak var view_nutrition:UIView! {
+        didSet {
+            view_nutrition.backgroundColor = dark_purple_color
+            view_nutrition.layer.cornerRadius = 14
+        }
+    }
+    
+    @IBOutlet weak var view_protine:UIView! {
+        didSet {
+            view_protine.backgroundColor = .clear
+        }
+    }
+    
+    @IBOutlet weak var view_fats:UIView! {
+        didSet {
+            view_fats.backgroundColor = .clear
+        }
+    }
+    
+    @IBOutlet weak var view_carbs:UIView! {
+        didSet {
+            view_carbs.backgroundColor = .clear
+        }
+    }
+    
+    @IBOutlet weak var view_fiber:UIView! {
+        didSet {
+            view_fiber.backgroundColor = .clear
+        }
+    }
+    
+}
+
+
+// /* ************** CALORIE INFORMATION ************************ */
+// /* ********************************************************** */
+class calorie_information_table_cell : UITableViewCell {
+    
+    @IBOutlet weak var view_calorie_budget:UIView! {
+        didSet {
+            view_calorie_budget.layer.cornerRadius = 8
+            view_calorie_budget.clipsToBounds = true
+            view_calorie_budget.backgroundColor = UIColor.init(red: 245.0/255.0, green: 236.0/255.0, blue: 255.0/255.0, alpha: 1)
+        }
+    }
+    
+    @IBOutlet weak var lbl_recommended:UILabel!
+    
+    
+    @IBOutlet weak var view_protien:UIView! {
+        didSet {
+            view_protien.layer.cornerRadius = 8
+            view_protien.clipsToBounds = true
+            view_protien.backgroundColor = UIColor.init(red: 245.0/255.0, green: 236.0/255.0, blue: 255.0/255.0, alpha: 1)
+        }
+    }
+    
+    @IBOutlet weak var view_carb:UIView! {
+        didSet {
+            view_carb.layer.cornerRadius = 8
+            view_carb.clipsToBounds = true
+            view_carb.backgroundColor = UIColor.init(red: 245.0/255.0, green: 236.0/255.0, blue: 255.0/255.0, alpha: 1)
+        }
+    }
+    
+    @IBOutlet weak var view_fat:UIView! {
+        didSet {
+            view_fat.layer.cornerRadius = 8
+            view_fat.clipsToBounds = true
+            view_fat.backgroundColor = UIColor.init(red: 245.0/255.0, green: 236.0/255.0, blue: 255.0/255.0, alpha: 1)
+        }
+    }
+    
+    @IBOutlet weak var lbl_protien_percentage:UILabel! {
+        didSet {
+            lbl_protien_percentage.layer.cornerRadius = 12
+            lbl_protien_percentage.clipsToBounds = true
+            lbl_protien_percentage.backgroundColor = .white
+        }
+    }
+    @IBOutlet weak var lbl_carb_percentage:UILabel! {
+        didSet {
+            lbl_carb_percentage.layer.cornerRadius = 12
+            lbl_carb_percentage.clipsToBounds = true
+            lbl_carb_percentage.backgroundColor = .white
+        }
+    }
+    @IBOutlet weak var lbl_fat_percentage:UILabel! {
+        didSet {
+            lbl_fat_percentage.layer.cornerRadius = 12
+            lbl_fat_percentage.clipsToBounds = true
+            lbl_fat_percentage.backgroundColor = .white
+        }
+    }
+    
+    @IBOutlet weak var btn_calories_budget:UIButton!
+}
+
+
+// /* ************** COMPLETE PROFILE 3 ************************* */
+// /* ********************************************************** */
+class eat_meal_time_table_cell : UITableViewCell {
+    
+    // emotinal health
+    @IBOutlet weak var view_food_preferences:UIView! {
+        didSet {
+            view_food_preferences.layer.cornerRadius = 8
+            view_food_preferences.clipsToBounds = true
+        }
+    }
+    
+    @IBOutlet weak var txt_food_preferences:UITextField! {
+        didSet {
+            txt_food_preferences.layer.cornerRadius = 8
+            txt_food_preferences.clipsToBounds = true
+            txt_food_preferences.backgroundColor = .clear
+            txt_food_preferences.placeholder = "Food preferences"
+            txt_food_preferences.setLeftPaddingPoints(20)
+        }
+    }
+    
+    
+    @IBOutlet weak var view_breakfast:UIView! {
+        didSet {
+            view_breakfast.layer.cornerRadius = 8
+            view_breakfast.clipsToBounds = true
+            view_breakfast.backgroundColor = UIColor.init(red: 245.0/255.0, green: 236.0/255.0, blue: 255.0/255.0, alpha: 1)
+        }
+    }
+    
+    @IBOutlet weak var view_morning_snack:UIView! {
+        didSet {
+            view_morning_snack.layer.cornerRadius = 8
+            view_morning_snack.clipsToBounds = true
+            view_morning_snack.backgroundColor = UIColor.init(red: 245.0/255.0, green: 236.0/255.0, blue: 255.0/255.0, alpha: 1)
+        }
+    }
+    
+    @IBOutlet weak var view_lunch:UIView! {
+        didSet {
+            view_lunch.layer.cornerRadius = 8
+            view_lunch.clipsToBounds = true
+            view_lunch.backgroundColor = UIColor.init(red: 245.0/255.0, green: 236.0/255.0, blue: 255.0/255.0, alpha: 1)
+        }
+    }
+    
+    @IBOutlet weak var view_evening_snack:UIView! {
+        didSet {
+            view_evening_snack.layer.cornerRadius = 8
+            view_evening_snack.clipsToBounds = true
+            view_evening_snack.backgroundColor = UIColor.init(red: 245.0/255.0, green: 236.0/255.0, blue: 255.0/255.0, alpha: 1)
+        }
+    }
+    
+    @IBOutlet weak var view_dinner:UIView! {
+        didSet {
+            view_dinner.layer.cornerRadius = 8
+            view_dinner.clipsToBounds = true
+            view_dinner.backgroundColor = UIColor.init(red: 245.0/255.0, green: 236.0/255.0, blue: 255.0/255.0, alpha: 1)
+        }
+    }
+    
+    
+    
+    @IBOutlet weak var btn_reset:UIButton! {
+        didSet {
+            btn_reset.layer.cornerRadius = 8
+            btn_reset.clipsToBounds = true
+            btn_reset.setTitle("reset", for: .normal)
+            btn_reset.setTitleColor(.white, for: .normal)
+        }
+    }
+    
+}
+
+// /* ************** COMPLETE PROFILE 3 ************************* */
+// /* ********************************************************** */
+class eat_meals_and_calories_table_cell : UITableViewCell {
+    
+    @IBOutlet weak var view_dinner:UIView! {
+        didSet {
+            view_dinner.layer.cornerRadius = 8
+            view_dinner.clipsToBounds = true
+            view_dinner.backgroundColor = UIColor.init(red: 245.0/255.0, green: 236.0/255.0, blue: 255.0/255.0, alpha: 1)
+        }
+    }
+    
+}

@@ -31,7 +31,11 @@ class create_an_account: UIViewController, UITextFieldDelegate {
     
     @objc func complete_profile_click_method() {
         let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "complete_profile_id")
-        self.navigationController?.pushViewController(push, animated: true)
+       self.navigationController?.pushViewController(push, animated: true)
+        
+        // let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "calorie_information_id")
+        // self.navigationController?.pushViewController(push, animated: true)
+        
     }
 }
 

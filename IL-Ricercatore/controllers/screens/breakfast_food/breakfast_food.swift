@@ -45,9 +45,8 @@ class breakfast_food: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
         return true
     }
-    @objc func complete_profile_click_method() {
-        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "welcome_id")
-        self.navigationController?.pushViewController(push, animated: true)
+    @objc func calorie_counter_click_method() {
+        
     }
 }
 
@@ -71,7 +70,7 @@ extension breakfast_food: UITableViewDataSource , UITableViewDelegate {
         backgroundView.backgroundColor = .clear
         cell.selectedBackgroundView = backgroundView
         
-        // cell.btn_continue.addTarget(self, action: #selector(complete_profile_click_method), for: .touchUpInside)
+         
         
         return cell
         
@@ -79,7 +78,8 @@ extension breakfast_food: UITableViewDataSource , UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-         
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "calorie_information_id")
+        self.navigationController?.pushViewController(push, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
