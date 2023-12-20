@@ -8,6 +8,15 @@
 import UIKit
 
 class edit_meal_calories: UIViewController {
+    
+    @IBOutlet weak var btn_back:UIButton! {
+        didSet {
+            btn_back.tintColor = .white
+            btn_back.setImage(UIImage(systemName: "arrow.left"), for: .normal)
+            btn_back.addTarget(self, action: #selector(back_click_method), for: .touchUpInside)
+        }
+    }
+    
     @IBOutlet weak var btn_reset:UIButton! {
         didSet {
             btn_reset.layer.cornerRadius = 8

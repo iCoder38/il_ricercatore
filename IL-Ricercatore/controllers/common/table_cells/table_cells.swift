@@ -1135,9 +1135,14 @@ class reminders_table_cell : UITableViewCell {
     @IBOutlet weak var lbl_title:UILabel!
     @IBOutlet weak var lbl_sub_title:UILabel!
     @IBOutlet weak var btn_edit:UIButton!
-}// /* ************************* WORKOUT SETTINGS ************** */
+}
+// /* ************************* WORKOUT SETTINGS ************** */
 // /* ********************************************************** */
 class workout_setting_table_cell : UITableViewCell {
     @IBOutlet weak var lbl_title:UILabel!
-     
+}
+// /* ******************* DAYS WORKOUT ************************* */
+// /* ********************************************************** */
+class days_workout_table_cell : UITableViewCell {
+    @IBOutlet weak var lbl_title:UILabel!
 }

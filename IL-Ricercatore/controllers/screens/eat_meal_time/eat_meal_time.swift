@@ -9,6 +9,14 @@ import UIKit
 
 class eat_meal_time: UIViewController {
 
+    @IBOutlet weak var btn_back:UIButton! {
+        didSet {
+            btn_back.tintColor = .white
+            btn_back.setImage(UIImage(systemName: "arrow.left"), for: .normal)
+            btn_back.addTarget(self, action: #selector(back_click_method), for: .touchUpInside)
+        }
+    }
+    
     @IBOutlet weak var btn_reset:UIButton! {
         didSet {
             btn_reset.layer.cornerRadius = 8

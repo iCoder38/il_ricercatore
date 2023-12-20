@@ -3334,13 +3334,26 @@
                                             <color key="titleColor" systemColor="systemOrangeColor"/>
                                         </state>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XEM-uS-bSR">
+                                        <rect key="frame" x="8" y="6" width="40" height="40"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="GO2-Tb-AV1"/>
+                                            <constraint firstAttribute="width" constant="40" id="ULC-4e-JRk"/>
+                                        </constraints>
+                                        <color key="tintColor" systemColor="viewFlipsideBackgroundColor"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="list.bullet" catalog="system"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="2fT-gw-cp7" firstAttribute="top" secondItem="eB8-6J-VjJ" secondAttribute="top" constant="5" id="02Q-Ey-HGD"/>
+                                    <constraint firstAttribute="bottom" secondItem="XEM-uS-bSR" secondAttribute="bottom" constant="1" id="IeK-9I-B0P"/>
                                     <constraint firstAttribute="trailing" secondItem="2fT-gw-cp7" secondAttribute="trailing" constant="16" id="RHB-QW-F9K"/>
                                     <constraint firstAttribute="bottom" secondItem="Bs2-PJ-0mk" secondAttribute="bottom" constant="6" id="XAP-Gr-Zev"/>
                                     <constraint firstAttribute="trailing" secondItem="Bs2-PJ-0mk" secondAttribute="trailing" constant="8" id="gq9-ad-cJk"/>
+                                    <constraint firstItem="XEM-uS-bSR" firstAttribute="leading" secondItem="eB8-6J-VjJ" secondAttribute="leading" constant="8" id="hyG-P9-Cz3"/>
                                     <constraint firstAttribute="bottom" secondItem="2fT-gw-cp7" secondAttribute="bottom" constant="5" id="qeS-Vb-iOf"/>
                                     <constraint firstAttribute="height" constant="47" id="x4K-a2-3cs"/>
                                     <constraint firstItem="2fT-gw-cp7" firstAttribute="leading" secondItem="eB8-6J-VjJ" secondAttribute="leading" constant="16" id="xUM-0s-Lwu"/>
@@ -3366,6 +3379,7 @@
                     <navigationItem key="navigationItem" id="YEq-mv-UD8"/>
                     <size key="freeformSize" width="393" height="1200"/>
                     <connections>
+                        <outlet property="btn_back" destination="XEM-uS-bSR" id="nRy-AX-2ob"/>
                         <outlet property="btn_reset" destination="Bs2-PJ-0mk" id="Zhv-rD-466"/>
                         <outlet property="lbl_navigation_title" destination="2fT-gw-cp7" id="T1M-sr-nJs"/>
                         <outlet property="tble_view" destination="x65-dL-Vse" id="bAw-mw-gI5"/>
@@ -3733,13 +3747,26 @@ per your dietrary.</string>
                                             <color key="titleColor" systemColor="systemOrangeColor"/>
                                         </state>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="327-HC-yGo">
+                                        <rect key="frame" x="8" y="6" width="40" height="40"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="dat-d0-EdT"/>
+                                            <constraint firstAttribute="height" constant="40" id="e9T-i8-NDp"/>
+                                        </constraints>
+                                        <color key="tintColor" systemColor="viewFlipsideBackgroundColor"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="list.bullet" catalog="system"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="hlN-wR-LKo" firstAttribute="leading" secondItem="OZT-Ph-B51" secondAttribute="leading" constant="16" id="29h-ez-OyS"/>
+                                    <constraint firstItem="327-HC-yGo" firstAttribute="leading" secondItem="OZT-Ph-B51" secondAttribute="leading" constant="8" id="3gC-nw-ijc"/>
                                     <constraint firstAttribute="trailing" secondItem="YeC-CX-4bX" secondAttribute="trailing" constant="8" id="Hhm-YX-QkP"/>
                                     <constraint firstAttribute="trailing" secondItem="hlN-wR-LKo" secondAttribute="trailing" constant="16" id="QO8-ux-Rfk"/>
                                     <constraint firstAttribute="height" constant="47" id="RoK-MT-6iY"/>
+                                    <constraint firstAttribute="bottom" secondItem="327-HC-yGo" secondAttribute="bottom" constant="1" id="Xd3-0A-GdR"/>
                                     <constraint firstItem="YeC-CX-4bX" firstAttribute="top" secondItem="OZT-Ph-B51" secondAttribute="top" constant="5" id="aRM-yt-V5e"/>
                                     <constraint firstAttribute="bottom" secondItem="hlN-wR-LKo" secondAttribute="bottom" id="aTL-QQ-rFf"/>
                                     <constraint firstItem="hlN-wR-LKo" firstAttribute="top" secondItem="OZT-Ph-B51" secondAttribute="top" constant="10" id="o44-cW-6jY"/>
@@ -3765,6 +3792,7 @@ per your dietrary.</string>
                     <navigationItem key="navigationItem" id="aef-7d-syp"/>
                     <size key="freeformSize" width="393" height="1200"/>
                     <connections>
+                        <outlet property="btn_back" destination="327-HC-yGo" id="NvU-ca-yIH"/>
                         <outlet property="btn_reset" destination="YeC-CX-4bX" id="Jtb-Po-fsk"/>
                         <outlet property="lbl_navigation_title" destination="hlN-wR-LKo" id="Cvo-Qc-pv8"/>
                         <outlet property="tble_view" destination="dau-jZ-8TN" id="UNv-Gd-C6f"/>

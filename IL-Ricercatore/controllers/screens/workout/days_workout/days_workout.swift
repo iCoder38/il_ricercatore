@@ -1,13 +1,19 @@
 //
-//  complete_profile_three.swift
+//  days_workout.swift
 //  IL-Ricercatore
 //
-//  Created by Dishant Rajput on 16/12/23.
+//  Created by Dishant Rajput on 20/12/23.
 //
 
 import UIKit
 
-class complete_profile_three: UIViewController, UITextFieldDelegate {
+class days_workout: UIViewController {
+
+    @IBOutlet weak var lbl_navigation_title:UILabel! {
+        didSet {
+            lbl_navigation_title.text = navigation_title_workout_day_en
+        }
+    }
     
     @IBOutlet weak var tble_view:UITableView! {
         didSet {
@@ -20,22 +26,13 @@ class complete_profile_three: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.tble_view.separatorColor = .white
+        self.tble_view.separatorColor = .gray
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return true
-    }
-    @objc func complete_profile_click_method() {
-        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "welcome_id")
-        self.navigationController?.pushViewController(push, animated: true)
-    }
 }
 
 //MARK:- TABLE VIEW -
-extension complete_profile_three: UITableViewDataSource , UITableViewDelegate {
+extension days_workout: UITableViewDataSource , UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -46,16 +43,14 @@ extension complete_profile_three: UITableViewDataSource , UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell:complete_profile_three_table_cell = tableView.dequeueReusableCell(withIdentifier: "complete_profile_three_table_cell") as! complete_profile_three_table_cell
+        let cell:days_workout_table_cell = tableView.dequeueReusableCell(withIdentifier: "days_workout_table_cell") as! days_workout_table_cell
         
         cell.backgroundColor = .clear
         
         let backgroundView = UIView()
         backgroundView.backgroundColor = .clear
         cell.selectedBackgroundView = backgroundView
-        
-        cell.btn_continue.addTarget(self, action: #selector(complete_profile_click_method), for: .touchUpInside)
-        
+         
         return cell
         
     }
@@ -66,7 +61,7 @@ extension complete_profile_three: UITableViewDataSource , UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 800
+        return 60
     }
 
 }

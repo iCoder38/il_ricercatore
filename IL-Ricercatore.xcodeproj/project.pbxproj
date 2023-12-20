@@ -25,6 +25,7 @@
 		B9CC8EE42B32F74F00130035 /* friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CC8EE32B32F74F00130035 /* friends.swift */; };
 		B9CC8EE72B33017700130035 /* reminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CC8EE62B33017700130035 /* reminders.swift */; };
 		B9CC8EEB2B3309C200130035 /* workout_setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CC8EEA2B3309C200130035 /* workout_setting.swift */; };
+		B9CC8EEE2B330E6600130035 /* days_workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CC8EED2B330E6600130035 /* days_workout.swift */; };
 		B9DD5A172B31B303006B2D60 /* track_meal_reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DD5A162B31B303006B2D60 /* track_meal_reminder.swift */; };
 		B9DD5A1A2B31B9A3006B2D60 /* water_intake.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DD5A192B31B9A3006B2D60 /* water_intake.swift */; };
 		B9DD5A1D2B31BDF7006B2D60 /* set_up_water_tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DD5A1C2B31BDF7006B2D60 /* set_up_water_tracker.swift */; };
@@ -86,6 +87,7 @@
 		B9CC8EE32B32F74F00130035 /* friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = friends.swift; sourceTree = "<group>"; };
 		B9CC8EE62B33017700130035 /* reminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reminders.swift; sourceTree = "<group>"; };
 		B9CC8EEA2B3309C200130035 /* workout_setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = workout_setting.swift; sourceTree = "<group>"; };
+		B9CC8EED2B330E6600130035 /* days_workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = days_workout.swift; sourceTree = "<group>"; };
 		B9DD5A162B31B303006B2D60 /* track_meal_reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = track_meal_reminder.swift; sourceTree = "<group>"; };
 		B9DD5A192B31B9A3006B2D60 /* water_intake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = water_intake.swift; sourceTree = "<group>"; };
 		B9DD5A1C2B31BDF7006B2D60 /* set_up_water_tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = set_up_water_tracker.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				B9CC8EE92B3309A800130035 /* workout_setting */,
+				B9CC8EEC2B330E3A00130035 /* days_workout */,
 			);
 			path = workout;
 			sourceTree = "<group>";
@@ -330,6 +333,14 @@
 				B9CC8EEA2B3309C200130035 /* workout_setting.swift */,
 			);
 			path = workout_setting;
+			sourceTree = "<group>";
+		};
+		B9CC8EEC2B330E3A00130035 /* days_workout */ = {
+			isa = PBXGroup;
+			children = (
+				B9CC8EED2B330E6600130035 /* days_workout.swift */,
+			);
+			path = days_workout;
 			sourceTree = "<group>";
 		};
 		B9DD5A152B31B2EB006B2D60 /* track_meal_reminder */ = {
@@ -690,6 +701,7 @@
 				B9DD5A202B31C5B9006B2D60 /* water_reminder.swift in Sources */,
 				B9CC8EEB2B3309C200130035 /* workout_setting.swift in Sources */,
 				B9E745682B29C3A1007E018A /* login.swift in Sources */,
+				B9CC8EEE2B330E6600130035 /* days_workout.swift in Sources */,
 				B977AE5B2B2D814800EF12BA /* Utils.swift in Sources */,
 				B939EF132B318E4100B9556C /* eat_meal_time.swift in Sources */,
 				B9DD5A1A2B31B9A3006B2D60 /* water_intake.swift in Sources */,

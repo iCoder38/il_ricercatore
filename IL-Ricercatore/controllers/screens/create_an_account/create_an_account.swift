@@ -30,11 +30,11 @@ class create_an_account: UIViewController, UITextFieldDelegate {
     }
     
     @objc func complete_profile_click_method() {
-        // let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "complete_profile_id")
-        // self.navigationController?.pushViewController(push, animated: true)
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "complete_profile_id")
+        self.navigationController?.pushViewController(push, animated: true)
         
-           let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "side_bar_menu_id")
-           self.navigationController?.pushViewController(push, animated: true)
+           // let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "side_bar_menu_id")
+           // self.navigationController?.pushViewController(push, animated: true)
         
     }
 }
@@ -76,7 +76,7 @@ extension create_an_account: UITableViewDataSource , UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 600
+        return 800
     }
 
 }

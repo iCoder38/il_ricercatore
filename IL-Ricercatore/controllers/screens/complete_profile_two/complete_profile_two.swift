@@ -111,7 +111,7 @@ extension complete_profile_two: UITableViewDataSource , UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 600
+        return 800
     }
 
 }

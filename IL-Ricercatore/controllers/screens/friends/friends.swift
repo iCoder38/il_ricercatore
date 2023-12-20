@@ -18,7 +18,7 @@ class friends: UIViewController {
     
     @IBOutlet weak var lbl_navigation_title:UILabel! {
         didSet {
-            lbl_navigation_title.text = navigation_title_edit_meals_and_time_en
+            lbl_navigation_title.text = navigation_title_friends_en
         }
     }
     
