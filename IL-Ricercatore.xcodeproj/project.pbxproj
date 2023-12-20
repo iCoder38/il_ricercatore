@@ -21,6 +21,10 @@
 		B977AE612B2D8BE200EF12BA /* complete_profile_two.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977AE602B2D8BE200EF12BA /* complete_profile_two.swift */; };
 		B977AE642B2D90F000EF12BA /* complete_profile_three.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977AE632B2D90F000EF12BA /* complete_profile_three.swift */; };
 		B977AE672B2D97E500EF12BA /* breakfast_food.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977AE662B2D97E500EF12BA /* breakfast_food.swift */; };
+		B9CC8EE12B32F3AE00130035 /* invite_friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CC8EE02B32F3AE00130035 /* invite_friends.swift */; };
+		B9CC8EE42B32F74F00130035 /* friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CC8EE32B32F74F00130035 /* friends.swift */; };
+		B9CC8EE72B33017700130035 /* reminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CC8EE62B33017700130035 /* reminders.swift */; };
+		B9CC8EEB2B3309C200130035 /* workout_setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CC8EEA2B3309C200130035 /* workout_setting.swift */; };
 		B9DD5A172B31B303006B2D60 /* track_meal_reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DD5A162B31B303006B2D60 /* track_meal_reminder.swift */; };
 		B9DD5A1A2B31B9A3006B2D60 /* water_intake.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DD5A192B31B9A3006B2D60 /* water_intake.swift */; };
 		B9DD5A1D2B31BDF7006B2D60 /* set_up_water_tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DD5A1C2B31BDF7006B2D60 /* set_up_water_tracker.swift */; };
@@ -78,6 +82,10 @@
 		B977AE602B2D8BE200EF12BA /* complete_profile_two.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = complete_profile_two.swift; sourceTree = "<group>"; };
 		B977AE632B2D90F000EF12BA /* complete_profile_three.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = complete_profile_three.swift; sourceTree = "<group>"; };
 		B977AE662B2D97E500EF12BA /* breakfast_food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = breakfast_food.swift; sourceTree = "<group>"; };
+		B9CC8EE02B32F3AE00130035 /* invite_friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = invite_friends.swift; sourceTree = "<group>"; };
+		B9CC8EE32B32F74F00130035 /* friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = friends.swift; sourceTree = "<group>"; };
+		B9CC8EE62B33017700130035 /* reminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reminders.swift; sourceTree = "<group>"; };
+		B9CC8EEA2B3309C200130035 /* workout_setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = workout_setting.swift; sourceTree = "<group>"; };
 		B9DD5A162B31B303006B2D60 /* track_meal_reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = track_meal_reminder.swift; sourceTree = "<group>"; };
 		B9DD5A192B31B9A3006B2D60 /* water_intake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = water_intake.swift; sourceTree = "<group>"; };
 		B9DD5A1C2B31BDF7006B2D60 /* set_up_water_tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = set_up_water_tracker.swift; sourceTree = "<group>"; };
@@ -236,6 +244,10 @@
 				B9DD5A182B31B998006B2D60 /* water_intake */,
 				B9DD5A1B2B31BDE3006B2D60 /* set_up_water_tracker */,
 				B9DD5A1E2B31C5AB006B2D60 /* water_reminder */,
+				B9CC8EDF2B32F38E00130035 /* invite_friends */,
+				B9CC8EE22B32F74500130035 /* friends */,
+				B9CC8EE52B33016D00130035 /* reminders */,
+				B9CC8EE82B3309A200130035 /* workout */,
 			);
 			path = screens;
 			sourceTree = "<group>";
@@ -278,6 +290,46 @@
 				B977AE662B2D97E500EF12BA /* breakfast_food.swift */,
 			);
 			path = breakfast_food;
+			sourceTree = "<group>";
+		};
+		B9CC8EDF2B32F38E00130035 /* invite_friends */ = {
+			isa = PBXGroup;
+			children = (
+				B9CC8EE02B32F3AE00130035 /* invite_friends.swift */,
+			);
+			path = invite_friends;
+			sourceTree = "<group>";
+		};
+		B9CC8EE22B32F74500130035 /* friends */ = {
+			isa = PBXGroup;
+			children = (
+				B9CC8EE32B32F74F00130035 /* friends.swift */,
+			);
+			path = friends;
+			sourceTree = "<group>";
+		};
+		B9CC8EE52B33016D00130035 /* reminders */ = {
+			isa = PBXGroup;
+			children = (
+				B9CC8EE62B33017700130035 /* reminders.swift */,
+			);
+			path = reminders;
+			sourceTree = "<group>";
+		};
+		B9CC8EE82B3309A200130035 /* workout */ = {
+			isa = PBXGroup;
+			children = (
+				B9CC8EE92B3309A800130035 /* workout_setting */,
+			);
+			path = workout;
+			sourceTree = "<group>";
+		};
+		B9CC8EE92B3309A800130035 /* workout_setting */ = {
+			isa = PBXGroup;
+			children = (
+				B9CC8EEA2B3309C200130035 /* workout_setting.swift */,
+			);
+			path = workout_setting;
 			sourceTree = "<group>";
 		};
 		B9DD5A152B31B2EB006B2D60 /* track_meal_reminder */ = {
@@ -614,9 +666,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9CC8EE12B32F3AE00130035 /* invite_friends.swift in Sources */,
 				B9DD5A172B31B303006B2D60 /* track_meal_reminder.swift in Sources */,
 				B939EF162B3190F300B9556C /* edit_meal_calories.swift in Sources */,
 				B939EF0A2B316F0900B9556C /* all_text.swift in Sources */,
+				B9CC8EE42B32F74F00130035 /* friends.swift in Sources */,
 				B939EF072B316DF400B9556C /* dashboard.swift in Sources */,
 				B95075892B32C7F800291EAC /* side_bar_menu.swift in Sources */,
 				B9E7453A2B29C1E9007E018A /* ViewController.swift in Sources */,
@@ -625,6 +679,7 @@
 				B977AE572B2D7C0F00EF12BA /* create_an_account.swift in Sources */,
 				B9E745362B29C1E9007E018A /* AppDelegate.swift in Sources */,
 				B9E7456D2B29DE34007E018A /* welcome.swift in Sources */,
+				B9CC8EE72B33017700130035 /* reminders.swift in Sources */,
 				B939EF102B31846500B9556C /* calorie_information.swift in Sources */,
 				B9DD5A1D2B31BDF7006B2D60 /* set_up_water_tracker.swift in Sources */,
 				B977AE672B2D97E500EF12BA /* breakfast_food.swift in Sources */,
@@ -633,6 +688,7 @@
 				B977AE5E2B2D824100EF12BA /* complete_profile.swift in Sources */,
 				B9E745712B29DEB3007E018A /* table_cells.swift in Sources */,
 				B9DD5A202B31C5B9006B2D60 /* water_reminder.swift in Sources */,
+				B9CC8EEB2B3309C200130035 /* workout_setting.swift in Sources */,
 				B9E745682B29C3A1007E018A /* login.swift in Sources */,
 				B977AE5B2B2D814800EF12BA /* Utils.swift in Sources */,
 				B939EF132B318E4100B9556C /* eat_meal_time.swift in Sources */,

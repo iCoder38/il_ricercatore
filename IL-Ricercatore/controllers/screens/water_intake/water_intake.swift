@@ -9,6 +9,13 @@ import UIKit
 
 class water_intake: UIViewController {
 
+    @IBOutlet weak var btn_menu:UIButton! {
+        didSet {
+            btn_menu.tintColor = .white
+            btn_menu.addTarget(self, action: #selector(menu_click_method), for: .touchUpInside)
+        }
+    }
+    
     @IBOutlet weak var btn_reset:UIButton! {
         didSet {
             btn_reset.layer.cornerRadius = 8
@@ -36,11 +43,15 @@ class water_intake: UIViewController {
         super.viewDidLoad()
         self.tble_view.separatorColor = .white
         
-         btn_reset.addTarget(self, action: #selector(edit_calorie_budget_click_method), for: .touchUpInside)
+          
         
     }
     
-    @objc func edit_calorie_budget_click_method() {
+    @objc func reminder_click_method() {
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "water_reminder_id")
+        self.navigationController?.pushViewController(push, animated: true)
+    }
+    @objc func water_count_edit_click_method() {
         let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "set_up_water_tracker_id")
         self.navigationController?.pushViewController(push, animated: true)
     }
@@ -67,7 +78,8 @@ extension water_intake: UITableViewDataSource , UITableViewDelegate {
         backgroundView.backgroundColor = .clear
         cell.selectedBackgroundView = backgroundView
         
-        // cell.btn_continue.addTarget(self, action: #selector(complete_profile_click_method), for: .touchUpInside)
+        cell.btn_reminder.addTarget(self, action: #selector(reminder_click_method), for: .touchUpInside)
+        cell.btn_water_count_edit.addTarget(self, action: #selector(water_count_edit_click_method), for: .touchUpInside)
         
         return cell
         
@@ -79,7 +91,7 @@ extension water_intake: UITableViewDataSource , UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 466
+        return 314
     }
 
 }

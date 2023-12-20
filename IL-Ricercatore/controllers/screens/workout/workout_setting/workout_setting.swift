@@ -1,19 +1,25 @@
 //
-//  dashboard.swift
+//  workout_setting.swift
 //  IL-Ricercatore
 //
-//  Created by Dishant Rajput on 19/12/23.
+//  Created by Dishant Rajput on 20/12/23.
 //
 
 import UIKit
 
-class dashboard: UIViewController {
+class workout_setting: UIViewController {
 
-    @IBOutlet weak var btn_menu:UIButton!
+    var arr_days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+    @IBOutlet weak var btn_menu:UIButton! {
+        didSet {
+            btn_menu.tintColor = .white
+            btn_menu.addTarget(self, action: #selector(menu_click_method), for: .touchUpInside)
+        }
+    }
     
     @IBOutlet weak var lbl_navigation_title:UILabel! {
         didSet {
-            lbl_navigation_title.text = navigation_title_en
+            lbl_navigation_title.text = navigation_title_workout_setting_en
         }
     }
     
@@ -23,34 +29,28 @@ class dashboard: UIViewController {
             tble_view.dataSource = self
             tble_view.layer.cornerRadius = 22
             tble_view.clipsToBounds = true
-            tble_view.backgroundColor = .clear
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.tble_view.separatorColor = .clear
-        self.btn_menu.addTarget(self, action: #selector(menu_click_method), for: .touchUpInside)
+        self.tble_view.separatorColor = .gray
     }
-
-    
 }
 
-
 //MARK:- TABLE VIEW -
-extension dashboard: UITableViewDataSource , UITableViewDelegate {
+extension workout_setting: UITableViewDataSource , UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return self.arr_days.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell:dashboard_table_cell = tableView.dequeueReusableCell(withIdentifier: "dashboard_table_cell") as! dashboard_table_cell
+        let cell:workout_setting_table_cell = tableView.dequeueReusableCell(withIdentifier: "workout_setting_table_cell") as! workout_setting_table_cell
         
         cell.backgroundColor = .clear
         
@@ -58,9 +58,7 @@ extension dashboard: UITableViewDataSource , UITableViewDelegate {
         backgroundView.backgroundColor = .clear
         cell.selectedBackgroundView = backgroundView
         
-        cell.lbl_name.text = "Dishant rajput"
-        cell.lbl_email.text = "dishant.rajput@evirtualservices.com"
-        // cell.btn_continue.addTarget(self, action: #selector(complete_profile_click_method), for: .touchUpInside)
+        cell.lbl_title.text = self.arr_days[indexPath.row]
         
         return cell
         
@@ -68,11 +66,12 @@ extension dashboard: UITableViewDataSource , UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-         
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "water_intake_id")
+        self.navigationController?.pushViewController(push, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 700
+        return 60
     }
 
 }

@@ -659,6 +659,7 @@ class complete_profile_three_table_cell : UITableViewCell {
 
 
 
+
 // /* ************** BREAKFAST FOOD (((************************* */
 // /* ********************************************************** */
 class breakfast_food_table_cell : UITableViewCell {
@@ -1028,7 +1029,7 @@ class track_meal_reminder_table_cell : UITableViewCell {
     
 }
 
-// /* ************** edit meal and calories ******************** */
+// /* ************** WATER INTAKE ****************************** */
 // /* ********************************************************** */
 class water_intake_table_cell : UITableViewCell {
     
@@ -1059,6 +1060,8 @@ class water_intake_table_cell : UITableViewCell {
         }
     }
     //
+    @IBOutlet weak var btn_reminder:UIButton!
+    @IBOutlet weak var btn_water_count_edit:UIButton!
     
 }
 
@@ -1100,3 +1103,41 @@ class water_reminder_table_cell : UITableViewCell {
 }
 
     
+// /* ************** SEARCH FRIEND ************************* */
+// /* ********************************************************** */
+class invite_friends_table_cell : UITableViewCell {
+    
+    @IBOutlet weak var img_profile:UIImageView! {
+        didSet {
+            img_profile.layer.cornerRadius = 25
+            img_profile.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var lbl_title:UILabel!
+    @IBOutlet weak var lbl_sub_title:UILabel!
+}
+
+// /* ************************* FRIEND ************************* */
+// /* ********************************************************** */
+class friends_table_cell : UITableViewCell {
+    @IBOutlet weak var img_profile:UIImageView! {
+        didSet {
+            img_profile.layer.cornerRadius = 25
+            img_profile.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var lbl_title:UILabel!
+    @IBOutlet weak var lbl_sub_title:UILabel!
+}
+// /* ************************* REMINDERS ********************** */
+// /* ********************************************************** */
+class reminders_table_cell : UITableViewCell {
+    @IBOutlet weak var lbl_title:UILabel!
+    @IBOutlet weak var lbl_sub_title:UILabel!
+    @IBOutlet weak var btn_edit:UIButton!
+}// /* ************************* WORKOUT SETTINGS ************** */
+// /* ********************************************************** */
+class workout_setting_table_cell : UITableViewCell {
+    @IBOutlet weak var lbl_title:UILabel!
+     
+}

@@ -23,6 +23,29 @@ class side_bar_menu: UIViewController {
         super.viewDidLoad()
         self.tble_view.separatorColor = .clear
     } 
+    
+    @objc func search_friend_click_method() {
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "invite_friends_id")
+        self.navigationController?.pushViewController(push, animated: true)
+    }
+    
+    @objc func friend_click_method() {
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "friends_id")
+        self.navigationController?.pushViewController(push, animated: true)
+    }
+    @objc func goal_click_method() {
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "calorie_information_id")
+        self.navigationController?.pushViewController(push, animated: true)
+    }
+    @objc func reminder_click_method() {
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "reminders_id")
+        self.navigationController?.pushViewController(push, animated: true)
+    }
+    @objc func workout_setting_click_method() {
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "workout_setting_id")
+        self.navigationController?.pushViewController(push, animated: true)
+    }
+    
 }
 
 //MARK:- TABLE VIEW -
@@ -45,7 +68,11 @@ extension side_bar_menu: UITableViewDataSource , UITableViewDelegate {
         backgroundView.backgroundColor = .clear
         cell.selectedBackgroundView = backgroundView
         
-        // cell.btn_continue.addTarget(self, action: #selector(complete_profile_click_method), for: .touchUpInside)
+        cell.btn_workout_setting.addTarget(self, action: #selector(workout_setting_click_method), for: .touchUpInside)
+        cell.btn_reminders.addTarget(self, action: #selector(reminder_click_method), for: .touchUpInside)
+        cell.btn_goal_setting.addTarget(self, action: #selector(goal_click_method), for: .touchUpInside)
+        cell.btn_friends.addTarget(self, action: #selector(friend_click_method), for: .touchUpInside)
+        cell.btn_search_friends.addTarget(self, action: #selector(search_friend_click_method), for: .touchUpInside)
         
         return cell
         

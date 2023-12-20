@@ -13,6 +13,18 @@ class Utils: NSObject {
     
 }
 
+extension UIViewController {
+    
+    @objc func menu_click_method() {
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "side_bar_menu_id")
+        self.navigationController?.pushViewController(push, animated: false)
+    }
+    
+    @objc func back_click_method() {
+        self.navigationController?.popViewController(animated: true)
+    }
+}
+
 extension UITextField {
     
     func setLeftPaddingPoints(_ amount:CGFloat) {

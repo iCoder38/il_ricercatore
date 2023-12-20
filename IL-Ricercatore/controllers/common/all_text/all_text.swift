@@ -11,7 +11,7 @@ var welcome_text = "welcome"
 var navigation_title_en = welcome_text.uppercased()
 
 // calorie counter
-var navigation_title_calorie_counter_en = "calorie counter".uppercased()
+var navigation_title_calorie_counter_en = "calorie information".uppercased()
 
 // edit meals
 var navigation_title_edit_meals_and_time_en = "edit meals & time".uppercased()
@@ -27,6 +27,15 @@ var navigation_title_set_up_water_tracker_en = "set up water tracker".uppercased
 
 // water reminder
 var navigation_title_set_up_water_reminder_en = "water reminder".uppercased()
+
+// invite friends
+var navigation_title_invite_friends_en = "invite friends".uppercased()
+
+// reminders
+var navigation_title_remimders_en = "reminders".uppercased()
+
+// workout setting
+var navigation_title_workout_setting_en = "workout setting".uppercased()
 
  
 
