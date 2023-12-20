@@ -14,6 +14,163 @@ class table_cells: UIViewController {
     }
 }
 
+// /* ************** SIDE BAR MENU ***************************** */
+// /* ********************************************************** */
+class side_bar_menu_table_cell : UITableViewCell {
+    
+    @IBOutlet weak var view_profile:UIView! {
+        didSet {
+            view_profile.backgroundColor = .clear
+            
+        }
+    }
+    
+    @IBOutlet weak var img_profile:UIImageView! {
+        didSet {
+            img_profile.layer.cornerRadius = 30
+            img_profile.clipsToBounds = true
+            img_profile.layer.borderWidth = 0.8
+            img_profile.layer.borderColor = UIColor.black.cgColor
+        }
+    }
+    @IBOutlet weak var lbl_name:UILabel! {
+        didSet {
+            lbl_name.textColor = .white
+        }
+    }
+    @IBOutlet weak var lbl_email:UILabel! {
+        didSet {
+            lbl_email.textColor = .white
+        }
+    }
+    
+    // # 1
+    @IBOutlet weak var view_one:UIView! {
+        didSet {
+            view_one.backgroundColor = .clear
+            
+        }
+    }
+    
+    @IBOutlet weak var btn_dashboard:UIButton! {
+        didSet {
+            btn_dashboard.backgroundColor = .white
+            btn_dashboard.layer.cornerRadius = 12
+        }
+    }
+    @IBOutlet weak var btn_friends:UIButton!  {
+        didSet {
+            btn_friends.backgroundColor = .white
+            btn_friends.layer.cornerRadius = 12
+        }
+    }
+    
+    // # 2
+    @IBOutlet weak var view_two:UIView! {
+        didSet {
+            view_two.backgroundColor = .clear
+            
+        }
+    }
+    @IBOutlet weak var btn_goal_setting:UIButton!    {
+        didSet {
+            btn_goal_setting.backgroundColor = .white
+            btn_goal_setting.layer.cornerRadius = 12
+        }
+    }
+    @IBOutlet weak var btn_reminders:UIButton!   {
+        didSet {
+            btn_reminders.backgroundColor = .white
+            btn_reminders.layer.cornerRadius = 12
+        }
+    }
+    
+    // # 3
+    @IBOutlet weak var view_three:UIView! {
+        didSet {
+            view_three.backgroundColor = .clear
+            
+        }
+    }
+    @IBOutlet weak var btn_workout_setting:UIButton!    {
+        didSet {
+            btn_workout_setting.backgroundColor = .white
+            btn_workout_setting.layer.cornerRadius = 12
+        }
+    }
+    @IBOutlet weak var btn_health_logs:UIButton!   {
+        didSet {
+            btn_health_logs.backgroundColor = .white
+            btn_health_logs.layer.cornerRadius = 12
+        }
+    }
+    
+    // # 4
+    @IBOutlet weak var view_four:UIView! {
+        didSet {
+            view_four.backgroundColor = .clear
+            
+        }
+    }
+    @IBOutlet weak var btn_chat:UIButton!    {
+        didSet {
+            btn_chat.backgroundColor = .white
+            btn_chat.layer.cornerRadius = 12
+        }
+    }
+    @IBOutlet weak var btn_trackers:UIButton!   {
+        didSet {
+            btn_trackers.backgroundColor = .white
+            btn_trackers.layer.cornerRadius = 12
+        }
+    }
+    
+    
+    // # 5
+    @IBOutlet weak var view_five:UIView! {
+        didSet {
+            view_five.backgroundColor = .clear
+            
+        }
+    }
+    @IBOutlet weak var btn_search_friends:UIButton!    {
+        didSet {
+            btn_search_friends.backgroundColor = .white
+            btn_search_friends.layer.cornerRadius = 12
+        }
+    }
+    @IBOutlet weak var btn_music:UIButton!   {
+        didSet {
+            btn_music.backgroundColor = .white
+            btn_music.layer.cornerRadius = 12
+        }
+    }
+    
+    // # 6
+    @IBOutlet weak var view_six:UIView! {
+        didSet {
+            view_six.backgroundColor = .clear
+            
+        }
+    }
+    @IBOutlet weak var btn_edit_profile:UIButton!    {
+        didSet {
+            btn_edit_profile.backgroundColor = .white
+            btn_edit_profile.layer.cornerRadius = 12
+        }
+    }
+    @IBOutlet weak var btn_logout:UIButton!   {
+        didSet {
+            btn_logout.backgroundColor = .white
+            btn_logout.layer.cornerRadius = 12
+        }
+    }
+    
+    
+    
+}
+
+
 // /* ************** WELCOME ************************* */
 // /* ************************************************ */
 

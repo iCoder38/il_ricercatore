@@ -145,8 +145,10 @@ class welcome: UIViewController {
     }
     
     @objc func breakfast_food_click_method() {
-        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "breakfast_food_id")
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "dashboard_id")
         self.navigationController?.pushViewController(push, animated: true)
+        // let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "breakfast_food_id")
+        // self.navigationController?.pushViewController(push, animated: true)
     }
     
 }
