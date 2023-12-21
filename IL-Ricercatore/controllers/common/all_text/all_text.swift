@@ -44,6 +44,9 @@ var navigation_title_workout_setting_en = "workout setting".uppercased()
 // workout setting
 var navigation_title_workout_day_en = " workout".uppercased()
 
+// workout setting
+var navigation_title_personalize_workout_en = "personalize workout".uppercased()
+
  
 
 class all_text: UIViewController {

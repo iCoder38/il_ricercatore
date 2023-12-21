@@ -1146,3 +1146,128 @@ class workout_setting_table_cell : UITableViewCell {
 class days_workout_table_cell : UITableViewCell {
     @IBOutlet weak var lbl_title:UILabel!
 }
+// /* ******************* PERSONALISE WORKOUT ******************* */
+// /* ********************************************************** */
+class personalized_workout_table_cell : UITableViewCell {
+    @IBOutlet weak var lbl_title:UILabel!
+}
+// /* ******************* PERSONALISE DAY ******************* */
+// /* ********************************************************** */
+class personalize_day_table_cell : UITableViewCell {
+    @IBOutlet weak var lbl_title:UILabel!
+    
+    @IBOutlet weak var btn_yoga:UIButton! {
+        didSet {
+            btn_yoga.backgroundColor = light_pink_color
+            btn_yoga.setTitle("Yoga", for: .normal)
+            btn_yoga.setTitleColor(.black, for: .normal)
+            btn_yoga.layer.cornerRadius = 12
+            btn_yoga.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var btn_gym:UIButton! {
+        didSet {
+            btn_gym.backgroundColor = light_pink_color
+            btn_gym.setTitle("Gym", for: .normal)
+            btn_gym.setTitleColor(.black, for: .normal)
+            btn_gym.layer.cornerRadius = 12
+            btn_gym.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var btn_cardio:UIButton! {
+        didSet {
+            btn_cardio.backgroundColor = light_pink_color
+            btn_cardio.setTitle("Cardio", for: .normal)
+            btn_cardio.setTitleColor(.black, for: .normal)
+            btn_cardio.layer.cornerRadius = 12
+            btn_cardio.clipsToBounds = true
+        }
+    }
+    
+    @IBOutlet weak var btn_strength:UIButton!  {
+        didSet {
+            btn_strength.backgroundColor = light_pink_color
+            btn_strength.setTitle("Strength", for: .normal)
+            btn_strength.setTitleColor(.black, for: .normal)
+            btn_strength.layer.cornerRadius = 12
+            btn_strength.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var btn_sports:UIButton!  {
+        didSet {
+            btn_sports.backgroundColor = light_pink_color
+            btn_sports.setTitle("Sports", for: .normal)
+            btn_sports.setTitleColor(.black, for: .normal)
+            btn_sports.layer.cornerRadius = 12
+            btn_sports.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var btn_none:UIButton!  {
+        didSet {
+            btn_none.backgroundColor = light_pink_color
+            btn_none.setTitle("None", for: .normal)
+            btn_none.setTitleColor(.black, for: .normal)
+            btn_none.layer.cornerRadius = 12
+            btn_none.clipsToBounds = true
+        }
+    }
+    
+    // 2
+    @IBOutlet weak var btn_45:UIButton!  {
+        didSet {
+            btn_45.backgroundColor = light_pink_color
+            btn_45.setTitle("45 Min", for: .normal)
+            btn_45.setTitleColor(.black, for: .normal)
+            btn_45.layer.cornerRadius = 12
+            btn_45.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var btn_60:UIButton!  {
+        didSet {
+            btn_60.backgroundColor = light_pink_color
+            btn_60.setTitle("60 Min", for: .normal)
+            btn_60.setTitleColor(.black, for: .normal)
+            btn_60.layer.cornerRadius = 12
+            btn_60.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var btn_90:UIButton!  {
+        didSet {
+            btn_90.backgroundColor = light_pink_color
+            btn_90.setTitle("90 Min", for: .normal)
+            btn_90.setTitleColor(.black, for: .normal)
+            btn_90.layer.cornerRadius = 12
+            btn_90.clipsToBounds = true
+        }
+    }
+    
+    // 3
+    @IBOutlet weak var btn_morning:UIButton!  {
+        didSet {
+            btn_morning.backgroundColor = light_pink_color
+            btn_morning.setTitle("Morning", for: .normal)
+            btn_morning.setTitleColor(.black, for: .normal)
+            btn_morning.layer.cornerRadius = 12
+            btn_morning.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var btn_evening:UIButton!  {
+        didSet {
+            btn_evening.backgroundColor = light_pink_color
+            btn_evening.setTitle("Evening", for: .normal)
+            btn_evening.setTitleColor(.black, for: .normal)
+            btn_evening.layer.cornerRadius = 12
+            btn_evening.clipsToBounds = true
+        }
+    }
+    
+    @IBOutlet weak var btn_continue:UIButton! {
+        didSet {
+            btn_continue.layer.cornerRadius = 8
+            btn_continue.clipsToBounds = true
+            btn_continue.setTitle("Continue".uppercased(), for: .normal)
+            btn_continue.setTitleColor(.white, for: .normal)
+        }
+    }
+}
+
