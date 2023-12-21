@@ -230,6 +230,10 @@ class personalize_day: UIViewController {
         
     }
     
+    @objc func continue_click_method() {
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "select_workout_id")
+        self.navigationController?.pushViewController(push, animated: true)
+    }
     
 }
 
@@ -270,6 +274,8 @@ extension personalize_day: UITableViewDataSource , UITableViewDelegate {
         // 3
         cell.btn_morning.addTarget(self, action: #selector(morning_click_method), for: .touchUpInside)
         cell.btn_evening.addTarget(self, action: #selector(evening_click_method), for: .touchUpInside)
+        
+        cell.btn_continue.addTarget(self, action: #selector(continue_click_method), for: .touchUpInside)
         
         return cell
         

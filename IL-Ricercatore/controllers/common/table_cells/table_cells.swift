@@ -1270,4 +1270,18 @@ class personalize_day_table_cell : UITableViewCell {
         }
     }
 }
-
+// /* ************** SELECT WORKOUT **************************** */
+// /* ********************************************************** */
+class select_workout_table_cell : UITableViewCell {
+    
+    @IBOutlet weak var img_profile:UIImageView! {
+        didSet {
+            img_profile.layer.cornerRadius = 25
+            img_profile.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var lbl_title:UILabel!
+    @IBOutlet weak var lbl_sub_title:UILabel!
+    
+    
+}
