@@ -24,6 +24,39 @@ class welcome: UIViewController {
         super.viewDidLoad()
         
         self.tble_view.separatorColor = .white
+        
+        self.remember_me()
+    }
+    
+    @objc func remember_me() {
+        
+        if let person = UserDefaults.standard.value(forKey: str_save_login_user_data) as? [String:Any] {
+            print(person as Any)
+            
+            if person["role"] as! String == "Member" {
+                 
+                if (person["gender"] as! String) == "" {
+                     let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "complete_profile_id")
+                     self.navigationController?.pushViewController(push, animated: true)
+                } else {
+                    if (person["gender"] as! String) != "" {
+                         let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "complete_profile_two_id")
+                         self.navigationController?.pushViewController(push, animated: true)
+                    }
+                }
+                
+                
+                
+            } else {
+                
+                // DRIVER
+                // let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "dashboard_id")
+                // self.navigationController?.pushViewController(push, animated: true)
+                
+            }
+            
+        }
+        
     }
     
     @objc func reminders_click_method() {
@@ -144,8 +177,8 @@ class welcome: UIViewController {
         
     }
     
-    @objc func breakfast_food_click_method() {
-        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "dashboard_id")
+    @objc func continue_click_method() {
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "create_an_account_id")
         self.navigationController?.pushViewController(push, animated: true)
         // let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "breakfast_food_id")
         // self.navigationController?.pushViewController(push, animated: true)
@@ -186,7 +219,11 @@ extension welcome: UITableViewDataSource , UITableViewDelegate {
         cell.btn_workout_yoga.addTarget(self, action: #selector(workout_yoga_click_method), for: .touchUpInside)
         
         // dummy
-        cell.btn_workout_yoga.addTarget(self, action: #selector(breakfast_food_click_method), for: .touchUpInside)
+        // cell.btn_workout_yoga.addTarget(self, action: #selector(breakfast_food_click_method), for: .touchUpInside)
+        
+        
+        cell.btn_continue.addTarget(self, action: #selector(continue_click_method), for: .touchUpInside)
+        
         return cell
         
     }
@@ -197,7 +234,7 @@ extension welcome: UITableViewDataSource , UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 600
+        return 646
     }
 
 }

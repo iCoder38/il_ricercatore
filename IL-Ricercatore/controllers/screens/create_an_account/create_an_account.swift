@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class create_an_account: UIViewController, UITextFieldDelegate {
 
@@ -29,12 +30,122 @@ class create_an_account: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let indexPath = IndexPath.init(row: 0, section: 0)
+        let cell = self.tble_view.cellForRow(at: indexPath) as! create_an_account_table_cell
+        
+        
+        if (textField == cell.txt_phone) {
+            
+            let currentText = textField.text ?? ""
+            guard let stringRange = Range(range, in: currentText) else { return false }
+            let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+            
+            // make sure the result is under 16 characters
+            return updatedText.count <= 10
+            
+        } else {
+            
+            
+            let currentText = textField.text ?? ""
+            guard let stringRange = Range(range, in: currentText) else { return false }
+            let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+            
+            // make sure the result is under 16 characters
+            return updatedText.count <= 40
+            
+        }
+        
+    }
+    
     @objc func complete_profile_click_method() {
-        // let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "complete_profile_id")
+        let indexPath = IndexPath.init(row: 0, section: 0)
+        let cell = self.tble_view.cellForRow(at: indexPath) as! create_an_account_table_cell
+        
+        self.view.endEditing(true)
+        
+        if (cell.txt_name.text == "") {
+            self.alert_show_error(field_name: "Name")
+        } else if (cell.txt_email.text == "") {
+            self.alert_show_error(field_name: "Name")
+        } else if (cell.txt_phone.text == "") {
+            self.alert_show_error(field_name: "Name")
+        } else if (cell.txt_password.text == "") {
+            self.alert_show_error(field_name: "Name")
+        } else {
+            self.create_an_account()
+        }
+        
+        
+        
+        // let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "side_bar_menu_id")
         // self.navigationController?.pushViewController(push, animated: true)
         
-        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "side_bar_menu_id")
-        self.navigationController?.pushViewController(push, animated: true)
+    }
+    
+    @objc func create_an_account() {
+        let indexPath = IndexPath.init(row: 0, section: 0)
+        let cell = self.tble_view.cellForRow(at: indexPath) as! create_an_account_table_cell
+        
+        
+        var parameters:Dictionary<AnyHashable, Any>!
+        
+        ERProgressHud.sharedInstance.showDarkBackgroundView(withTitle: "Please wait...")
+        
+        parameters = [
+            "action"        : "registration",
+            "fullName"      : String(cell.txt_name.text!),
+            "email"         : String(cell.txt_email.text!),
+            "contactNumber" : String(cell.txt_phone.text!),
+            "password"      : String(cell.txt_password.text!),
+            "role"          : String("Member"),
+        ]
+        
+        
+        print("parameters-------\(String(describing: parameters))")
+        
+        AF.request(application_base_url, method: .post, parameters: parameters as? Parameters).responseJSON {
+            response in
+            
+            switch(response.result) {
+            case .success(_):
+                if let data = response.value {
+                    
+                    let JSON = data as! NSDictionary
+                    print(JSON)
+                    
+                    var strSuccess : String!
+                    strSuccess = JSON["status"] as? String
+                    
+                    if strSuccess.lowercased() == "success" {
+                        ERProgressHud.sharedInstance.hide()
+                        
+                        var dict: Dictionary<AnyHashable, Any>
+                        dict = JSON["data"] as! Dictionary<AnyHashable, Any>
+                        
+                        let defaults = UserDefaults.standard
+                        defaults.setValue(dict, forKey: str_save_login_user_data)
+                        
+                        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "complete_profile_id")
+                        self.navigationController?.pushViewController(push, animated: true)
+                        
+                        
+                    }
+                    else {
+                        // self.login_refresh_token_wb()
+                    }
+                    
+                }
+                
+            case .failure(_):
+                print("Error message:\(String(describing: response.error))")
+                ERProgressHud.sharedInstance.hide()
+                 self.please_check_your_internet_connection()
+                
+                break
+            }
+        }
         
     }
 }

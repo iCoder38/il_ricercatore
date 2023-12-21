@@ -16,4 +16,11 @@ target 'IL-Ricercatore' do
     # Pods for testing
   end
 
+  # for image
+  pod 'SDWebImage'
+
+  # webservice
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
+  
 end

@@ -3,4 +3,213 @@
    uuid = "C2DDF704-6A26-4624-A525-169B89B7AF9F"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "27B5E223-3FA7-431B-B77F-667D122681F0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IL-Ricercatore/controllers/screens/complete_profile/complete_profile.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
+            landmarkName = "create_an_account(loader:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "27B5E223-3FA7-431B-B77F-667D122681F0 - cf484c266ea254e4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in IL_Ricercatore.complete_profile.create_an_account(loader: Swift.String) -&gt; ()"
+                  moduleName = "IL-Ricercatore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dishantrajput/Documents/evs_2022/IL-Ricercatore/IL-Ricercatore/controllers/screens/complete_profile/complete_profile.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "254"
+                  endingLineNumber = "254"
+                  offsetFromSymbolStart = "1740">
+               </Location>
+               <Location
+                  uuid = "27B5E223-3FA7-431B-B77F-667D122681F0 - cf484c266ea25522"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in IL_Ricercatore.complete_profile.create_an_account(loader: Swift.String) -&gt; ()"
+                  moduleName = "IL-Ricercatore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dishantrajput/Documents/evs_2022/IL-Ricercatore/IL-Ricercatore/controllers/screens/complete_profile/complete_profile.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "252"
+                  endingLineNumber = "252"
+                  offsetFromSymbolStart = "724">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C442156D-2292-48CC-ACD3-8E402493321C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IL-Ricercatore/controllers/screens/complete_profile/complete_profile.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
+            landmarkName = "create_an_account(loader:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C442156D-2292-48CC-ACD3-8E402493321C - cf484c266ea26a68"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in IL_Ricercatore.complete_profile.create_an_account(loader: Swift.String) -&gt; ()"
+                  moduleName = "IL-Ricercatore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dishantrajput/Documents/evs_2022/IL-Ricercatore/IL-Ricercatore/controllers/screens/complete_profile/complete_profile.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "242"
+                  endingLineNumber = "242"
+                  offsetFromSymbolStart = "516">
+               </Location>
+               <Location
+                  uuid = "C442156D-2292-48CC-ACD3-8E402493321C - cf484c266ea26a68"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in IL_Ricercatore.complete_profile.create_an_account(loader: Swift.String) -&gt; ()"
+                  moduleName = "IL-Ricercatore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dishantrajput/Documents/evs_2022/IL-Ricercatore/IL-Ricercatore/controllers/screens/complete_profile/complete_profile.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "242"
+                  endingLineNumber = "242"
+                  offsetFromSymbolStart = "608">
+               </Location>
+               <Location
+                  uuid = "C442156D-2292-48CC-ACD3-8E402493321C - 25738b6569d23a5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "IL_Ricercatore.complete_profile.create_an_account(loader: Swift.String) -&gt; ()"
+                  moduleName = "IL-Ricercatore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dishantrajput/Documents/evs_2022/IL-Ricercatore/IL-Ricercatore/controllers/screens/complete_profile/complete_profile.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "242"
+                  endingLineNumber = "242"
+                  offsetFromSymbolStart = "5948">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "26C57E61-EAAA-4D3A-8265-2B16D7BF1511"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IL-Ricercatore/controllers/screens/complete_profile/complete_profile.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "310"
+            endingLineNumber = "310"
+            landmarkName = "refresh_token_WB()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "26C57E61-EAAA-4D3A-8265-2B16D7BF1511 - 253200b0e1426d48"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in IL_Ricercatore.complete_profile.refresh_token_WB() -&gt; ()"
+                  moduleName = "IL-Ricercatore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dishantrajput/Documents/evs_2022/IL-Ricercatore/IL-Ricercatore/controllers/screens/complete_profile/complete_profile.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "311"
+                  endingLineNumber = "311"
+                  offsetFromSymbolStart = "636">
+               </Location>
+               <Location
+                  uuid = "26C57E61-EAAA-4D3A-8265-2B16D7BF1511 - b46717c86f85424e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "IL_Ricercatore.complete_profile.refresh_token_WB() -&gt; ()"
+                  moduleName = "IL-Ricercatore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dishantrajput/Documents/evs_2022/IL-Ricercatore/IL-Ricercatore/controllers/screens/complete_profile/complete_profile.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "310"
+                  endingLineNumber = "310"
+                  offsetFromSymbolStart = "1808">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ABAA3F00-74C3-43B9-AC57-833515B1898D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IL-Ricercatore/controllers/screens/complete_profile/complete_profile.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "320"
+            endingLineNumber = "320"
+            landmarkName = "refresh_token_WB()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "ABAA3F00-74C3-43B9-AC57-833515B1898D - 253200b0e1426c40"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in IL_Ricercatore.complete_profile.refresh_token_WB() -&gt; ()"
+                  moduleName = "IL-Ricercatore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dishantrajput/Documents/evs_2022/IL-Ricercatore/IL-Ricercatore/controllers/screens/complete_profile/complete_profile.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "319"
+                  endingLineNumber = "319"
+                  offsetFromSymbolStart = "1696">
+               </Location>
+               <Location
+                  uuid = "ABAA3F00-74C3-43B9-AC57-833515B1898D - 253200b0e1426ca1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in IL_Ricercatore.complete_profile.refresh_token_WB() -&gt; ()"
+                  moduleName = "IL-Ricercatore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dishantrajput/Documents/evs_2022/IL-Ricercatore/IL-Ricercatore/controllers/screens/complete_profile/complete_profile.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "320"
+                  endingLineNumber = "320"
+                  offsetFromSymbolStart = "720">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

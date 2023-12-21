@@ -72,6 +72,11 @@ class select_workout: UIViewController {
         return true
     }
     
+    @objc func continue_click_method() {
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "workout_details_id")
+        self.navigationController?.pushViewController(push, animated: true)
+    }
+    
 }
 
 //MARK:- TABLE VIEW -
@@ -95,6 +100,8 @@ extension select_workout: UITableViewDataSource , UITableViewDelegate {
         cell.selectedBackgroundView = backgroundView
         
         cell.lbl_title.text = self.arr_dummy[indexPath.row]
+        
+        self.btn_continue.addTarget(self, action: #selector(continue_click_method), for: .touchUpInside)
         
         return cell
         

@@ -7,6 +7,11 @@
 
 import UIKit
 
+var application_base_url = "https://demo4.evirtualservices.net/il_recreator/services/index"
+
+let str_save_login_user_data = "keyLoginFullData"
+let str_save_last_api_token = "key_last_api_token"
+
 class Utils: NSObject {
     
      
@@ -14,6 +19,23 @@ class Utils: NSObject {
 }
 
 extension UIViewController {
+    
+    @objc func please_check_your_internet_connection() {
+        let alert = NewYorkAlertController(title: String("Error").uppercased(), message: String("Please check your Internet Connection"), style: .alert)
+        let cancel = NewYorkButton(title: "dismiss", style: .cancel)
+        alert.addButtons([cancel])
+        self.present(alert, animated: true)
+    }
+    
+    @objc func alert_show_error(field_name:String) {
+        
+        let alert = NewYorkAlertController(title: String("Error").uppercased(), message: String(field_name)+String(" field should not be empty"), style: .alert)
+        let cancel = NewYorkButton(title: "dismiss", style: .cancel)
+        alert.addButtons([cancel])
+        self.present(alert, animated: true)
+        
+        
+    }
     
     @objc func menu_click_method() {
         let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "side_bar_menu_id")

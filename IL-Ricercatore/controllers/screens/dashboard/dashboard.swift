@@ -62,6 +62,8 @@ extension dashboard: UITableViewDataSource , UITableViewDelegate {
         cell.lbl_email.text = "dishant.rajput@evirtualservices.com"
         // cell.btn_continue.addTarget(self, action: #selector(complete_profile_click_method), for: .touchUpInside)
         
+        
+        
         return cell
         
     }

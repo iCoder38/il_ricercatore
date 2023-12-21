@@ -265,6 +265,14 @@ class welcome_table_cell : UITableViewCell {
     @IBOutlet weak var btn_routine_track_check_box:UIButton!
     @IBOutlet weak var btn_workout_yoga_check_box:UIButton!
     
+    @IBOutlet weak var btn_continue:UIButton! {
+        didSet {
+            btn_continue.layer.cornerRadius = 8
+            btn_continue.clipsToBounds = true
+            btn_continue.setTitle("continue".uppercased(), for: .normal)
+            btn_continue.setTitleColor(.white, for: .normal)
+        }
+    }
 }
 
 // /* ************** CREATE AN ACCOUNT ************************* */
@@ -294,6 +302,7 @@ class create_an_account_table_cell : UITableViewCell {
             txt_email.backgroundColor = .clear
             txt_email.placeholder = "email"
             txt_email.setLeftPaddingPoints(20)
+            txt_email.keyboardType = .emailAddress
         }
     }
     
@@ -311,6 +320,7 @@ class create_an_account_table_cell : UITableViewCell {
             txt_phone.backgroundColor = .clear
             txt_phone.placeholder = "phone"
             txt_phone.setLeftPaddingPoints(20)
+            txt_phone.keyboardType = .phonePad
         }
     }
     
@@ -328,6 +338,7 @@ class create_an_account_table_cell : UITableViewCell {
             txt_password.backgroundColor = .clear
             txt_password.placeholder = "password"
             txt_password.setLeftPaddingPoints(20)
+            txt_password.isSecureTextEntry = true
         }
     }
     
@@ -393,6 +404,7 @@ class complete_profile_table_cell : UITableViewCell {
             txt_age.backgroundColor = .clear
             txt_age.placeholder = "age"
             txt_age.setLeftPaddingPoints(20)
+            txt_age.keyboardType = .numberPad
         }
     }
     
@@ -467,6 +479,7 @@ class complete_profile_table_cell : UITableViewCell {
             txt_current_weight.backgroundColor = .clear
             txt_current_weight.placeholder = "Current Weight"
             txt_current_weight.setLeftPaddingPoints(20)
+            txt_current_weight.keyboardType = .numberPad
         }
     }
     
@@ -495,6 +508,7 @@ class complete_profile_table_cell : UITableViewCell {
             txt_target_weight.backgroundColor = .clear
             txt_target_weight.placeholder = "Target Weight"
             txt_target_weight.setLeftPaddingPoints(20)
+            txt_target_weight.keyboardType = .numberPad
         }
     }
     
@@ -525,11 +539,17 @@ class complete_profile_table_cell : UITableViewCell {
         }
     }
     
+    @IBOutlet weak var btn_daily_activity:UIButton!
+    @IBOutlet weak var btn_height:UIButton!
+    
 }
 
 // /* ************** COMPLETE PROFILE 2 ************************* */
 // /* ********************************************************** */
 class complete_profile_two_table_cell : UITableViewCell {
+    
+    @IBOutlet weak var btn_fitness_goal:UIButton!
+    @IBOutlet weak var btn_select_option:UIButton!
     
     // emotinal health
     @IBOutlet weak var view_fitness_goal:UIView! {
@@ -577,7 +597,12 @@ class complete_profile_two_table_cell : UITableViewCell {
         }
     }
     
+    @IBOutlet weak var btn_medicine_yes:UIButton!
+    @IBOutlet weak var btn_medicine_no:UIButton!
     
+    @IBOutlet weak var btn_smoke_yes:UIButton!
+    @IBOutlet weak var btn_smoke_no:UIButton!
+    @IBOutlet weak var btn_smoke_occasionally:UIButton!
 }
 
 
@@ -743,6 +768,29 @@ class dashboard_table_cell : UITableViewCell {
     @IBOutlet weak var view_fiber:UIView! {
         didSet {
             view_fiber.backgroundColor = .clear
+        }
+    }
+    
+    @IBOutlet weak var btn_cal_burn:UIButton! {
+        didSet {
+            btn_cal_burn.layer.cornerRadius = 12
+            btn_cal_burn.clipsToBounds = true
+            btn_cal_burn.backgroundColor = light_purple_color
+            btn_cal_burn.setTitleColor(.black, for: .normal)
+            btn_cal_burn.setTitle("Cal Burnt", for: .normal)
+        }
+    }
+    
+    @IBOutlet weak var lbl_counter:UILabel!
+     
+    
+    @IBOutlet weak var btn_track:UIButton! {
+        didSet {
+            btn_track.layer.cornerRadius = 12
+            btn_track.clipsToBounds = true
+            btn_track.backgroundColor = light_purple_color
+            btn_track.setTitleColor(.black, for: .normal)
+            btn_track.setTitle("Water Intake", for: .normal)
         }
     }
     
@@ -1284,4 +1332,59 @@ class select_workout_table_cell : UITableViewCell {
     @IBOutlet weak var lbl_sub_title:UILabel!
     
     
+}
+// /* ************** WORKOUT DETAILS *************************** */
+// /* ********************************************************** */
+class workout_details_table_cell : UITableViewCell {
+    
+    @IBOutlet weak var view_view:UIView! {
+        didSet {
+            view_view.layer.cornerRadius = 16
+            view_view.clipsToBounds = true
+        }
+    }
+    
+    @IBOutlet weak var view_reps:UIView! {
+        didSet {
+            view_reps.layer.cornerRadius = 16
+            view_reps.clipsToBounds = true
+            view_reps.backgroundColor = light_pink_color
+        }
+    }
+    
+    @IBOutlet weak var lbl_reps:UILabel! {
+        didSet {
+            lbl_reps.layer.cornerRadius = 8
+            lbl_reps.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var view_sets:UIView! {
+        didSet {
+            view_sets.layer.cornerRadius = 16
+            view_sets.clipsToBounds = true
+            view_sets.backgroundColor = light_pink_color
+        }
+    }
+    
+    @IBOutlet weak var lbl_sets:UILabel! {
+        didSet {
+            lbl_sets.layer.cornerRadius = 8
+            lbl_sets.clipsToBounds = true
+        }
+    }
+    
+    @IBOutlet weak var lbl_description:UILabel! {
+        didSet {
+            lbl_description.text = "Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum is simply dummy text of the printing and type setting industry."
+        }
+    }
+    
+    @IBOutlet weak var btn_continue:UIButton! {
+        didSet {
+            btn_continue.layer.cornerRadius = 8
+            btn_continue.clipsToBounds = true
+            btn_continue.setTitle("save".uppercased(), for: .normal)
+            btn_continue.setTitleColor(.white, for: .normal)
+        }
+    }
 }

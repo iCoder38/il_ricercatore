@@ -50,6 +50,9 @@ var navigation_title_personalize_workout_en = "personalize workout".uppercased()
 // select workout
 var navigation_title_select_workout_en = "select workout".uppercased()
 
+// workout details
+var navigation_title_workout_details_en = "name".uppercased()
+
 
 class all_text: UIViewController {
 

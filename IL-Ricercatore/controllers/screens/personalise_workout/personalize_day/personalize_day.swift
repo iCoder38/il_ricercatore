@@ -12,6 +12,7 @@ class personalize_day: UIViewController {
     @IBOutlet weak var btn_back:UIButton! {
         didSet {
             btn_back.tintColor = .white
+            btn_back.setImage(UIImage(systemName: "arrow.left"), for: .normal)
             btn_back.addTarget(self, action: #selector(back_click_method), for: .touchUpInside)
         }
     }

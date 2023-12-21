@@ -49,6 +49,10 @@ class side_bar_menu: UIViewController {
         let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "personalised_workout_id")
         self.navigationController?.pushViewController(push, animated: true)
     }
+    @objc func dashboard_click_method() {
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "dashboard_id")
+        self.navigationController?.pushViewController(push, animated: true)
+    }
 }
 
 //MARK:- TABLE VIEW -
@@ -71,6 +75,7 @@ extension side_bar_menu: UITableViewDataSource , UITableViewDelegate {
         backgroundView.backgroundColor = .clear
         cell.selectedBackgroundView = backgroundView
         
+        cell.btn_dashboard.addTarget(self, action: #selector(dashboard_click_method), for: .touchUpInside)
         cell.btn_health_logs.addTarget(self, action: #selector(personalized_workout_click_method), for: .touchUpInside)
         cell.btn_workout_setting.addTarget(self, action: #selector(workout_setting_click_method), for: .touchUpInside)
         cell.btn_reminders.addTarget(self, action: #selector(reminder_click_method), for: .touchUpInside)
