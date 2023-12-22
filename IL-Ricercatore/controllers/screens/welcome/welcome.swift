@@ -36,13 +36,26 @@ class welcome: UIViewController {
             if person["role"] as! String == "Member" {
                  
                 if (person["gender"] as! String) == "" {
+                    
                      let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "complete_profile_id")
                      self.navigationController?.pushViewController(push, animated: true)
+                    
+                } else if (person["Fitness_goal"] as! String) == "" {
+                    
+                    let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "complete_profile_two_id")
+                    self.navigationController?.pushViewController(push, animated: true)
+                    
+                } else if (person["food_preference"] as! String) == "" {
+                    
+                    let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "complete_profile_three_id")
+                    self.navigationController?.pushViewController(push, animated: true)
+                    
                 } else {
-                    if (person["gender"] as! String) != "" {
-                         let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "complete_profile_two_id")
-                         self.navigationController?.pushViewController(push, animated: true)
-                    }
+                    
+                    // push to dashboard
+                    let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "dashboard_id")
+                    self.navigationController?.pushViewController(push, animated: true)
+                    
                 }
                 
                 

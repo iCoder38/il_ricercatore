@@ -29,14 +29,13 @@ class dashboard: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         
         self.tble_view.separatorColor = .clear
         self.btn_menu.addTarget(self, action: #selector(menu_click_method), for: .touchUpInside)
     }
 
-    
 }
-
 
 //MARK:- TABLE VIEW -
 extension dashboard: UITableViewDataSource , UITableViewDelegate {
@@ -58,11 +57,15 @@ extension dashboard: UITableViewDataSource , UITableViewDelegate {
         backgroundView.backgroundColor = .clear
         cell.selectedBackgroundView = backgroundView
         
-        cell.lbl_name.text = "Dishant rajput"
-        cell.lbl_email.text = "dishant.rajput@evirtualservices.com"
+        if let person = UserDefaults.standard.value(forKey: str_save_login_user_data) as? [String:Any] {
+            print(person)
+            
+            cell.lbl_name.text = (person["fullName"] as! String)
+            cell.lbl_email.text = (person["email"] as! String)
+            
+        }
+        
         // cell.btn_continue.addTarget(self, action: #selector(complete_profile_click_method), for: .touchUpInside)
-        
-        
         
         return cell
         

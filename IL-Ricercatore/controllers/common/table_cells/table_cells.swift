@@ -603,6 +603,10 @@ class complete_profile_two_table_cell : UITableViewCell {
     @IBOutlet weak var btn_smoke_yes:UIButton!
     @IBOutlet weak var btn_smoke_no:UIButton!
     @IBOutlet weak var btn_smoke_occasionally:UIButton!
+    
+    @IBOutlet weak var btn_drink_yes:UIButton!
+    @IBOutlet weak var btn_drink_no:UIButton!
+    @IBOutlet weak var btn_drink_occasionally:UIButton!
 }
 
 
@@ -679,6 +683,21 @@ class complete_profile_three_table_cell : UITableViewCell {
             btn_continue.setTitleColor(.white, for: .normal)
         }
     }
+    
+    @IBOutlet weak var btn_food_prefrence:UIButton!
+    
+    @IBOutlet weak var btn_checkmark_breakfast:UIButton!
+    @IBOutlet weak var btn_checkmark_morning_snack:UIButton!
+    @IBOutlet weak var btn_checkmark_lunch:UIButton!
+    @IBOutlet weak var btn_checkmark_evening_snack:UIButton!
+    @IBOutlet weak var btn_checkmark_dinner:UIButton!
+    
+    
+    @IBOutlet weak var lbl_checkmark_breakfast_time:UILabel!
+    @IBOutlet weak var lbl_checkmark_morning_snack_time:UILabel!
+    @IBOutlet weak var lbl_checkmark_lunch_time:UILabel!
+    @IBOutlet weak var lbl_checkmark_evening_snack_time:UILabel!
+    @IBOutlet weak var lbl_checkmark_dinner_time:UILabel!
     
 }
 

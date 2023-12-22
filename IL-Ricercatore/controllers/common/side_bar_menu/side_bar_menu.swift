@@ -75,6 +75,12 @@ extension side_bar_menu: UITableViewDataSource , UITableViewDelegate {
         backgroundView.backgroundColor = .clear
         cell.selectedBackgroundView = backgroundView
         
+        if let person = UserDefaults.standard.value(forKey: str_save_login_user_data) as? [String:Any] {
+            print(person)
+            cell.lbl_name.text = (person["fullName"] as! String)
+            cell.lbl_email.text = (person["email"] as! String)
+        }
+        
         cell.btn_dashboard.addTarget(self, action: #selector(dashboard_click_method), for: .touchUpInside)
         cell.btn_health_logs.addTarget(self, action: #selector(personalized_workout_click_method), for: .touchUpInside)
         cell.btn_workout_setting.addTarget(self, action: #selector(workout_setting_click_method), for: .touchUpInside)

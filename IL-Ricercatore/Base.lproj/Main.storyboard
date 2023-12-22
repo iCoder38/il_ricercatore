@@ -1461,6 +1461,9 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="btn_continue" destination="tTg-SO-pz2" id="E71-bC-GIc"/>
+                                            <outlet property="btn_drink_no" destination="2u2-Ag-C2u" id="x4h-iz-e4y"/>
+                                            <outlet property="btn_drink_occasionally" destination="Oj1-5x-en1" id="yKf-Tx-mtr"/>
+                                            <outlet property="btn_drink_yes" destination="llO-Bb-M7h" id="A3a-3l-Wzb"/>
                                             <outlet property="btn_fitness_goal" destination="Dsm-U1-E5C" id="DP5-CJ-TyJ"/>
                                             <outlet property="btn_medicine_no" destination="iqE-GP-eXV" id="zUX-L2-iY3"/>
                                             <outlet property="btn_medicine_yes" destination="eiN-S8-jhg" id="Oo1-eL-3Hb"/>
@@ -1566,13 +1569,21 @@
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                             <state key="normal" image="chevron.down" catalog="system"/>
                                                         </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Fh-I8-9md">
+                                                            <rect key="frame" x="0.0" y="0.0" width="353" height="60"/>
+                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="7Fh-I8-9md" secondAttribute="trailing" id="0rc-K7-RAd"/>
                                                         <constraint firstItem="Ggf-QQ-oa3" firstAttribute="leading" secondItem="w6X-eq-HOh" secondAttribute="leading" id="30l-eb-OkY"/>
+                                                        <constraint firstAttribute="bottom" secondItem="7Fh-I8-9md" secondAttribute="bottom" id="4F7-rh-P2e"/>
                                                         <constraint firstItem="Ggf-QQ-oa3" firstAttribute="top" secondItem="w6X-eq-HOh" secondAttribute="top" id="CGI-A0-7nS"/>
                                                         <constraint firstAttribute="height" constant="60" id="Dzi-5Y-cSh"/>
+                                                        <constraint firstItem="7Fh-I8-9md" firstAttribute="top" secondItem="w6X-eq-HOh" secondAttribute="top" id="HNw-T1-ciX"/>
                                                         <constraint firstItem="0Jx-Wa-Csf" firstAttribute="leading" secondItem="Ggf-QQ-oa3" secondAttribute="trailing" constant="8" symbolic="YES" id="JBe-ik-Obi"/>
+                                                        <constraint firstItem="7Fh-I8-9md" firstAttribute="leading" secondItem="w6X-eq-HOh" secondAttribute="leading" id="OYF-Go-025"/>
                                                         <constraint firstAttribute="trailing" secondItem="0Jx-Wa-Csf" secondAttribute="trailing" constant="8" id="Uvn-UC-vsS"/>
                                                         <constraint firstItem="0Jx-Wa-Csf" firstAttribute="top" secondItem="w6X-eq-HOh" secondAttribute="top" constant="10" id="ZKH-NY-dg5"/>
                                                     </constraints>
@@ -1892,7 +1903,18 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="btn_checkmark_breakfast" destination="x7J-xf-iv3" id="cK1-eC-o8W"/>
+                                            <outlet property="btn_checkmark_dinner" destination="IEc-ai-ea1" id="NiL-Fu-5gL"/>
+                                            <outlet property="btn_checkmark_evening_snack" destination="edX-3z-pz1" id="ywS-qM-HoU"/>
+                                            <outlet property="btn_checkmark_lunch" destination="3Ia-6c-Dhl" id="aAq-Im-eyf"/>
+                                            <outlet property="btn_checkmark_morning_snack" destination="Bks-XW-uiz" id="dII-4v-n5S"/>
                                             <outlet property="btn_continue" destination="hod-Fa-1CU" id="Pwr-xn-zb0"/>
+                                            <outlet property="btn_food_prefrence" destination="7Fh-I8-9md" id="Nb3-aH-HSK"/>
+                                            <outlet property="lbl_checkmark_breakfast_time" destination="LXM-mB-9Wy" id="uUc-kc-GYJ"/>
+                                            <outlet property="lbl_checkmark_dinner_time" destination="HsW-yd-pG9" id="o7A-1H-HTz"/>
+                                            <outlet property="lbl_checkmark_evening_snack_time" destination="9Bj-kX-ERF" id="U7V-JE-puv"/>
+                                            <outlet property="lbl_checkmark_lunch_time" destination="8z1-Io-jYh" id="PqR-SQ-MKE"/>
+                                            <outlet property="lbl_checkmark_morning_snack_time" destination="aZ9-Iy-F6H" id="A3y-V4-8ro"/>
                                             <outlet property="txt_food_preferences" destination="Ggf-QQ-oa3" id="vcz-QZ-z9A"/>
                                             <outlet property="view_breakfast" destination="7LB-iB-EwL" id="6J6-uv-GQ7"/>
                                             <outlet property="view_dinner" destination="8JL-ra-jnB" id="GBd-ap-8EP"/>
