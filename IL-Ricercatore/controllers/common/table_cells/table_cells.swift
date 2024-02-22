@@ -866,6 +866,15 @@ class dashboard_table_cell : UITableViewCell {
         }
     }
     
+    @IBOutlet weak var lbl_protein:UILabel!
+    @IBOutlet weak var lbl_fat:UILabel!
+    @IBOutlet weak var lbl_curbs:UILabel!
+    @IBOutlet weak var lbl_fiber:UILabel!
+    
+    @IBOutlet weak var progress_view_protein:UIProgressView!
+    @IBOutlet weak var progress_view_fats:UIProgressView!
+    @IBOutlet weak var progress_view_curbs:UIProgressView!
+    @IBOutlet weak var progress_view_fiber:UIProgressView!
 }
 
 

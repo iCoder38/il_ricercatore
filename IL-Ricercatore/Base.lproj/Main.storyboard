@@ -2416,17 +2416,17 @@
                                                             <rect key="frame" x="13" y="71" width="160" height="40"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Protine : 43%" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEN-K5-52h">
-                                                                    <rect key="frame" x="0.0" y="6" width="160" height="15"/>
+                                                                    <rect key="frame" x="0.0" y="8" width="160" height="15"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="Fk4-0Q-kQw"/>
                                                                         <constraint firstAttribute="height" constant="15" id="hNe-Nq-7zG"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="14"/>
+                                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Veg-Lo-ueY">
-                                                                    <rect key="frame" x="1" y="26" width="157" height="4"/>
+                                                                    <rect key="frame" x="1" y="30" width="157" height="4"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="4" id="WWb-Co-i2t"/>
                                                                     </constraints>
@@ -2436,14 +2436,14 @@
                                                             <constraints>
                                                                 <constraint firstItem="IEN-K5-52h" firstAttribute="leading" secondItem="dgQ-wJ-meQ" secondAttribute="leading" id="3qq-bi-z0e"/>
                                                                 <constraint firstAttribute="height" constant="40" id="4aF-Ed-vCS"/>
-                                                                <constraint firstItem="Veg-Lo-ueY" firstAttribute="top" secondItem="IEN-K5-52h" secondAttribute="bottom" constant="5" id="8Bi-aM-4zl"/>
-                                                                <constraint firstItem="IEN-K5-52h" firstAttribute="top" secondItem="dgQ-wJ-meQ" secondAttribute="top" constant="6" id="S55-Fj-3qj"/>
+                                                                <constraint firstItem="Veg-Lo-ueY" firstAttribute="top" secondItem="IEN-K5-52h" secondAttribute="bottom" constant="7" id="8Bi-aM-4zl"/>
+                                                                <constraint firstItem="IEN-K5-52h" firstAttribute="top" secondItem="dgQ-wJ-meQ" secondAttribute="top" constant="8" id="S55-Fj-3qj"/>
                                                                 <constraint firstAttribute="trailing" secondItem="IEN-K5-52h" secondAttribute="trailing" id="SFg-62-8Nl"/>
                                                                 <constraint firstAttribute="trailing" secondItem="IEN-K5-52h" secondAttribute="trailing" id="bum-Jf-Gf9"/>
                                                                 <constraint firstAttribute="trailing" secondItem="Veg-Lo-ueY" secondAttribute="trailing" constant="2" id="f6y-s0-nRo"/>
                                                                 <constraint firstItem="IEN-K5-52h" firstAttribute="leading" secondItem="dgQ-wJ-meQ" secondAttribute="leading" id="fr4-Nd-JMA"/>
                                                                 <constraint firstItem="Veg-Lo-ueY" firstAttribute="leading" secondItem="dgQ-wJ-meQ" secondAttribute="leading" constant="1" id="pSP-fd-1f3"/>
-                                                                <constraint firstItem="IEN-K5-52h" firstAttribute="top" secondItem="dgQ-wJ-meQ" secondAttribute="top" constant="6" id="yDI-FB-Juw"/>
+                                                                <constraint firstItem="IEN-K5-52h" firstAttribute="top" secondItem="dgQ-wJ-meQ" secondAttribute="top" constant="8" id="yDI-FB-Juw"/>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jxn-a6-aSb">
@@ -2454,12 +2454,12 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="15" id="ezy-5I-0gQ"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="14"/>
+                                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="FEK-YN-F4P">
-                                                                    <rect key="frame" x="1" y="26" width="158" height="4"/>
+                                                                    <rect key="frame" x="1" y="30" width="158" height="4"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="4" id="e1j-Sl-ySP"/>
                                                                     </constraints>
@@ -2469,7 +2469,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="trailing" secondItem="FEK-YN-F4P" secondAttribute="trailing" constant="1" id="1EI-il-Dpi"/>
                                                                 <constraint firstAttribute="height" constant="40" id="ARR-Fw-s9r"/>
-                                                                <constraint firstItem="FEK-YN-F4P" firstAttribute="top" secondItem="4wy-9C-PAe" secondAttribute="bottom" constant="3" id="HyW-zJ-yEl"/>
+                                                                <constraint firstItem="FEK-YN-F4P" firstAttribute="top" secondItem="4wy-9C-PAe" secondAttribute="bottom" constant="7" id="HyW-zJ-yEl"/>
                                                                 <constraint firstAttribute="trailing" secondItem="4wy-9C-PAe" secondAttribute="trailing" id="MuH-9L-eP5"/>
                                                                 <constraint firstItem="FEK-YN-F4P" firstAttribute="leading" secondItem="jxn-a6-aSb" secondAttribute="leading" constant="1" id="YEa-TX-uIR"/>
                                                                 <constraint firstItem="4wy-9C-PAe" firstAttribute="top" secondItem="jxn-a6-aSb" secondAttribute="top" constant="8" id="aQp-xa-E2l"/>
@@ -2495,11 +2495,11 @@
                                                                     </constraints>
                                                                 </progressView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carbs : 63%" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKH-SZ-9a4">
-                                                                    <rect key="frame" x="0.0" y="7" width="160" height="15"/>
+                                                                    <rect key="frame" x="0.0" y="4" width="160" height="15"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="15" id="EN8-Kq-2v4"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="12"/>
+                                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -2509,7 +2509,7 @@
                                                                 <constraint firstItem="Bbl-Ue-NLn" firstAttribute="leading" secondItem="BgE-KY-FYc" secondAttribute="leading" constant="1" id="Bda-aJ-Lql"/>
                                                                 <constraint firstAttribute="bottom" secondItem="Bbl-Ue-NLn" secondAttribute="bottom" constant="10" id="D3p-Gk-kkO"/>
                                                                 <constraint firstAttribute="trailing" secondItem="hKH-SZ-9a4" secondAttribute="trailing" id="TCT-Ve-r6p"/>
-                                                                <constraint firstItem="hKH-SZ-9a4" firstAttribute="top" secondItem="BgE-KY-FYc" secondAttribute="top" constant="7" id="XhR-Ss-ru5"/>
+                                                                <constraint firstItem="hKH-SZ-9a4" firstAttribute="top" secondItem="BgE-KY-FYc" secondAttribute="top" constant="4" id="XhR-Ss-ru5"/>
                                                                 <constraint firstItem="hKH-SZ-9a4" firstAttribute="leading" secondItem="BgE-KY-FYc" secondAttribute="leading" id="gEM-Ss-QdR"/>
                                                                 <constraint firstAttribute="trailing" secondItem="Bbl-Ue-NLn" secondAttribute="trailing" constant="1" id="wUV-aK-b7G"/>
                                                                 <constraint firstAttribute="height" constant="40" id="yKo-2v-Is8"/>
@@ -2525,11 +2525,11 @@
                                                                     </constraints>
                                                                 </progressView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fiber : 37%" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ypp-xr-fJ9">
-                                                                    <rect key="frame" x="0.0" y="7" width="160" height="15"/>
+                                                                    <rect key="frame" x="0.0" y="4" width="160" height="15"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="15" id="4vY-Bz-30h"/>
                                                                     </constraints>
-                                                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="12"/>
+                                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -2540,7 +2540,7 @@
                                                                 <constraint firstAttribute="height" constant="40" id="1VK-Y4-zRM"/>
                                                                 <constraint firstItem="k5d-Lq-NGz" firstAttribute="leading" secondItem="4oO-ja-CDR" secondAttribute="leading" constant="1" id="Eaa-zk-BLc"/>
                                                                 <constraint firstAttribute="trailing" secondItem="Ypp-xr-fJ9" secondAttribute="trailing" id="Pt2-mA-NWh"/>
-                                                                <constraint firstItem="Ypp-xr-fJ9" firstAttribute="top" secondItem="4oO-ja-CDR" secondAttribute="top" constant="7" id="b2s-nA-0gl"/>
+                                                                <constraint firstItem="Ypp-xr-fJ9" firstAttribute="top" secondItem="4oO-ja-CDR" secondAttribute="top" constant="4" id="b2s-nA-0gl"/>
                                                                 <constraint firstAttribute="bottom" secondItem="k5d-Lq-NGz" secondAttribute="bottom" constant="10" id="bmT-S1-Fkb"/>
                                                                 <constraint firstAttribute="trailing" secondItem="k5d-Lq-NGz" secondAttribute="trailing" constant="1" id="te8-c1-tNI"/>
                                                             </constraints>
@@ -2733,10 +2733,18 @@
                                             <outlet property="btn_cal_burn" destination="KJ3-J7-eZ5" id="Cgi-TF-9RH"/>
                                             <outlet property="btn_track" destination="7sb-iC-Kfi" id="Mzh-9a-Qyz"/>
                                             <outlet property="img_view_profile" destination="KJX-P0-Sw1" id="chH-5x-6pr"/>
+                                            <outlet property="lbl_curbs" destination="hKH-SZ-9a4" id="xzb-T3-vKo"/>
                                             <outlet property="lbl_email" destination="Cb0-ex-ZTT" id="jpk-Zo-igb"/>
+                                            <outlet property="lbl_fat" destination="4wy-9C-PAe" id="sGX-Tw-E3v"/>
+                                            <outlet property="lbl_fiber" destination="Ypp-xr-fJ9" id="gCJ-XW-ORw"/>
                                             <outlet property="lbl_name" destination="En4-do-cCN" id="zNf-Vd-hXZ"/>
+                                            <outlet property="lbl_protein" destination="IEN-K5-52h" id="lHW-Gq-YAy"/>
                                             <outlet property="lbl_weight" destination="OXf-TJ-F61" id="BQn-67-Six"/>
                                             <outlet property="lbl_weight_status" destination="1kt-QX-Iap" id="gzd-G2-F31"/>
+                                            <outlet property="progress_view_curbs" destination="Bbl-Ue-NLn" id="agS-bo-qpC"/>
+                                            <outlet property="progress_view_fats" destination="FEK-YN-F4P" id="OqZ-uH-SSB"/>
+                                            <outlet property="progress_view_fiber" destination="k5d-Lq-NGz" id="joh-0h-6nf"/>
+                                            <outlet property="progress_view_protein" destination="Veg-Lo-ueY" id="27Z-Pn-0y3"/>
                                             <outlet property="view_carbs" destination="BgE-KY-FYc" id="KIA-2P-WHa"/>
                                             <outlet property="view_fats" destination="jxn-a6-aSb" id="9o1-To-nNz"/>
                                             <outlet property="view_fiber" destination="4oO-ja-CDR" id="e44-df-hXe"/>

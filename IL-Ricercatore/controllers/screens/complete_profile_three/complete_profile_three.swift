@@ -977,29 +977,7 @@ class complete_profile_three: UIViewController, UITextFieldDelegate {
         if (loader == "yes") {
             ERProgressHud.sharedInstance.showDarkBackgroundView(withTitle: "Please wait...")
         }
-        
-        
-        
-       
-        
          
-        
-        /*
-         action:editprofile
-         userId:
-         food_preference:
-         breakfast:
-         breakfast_time:
-         morning_snack:
-         morning_snack_time:
-         lunch:
-         lunch_time:
-         evening_snack:
-         evening_snack_time:
-         dinner:
-         dinner_time:
-         */
-        
         if let person = UserDefaults.standard.value(forKey: str_save_login_user_data) as? [String:Any] {
             print(person)
             
@@ -1012,21 +990,6 @@ class complete_profile_three: UIViewController, UITextFieldDelegate {
                     "token":String(token_id_is),
                 ]
                 
-                /*
-                  
-                      
-                      
-                     [] => 1
-                      
-                     [] => 0
-                      
-                     [] => 0
-                      
-                     [] => 0
-                      
-                     [] => 0
-                      
-                 */
                 parameters = [
                     "action"            : "editprofile",
                     "userId"            : String(myString),
