@@ -64,6 +64,21 @@
                   endingLineNumber = "396"
                   offsetFromSymbolStart = "836">
                </Location>
+               <Location
+                  uuid = "35EF91C1-8056-4081-A48D-FA661DE35429 - 451416590895aee0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "IL_Ricercatore.complete_profile.current_weight_pop_up_click_method() -&gt; ()"
+                  moduleName = "IL-Ricercatore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dishantrajput/Documents/evs/il_ricercatore/IL-Ricercatore/controllers/screens/complete_profile/complete_profile.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "396"
+                  endingLineNumber = "396"
+                  offsetFromSymbolStart = "772">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -111,6 +126,21 @@
                   startingLineNumber = "292"
                   endingLineNumber = "292"
                   offsetFromSymbolStart = "700">
+               </Location>
+               <Location
+                  uuid = "FC0F300B-65BC-445A-A9CB-ED823328CCF0 - d58060ddc363d8e7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in IL_Ricercatore.complete_profile_two.general_WB() -&gt; ()"
+                  moduleName = "IL-Ricercatore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dishantrajput/Documents/evs/il_ricercatore/IL-Ricercatore/controllers/screens/complete_profile_two/complete_profile_two.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "292"
+                  endingLineNumber = "292"
+                  offsetFromSymbolStart = "624">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -176,6 +206,86 @@
             startingLineNumber = "110"
             endingLineNumber = "110"
             landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FF391D3C-C1D9-4CE6-953F-5BBA6DCC3578"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IL-Ricercatore/controllers/screens/welcome/welcome.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "308"
+            endingLineNumber = "308"
+            landmarkName = "login_wb()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FF391D3C-C1D9-4CE6-953F-5BBA6DCC3578 - afa1e73bbb51f6ab"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "IL_Ricercatore.welcome.login_wb() -&gt; ()"
+                  moduleName = "IL-Ricercatore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dishantrajput/Documents/evs/il_ricercatore/IL-Ricercatore/controllers/screens/welcome/welcome.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "308"
+                  endingLineNumber = "308"
+                  offsetFromSymbolStart = "800">
+               </Location>
+               <Location
+                  uuid = "FF391D3C-C1D9-4CE6-953F-5BBA6DCC3578 - afa1e73bbb51f6ab"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "IL_Ricercatore.welcome.login_wb() -&gt; ()"
+                  moduleName = "IL-Ricercatore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dishantrajput/Documents/evs/il_ricercatore/IL-Ricercatore/controllers/screens/welcome/welcome.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "308"
+                  endingLineNumber = "308"
+                  offsetFromSymbolStart = "804">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D4CBB4BC-0FB2-46F2-B9D1-03429CB619F8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IL-Ricercatore/controllers/screens/welcome/welcome.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "318"
+            endingLineNumber = "318"
+            landmarkName = "login_wb()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "52884A01-0F53-41C3-8DE0-24626297B3EB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IL-Ricercatore/controllers/screens/set_up_water_tracker/set_up_water_tracker.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "add_one_more_glass_WB(loader:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

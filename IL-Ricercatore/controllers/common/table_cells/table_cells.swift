@@ -1171,6 +1171,7 @@ class water_intake_table_cell : UITableViewCell {
     }
     
     @IBOutlet weak var lbl_water_glass_count:UILabel!
+    @IBOutlet weak var lbl_water_glass_out_of:UILabel!
     
     @IBOutlet weak var view_glass_measure:UIView! {
         didSet {
@@ -1191,6 +1192,9 @@ class water_intake_table_cell : UITableViewCell {
     //
     @IBOutlet weak var btn_reminder:UIButton!
     @IBOutlet weak var btn_water_count_edit:UIButton!
+    
+    @IBOutlet weak var btn_add:UIButton!
+    @IBOutlet weak var btn_minus:UIButton!
     
 }
 
@@ -1214,6 +1218,19 @@ class water_tracker_table_cell : UITableViewCell {
         }
     }
     
+    @IBOutlet weak var lbl_water_count:UILabel!
+    
+    @IBOutlet weak var btn_add:UIButton!
+    @IBOutlet weak var btn_minus:UIButton!
+    
+    @IBOutlet weak var btn_save:UIButton! {
+        didSet {
+            btn_save.layer.cornerRadius = 8
+            btn_save.clipsToBounds = true
+            btn_save.setTitle("Save", for: .normal)
+            btn_save.setTitleColor(.white, for: .normal)
+        }
+    }
 }
 
 // /* ************** WATER REMINDER ***************************** */

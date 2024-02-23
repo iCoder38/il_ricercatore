@@ -23,4 +23,8 @@ target 'IL-Ricercatore' do
   pod 'Alamofire'
   pod 'SwiftyJSON'
   
+  # toast message
+  pod 'Toast-Swift'
+#  pod 'Toast-Swift', '~> 5.1.0'
+  
 end

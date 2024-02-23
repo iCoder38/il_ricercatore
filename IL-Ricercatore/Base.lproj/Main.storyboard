@@ -2296,7 +2296,7 @@
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="11" translatesAutoresizingMaskIntoConstraints="NO" id="IpA-V9-Dxr">
                                                             <rect key="frame" x="0.0" y="0.0" width="353" height="76"/>
                                                         </imageView>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diet" translatesAutoresizingMaskIntoConstraints="NO" id="Td8-Ws-rOA">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="22" translatesAutoresizingMaskIntoConstraints="NO" id="Td8-Ws-rOA">
                                                             <rect key="frame" x="8" y="13" width="50" height="50"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="50" id="Ard-qI-qX4"/>
@@ -2308,7 +2308,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="ye2-WD-YCk"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -2317,7 +2317,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="15" id="Wx1-R1-gET"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -2377,7 +2377,7 @@
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="11" translatesAutoresizingMaskIntoConstraints="NO" id="rbD-aY-0O5">
                                                             <rect key="frame" x="0.0" y="0.0" width="353" height="166"/>
                                                         </imageView>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diet" translatesAutoresizingMaskIntoConstraints="NO" id="LJ4-nt-fhO">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="22" translatesAutoresizingMaskIntoConstraints="NO" id="LJ4-nt-fhO">
                                                             <rect key="frame" x="8" y="8" width="50" height="50"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="50" id="FGw-5V-pUa"/>
@@ -2635,7 +2635,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="150" id="nFD-Fg-c7E"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                                             <inset key="titleEdgeInsets" minX="0.0" minY="110" maxX="0.0" maxY="0.0"/>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                             <state key="normal" title="Button">
@@ -2658,16 +2658,16 @@
                                                             <color key="textColor" systemColor="viewFlipsideBackgroundColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="197 of 173" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4o-Tt-D0d">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4o-Tt-D0d">
                                                             <rect key="frame" x="198" y="99" width="140" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="ZQb-fe-sRu"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                                                             <color key="textColor" systemColor="viewFlipsideBackgroundColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diet" translatesAutoresizingMaskIntoConstraints="NO" id="cuz-5w-plo">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="recycling-water" translatesAutoresizingMaskIntoConstraints="NO" id="cuz-5w-plo">
                                                             <rect key="frame" x="228" y="13" width="80" height="80"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="80" id="EhR-Pa-OK0"/>
@@ -4658,9 +4658,12 @@ per your dietrary.</string>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="btn_add" destination="xi6-oY-iWe" id="1ro-HG-uTm"/>
+                                            <outlet property="btn_minus" destination="WdG-gn-c2o" id="6Df-IZ-RnP"/>
                                             <outlet property="btn_reminder" destination="2zY-sx-UMs" id="tJU-nR-fB5"/>
                                             <outlet property="btn_water_count_edit" destination="LE0-dj-FUs" id="HDF-nb-wPa"/>
                                             <outlet property="lbl_water_glass_count" destination="a6H-qg-Bk8" id="5Af-gR-ZbT"/>
+                                            <outlet property="lbl_water_glass_out_of" destination="3Vq-cH-SYv" id="0r0-8D-qwL"/>
                                             <outlet property="view_glass" destination="YqT-cH-a1A" id="reQ-Jj-TuT"/>
                                             <outlet property="view_glass_measure" destination="RLW-gy-bv8" id="Fs6-qh-4L2"/>
                                             <outlet property="view_reminder" destination="8CC-YL-hq8" id="gIg-Ri-39F"/>
@@ -4759,11 +4762,11 @@ per your dietrary.</string>
                                 <rect key="frame" x="0.0" y="85" width="393" height="1115"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="water_tracker_table_cell" rowHeight="226" id="c7U-Rs-BK7" customClass="water_tracker_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="226"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="water_tracker_table_cell" rowHeight="292" id="c7U-Rs-BK7" customClass="water_tracker_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="292"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="c7U-Rs-BK7" id="vrO-F0-ZP7">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="226"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="292"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setup water Goal ( Glasses )" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOy-7b-QSF">
@@ -4784,8 +4787,8 @@ per your dietrary.</string>
                                                     <color key="textColor" systemColor="systemGreenColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Glasses" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kwv-cF-mCW">
-                                                    <rect key="frame" x="20" y="79" width="77.666666666666671" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Glass" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kwv-cF-mCW">
+                                                    <rect key="frame" x="20.000000000000004" y="79" width="59.333333333333343" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="18" id="V95-AU-TRi"/>
                                                     </constraints>
@@ -4858,9 +4861,21 @@ per your dietrary.</string>
                                                         <constraint firstItem="OVM-71-9tW" firstAttribute="top" secondItem="ay3-Oc-0u0" secondAttribute="top" constant="25" id="yRN-Le-sH5"/>
                                                     </constraints>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNU-75-18h">
+                                                    <rect key="frame" x="20" y="225" width="353" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="PtM-TL-6h3"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="18"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="Save" backgroundImage="yellow_gradient_button">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Kwv-cF-mCW" firstAttribute="top" secondItem="cM9-ff-gBS" secondAttribute="bottom" constant="8" symbolic="YES" id="1LE-10-ezy"/>
+                                                <constraint firstItem="NNU-75-18h" firstAttribute="leading" secondItem="vrO-F0-ZP7" secondAttribute="leading" constant="20" symbolic="YES" id="3UX-uo-TFr"/>
                                                 <constraint firstItem="ay3-Oc-0u0" firstAttribute="leading" secondItem="vrO-F0-ZP7" secondAttribute="leadingMargin" id="5pj-zW-Kzt"/>
                                                 <constraint firstItem="ay3-Oc-0u0" firstAttribute="top" secondItem="vrO-F0-ZP7" secondAttribute="topMargin" constant="116" id="65O-Sv-WIa"/>
                                                 <constraint firstItem="JOy-7b-QSF" firstAttribute="trailing" secondItem="vrO-F0-ZP7" secondAttribute="trailingMargin" id="A4n-PZ-B8Q"/>
@@ -4872,10 +4887,16 @@ per your dietrary.</string>
                                                 <constraint firstItem="cM9-ff-gBS" firstAttribute="top" secondItem="JOy-7b-QSF" secondAttribute="bottom" constant="2" id="gUp-8X-caa"/>
                                                 <constraint firstItem="ay3-Oc-0u0" firstAttribute="trailing" secondItem="vrO-F0-ZP7" secondAttribute="trailingMargin" id="kKD-VI-sSx"/>
                                                 <constraint firstItem="cM9-ff-gBS" firstAttribute="leading" secondItem="vrO-F0-ZP7" secondAttribute="leadingMargin" id="kMj-r6-Pdt"/>
+                                                <constraint firstItem="NNU-75-18h" firstAttribute="top" secondItem="ay3-Oc-0u0" secondAttribute="bottom" constant="8" symbolic="YES" id="mEj-zL-ws5"/>
+                                                <constraint firstAttribute="trailing" secondItem="NNU-75-18h" secondAttribute="trailing" constant="20" symbolic="YES" id="o4Z-2Q-Kh6"/>
                                                 <constraint firstItem="ZNF-T0-Wqf" firstAttribute="top" secondItem="cM9-ff-gBS" secondAttribute="bottom" constant="8" symbolic="YES" id="wZa-61-bPz"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="btn_add" destination="m8i-Yh-HZf" id="nnW-ok-rKk"/>
+                                            <outlet property="btn_minus" destination="OVM-71-9tW" id="plT-bd-ahn"/>
+                                            <outlet property="btn_save" destination="NNU-75-18h" id="cl6-nP-i8i"/>
+                                            <outlet property="lbl_water_count" destination="OwR-07-ZCD" id="vE4-DK-mxI"/>
                                             <outlet property="view_counter" destination="ay3-Oc-0u0" id="OYM-mI-QoT"/>
                                             <outlet property="view_digits_counter" destination="SWc-Ky-jKm" id="dzv-5s-nO1"/>
                                         </connections>
@@ -5272,7 +5293,7 @@ per your dietrary.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7YS-Cb-96f" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10945.801526717556" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="10944.274809160304" y="-2.1126760563380285"/>
         </scene>
         <!--Side bar menu-->
         <scene sceneID="Up3-NC-vVZ">
@@ -7336,6 +7357,7 @@ per your dietrary.</string>
     </scenes>
     <resources>
         <image name="11" width="600" height="167"/>
+        <image name="22" width="150" height="126"/>
         <image name="3d-report" width="256" height="256"/>
         <image name="back_blue" width="600" height="2200"/>
         <image name="blue" width="807" height="175"/>

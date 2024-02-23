@@ -174,6 +174,11 @@ class dashboard: UIViewController {
         }
     }
     
+    @objc func water_track_click_method() {
+        //
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "water_intake_id")
+        self.navigationController?.pushViewController(push, animated: true)
+    }
 }
 
 //MARK:- TABLE VIEW -
@@ -202,6 +207,8 @@ extension dashboard: UITableViewDataSource , UITableViewDelegate {
             cell.lbl_name.text = (person["fullName"] as! String)
             cell.lbl_email.text = (person["email"] as! String)
             
+            cell.lbl_weight.text = "Current : \(person["current_wight"]!) \(person["current_wight_measurement"]!)"
+            cell.lbl_weight_status.text = "Target : \(person["target_wight"]!) \(person["target_wight_measurement"]!)"
         }
         
         cell.lbl_protein.text = "Protein \(self.dict_dashboard["protine"]!) %"
@@ -250,7 +257,8 @@ extension dashboard: UITableViewDataSource , UITableViewDelegate {
         }
         
         
-        
+        // water intake
+        cell.btn_track.addTarget(self, action: #selector(water_track_click_method), for: .touchUpInside)
         
         // cell.btn_continue.addTarget(self, action: #selector(complete_profile_click_method), for: .touchUpInside)
         

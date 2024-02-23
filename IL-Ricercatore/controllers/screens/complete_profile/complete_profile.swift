@@ -425,7 +425,7 @@ class complete_profile: UIViewController, UITextFieldDelegate {
             cell.lbl_target_weight_message.text = "Click for KG"
             cell.lbl_target_weight_text.text = "LBS"
             
-            cell.txt_target_weight.placeholder = "Current Weight ( LBS )"
+            cell.txt_target_weight.placeholder = "Target Weight ( LBS )"
         } else {
             self.str_target_weight = "0"
             

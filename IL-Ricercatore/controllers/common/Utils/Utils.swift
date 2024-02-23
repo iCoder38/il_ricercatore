@@ -91,3 +91,12 @@ extension Date {
         return Calendar.current.date(byAdding: dateComponents, to: self)!
     }
 }
+
+
+extension Date {
+ static func getCurrentDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.string(from: Date())
+    }
+}
