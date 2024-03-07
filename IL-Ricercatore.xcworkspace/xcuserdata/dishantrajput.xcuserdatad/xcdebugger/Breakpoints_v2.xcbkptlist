@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "C2DDF704-6A26-4624-A525-169B89B7AF9F"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "35EF91C1-8056-4081-A48D-FA661DE35429"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IL-Ricercatore/controllers/screens/complete_profile/complete_profile.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "396"
+            endingLineNumber = "396"
+            landmarkName = "current_weight_pop_up_click_method()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "35EF91C1-8056-4081-A48D-FA661DE35429 - 451416590895ae43"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "IL_Ricercatore.complete_profile.current_weight_pop_up_click_method() -&gt; ()"
+                  moduleName = "IL-Ricercatore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dishantrajput/Documents/evs/il_ricercatore/IL-Ricercatore/controllers/screens/complete_profile/complete_profile.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "393"
+                  endingLineNumber = "393"
+                  offsetFromSymbolStart = "736">
+               </Location>
+               <Location
+                  uuid = "35EF91C1-8056-4081-A48D-FA661DE35429 - 451416590895aecf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "IL_Ricercatore.complete_profile.current_weight_pop_up_click_method() -&gt; ()"
+                  moduleName = "IL-Ricercatore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dishantrajput/Documents/evs/il_ricercatore/IL-Ricercatore/controllers/screens/complete_profile/complete_profile.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "397"
+                  endingLineNumber = "397"
+                  offsetFromSymbolStart = "1452">
+               </Location>
+               <Location
+                  uuid = "35EF91C1-8056-4081-A48D-FA661DE35429 - 451416590895aee0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "IL_Ricercatore.complete_profile.current_weight_pop_up_click_method() -&gt; ()"
+                  moduleName = "IL-Ricercatore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dishantrajput/Documents/evs/il_ricercatore/IL-Ricercatore/controllers/screens/complete_profile/complete_profile.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "396"
+                  endingLineNumber = "396"
+                  offsetFromSymbolStart = "836">
+               </Location>
+               <Location
+                  uuid = "35EF91C1-8056-4081-A48D-FA661DE35429 - 451416590895aee0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "IL_Ricercatore.complete_profile.current_weight_pop_up_click_method() -&gt; ()"
+                  moduleName = "IL-Ricercatore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dishantrajput/Documents/evs/il_ricercatore/IL-Ricercatore/controllers/screens/complete_profile/complete_profile.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "396"
+                  endingLineNumber = "396"
+                  offsetFromSymbolStart = "772">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FC0F300B-65BC-445A-A9CB-ED823328CCF0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IL-Ricercatore/controllers/screens/complete_profile_two/complete_profile_two.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "292"
+            endingLineNumber = "292"
+            landmarkName = "general_WB()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FC0F300B-65BC-445A-A9CB-ED823328CCF0 - d58060ddc363d8e7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in IL_Ricercatore.complete_profile_two.general_WB() -&gt; ()"
+                  moduleName = "IL-Ricercatore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dishantrajput/Documents/evs/il_ricercatore/IL-Ricercatore/controllers/screens/complete_profile_two/complete_profile_two.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "292"
+                  endingLineNumber = "292"
+                  offsetFromSymbolStart = "616">
+               </Location>
+               <Location
+                  uuid = "FC0F300B-65BC-445A-A9CB-ED823328CCF0 - d58060ddc363d8e7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in IL_Ricercatore.complete_profile_two.general_WB() -&gt; ()"
+                  moduleName = "IL-Ricercatore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dishantrajput/Documents/evs/il_ricercatore/IL-Ricercatore/controllers/screens/complete_profile_two/complete_profile_two.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "292"
+                  endingLineNumber = "292"
+                  offsetFromSymbolStart = "700">
+               </Location>
+               <Location
+                  uuid = "FC0F300B-65BC-445A-A9CB-ED823328CCF0 - d58060ddc363d8e7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in IL_Ricercatore.complete_profile_two.general_WB() -&gt; ()"
+                  moduleName = "IL-Ricercatore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dishantrajput/Documents/evs/il_ricercatore/IL-Ricercatore/controllers/screens/complete_profile_two/complete_profile_two.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "292"
+                  endingLineNumber = "292"
+                  offsetFromSymbolStart = "624">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "03F7512B-37FE-4D5C-8768-BA297C26595D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IL-Ricercatore/controllers/screens/complete_profile_two/complete_profile_two.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "282"
+            endingLineNumber = "282"
+            landmarkName = "general_WB()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "03F7512B-37FE-4D5C-8768-BA297C26595D - 6a8162ca11b58298"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "IL_Ricercatore.complete_profile_two.general_WB() -&gt; ()"
+                  moduleName = "IL-Ricercatore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dishantrajput/Documents/evs/il_ricercatore/IL-Ricercatore/controllers/screens/complete_profile_two/complete_profile_two.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "283"
+                  endingLineNumber = "283"
+                  offsetFromSymbolStart = "472">
+               </Location>
+               <Location
+                  uuid = "03F7512B-37FE-4D5C-8768-BA297C26595D - 6a8162ca11b582b9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "IL_Ricercatore.complete_profile_two.general_WB() -&gt; ()"
+                  moduleName = "IL-Ricercatore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dishantrajput/Documents/evs/il_ricercatore/IL-Ricercatore/controllers/screens/complete_profile_two/complete_profile_two.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "282"
+                  endingLineNumber = "282"
+                  offsetFromSymbolStart = "472">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D236229D-CC57-4D38-AF98-E623F3C7C0EE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IL-Ricercatore/controllers/custom_alert/disease_list/disease_list.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E510D69E-C48C-490D-B9DC-1A3C7CADEA27"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IL-Ricercatore/controllers/screens/chart_monitors/sleep/add_sleep_time/add_sleep_time.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "submit_date_WB()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E510D69E-C48C-490D-B9DC-1A3C7CADEA27 - 990d03475a71fc99"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in IL_Ricercatore.add_sleep_time.submit_date_WB() -&gt; ()"
+                  moduleName = "IL-Ricercatore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dishantrajput/Documents/evs/il_ricercatore/IL-Ricercatore/controllers/screens/chart_monitors/sleep/add_sleep_time/add_sleep_time.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "109"
+                  endingLineNumber = "109"
+                  offsetFromSymbolStart = "1552">
+               </Location>
+               <Location
+                  uuid = "E510D69E-C48C-490D-B9DC-1A3C7CADEA27 - d4ef5067a6c4545c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "IL_Ricercatore.add_sleep_time.submit_date_WB() -&gt; ()"
+                  moduleName = "IL-Ricercatore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dishantrajput/Documents/evs/il_ricercatore/IL-Ricercatore/controllers/screens/chart_monitors/sleep/add_sleep_time/add_sleep_time.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "108"
+                  endingLineNumber = "108"
+                  offsetFromSymbolStart = "2564">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

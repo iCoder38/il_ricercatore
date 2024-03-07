@@ -1,0 +1,6 @@
+framework module Pods_IL_RicercatoreTests {
+  umbrella header "Pods-IL-RicercatoreTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
