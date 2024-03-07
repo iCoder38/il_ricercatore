@@ -1,5 +1,5 @@
 //
-//  add_sleep_time.swift
+//  add_steps_time.swift
 //  IL-Ricercatore
 //
 //  Created by Dishant Rajput on 07/03/24.
@@ -8,7 +8,7 @@
 import UIKit
 import Alamofire
 
-class add_sleep_time: UIViewController {
+class add_steps_time: UIViewController {
     
     var str_sleep_time:String! = "0"
     var str_wake_up_time:String! = "0"
@@ -26,15 +26,10 @@ class add_sleep_time: UIViewController {
     
     @IBOutlet weak var lbl_navigation_title:UILabel! {
         didSet {
-            lbl_navigation_title.text = navigation_title_sleep_add
+            lbl_navigation_title.text = navigation_title_steps_add
         }
     }
-    @IBOutlet weak var btn_submit:UIButton! {
-        didSet {
-            btn_submit.layer.cornerRadius = 12
-            btn_submit.clipsToBounds = true
-        }
-    }
+    
     
     @IBOutlet weak var btn_went_to_bed_date:UIButton!
     @IBOutlet weak var btn_wake_up_date:UIButton!
@@ -42,16 +37,26 @@ class add_sleep_time: UIViewController {
     @IBOutlet weak var btn_went_to_bed_time:UIButton!
     @IBOutlet weak var btn_wake_up_time:UIButton!
     
+    @IBOutlet weak var tble_view:UITableView! {
+        didSet {
+            tble_view.delegate = self
+            tble_view.dataSource = self
+            // tble_view.layer.cornerRadius = 22
+            tble_view.clipsToBounds = true
+            tble_view.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.btn_went_to_bed_time.addTarget(self, action: #selector(time_went_to_bed), for: .touchUpInside)
+        /*self.btn_went_to_bed_time.addTarget(self, action: #selector(time_went_to_bed), for: .touchUpInside)
         self.btn_wake_up_time.addTarget(self, action: #selector(time_wake_up), for: .touchUpInside)
         
         self.btn_went_to_bed_date.addTarget(self, action: #selector(date_went_to_bed), for: .touchUpInside)
-        self.btn_wake_up_date.addTarget(self, action: #selector(date_wake_up), for: .touchUpInside)
+        self.btn_wake_up_date.addTarget(self, action: #selector(date_wake_up), for: .touchUpInside)*/
         
-        self.btn_submit.addTarget(self, action: #selector(submit_date_WB), for: .touchUpInside)
+        // self.btn_submit.addTarget(self, action: #selector(submit_date_WB), for: .touchUpInside)
     }
     
     @objc func date_went_to_bed() {
@@ -86,26 +91,35 @@ class add_sleep_time: UIViewController {
     }
     
     @objc func submit_date_WB() {
+        let indexPath = IndexPath.init(row: 0, section: 0)
+        let cell = self.tble_view.cellForRow(at: indexPath) as! add_step_time_table_cell
         
-        if (self.str_went_to_bed_date == "0") {
-            self.alert_show_error(field_name: "Went to bed date")
+        if (cell.txt_title.text! == "") {
+            self.alert_show_error(field_name: "Title")
+            return
+        }
+        if (cell.txt_select_date.text! == "") {
+            self.alert_show_error(field_name: "Selected date")
+            return
+        }
+        if (cell.txt_duration.text! == "") {
+            self.alert_show_error(field_name: "Duration")
+            return
+        }
+        if (cell.txt_distance.text! == "") {
+            self.alert_show_error(field_name: "Distance")
+            return
+        }
+        if (cell.txt_steps.text! == "") {
+            self.alert_show_error(field_name: "Steps")
+            return
+        }
+        if (cell.txt_note.text! == "") {
+            self.alert_show_error(field_name: "Note")
             return
         }
         
-        if (self.str_wake_up_date == "0") {
-            self.alert_show_error(field_name: "Wake up date")
-            return
-        }
-        
-        if (self.str_sleep_time == "0") {
-            self.alert_show_error(field_name: "Went to bed sleep time")
-            return
-        }
-        
-        if (self.str_wake_up_time == "0") {
-            self.alert_show_error(field_name: "Wake up sleept time")
-            return
-        }
+         
         
         ERProgressHud.sharedInstance.showDarkBackgroundView(withTitle: "Please wait...")
         var parameters:Dictionary<AnyHashable, Any>!
@@ -121,13 +135,26 @@ class add_sleep_time: UIViewController {
                 let x : Int = person["userId"] as! Int
                 let myString = String(x)
                 
+                /*
+                 [action] => stepadd
+                 [userId] => 25
+                 [title] => hsudb
+                 [date] => 2024-03-07
+                 [totalSteps] => 7
+                 [duration] => bsbdh
+                 [distance] => yey
+                 [note] => hdhdgdv
+                 */
+                
                 parameters = [
-                    "action"        : "sleepadd",
+                    "action"        : "stepadd",
                     "userId"        : String(myString),
-                    "sleep_date"    : String(self.str_went_to_bed_date),
-                    "sleepTime"     : String(self.str_sleep_time),
-                    "wakeup_date"   : String(self.str_wake_up_date),
-                    "wakeupTime"    : String(self.str_wake_up_time),
+                    "title"         : String(cell.txt_title.text!),
+                    "date"          : String(cell.txt_select_date.text!),
+                    "totalSteps"    : String(cell.txt_steps.text!),
+                    "duration"      : String(cell.txt_duration.text!),
+                    "distance"      : String(cell.txt_distance.text!),
+                    "note"          : String(cell.txt_note.text!),
                     
                 ]
                 
@@ -149,15 +176,12 @@ class add_sleep_time: UIViewController {
                             if strSuccess.lowercased() == "success" {
                                 ERProgressHud.sharedInstance.hide()
                                 
-                                var dict: Dictionary<AnyHashable, Any>
-                                dict = JSON["data"] as! Dictionary<AnyHashable, Any>
+                                let alert = NewYorkAlertController(title: String("Success").uppercased(), message: JSON["msg"] as? String, style: .alert)
+                                let cancel = NewYorkButton(title: "dismiss", style: .cancel)
+                                alert.addButtons([cancel])
+                                self.present(alert, animated: true)
                                 
-                                let defaults = UserDefaults.standard
-                                defaults.setValue(dict, forKey: str_save_login_user_data)
-                                
-                                let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "dashboard_id")
-                                self.navigationController?.pushViewController(push, animated: true)
-                                
+                                self.navigationController?.popViewController(animated: true)
                             } else {
                                 if (JSON["msg"] as? String == your_are_not_auth) {
                                     self.refresh_token_WB()
@@ -232,6 +256,51 @@ class add_sleep_time: UIViewController {
                 break
             }
         }
+    }
+    
+    @objc func calendar_click_method() {
+        let indexPath = IndexPath.init(row: 0, section: 0)
+        let cell = self.tble_view.cellForRow(at: indexPath) as! add_step_time_table_cell
+        
+        RPicker.selectDate(title: "Select date", cancelText: "Cancel", datePickerMode: .date,maxDate: Date.now, didSelectDate: { (selectedDate) in
+            cell.txt_select_date.text = selectedDate.dateString("yyyy-MM-dd")
+        })
+    }
+    
+}
+
+//MARK:- TABLE VIEW -
+extension add_steps_time: UITableViewDataSource , UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell:add_step_time_table_cell = tableView.dequeueReusableCell(withIdentifier: "add_step_time_table_cell") as! add_step_time_table_cell
+        
+        cell.backgroundColor = .clear
+        
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = .clear
+        cell.selectedBackgroundView = backgroundView
+        
+        cell.btn_calendar_click.addTarget(self, action: #selector(calendar_click_method), for: .touchUpInside)
+        cell.btn_submit.addTarget(self, action: #selector(submit_date_WB), for: .touchUpInside)
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 960
     }
     
 }

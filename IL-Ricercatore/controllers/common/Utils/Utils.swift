@@ -12,6 +12,8 @@ var application_base_url = "https://demo4.evirtualservices.net/il_recreator/serv
 let str_save_login_user_data = "keyLoginFullData"
 let str_save_last_api_token = "key_last_api_token"
 
+let your_are_not_auth = "You are not authorize to access the API"
+
 class Utils: NSObject {
     
      
@@ -29,7 +31,7 @@ extension UIViewController {
     
     @objc func alert_show_error(field_name:String) {
         
-        let alert = NewYorkAlertController(title: String("Error").uppercased(), message: String(field_name)+String(" field should not be empty"), style: .alert)
+        let alert = NewYorkAlertController(title: String("Alert").uppercased(), message: String(field_name)+String(" field should not be empty"), style: .alert)
         let cancel = NewYorkButton(title: "dismiss", style: .cancel)
         alert.addButtons([cancel])
         self.present(alert, animated: true)

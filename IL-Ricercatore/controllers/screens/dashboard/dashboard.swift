@@ -174,13 +174,17 @@ class dashboard: UIViewController {
     }
     
     @objc func water_track_click_method() {
-        //
         let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "water_intake_id")
         self.navigationController?.pushViewController(push, animated: true)
     }
     
     @objc func sleep_click_method() {
         let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "sleep_id")
+        self.navigationController?.pushViewController(push, animated: true)
+    }
+    
+    @objc func steps_click_method() {
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "steps_id")
         self.navigationController?.pushViewController(push, animated: true)
     }
     
@@ -268,7 +272,7 @@ extension dashboard: UITableViewDataSource , UITableViewDelegate {
         // cell.btn_continue.addTarget(self, action: #selector(complete_profile_click_method), for: .touchUpInside)
         
         cell.btn_sleep.addTarget(self, action: #selector(sleep_click_method), for: .touchUpInside)
-        
+        cell.btn_steps.addTarget(self, action: #selector(steps_click_method), for: .touchUpInside)
         
         return cell
         

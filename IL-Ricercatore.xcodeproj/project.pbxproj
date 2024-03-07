@@ -16,6 +16,8 @@
 		B939EF132B318E4100B9556C /* eat_meal_time.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939EF122B318E4100B9556C /* eat_meal_time.swift */; };
 		B939EF162B3190F300B9556C /* edit_meal_calories.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939EF152B3190F300B9556C /* edit_meal_calories.swift */; };
 		B95075892B32C7F800291EAC /* side_bar_menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95075882B32C7F800291EAC /* side_bar_menu.swift */; };
+		B950F9102B9A04B100C01D3B /* steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = B950F90F2B9A04B100C01D3B /* steps.swift */; };
+		B950F9132B9A05C200C01D3B /* add_steps_time.swift in Sources */ = {isa = PBXBuildFile; fileRef = B950F9122B9A05C200C01D3B /* add_steps_time.swift */; };
 		B9538BA62B886B0C00722BF8 /* api.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9538BA52B886B0C00722BF8 /* api.swift */; };
 		B977AE572B2D7C0F00EF12BA /* create_an_account.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977AE562B2D7C0F00EF12BA /* create_an_account.swift */; };
 		B977AE5B2B2D814800EF12BA /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977AE5A2B2D814800EF12BA /* Utils.swift */; };
@@ -96,6 +98,8 @@
 		B939EF122B318E4100B9556C /* eat_meal_time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eat_meal_time.swift; sourceTree = "<group>"; };
 		B939EF152B3190F300B9556C /* edit_meal_calories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = edit_meal_calories.swift; sourceTree = "<group>"; };
 		B95075882B32C7F800291EAC /* side_bar_menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = side_bar_menu.swift; sourceTree = "<group>"; };
+		B950F90F2B9A04B100C01D3B /* steps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = steps.swift; sourceTree = "<group>"; };
+		B950F9122B9A05C200C01D3B /* add_steps_time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = add_steps_time.swift; sourceTree = "<group>"; };
 		B9538BA52B886B0C00722BF8 /* api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = api.swift; sourceTree = "<group>"; };
 		B977AE562B2D7C0F00EF12BA /* create_an_account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = create_an_account.swift; sourceTree = "<group>"; };
 		B977AE5A2B2D814800EF12BA /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -267,6 +271,23 @@
 			path = side_bar_menu;
 			sourceTree = "<group>";
 		};
+		B950F90E2B9A049900C01D3B /* steps */ = {
+			isa = PBXGroup;
+			children = (
+				B950F90F2B9A04B100C01D3B /* steps.swift */,
+				B950F9112B9A059E00C01D3B /* add_steps_time */,
+			);
+			path = steps;
+			sourceTree = "<group>";
+		};
+		B950F9112B9A059E00C01D3B /* add_steps_time */ = {
+			isa = PBXGroup;
+			children = (
+				B950F9122B9A05C200C01D3B /* add_steps_time.swift */,
+			);
+			path = add_steps_time;
+			sourceTree = "<group>";
+		};
 		B9538BA32B886AF000722BF8 /* same_multiples */ = {
 			isa = PBXGroup;
 			children = (
@@ -362,6 +383,7 @@
 		B9BC35A52B998CA6004C9431 /* chart_monitors */ = {
 			isa = PBXGroup;
 			children = (
+				B950F90E2B9A049900C01D3B /* steps */,
 				B9BC35A62B998CDB004C9431 /* sleep */,
 			);
 			path = chart_monitors;
@@ -907,6 +929,7 @@
 				B977AE612B2D8BE200EF12BA /* complete_profile_two.swift in Sources */,
 				B9EF41792B346D5000335435 /* NewYorkAlertController.swift in Sources */,
 				B977AE572B2D7C0F00EF12BA /* create_an_account.swift in Sources */,
+				B950F9132B9A05C200C01D3B /* add_steps_time.swift in Sources */,
 				B9E745362B29C1E9007E018A /* AppDelegate.swift in Sources */,
 				B9E7456D2B29DE34007E018A /* welcome.swift in Sources */,
 				B9CC8EE72B33017700130035 /* reminders.swift in Sources */,
@@ -931,6 +954,7 @@
 				B9EF41632B3456FE00335435 /* select_workout.swift in Sources */,
 				B977AE5B2B2D814800EF12BA /* Utils.swift in Sources */,
 				B939EF132B318E4100B9556C /* eat_meal_time.swift in Sources */,
+				B950F9102B9A04B100C01D3B /* steps.swift in Sources */,
 				B9538BA62B886B0C00722BF8 /* api.swift in Sources */,
 				B9DD5A1A2B31B9A3006B2D60 /* water_intake.swift in Sources */,
 			);

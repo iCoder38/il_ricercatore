@@ -885,6 +885,17 @@ class dashboard_table_cell : UITableViewCell {
             // btn_sleep.setTitle("Cal Burnt", for: .normal)
         }
     }
+    
+    @IBOutlet weak var btn_steps:UIButton! {
+        didSet {
+            btn_steps.layer.cornerRadius = 12
+            btn_steps.clipsToBounds = true
+            btn_steps.backgroundColor = light_purple_color
+            btn_steps.setTitleColor(.black, for: .normal)
+            // btn_sleep.setTitle("Cal Burnt", for: .normal)
+        }
+    }
+    
 }
 
 
@@ -1447,6 +1458,114 @@ class select_workout_table_cell : UITableViewCell {
 class sleep_table_cell : UITableViewCell {
     
     
+    
+    @IBOutlet weak var lbl_date:UILabel!
+    @IBOutlet weak var lbl_total_sleep_time:UILabel!
+    
+    @IBOutlet weak var btn_date_one:UIButton! {
+        didSet {
+            btn_date_one.layer.cornerRadius = 8
+            btn_date_one.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var btn_date_two:UIButton! {
+        didSet {
+            btn_date_two.layer.cornerRadius = 8
+            btn_date_two.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var btn_submit:UIButton! {
+        didSet {
+            btn_submit.layer.cornerRadius = 8
+            btn_submit.clipsToBounds = true
+        }
+    }
+    
+}
+// /* ************** MONITOR - SLEEP **************************** */
+// /* ********************************************************** */
+class add_step_time_table_cell : UITableViewCell {
+    
+    @IBOutlet weak var txt_title:UITextField! {
+        didSet {
+            txt_title.layer.cornerRadius = 8
+            txt_title.clipsToBounds = true
+            txt_title.backgroundColor = .clear
+            txt_title.placeholder = "Title"
+            txt_title.setLeftPaddingPoints(20)
+            txt_title.backgroundColor = UIColor.init(red: 243.0/255.0, green: 243.0/255.0, blue: 243.0/255.0, alpha: 1)
+        }
+    }
+    
+    @IBOutlet weak var txt_select_date:UITextField! {
+        didSet {
+            txt_select_date.layer.cornerRadius = 8
+            txt_select_date.clipsToBounds = true
+            txt_select_date.backgroundColor = .clear
+            txt_select_date.placeholder = "Select date"
+            txt_select_date.setLeftPaddingPoints(20)
+            txt_select_date.backgroundColor = UIColor.init(red: 243.0/255.0, green: 243.0/255.0, blue: 243.0/255.0, alpha: 1)
+        }
+    }
+    
+    @IBOutlet weak var txt_duration:UITextField! {
+        didSet {
+            txt_duration.layer.cornerRadius = 8
+            txt_duration.clipsToBounds = true
+            txt_duration.backgroundColor = .clear
+            txt_duration.placeholder = "Duration"
+            txt_duration.setLeftPaddingPoints(20)
+            txt_duration.backgroundColor = UIColor.init(red: 243.0/255.0, green: 243.0/255.0, blue: 243.0/255.0, alpha: 1)
+        }
+    }
+    
+    @IBOutlet weak var txt_distance:UITextField! {
+        didSet {
+            txt_distance.layer.cornerRadius = 8
+            txt_distance.clipsToBounds = true
+            txt_distance.backgroundColor = .clear
+            txt_distance.placeholder = "Distance"
+            txt_distance.setLeftPaddingPoints(20)
+            txt_distance.backgroundColor = UIColor.init(red: 243.0/255.0, green: 243.0/255.0, blue: 243.0/255.0, alpha: 1)
+        }
+    }
+    
+    @IBOutlet weak var txt_steps:UITextField! {
+        didSet {
+            txt_steps.layer.cornerRadius = 8
+            txt_steps.clipsToBounds = true
+            txt_steps.backgroundColor = .clear
+            txt_steps.placeholder = "Steps"
+            txt_steps.setLeftPaddingPoints(20)
+            txt_steps.keyboardType = .phonePad
+            txt_steps.backgroundColor = UIColor.init(red: 243.0/255.0, green: 243.0/255.0, blue: 243.0/255.0, alpha: 1)
+        }
+    }
+    
+    @IBOutlet weak var txt_note:UITextField! {
+        didSet {
+            txt_note.layer.cornerRadius = 8
+            txt_note.clipsToBounds = true
+            txt_note.backgroundColor = .clear
+            txt_note.placeholder = "Note"
+            txt_note.setLeftPaddingPoints(20)
+            txt_note.backgroundColor = UIColor.init(red: 243.0/255.0, green: 243.0/255.0, blue: 243.0/255.0, alpha: 1)
+        }
+    }
+    
+    @IBOutlet weak var btn_calendar_click:UIButton!
+    
+    @IBOutlet weak var btn_submit:UIButton! {
+        didSet {
+            btn_submit.layer.cornerRadius = 12
+            btn_submit.clipsToBounds = true
+        }
+    }
+    
+}
+// /* ************** MONITOR - STEPS *************************** */
+// /* ********************************************************** */
+class steps_table_cell : UITableViewCell {
     
     @IBOutlet weak var lbl_date:UILabel!
     @IBOutlet weak var lbl_total_sleep_time:UILabel!
