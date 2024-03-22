@@ -12,13 +12,16 @@ class add_weight: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
     
     @IBOutlet weak var pickerView: UIPickerView!
     
-    var arrayFruits:NSMutableArray! = []
-    var dummy:NSMutableArray! = []
+    var array_left:NSMutableArray! = []
+    var array_right:NSMutableArray! = []
     
     var str_selected_text:String!
     
     var str_selected_time:String! = "0"
     var str_selected_date:String! = "0"
+    
+    var str_left_value:String! = "0"
+    var str_right_value:String! = "0"
     
     @IBOutlet weak var btn_back:UIButton! {
         didSet {
@@ -33,7 +36,7 @@ class add_weight: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
     
     @IBOutlet weak var lbl_navigation_title:UILabel! {
         didSet {
-            lbl_navigation_title.text = navigation_title_add_heart_rate_en
+            lbl_navigation_title.text = navigation_title_add_weight_en
         }
     }
     
@@ -47,11 +50,11 @@ class add_weight: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
         super.viewDidLoad()
         
         for index in 0...299 {
-            arrayFruits.add("\(index)")
+            array_left.add("\(index)")
         }
         
-        for index in 0...10 {
-            dummy.add("\(index)")
+        for index in 0...9 {
+            array_right.add("\(index)")
         }
         
         self.pickerView.tag = 1
@@ -91,43 +94,59 @@ class add_weight: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
     
     //MARK: - Pickerview method -
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+        return 2
     }
+    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
         if component == 0 {
-            return arrayFruits.count
+            return array_left.count
         } else {
-            return dummy.count
+            return array_right.count
         }
     }
+    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         if component == 0 {
-            return (arrayFruits[row] as! String)
+            return (array_left[row] as! String)
         } else {
-            return (dummy[row] as! String)
+            return (array_right[row] as! String)
         }
     }
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
         if component == 0 {
-            print(arrayFruits[row] as! String)
-            self.lbl_heart_rate.text = (self.arrayFruits[row] as! String)
+            print(array_left[row] as! String)
+            // self.lbl_heart_rate.text = (self.array_left[row] as! String)+"."+(self.array_right[row] as! String)
+            self.str_left_value = (self.array_left[row] as! String)
+            self.update_value(left: String(self.str_left_value), right: String(self.str_right_value))
         } else {
-            print(dummy[row] as! String)
+            print(self.array_right[row] as! String)
+            self.str_right_value = (self.array_right[row] as! String)
+            self.update_value(left: String(self.str_left_value), right: String(self.str_right_value))
         }
+        
     }
+    
+    @objc func update_value(left:String,right:String) {
+        self.lbl_heart_rate.text = left+"."+right
+    }
+    
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        
         var pickerLabel: UILabel? = (view as? UILabel)
         if pickerLabel == nil {
             pickerLabel = UILabel()
             pickerLabel?.font = UIFont(name: "Avenir Next", size: 22.0)
             pickerLabel?.textAlignment = .center
         }
-        pickerLabel?.text = (self.arrayFruits[row] as! String)
+        pickerLabel?.text = (self.array_left[row] as! String)
         pickerLabel?.textColor = UIColor.black
         
         return pickerLabel!
+        
     }
     
     

@@ -41,6 +41,10 @@
 		B9DD5A1A2B31B9A3006B2D60 /* water_intake.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DD5A192B31B9A3006B2D60 /* water_intake.swift */; };
 		B9DD5A1D2B31BDF7006B2D60 /* set_up_water_tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DD5A1C2B31BDF7006B2D60 /* set_up_water_tracker.swift */; };
 		B9DD5A202B31C5B9006B2D60 /* water_reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DD5A1F2B31C5B9006B2D60 /* water_reminder.swift */; };
+		B9E1968B2BADC7400005E28C /* daily_q.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E1968A2BADC7400005E28C /* daily_q.swift */; };
+		B9E314252BAD9B580027A02F /* blood_pressure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E314242BAD9B580027A02F /* blood_pressure.swift */; };
+		B9E314272BAD9B6B0027A02F /* add_blood_pressure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E314262BAD9B6B0027A02F /* add_blood_pressure.swift */; };
+		B9E3142A2BADBF8E0027A02F /* all_post.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E314292BADBF8E0027A02F /* all_post.swift */; };
 		B9E745362B29C1E9007E018A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E745352B29C1E9007E018A /* AppDelegate.swift */; };
 		B9E745382B29C1E9007E018A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E745372B29C1E9007E018A /* SceneDelegate.swift */; };
 		B9E7453A2B29C1E9007E018A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E745392B29C1E9007E018A /* ViewController.swift */; };
@@ -127,6 +131,10 @@
 		B9DD5A192B31B9A3006B2D60 /* water_intake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = water_intake.swift; sourceTree = "<group>"; };
 		B9DD5A1C2B31BDF7006B2D60 /* set_up_water_tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = set_up_water_tracker.swift; sourceTree = "<group>"; };
 		B9DD5A1F2B31C5B9006B2D60 /* water_reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = water_reminder.swift; sourceTree = "<group>"; };
+		B9E1968A2BADC7400005E28C /* daily_q.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = daily_q.swift; sourceTree = "<group>"; };
+		B9E314242BAD9B580027A02F /* blood_pressure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = blood_pressure.swift; sourceTree = "<group>"; };
+		B9E314262BAD9B6B0027A02F /* add_blood_pressure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = add_blood_pressure.swift; sourceTree = "<group>"; };
+		B9E314292BADBF8E0027A02F /* all_post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = all_post.swift; sourceTree = "<group>"; };
 		B9E745322B29C1E9007E018A /* IL-Ricercatore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IL-Ricercatore.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E745352B29C1E9007E018A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9E745372B29C1E9007E018A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -323,6 +331,7 @@
 		B977AE582B2D7C2900EF12BA /* screens */ = {
 			isa = PBXGroup;
 			children = (
+				B9E314282BADBF850027A02F /* post */,
 				B9BC35A52B998CA6004C9431 /* chart_monitors */,
 				B9E745662B29C388007E018A /* login */,
 				B9E7456B2B29DE29007E018A /* welcome */,
@@ -425,10 +434,12 @@
 		B9BC35A52B998CA6004C9431 /* chart_monitors */ = {
 			isa = PBXGroup;
 			children = (
-				B9B371FA2BAD7CC200A64F06 /* weight */,
+				B9E314242BAD9B580027A02F /* blood_pressure.swift */,
+				B9E314232BAD9B4C0027A02F /* add_blood_pressure */,
 				B950F90E2B9A049900C01D3B /* steps */,
 				B9BC35A62B998CDB004C9431 /* sleep */,
 				B9B371F42BAD573D00A64F06 /* heart */,
+				B9B371FA2BAD7CC200A64F06 /* weight */,
 			);
 			path = chart_monitors;
 			sourceTree = "<group>";
@@ -545,6 +556,39 @@
 				B9DD5A1F2B31C5B9006B2D60 /* water_reminder.swift */,
 			);
 			path = water_reminder;
+			sourceTree = "<group>";
+		};
+		B9E196882BADC7250005E28C /* all_post_category */ = {
+			isa = PBXGroup;
+			children = (
+				B9E314292BADBF8E0027A02F /* all_post.swift */,
+			);
+			path = all_post_category;
+			sourceTree = "<group>";
+		};
+		B9E196892BADC7340005E28C /* daily_q */ = {
+			isa = PBXGroup;
+			children = (
+				B9E1968A2BADC7400005E28C /* daily_q.swift */,
+			);
+			path = daily_q;
+			sourceTree = "<group>";
+		};
+		B9E314232BAD9B4C0027A02F /* add_blood_pressure */ = {
+			isa = PBXGroup;
+			children = (
+				B9E314262BAD9B6B0027A02F /* add_blood_pressure.swift */,
+			);
+			path = add_blood_pressure;
+			sourceTree = "<group>";
+		};
+		B9E314282BADBF850027A02F /* post */ = {
+			isa = PBXGroup;
+			children = (
+				B9E196892BADC7340005E28C /* daily_q */,
+				B9E196882BADC7250005E28C /* all_post_category */,
+			);
+			path = post;
 			sourceTree = "<group>";
 		};
 		B9E745292B29C1E9007E018A = {
@@ -964,6 +1008,7 @@
 				B9EF41602B344D8F00335435 /* personalize_day.swift in Sources */,
 				B939EF072B316DF400B9556C /* dashboard.swift in Sources */,
 				B93581192B342D5800DEA73C /* personalised_workout.swift in Sources */,
+				B9E1968B2BADC7400005E28C /* daily_q.swift in Sources */,
 				B9B371FF2BAD7CDF00A64F06 /* add_weight.swift in Sources */,
 				B9EF41762B346D5000335435 /* LeftPaddingTextField.swift in Sources */,
 				B95075892B32C7F800291EAC /* side_bar_menu.swift in Sources */,
@@ -984,11 +1029,13 @@
 				B9DD5A1D2B31BDF7006B2D60 /* set_up_water_tracker.swift in Sources */,
 				B977AE672B2D97E500EF12BA /* breakfast_food.swift in Sources */,
 				B977AE642B2D90F000EF12BA /* complete_profile_three.swift in Sources */,
+				B9E314272BAD9B6B0027A02F /* add_blood_pressure.swift in Sources */,
 				B9EF417B2B346D5000335435 /* NewYorkAlertViewType.swift in Sources */,
 				B9E745382B29C1E9007E018A /* SceneDelegate.swift in Sources */,
 				B9EF41742B346D5000335435 /* ActionSheetView.swift in Sources */,
 				B9EF41752B346D5000335435 /* Color.swift in Sources */,
 				B977AE5E2B2D824100EF12BA /* complete_profile.swift in Sources */,
+				B9E3142A2BADBF8E0027A02F /* all_post.swift in Sources */,
 				B9E745712B29DEB3007E018A /* table_cells.swift in Sources */,
 				B9EF417E2B3472A200335435 /* RPicker.swift in Sources */,
 				B9B371F92BAD57EC00A64F06 /* heart.swift in Sources */,
@@ -997,6 +1044,7 @@
 				B9BC35A82B998CEE004C9431 /* sleep.swift in Sources */,
 				B9CC8EEB2B3309C200130035 /* workout_setting.swift in Sources */,
 				B9E745682B29C3A1007E018A /* login.swift in Sources */,
+				B9E314252BAD9B580027A02F /* blood_pressure.swift in Sources */,
 				B9CC8EEE2B330E6600130035 /* days_workout.swift in Sources */,
 				B9EF416A2B346AFB00335435 /* ERProgressHud.swift in Sources */,
 				B9EF41632B3456FE00335435 /* select_workout.swift in Sources */,

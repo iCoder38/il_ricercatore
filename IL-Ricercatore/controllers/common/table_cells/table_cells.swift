@@ -363,6 +363,42 @@ class create_an_account_table_cell : UITableViewCell {
 
 // /* ************** COMPLETE PROFILE ************************* */
 // /* ********************************************************** */
+class all_post_table_cell : UITableViewCell {
+    
+    
+    
+    @IBOutlet weak var btn_daily_q:UIButton! {
+        didSet {
+            btn_daily_q.layer.cornerRadius = 12
+            btn_daily_q.clipsToBounds = true
+            btn_daily_q.backgroundColor = light_purple_color
+            btn_daily_q.setTitleColor(.black, for: .normal)
+            btn_daily_q.setTitle("Daily Q", for: .normal)
+        }
+    }
+}
+
+// /* ************** DAILY Q ************************* */
+// /* ********************************************************** */
+class daily_q_table_cell : UITableViewCell {
+    
+    @IBOutlet weak var view_cell_BG:UIView! {
+        didSet {
+            view_cell_BG.layer.masksToBounds = false
+            view_cell_BG.layer.shadowColor =  UIColor.lightGray.cgColor
+            view_cell_BG.layer.shadowOffset = CGSize(width: 0, height: 1)
+            view_cell_BG.layer.shadowRadius = 5.0
+            view_cell_BG.layer.shadowOpacity = 15.0
+            view_cell_BG.layer.cornerRadius = 5.0
+        }
+    }
+    
+    @IBOutlet weak var view_video:UIView!
+    
+}
+
+// /* ************** COMPLETE PROFILE ************************* */
+// /* ********************************************************** */
 class complete_profile_table_cell : UITableViewCell {
     
     @IBOutlet weak var btn_male:UIButton! {
@@ -903,8 +939,27 @@ class dashboard_table_cell : UITableViewCell {
             btn_heart.setTitleColor(.black, for: .normal)
             // btn_sleep.setTitle("Cal Burnt", for: .normal)
         }
+    } 
+    @IBOutlet weak var btn_weight:UIButton! {
+        didSet {
+            btn_weight.layer.cornerRadius = 12
+            btn_weight.clipsToBounds = true
+            btn_weight.backgroundColor = light_purple_color
+            btn_weight.setTitleColor(.black, for: .normal)
+            // btn_sleep.setTitle("Cal Burnt", for: .normal)
+        }
+    }
+    @IBOutlet weak var btn_blood_pressure:UIButton! {
+        didSet {
+            btn_blood_pressure.layer.cornerRadius = 12
+            btn_blood_pressure.clipsToBounds = true
+            btn_blood_pressure.backgroundColor = light_purple_color
+            btn_blood_pressure.setTitleColor(.black, for: .normal)
+            // btn_sleep.setTitle("Cal Burnt", for: .normal)
+        }
     }
     
+    @IBOutlet weak var view_more_post:UIButton!
 }
 
 
@@ -1494,6 +1549,64 @@ class sleep_table_cell : UITableViewCell {
 // /* ************** MONITOR - HEART **************************** */
 // /* ********************************************************** */
 class heart_table_cell : UITableViewCell {
+    
+    
+    
+    @IBOutlet weak var lbl_date:UILabel!
+    @IBOutlet weak var lbl_total_sleep_time:UILabel!
+    
+    @IBOutlet weak var btn_date_one:UIButton! {
+        didSet {
+            btn_date_one.layer.cornerRadius = 8
+            btn_date_one.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var btn_date_two:UIButton! {
+        didSet {
+            btn_date_two.layer.cornerRadius = 8
+            btn_date_two.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var btn_submit:UIButton! {
+        didSet {
+            btn_submit.layer.cornerRadius = 8
+            btn_submit.clipsToBounds = true
+        }
+    }
+    
+}
+// /* ************** MONITOR - WEIGHT **************************** */
+// /* ********************************************************** */
+class weight_table_cell : UITableViewCell {
+    
+    
+    
+    @IBOutlet weak var lbl_date:UILabel!
+    @IBOutlet weak var lbl_total_sleep_time:UILabel!
+    
+    @IBOutlet weak var btn_date_one:UIButton! {
+        didSet {
+            btn_date_one.layer.cornerRadius = 8
+            btn_date_one.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var btn_date_two:UIButton! {
+        didSet {
+            btn_date_two.layer.cornerRadius = 8
+            btn_date_two.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var btn_submit:UIButton! {
+        didSet {
+            btn_submit.layer.cornerRadius = 8
+            btn_submit.clipsToBounds = true
+        }
+    }
+    
+}
+// /* ************** MONITOR - BLOOD PRESSURE **************************** */
+// /* ********************************************************** */
+class blood_pressure_table_cell : UITableViewCell {
     
     
     

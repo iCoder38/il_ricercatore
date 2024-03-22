@@ -62,9 +62,22 @@ var navigation_title_steps_details = "step details".uppercased()
 // steps
 var navigation_title_steps_add = "add step".uppercased()
 
-// water intake
+// heart
 var navigation_title_heart_rate_en = "heart rate".uppercased()
 var navigation_title_add_heart_rate_en = "add heart rate".uppercased()
+
+// weight
+var navigation_title_weight_en = "weight rate".uppercased()
+var navigation_title_add_weight_en = "add weight rate".uppercased()
+
+// blood pressure
+var navigation_title_blood_pressure_en = "blood pressure".uppercased()
+var navigation_title_add_blood_pressure_en = "blood pressure".uppercased()
+
+var navigation_title_all_post = "all post".uppercased()
+
+var navigation_title_daily_q = "Daily q".uppercased()
+
 //////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// ALERT MESSAGE //////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////
