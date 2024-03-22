@@ -14,9 +14,9 @@ let str_save_last_api_token = "key_last_api_token"
 
 let your_are_not_auth = "You are not authorize to access the API"
 
+let date_fomatter = "MM-dd-yyyy"
+
 class Utils: NSObject {
-    
-     
     
 }
 
@@ -36,6 +36,16 @@ extension UIViewController {
         alert.addButtons([cancel])
         self.present(alert, animated: true)
         
+    }
+    @objc func success_with_back_show_alert(message:String) {
+        
+        let alert = NewYorkAlertController(title: String("Success").uppercased(), message: String(message), style: .alert)
+        let cancel = NewYorkButton(title: "ok", style: .cancel) {
+            _ in
+            self.navigationController?.popViewController(animated: true)
+        }
+        alert.addButtons([cancel])
+        self.present(alert, animated: true)
         
     }
     
@@ -52,7 +62,6 @@ extension UIViewController {
         let cancel = NewYorkButton(title: "dismiss", style: .cancel)
         alert.addButtons([cancel])
         self.present(alert, animated: true)
-        
         
     }
     
@@ -105,7 +114,12 @@ extension Date {
 extension Date {
  static func getCurrentDate() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = date_fomatter
         return dateFormatter.string(from: Date())
     }
+    static func getCurrentTime() -> String {
+           let dateFormatter = DateFormatter()
+           dateFormatter.dateFormat = "HH:mm"
+           return dateFormatter.string(from: Date())
+       }
 }

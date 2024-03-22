@@ -895,6 +895,15 @@ class dashboard_table_cell : UITableViewCell {
             // btn_sleep.setTitle("Cal Burnt", for: .normal)
         }
     }
+    @IBOutlet weak var btn_heart:UIButton! {
+        didSet {
+            btn_heart.layer.cornerRadius = 12
+            btn_heart.clipsToBounds = true
+            btn_heart.backgroundColor = light_purple_color
+            btn_heart.setTitleColor(.black, for: .normal)
+            // btn_sleep.setTitle("Cal Burnt", for: .normal)
+        }
+    }
     
 }
 
@@ -1456,6 +1465,35 @@ class select_workout_table_cell : UITableViewCell {
 // /* ************** MONITOR - SLEEP **************************** */
 // /* ********************************************************** */
 class sleep_table_cell : UITableViewCell {
+    
+    
+    
+    @IBOutlet weak var lbl_date:UILabel!
+    @IBOutlet weak var lbl_total_sleep_time:UILabel!
+    
+    @IBOutlet weak var btn_date_one:UIButton! {
+        didSet {
+            btn_date_one.layer.cornerRadius = 8
+            btn_date_one.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var btn_date_two:UIButton! {
+        didSet {
+            btn_date_two.layer.cornerRadius = 8
+            btn_date_two.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var btn_submit:UIButton! {
+        didSet {
+            btn_submit.layer.cornerRadius = 8
+            btn_submit.clipsToBounds = true
+        }
+    }
+    
+}
+// /* ************** MONITOR - HEART **************************** */
+// /* ********************************************************** */
+class heart_table_cell : UITableViewCell {
     
     
     

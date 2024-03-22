@@ -188,6 +188,10 @@ class dashboard: UIViewController {
         self.navigationController?.pushViewController(push, animated: true)
     }
     
+    @objc func heart_click_method() {
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "heart_id")
+        self.navigationController?.pushViewController(push, animated: true)
+    }
 }
 
 //MARK:- TABLE VIEW -
@@ -273,6 +277,7 @@ extension dashboard: UITableViewDataSource , UITableViewDelegate {
         
         cell.btn_sleep.addTarget(self, action: #selector(sleep_click_method), for: .touchUpInside)
         cell.btn_steps.addTarget(self, action: #selector(steps_click_method), for: .touchUpInside)
+        cell.btn_heart.addTarget(self, action: #selector(heart_click_method), for: .touchUpInside)
         
         return cell
         

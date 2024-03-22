@@ -57,6 +57,7 @@ class add_steps_time: UIViewController {
         self.btn_wake_up_date.addTarget(self, action: #selector(date_wake_up), for: .touchUpInside)*/
         
         // self.btn_submit.addTarget(self, action: #selector(submit_date_WB), for: .touchUpInside)
+        
     }
     
     @objc func date_went_to_bed() {

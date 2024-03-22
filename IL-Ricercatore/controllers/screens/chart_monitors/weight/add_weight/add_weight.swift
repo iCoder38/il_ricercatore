@@ -1,20 +1,24 @@
 //
-//  add_sleep_time.swift
+//  add_weight.swift
 //  IL-Ricercatore
 //
-//  Created by Dishant Rajput on 07/03/24.
+//  Created by Dishant Rajput on 22/03/24.
 //
 
 import UIKit
 import Alamofire
 
-class add_sleep_time: UIViewController {
+class add_weight: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    var str_sleep_time:String! = "0"
-    var str_wake_up_time:String! = "0"
+    @IBOutlet weak var pickerView: UIPickerView!
     
-    var str_went_to_bed_date:String! = "0"
-    var str_wake_up_date:String! = "0"
+    var arrayFruits:NSMutableArray! = []
+    var dummy:NSMutableArray! = []
+    
+    var str_selected_text:String!
+    
+    var str_selected_time:String! = "0"
+    var str_selected_date:String! = "0"
     
     @IBOutlet weak var btn_back:UIButton! {
         didSet {
@@ -24,86 +28,123 @@ class add_sleep_time: UIViewController {
         }
     }
     
+    @IBOutlet weak var btn_date:UIButton!
+    @IBOutlet weak var btn_time:UIButton!
+    
     @IBOutlet weak var lbl_navigation_title:UILabel! {
         didSet {
-            lbl_navigation_title.text = navigation_title_sleep_add
+            lbl_navigation_title.text = navigation_title_add_heart_rate_en
         }
     }
-    @IBOutlet weak var btn_submit:UIButton! {
+    
+    @IBOutlet weak var lbl_heart_rate:UILabel! {
         didSet {
-            btn_submit.layer.cornerRadius = 12
-            btn_submit.clipsToBounds = true
+            lbl_heart_rate.text = "0"
         }
     }
-    
-    @IBOutlet weak var btn_went_to_bed_date:UIButton!
-    @IBOutlet weak var btn_wake_up_date:UIButton!
-    
-    @IBOutlet weak var btn_went_to_bed_time:UIButton!
-    @IBOutlet weak var btn_wake_up_time:UIButton!
-    
+    @IBOutlet weak var btn_continue:UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.btn_went_to_bed_time.addTarget(self, action: #selector(time_went_to_bed), for: .touchUpInside)
-        self.btn_wake_up_time.addTarget(self, action: #selector(time_wake_up), for: .touchUpInside)
+        for index in 0...299 {
+            arrayFruits.add("\(index)")
+        }
         
-        self.btn_went_to_bed_date.addTarget(self, action: #selector(date_went_to_bed), for: .touchUpInside)
-        self.btn_wake_up_date.addTarget(self, action: #selector(date_wake_up), for: .touchUpInside)
+        for index in 0...10 {
+            dummy.add("\(index)")
+        }
         
-        self.btn_submit.addTarget(self, action: #selector(submit_date_WB), for: .touchUpInside)
+        self.pickerView.tag = 1
+        self.pickerView.dataSource = self
+        self.pickerView.delegate = self
+        
+        self.btn_time.setTitle("Time: "+Date.getCurrentTime(), for: .normal)
+        self.btn_date.setTitle("Date: Today", for: .normal)
+        
+        self.str_selected_time = Date.getCurrentDate()
+        self.str_selected_date = Date.getCurrentTime()
+        
+        self.btn_time.addTarget(self, action: #selector(time_click), for: .touchUpInside)
+        self.btn_date.addTarget(self, action: #selector(date_click), for: .touchUpInside)
+        
+        self.btn_continue.addTarget(self, action: #selector(submit_date_WB), for: .touchUpInside)
+        
     }
     
-    @objc func date_went_to_bed() {
-        
-        RPicker.selectDate(title: "Went to bed time", cancelText: "Cancel", datePickerMode: .date, maxDate: Date.now, didSelectDate: { (selectedDate) in
-            self.btn_went_to_bed_date.setTitle(selectedDate.dateString("yyyy-MM-dd"), for: .normal)
-            self.str_went_to_bed_date = selectedDate.dateString("yyyy-MM-dd")
+    @objc func time_click() {
+        RPicker.selectDate(title: "Select Time", cancelText: "Cancel", datePickerMode: .time, didSelectDate: { (selectedDate) in
+            self.btn_time.setTitle("Time: "+selectedDate.dateString("HH:mm"), for: .normal)
+            self.str_selected_time = selectedDate.dateString("HH:mm")
         })
     }
-    @objc func date_wake_up() {
-        
-        RPicker.selectDate(title: "Went to bed time", cancelText: "Cancel", datePickerMode: .date,maxDate: Date.now, didSelectDate: { (selectedDate) in
-            self.btn_wake_up_date.setTitle(selectedDate.dateString("yyyy-MM-dd"), for: .normal)
-            self.str_wake_up_date = selectedDate.dateString("yyyy-MM-dd")
-        })
-    }
-    
-    @objc func time_went_to_bed() {
-        
-        RPicker.selectDate(title: "Went to bed time", cancelText: "Cancel", datePickerMode: .time, didSelectDate: { (selectedDate) in
-            self.btn_went_to_bed_time.setTitle(selectedDate.dateString("HH:mm"), for: .normal)
-            self.str_sleep_time = selectedDate.dateString("HH:mm")
+    @objc func date_click() {
+        RPicker.selectDate(title: "Select date", cancelText: "Cancel", datePickerMode: .date,maxDate: Date.now, didSelectDate: { (selectedDate) in
+            
+            self.str_selected_date = selectedDate.dateString(date_fomatter)
+            if (selectedDate.dateString(date_fomatter) == Date.getCurrentDate()) {
+                self.btn_date.setTitle("Date: Today", for: .normal)
+            } else {
+                self.btn_date.setTitle("Date: "+selectedDate.dateString(date_fomatter), for: .normal)
+            }
         })
     }
     
-    @objc func time_wake_up() {
-        
-        RPicker.selectDate(title: "Wake up time", cancelText: "Cancel", datePickerMode: .time, didSelectDate: { (selectedDate) in
-            self.btn_wake_up_time.setTitle(selectedDate.dateString("HH:mm"), for: .normal)
-            self.str_wake_up_time = selectedDate.dateString("HH:mm")
-        })
+    //MARK: - Pickerview method -
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
     }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
+        if component == 0 {
+            return arrayFruits.count
+        } else {
+            return dummy.count
+        }
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        if component == 0 {
+            return (arrayFruits[row] as! String)
+        } else {
+            return (dummy[row] as! String)
+        }
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if component == 0 {
+            print(arrayFruits[row] as! String)
+            self.lbl_heart_rate.text = (self.arrayFruits[row] as! String)
+        } else {
+            print(dummy[row] as! String)
+        }
+    }
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        var pickerLabel: UILabel? = (view as? UILabel)
+        if pickerLabel == nil {
+            pickerLabel = UILabel()
+            pickerLabel?.font = UIFont(name: "Avenir Next", size: 22.0)
+            pickerLabel?.textAlignment = .center
+        }
+        pickerLabel?.text = (self.arrayFruits[row] as! String)
+        pickerLabel?.textColor = UIColor.black
+        
+        return pickerLabel!
+    }
+    
     
     @objc func submit_date_WB() {
         
-        if (self.str_went_to_bed_date == "0") {
-            self.alert_show_error(field_name: "Went to bed date")
+        if (self.str_selected_date == "0") {
+            self.alert_show_error(field_name: "Date")
             return
         }
         
-        if (self.str_wake_up_date == "0") {
-            self.alert_show_error(field_name: "Wake up date")
+        if (self.str_selected_time == "0") {
+            self.alert_show_error(field_name: "Time")
             return
         }
         
-        if (self.str_sleep_time == "0") {
-            self.alert_show_error(field_name: "Went to bed sleep time")
-            return
-        }
-        
-        if (self.str_wake_up_time == "0") {
-            self.alert_show_error(field_name: "Wake up sleept time")
+        if (self.lbl_heart_rate.text == "") {
+            self.alert_show_error(field_name: "Heart rate")
             return
         }
         
@@ -122,12 +163,13 @@ class add_sleep_time: UIViewController {
                 let myString = String(x)
                 
                 parameters = [
-                    "action"        : "sleepadd",
+                    "action"        : "heartadd",
                     "userId"        : String(myString),
-                    "sleep_date"    : String(self.str_went_to_bed_date),
-                    "sleepTime"     : String(self.str_sleep_time),
-                    "wakeup_date"   : String(self.str_wake_up_date),
-                    "wakeupTime"    : String(self.str_wake_up_time),
+                    "date"          : String(self.str_selected_date),
+                    "time"          : String(self.str_selected_time),
+                    "bmp"           : String(self.lbl_heart_rate.text!),
+                    "bmp_measurement"   :"BPM",
+                     
                     
                 ]
                 
@@ -150,6 +192,7 @@ class add_sleep_time: UIViewController {
                                 ERProgressHud.sharedInstance.hide()
                                 
                                 self.view.makeToast(JSON["msg"] as? String)
+                                self.success_with_back_show_alert(message: (JSON["msg"] as? String)!)
                                 
                             } else {
                                 if (JSON["msg"] as? String == your_are_not_auth) {
@@ -169,6 +212,8 @@ class add_sleep_time: UIViewController {
                         break
                     }
                 }
+            } else {
+                self.refresh_token_WB()
             }
         }
     }
@@ -228,5 +273,4 @@ class add_sleep_time: UIViewController {
             }
         }
     }
-    
 }
