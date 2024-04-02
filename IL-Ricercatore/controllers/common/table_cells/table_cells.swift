@@ -403,7 +403,17 @@ class all_post_table_cell : UITableViewCell {
             btn_forum.clipsToBounds = true
             btn_forum.backgroundColor = light_purple_color
             btn_forum.setTitleColor(.black, for: .normal)
-            btn_forum.setTitle("Forum", for: .normal)
+            // btn_forum.setTitle("Forum", for: .normal)
+        }
+    }
+    
+    @IBOutlet weak var btn_milestones:UIButton! {
+        didSet {
+            btn_milestones.layer.cornerRadius = 12
+            btn_milestones.clipsToBounds = true
+            btn_milestones.backgroundColor = light_purple_color
+            btn_milestones.setTitleColor(.black, for: .normal)
+            btn_milestones.setTitle("Forum", for: .normal)
         }
     }
     

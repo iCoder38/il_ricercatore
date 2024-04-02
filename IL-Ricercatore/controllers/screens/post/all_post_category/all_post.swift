@@ -32,7 +32,7 @@ class all_post: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.tble_view.separatorColor = .clear
     }
     
     @objc func daily_q_click_method() {
@@ -54,6 +54,11 @@ class all_post: UIViewController {
     @objc func forum_click_method() {
         let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "daily_q_id") as? daily_q
         push!.str_post_type = String("Forum")
+        self.navigationController?.pushViewController(push!, animated: true)
+    }
+    @objc func milestones_click_method() {
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "daily_q_id") as? daily_q
+        push!.str_post_type = String("Milestone")
         self.navigationController?.pushViewController(push!, animated: true)
     }
 }
@@ -82,7 +87,7 @@ extension all_post: UITableViewDataSource , UITableViewDelegate {
         cell.btn_article.addTarget(self, action: #selector(article_click_method), for: .touchUpInside)
         cell.btn_stories.addTarget(self, action: #selector(stories_click_method), for: .touchUpInside)
         cell.btn_forum.addTarget(self, action: #selector(forum_click_method), for: .touchUpInside)
-        
+        cell.btn_milestones.addTarget(self, action: #selector(milestones_click_method), for: .touchUpInside)
         return cell
         
     }
@@ -90,11 +95,10 @@ extension all_post: UITableViewDataSource , UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 334
+        return 538
     }
 
 }
