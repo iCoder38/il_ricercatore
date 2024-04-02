@@ -9,9 +9,12 @@ import UIKit
 import Alamofire
 import AVKit
 import AVFoundation
+import SDWebImage
 
 class daily_q: UIViewController {
 
+    var str_post_type:String!
+    
     var arr_daily_q:NSMutableArray! = []
     
     @IBOutlet weak var btn_back:UIButton! {
@@ -64,9 +67,9 @@ class daily_q: UIViewController {
                 parameters = [
                     "action"        : "postlist",
                     "userId"        : String(myString),
-                    "posttype":"DailyQ",
-                    "key_word":"",
-                    "pageNo":"1",
+                    "posttype"      : String(str_post_type),
+                    "key_word"      : "",
+                    "pageNo"        : "1",
                 ]
                 
                 print("parameters-------\(String(describing: parameters))")
@@ -200,15 +203,27 @@ extension daily_q: UITableViewDataSource , UITableViewDelegate {
         let item = self.arr_daily_q[indexPath.row] as? [String:Any]
         print(item as Any)
         
-        let videoURL = NSURL(string: "https://demo4.evirtualservices.net/il_recreator/img/uploads/posts/1709568911_mixkit-woman-meditating-with-her-dog-in-the-sunset-4800-medium.mp4")
+        cell.lbl_title.text = (item!["name"] as! String)
+        cell.lbl_sub_title.text = (item!["description"] as! String)
+        cell.lbl_comments_like.text = "Comments  (\(item!["total_comment"]!))     Like  (\(item!["total_Like"]!))"
+        
+        if (item!["imageType"] as! String) == "Video" {
+            cell.btn_play.isHidden = false
+            cell.img_profile.isHidden = true
+        } else {
+            cell.btn_play.isHidden = true
+            cell.img_profile.isHidden = false
+            cell.img_profile.sd_imageIndicator = SDWebImageActivityIndicator.whiteLarge
+            cell.img_profile.sd_setImage(with: URL(string: (item!["image"] as! String)), placeholderImage: UIImage(named: "logo"))
+        }
+        
+        /*let videoURL = NSURL(string: (item!["image"] as! String))
         let player = AVPlayer(url: videoURL! as URL)
 
         let playerLayer = AVPlayerLayer(player: player)
-        // playerLayer.frame = cell.bounds
-        playerLayer.frame = CGRectMake(0, 0, cell.view_video.frame.size.width, cell.view_video.frame.size.height)
-
+        playerLayer.frame = cell.view_video.bounds
         cell.view_video.layer.addSublayer(playerLayer)
-        player.play()
+        player.play()*/
         
         return cell
         
@@ -220,7 +235,7 @@ extension daily_q: UITableViewDataSource , UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
+        return 318
     }
 
 }

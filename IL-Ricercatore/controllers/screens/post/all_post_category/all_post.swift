@@ -36,8 +36,25 @@ class all_post: UIViewController {
     }
     
     @objc func daily_q_click_method() {
-        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "daily_q_id")
-        self.navigationController?.pushViewController(push, animated: true)
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "daily_q_id") as? daily_q
+        push!.str_post_type = String("DailyQ")
+        self.navigationController?.pushViewController(push!, animated: true)
+    }
+    
+    @objc func article_click_method() {
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "daily_q_id") as? daily_q
+        push!.str_post_type = String("Article")
+        self.navigationController?.pushViewController(push!, animated: true)
+    }
+    @objc func stories_click_method() {
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "daily_q_id") as? daily_q
+        push!.str_post_type = String("Story")
+        self.navigationController?.pushViewController(push!, animated: true)
+    }
+    @objc func forum_click_method() {
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "daily_q_id") as? daily_q
+        push!.str_post_type = String("Forum")
+        self.navigationController?.pushViewController(push!, animated: true)
     }
 }
 
@@ -62,6 +79,9 @@ extension all_post: UITableViewDataSource , UITableViewDelegate {
         cell.selectedBackgroundView = backgroundView
         
         cell.btn_daily_q.addTarget(self, action: #selector(daily_q_click_method), for: .touchUpInside)
+        cell.btn_article.addTarget(self, action: #selector(article_click_method), for: .touchUpInside)
+        cell.btn_stories.addTarget(self, action: #selector(stories_click_method), for: .touchUpInside)
+        cell.btn_forum.addTarget(self, action: #selector(forum_click_method), for: .touchUpInside)
         
         return cell
         
@@ -74,7 +94,7 @@ extension all_post: UITableViewDataSource , UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 176
+        return 334
     }
 
 }

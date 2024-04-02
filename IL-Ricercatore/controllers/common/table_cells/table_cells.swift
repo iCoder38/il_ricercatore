@@ -376,6 +376,37 @@ class all_post_table_cell : UITableViewCell {
             btn_daily_q.setTitle("Daily Q", for: .normal)
         }
     }
+    
+    @IBOutlet weak var btn_article:UIButton! {
+        didSet {
+            btn_article.layer.cornerRadius = 12
+            btn_article.clipsToBounds = true
+            btn_article.backgroundColor = light_purple_color
+            btn_article.setTitleColor(.black, for: .normal)
+            btn_article.setTitle("Articles", for: .normal)
+        }
+    }
+    
+    @IBOutlet weak var btn_stories:UIButton! {
+        didSet {
+            btn_stories.layer.cornerRadius = 12
+            btn_stories.clipsToBounds = true
+            btn_stories.backgroundColor = light_purple_color
+            btn_stories.setTitleColor(.black, for: .normal)
+            btn_stories.setTitle("Stories", for: .normal)
+        }
+    }
+    
+    @IBOutlet weak var btn_forum:UIButton! {
+        didSet {
+            btn_forum.layer.cornerRadius = 12
+            btn_forum.clipsToBounds = true
+            btn_forum.backgroundColor = light_purple_color
+            btn_forum.setTitleColor(.black, for: .normal)
+            btn_forum.setTitle("Forum", for: .normal)
+        }
+    }
+    
 }
 
 // /* ************** DAILY Q ************************* */
@@ -385,7 +416,7 @@ class daily_q_table_cell : UITableViewCell {
     @IBOutlet weak var view_cell_BG:UIView! {
         didSet {
             view_cell_BG.layer.masksToBounds = false
-            view_cell_BG.layer.shadowColor =  UIColor.lightGray.cgColor
+            view_cell_BG.layer.shadowColor =  UIColor.white.cgColor
             view_cell_BG.layer.shadowOffset = CGSize(width: 0, height: 1)
             view_cell_BG.layer.shadowRadius = 5.0
             view_cell_BG.layer.shadowOpacity = 15.0
@@ -393,8 +424,27 @@ class daily_q_table_cell : UITableViewCell {
         }
     }
     
-    @IBOutlet weak var view_video:UIView!
+    @IBOutlet weak var view_video:UIView!  {
+        didSet {
+            view_video.backgroundColor = .systemGray5
+            view_video.layer.cornerRadius = 12
+            // view_video.clipsToBounds = true
+        }
+    }
     
+    @IBOutlet weak var lbl_title:UILabel!
+    @IBOutlet weak var lbl_sub_title:UILabel!
+    
+    @IBOutlet weak var lbl_comments_like:UILabel!
+    
+    @IBOutlet weak var btn_play:UIButton!
+    
+    @IBOutlet weak var img_profile:UIImageView! {
+        didSet {
+            img_profile.layer.cornerRadius = 12
+            img_profile.clipsToBounds = true
+        }
+    }
 }
 
 // /* ************** COMPLETE PROFILE ************************* */
