@@ -232,6 +232,10 @@ extension daily_q: UITableViewDataSource , UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
          
+        let item = self.arr_daily_q[indexPath.row] as? [String:Any]
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "post_details_id") as? post_details
+        push!.dictDetails = (item! as NSDictionary)
+        self.navigationController?.pushViewController(push!, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

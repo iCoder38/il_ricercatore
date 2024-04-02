@@ -70,6 +70,7 @@
 		B9EF417A2B346D5000335435 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EF41722B346D4F00335435 /* AlertView.swift */; };
 		B9EF417B2B346D5000335435 /* NewYorkAlertViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EF41732B346D5000335435 /* NewYorkAlertViewType.swift */; };
 		B9EF417E2B3472A200335435 /* RPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EF417D2B3472A200335435 /* RPicker.swift */; };
+		B9F846A42BBC309800A89CAF /* post_details.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F846A32BBC309800A89CAF /* post_details.swift */; };
 		C5BFC0301EE4F9A443CD5D07 /* Pods_IL_Ricercatore_IL_RicercatoreUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D337E89B1732A3FAD1C904 /* Pods_IL_Ricercatore_IL_RicercatoreUITests.framework */; };
 		CC2907F9E3711E9DA121E7AC /* Pods_IL_Ricercatore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4EB8D2179DF5A2785A7CF0E /* Pods_IL_Ricercatore.framework */; };
 /* End PBXBuildFile section */
@@ -164,6 +165,7 @@
 		B9EF41722B346D4F00335435 /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		B9EF41732B346D5000335435 /* NewYorkAlertViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewYorkAlertViewType.swift; sourceTree = "<group>"; };
 		B9EF417D2B3472A200335435 /* RPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPicker.swift; sourceTree = "<group>"; };
+		B9F846A32BBC309800A89CAF /* post_details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = post_details.swift; sourceTree = "<group>"; };
 		E0D7EEB5A7075BA29381C28A /* Pods-IL-Ricercatore-IL-RicercatoreUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IL-Ricercatore-IL-RicercatoreUITests.debug.xcconfig"; path = "Target Support Files/Pods-IL-Ricercatore-IL-RicercatoreUITests/Pods-IL-Ricercatore-IL-RicercatoreUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E4D7AAAD93B5AF1DD06172AC /* Pods-IL-Ricercatore-IL-RicercatoreUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IL-Ricercatore-IL-RicercatoreUITests.release.xcconfig"; path = "Target Support Files/Pods-IL-Ricercatore-IL-RicercatoreUITests/Pods-IL-Ricercatore-IL-RicercatoreUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F91823D86349C8CA52D202EE /* Pods_IL_RicercatoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IL_RicercatoreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -346,7 +348,6 @@
 				B939EF142B3190DF00B9556C /* edit_meal_calories */,
 				B9DD5A152B31B2EB006B2D60 /* track_meal_reminder */,
 				B9DD5A182B31B998006B2D60 /* water_intake */,
-				B9DD5A1B2B31BDE3006B2D60 /* set_up_water_tracker */,
 				B9DD5A1E2B31C5AB006B2D60 /* water_reminder */,
 				B9CC8EDF2B32F38E00130035 /* invite_friends */,
 				B9CC8EE22B32F74500130035 /* friends */,
@@ -529,6 +530,7 @@
 		B9DD5A152B31B2EB006B2D60 /* track_meal_reminder */ = {
 			isa = PBXGroup;
 			children = (
+				B9DD5A1B2B31BDE3006B2D60 /* set_up_water_tracker */,
 				B9DD5A162B31B303006B2D60 /* track_meal_reminder.swift */,
 			);
 			path = track_meal_reminder;
@@ -585,6 +587,7 @@
 		B9E314282BADBF850027A02F /* post */ = {
 			isa = PBXGroup;
 			children = (
+				B9F846A22BBC308C00A89CAF /* post_details */,
 				B9E196892BADC7340005E28C /* daily_q */,
 				B9E196882BADC7250005E28C /* all_post_category */,
 			);
@@ -756,6 +759,14 @@
 				B9EF417D2B3472A200335435 /* RPicker.swift */,
 			);
 			path = rpicker;
+			sourceTree = "<group>";
+		};
+		B9F846A22BBC308C00A89CAF /* post_details */ = {
+			isa = PBXGroup;
+			children = (
+				B9F846A32BBC309800A89CAF /* post_details.swift */,
+			);
+			path = post_details;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1040,6 +1051,7 @@
 				B9EF417E2B3472A200335435 /* RPicker.swift in Sources */,
 				B9B371F92BAD57EC00A64F06 /* heart.swift in Sources */,
 				B9DD5A202B31C5B9006B2D60 /* water_reminder.swift in Sources */,
+				B9F846A42BBC309800A89CAF /* post_details.swift in Sources */,
 				B9B371F72BAD576900A64F06 /* add_heart_rate.swift in Sources */,
 				B9BC35A82B998CEE004C9431 /* sleep.swift in Sources */,
 				B9CC8EEB2B3309C200130035 /* workout_setting.swift in Sources */,

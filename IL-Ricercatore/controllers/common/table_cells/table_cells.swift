@@ -419,6 +419,21 @@ class all_post_table_cell : UITableViewCell {
     
 }
 
+// /* ************** COMPLETE PROFILE ************************* */
+// /* ********************************************************** */
+class post_details_table_cell : UITableViewCell {
+    @IBOutlet weak var img_profile:UIImageView! {
+        didSet {
+            img_profile.layer.cornerRadius = 12
+            img_profile.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var btn_play:UIButton!
+    @IBOutlet weak var lbl_title:UILabel!
+    @IBOutlet weak var lbl_comments_likes:UILabel!
+    @IBOutlet weak var lbl_description:UILabel!
+}
+
 // /* ************** DAILY Q ************************* */
 // /* ********************************************************** */
 class daily_q_table_cell : UITableViewCell {
