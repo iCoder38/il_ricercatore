@@ -15,6 +15,7 @@ let str_save_last_api_token = "key_last_api_token"
 let your_are_not_auth = "You are not authorize to access the API"
 
 let date_fomatter = "MM-dd-yyyy"
+let date_fomatter_yyyy_MM_dd = "yyyy-MM-dd"
 
 class Utils: NSObject {
     
@@ -117,6 +118,14 @@ extension Date {
         dateFormatter.dateFormat = date_fomatter
         return dateFormatter.string(from: Date())
     }
+    
+    static func getCurrentDateCustom() -> String {
+           let dateFormatter = DateFormatter()
+           dateFormatter.dateFormat = date_fomatter_yyyy_MM_dd
+           return dateFormatter.string(from: Date())
+       }
+    
+    
     static func getCurrentTime() -> String {
            let dateFormatter = DateFormatter()
            dateFormatter.dateFormat = "HH:mm"

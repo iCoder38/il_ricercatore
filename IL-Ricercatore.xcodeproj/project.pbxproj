@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		954C65DC212E54C567406C7D /* Pods_IL_RicercatoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F91823D86349C8CA52D202EE /* Pods_IL_RicercatoreTests.framework */; };
+		B9034E6D2BBD5D1B00AD6924 /* meal_track.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9034E6C2BBD5D1B00AD6924 /* meal_track.swift */; };
+		B9034E702BBD6F1C00AD6924 /* goal_settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9034E6F2BBD6F1C00AD6924 /* goal_settings.swift */; };
 		B93581192B342D5800DEA73C /* personalised_workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93581182B342D5800DEA73C /* personalised_workout.swift */; };
 		B939EF072B316DF400B9556C /* dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939EF062B316DF400B9556C /* dashboard.swift */; };
 		B939EF0A2B316F0900B9556C /* all_text.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939EF092B316F0900B9556C /* all_text.swift */; };
@@ -99,6 +101,8 @@
 		973EE5CB037F7C4106DAA343 /* Pods-IL-Ricercatore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IL-Ricercatore.release.xcconfig"; path = "Target Support Files/Pods-IL-Ricercatore/Pods-IL-Ricercatore.release.xcconfig"; sourceTree = "<group>"; };
 		B4D337E89B1732A3FAD1C904 /* Pods_IL_Ricercatore_IL_RicercatoreUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IL_Ricercatore_IL_RicercatoreUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4EB8D2179DF5A2785A7CF0E /* Pods_IL_Ricercatore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IL_Ricercatore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9034E6C2BBD5D1B00AD6924 /* meal_track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = meal_track.swift; sourceTree = "<group>"; };
+		B9034E6F2BBD6F1C00AD6924 /* goal_settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goal_settings.swift; sourceTree = "<group>"; };
 		B93581182B342D5800DEA73C /* personalised_workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = personalised_workout.swift; sourceTree = "<group>"; };
 		B939EF062B316DF400B9556C /* dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dashboard.swift; sourceTree = "<group>"; };
 		B939EF092B316F0900B9556C /* all_text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = all_text.swift; sourceTree = "<group>"; };
@@ -222,6 +226,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B9034E6B2BBD5D1100AD6924 /* meal_track */ = {
+			isa = PBXGroup;
+			children = (
+				B9034E6C2BBD5D1B00AD6924 /* meal_track.swift */,
+			);
+			path = meal_track;
+			sourceTree = "<group>";
+		};
+		B9034E6E2BBD6F1000AD6924 /* goal_settings */ = {
+			isa = PBXGroup;
+			children = (
+				B9034E6F2BBD6F1C00AD6924 /* goal_settings.swift */,
+			);
+			path = goal_settings;
+			sourceTree = "<group>";
+		};
 		B93581172B342D3F00DEA73C /* personalise_workout */ = {
 			isa = PBXGroup;
 			children = (
@@ -333,6 +353,8 @@
 		B977AE582B2D7C2900EF12BA /* screens */ = {
 			isa = PBXGroup;
 			children = (
+				B9034E6E2BBD6F1000AD6924 /* goal_settings */,
+				B9034E6B2BBD5D1100AD6924 /* meal_track */,
 				B9E314282BADBF850027A02F /* post */,
 				B9BC35A52B998CA6004C9431 /* chart_monitors */,
 				B9E745662B29C388007E018A /* login */,
@@ -1057,9 +1079,11 @@
 				B9CC8EEB2B3309C200130035 /* workout_setting.swift in Sources */,
 				B9E745682B29C3A1007E018A /* login.swift in Sources */,
 				B9E314252BAD9B580027A02F /* blood_pressure.swift in Sources */,
+				B9034E702BBD6F1C00AD6924 /* goal_settings.swift in Sources */,
 				B9CC8EEE2B330E6600130035 /* days_workout.swift in Sources */,
 				B9EF416A2B346AFB00335435 /* ERProgressHud.swift in Sources */,
 				B9EF41632B3456FE00335435 /* select_workout.swift in Sources */,
+				B9034E6D2BBD5D1B00AD6924 /* meal_track.swift in Sources */,
 				B977AE5B2B2D814800EF12BA /* Utils.swift in Sources */,
 				B939EF132B318E4100B9556C /* eat_meal_time.swift in Sources */,
 				B950F9102B9A04B100C01D3B /* steps.swift in Sources */,

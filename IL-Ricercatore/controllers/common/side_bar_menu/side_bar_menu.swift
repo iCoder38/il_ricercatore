@@ -53,6 +53,10 @@ class side_bar_menu: UIViewController {
         let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "dashboard_id")
         self.navigationController?.pushViewController(push, animated: true)
     }
+    @objc func goal_setting_click_method() {
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "goal_settings_id")
+        self.navigationController?.pushViewController(push, animated: true)
+    }
 }
 
 //MARK:- TABLE VIEW -
@@ -88,6 +92,7 @@ extension side_bar_menu: UITableViewDataSource , UITableViewDelegate {
         cell.btn_trackers.addTarget(self, action: #selector(tracker_click_method), for: .touchUpInside)
         cell.btn_friends.addTarget(self, action: #selector(friend_click_method), for: .touchUpInside)
         cell.btn_search_friends.addTarget(self, action: #selector(search_friend_click_method), for: .touchUpInside)
+        cell.btn_goal_setting.addTarget(self, action: #selector(goal_setting_click_method), for: .touchUpInside)
         
         return cell
         

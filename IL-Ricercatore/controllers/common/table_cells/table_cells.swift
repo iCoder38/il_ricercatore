@@ -878,6 +878,44 @@ class breakfast_food_table_cell : UITableViewCell {
     @IBOutlet weak var btn_add:UIButton!
 }
 
+
+
+
+
+class meal_track_table_cell : UITableViewCell {
+    
+    @IBOutlet weak var view_one:UIView! {
+        didSet {
+            view_one.layer.cornerRadius = 6
+            view_one.clipsToBounds = true
+            view_one.backgroundColor = light_purple_color
+        }
+    }
+    @IBOutlet weak var view_two:UIView! {
+        didSet {
+            view_two.layer.cornerRadius = 12
+            view_two.clipsToBounds = true
+            view_two.backgroundColor = light_purple_color
+        }
+    }
+    
+    @IBOutlet weak var lbl_time:UILabel! {
+        didSet {
+            lbl_time.text = Date.getCurrentDateCustom()
+        }
+    }
+    @IBOutlet weak var view_milk:UIView!
+    @IBOutlet weak var btn_date:UIButton!
+    
+    @IBOutlet weak var btn_breakfast:UIButton!
+    @IBOutlet weak var btn_morning_snack:UIButton!
+    @IBOutlet weak var btn_lunch:UIButton!
+    @IBOutlet weak var btn_evening_snack:UIButton!
+    @IBOutlet weak var btn_dinner:UIButton!
+    
+}
+
+
 // /* ************** DASHBOARD ********************************* */
 // /* ********************************************************** */
 class dashboard_table_cell : UITableViewCell {
@@ -1035,6 +1073,9 @@ class dashboard_table_cell : UITableViewCell {
     }
     
     @IBOutlet weak var view_more_post:UIButton!
+    
+    @IBOutlet weak var btn_nut_plus:UIButton!
+    
 }
 
 
@@ -1878,4 +1919,51 @@ class disease_list_table_cell : UITableViewCell {
     
     @IBOutlet weak var btn_checkmark:UIButton!
     
+}
+
+class goal_settings_table_cell : UITableViewCell {
+    @IBOutlet weak var view_weight:UIView! {
+        didSet {
+            view_weight.backgroundColor = light_purple_color
+            view_weight.layer.cornerRadius = 12
+            view_weight.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var lbl_current_weight:UILabel!
+    @IBOutlet weak var lbl_goal_weight:UILabel!
+    @IBOutlet weak var lbl_activity_weight:UILabel!
+    @IBOutlet weak var btn_edit_weight:UIButton!
+    
+    @IBOutlet weak var view_water_goal:UIView! {
+        didSet {
+            view_water_goal.backgroundColor = light_purple_color
+            view_water_goal.layer.cornerRadius = 12
+            view_water_goal.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var lbl_daily_water_goal:UILabel!
+    @IBOutlet weak var btn_water_goal:UIButton!
+    @IBOutlet weak var btn_edit_water:UIButton!
+    
+    @IBOutlet weak var view_step_goal:UIView! {
+        didSet {
+            view_step_goal.backgroundColor = light_purple_color
+            view_step_goal.layer.cornerRadius = 12
+            view_step_goal.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var lbl_daily_step_goal:UILabel!
+    @IBOutlet weak var btn_steps_goal:UIButton!
+    @IBOutlet weak var btn_edit_steps:UIButton!
+    
+    @IBOutlet weak var view_nut_goal:UIView! {
+        didSet {
+            view_nut_goal.backgroundColor = light_purple_color
+            view_nut_goal.layer.cornerRadius = 12
+            view_nut_goal.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var lbl_calorie_budget:UILabel!
+    @IBOutlet weak var btn_nutrition_goal:UIButton!
+    @IBOutlet weak var btn_edit_nut:UIButton!
 }

@@ -1,22 +1,29 @@
 //
-//  dashboard.swift
+//  meal_track.swift
 //  IL-Ricercatore
 //
-//  Created by Dishant Rajput on 19/12/23.
+//  Created by Dishant Rajput on 03/04/24.
 //
 
 import UIKit
 import Alamofire
+import SDWebImage
 
-class dashboard: UIViewController {
+class meal_track: UIViewController {
 
-    var dict_dashboard:NSDictionary!
-    
-    @IBOutlet weak var btn_menu:UIButton!
+    var arr_meal_track:NSMutableArray! = []
     
     @IBOutlet weak var lbl_navigation_title:UILabel! {
         didSet {
-            lbl_navigation_title.text = navigation_title_en
+            lbl_navigation_title.text = navigation_title_meal_track
+        }
+    }
+    
+    @IBOutlet weak var btn_back:UIButton! {
+        didSet {
+            btn_back.tintColor = .white
+            btn_back.setImage(UIImage(systemName: "arrow.left"), for: .normal)
+            btn_back.addTarget(self, action: #selector(back_click_method), for: .touchUpInside)
         }
     }
     
@@ -25,23 +32,23 @@ class dashboard: UIViewController {
             
             tble_view.layer.cornerRadius = 22
             tble_view.clipsToBounds = true
-            tble_view.backgroundColor = .clear
+            tble_view.backgroundColor = .white
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
         
-        self.tble_view.separatorColor = .clear
-        self.btn_menu.addTarget(self, action: #selector(menu_click_method), for: .touchUpInside)
         
-        self.my_profile(loader: "yes")
+        self.tble_view.delegate = self
+        self.tble_view.dataSource = self
+        self.tble_view.reloadData()
+        self.meal_track_record_WB(loader: "yes")
     }
     
-    @objc func my_profile(loader:String) {
-//        let indexPath = IndexPath.init(row: 0, section: 0)
-//        let cell = self.tble_view.cellForRow(at: indexPath) as! complete_profile_three_table_cell
+    @objc func meal_track_record_WB(loader:String) {
+        let indexPath = IndexPath.init(row: 0, section: 0)
+        let cell = self.tble_view.cellForRow(at: indexPath) as! meal_track_table_cell
         
         var parameters:Dictionary<AnyHashable, Any>!
         
@@ -62,8 +69,10 @@ class dashboard: UIViewController {
                 ]
                 
                 parameters = [
-                    "action"            : "profile",
-                    "userId"            : String(myString),
+                    "action"        : "foodlist",
+                    "userId"        : String(myString),
+                    "startDate"     : String(cell.lbl_time.text!),
+                    "enddate"       : String(cell.lbl_time.text!),
                 ]
                 
                 print("parameters-------\(String(describing: parameters))")
@@ -84,13 +93,9 @@ class dashboard: UIViewController {
                             if strSuccess.lowercased() == "success" {
                                 ERProgressHud.sharedInstance.hide()
                                 
-                                var dict: Dictionary<AnyHashable, Any>
-                                dict = JSON["data"] as! Dictionary<AnyHashable, Any>
-                                
-                                let defaults = UserDefaults.standard
-                                defaults.setValue(dict, forKey: str_save_login_user_data)
-                                
-                                self.dict_dashboard = dict as NSDictionary
+                                var ar : NSArray!
+                                ar = (JSON["data"] as! Array<Any>) as NSArray
+                                self.arr_meal_track.addObjects(from: ar as! [Any])
                                 
                                 self.tble_view.delegate = self
                                 self.tble_view.dataSource = self
@@ -155,7 +160,7 @@ class dashboard: UIViewController {
                         UserDefaults.standard.set("", forKey: str_save_last_api_token)
                         UserDefaults.standard.set(str_token, forKey: str_save_last_api_token)
                         
-                        self.my_profile(loader: "no")
+                        self.meal_track_record_WB(loader: "no")
                         
                     } else {
                         ERProgressHud.sharedInstance.hide()
@@ -173,48 +178,21 @@ class dashboard: UIViewController {
         }
     }
     
-    @objc func water_track_click_method() {
-        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "water_intake_id")
-        self.navigationController?.pushViewController(push, animated: true)
-    }
-    
-    @objc func sleep_click_method() {
-        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "sleep_id")
-        self.navigationController?.pushViewController(push, animated: true)
-    }
-    
-    @objc func steps_click_method() {
-        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "steps_id")
-        self.navigationController?.pushViewController(push, animated: true)
-    }
-    
-    @objc func heart_click_method() {
-        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "heart_id")
-        self.navigationController?.pushViewController(push, animated: true)
-    }
-    
-    @objc func weight_click_method() {
-        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "weight_id")
-        self.navigationController?.pushViewController(push, animated: true)
-    }
-    
-    @objc func blood_pressure_click_method() {
-        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "blood_pressure_id")
-        self.navigationController?.pushViewController(push, animated: true)
-    }
-    
-    @objc func view_more_post_click_method() {
-        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "all_post_id")
-        self.navigationController?.pushViewController(push, animated: true)
-    }
-    @objc func nut_plus_click_methd() {
-        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "meal_track_id")
-        self.navigationController?.pushViewController(push, animated: true)
+    @objc func date_click_method() {
+        let indexPath = IndexPath.init(row: 0, section: 0)
+        let cell = self.tble_view.cellForRow(at: indexPath) as! meal_track_table_cell
+        
+        RPicker.selectDate(title: "Select date", cancelText: "Cancel", datePickerMode: .date,maxDate: Date.now, didSelectDate: { (selectedDate) in
+            cell.lbl_time.text = selectedDate.dateString("yyyy-MM-dd")
+            self.meal_track_record_WB(loader: "yes")
+        })
+        
+        
     }
 }
 
 //MARK:- TABLE VIEW -
-extension dashboard: UITableViewDataSource , UITableViewDelegate {
+extension meal_track: UITableViewDataSource , UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -225,7 +203,7 @@ extension dashboard: UITableViewDataSource , UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell:dashboard_table_cell = tableView.dequeueReusableCell(withIdentifier: "dashboard_table_cell") as! dashboard_table_cell
+        let cell:meal_track_table_cell = tableView.dequeueReusableCell(withIdentifier: "meal_track_table_cell") as! meal_track_table_cell
         
         cell.backgroundColor = .clear
         
@@ -233,7 +211,13 @@ extension dashboard: UITableViewDataSource , UITableViewDelegate {
         backgroundView.backgroundColor = .clear
         cell.selectedBackgroundView = backgroundView
         
-        if let person = UserDefaults.standard.value(forKey: str_save_login_user_data) as? [String:Any] {
+        print(self.arr_meal_track as Any)
+        
+        cell.lbl_time.text = Date.getCurrentDateCustom()
+        
+        cell.btn_date.addTarget(self, action: #selector(date_click_method), for: .touchUpInside)
+        
+        /*if let person = UserDefaults.standard.value(forKey: str_save_login_user_data) as? [String:Any] {
             print(person)
             
             cell.lbl_name.text = (person["fullName"] as! String)
@@ -301,9 +285,7 @@ extension dashboard: UITableViewDataSource , UITableViewDelegate {
         cell.btn_blood_pressure.addTarget(self, action: #selector(blood_pressure_click_method), for: .touchUpInside)
         
         cell.view_more_post.addTarget(self, action: #selector(view_more_post_click_method), for: .touchUpInside)
-        
-        cell.btn_nut_plus.addTarget(self, action: #selector(nut_plus_click_methd), for: .touchUpInside)
-        
+        */
         return cell
         
     }
