@@ -11,7 +11,9 @@ import Alamofire
 
 class sleep: UIViewController {
 
+    var arrSleep:NSMutableArray! = []
     
+    var arr_7_days:NSMutableArray! = []
     
     @IBOutlet weak var btn_back:UIButton! {
         didSet {
@@ -30,8 +32,7 @@ class sleep: UIViewController {
     
     @IBOutlet weak var tble_view:UITableView! {
         didSet {
-            tble_view.delegate = self
-            tble_view.dataSource = self
+            
             // tble_view.layer.cornerRadius = 22
             tble_view.clipsToBounds = true
         }
@@ -52,6 +53,23 @@ class sleep: UIViewController {
         }
     }
     
+    func findDateDiff(time1Str: String, time2Str: String) -> String {
+        let timeformatter = DateFormatter()
+        timeformatter.dateFormat = "hh:mm a"
+
+        guard let time1 = timeformatter.date(from: time1Str),
+            let time2 = timeformatter.date(from: time2Str) else { return "" }
+
+        //You can directly use from here if you have two dates
+
+        let interval = time2.timeIntervalSince(time1)
+        let hour = interval / 3600;
+        let minute = interval.truncatingRemainder(dividingBy: 3600) / 60
+        _ = Int(interval)
+        // return "\(intervalInt < 0 ? "-" : "+") \(Int(hour)).\(Int(minute))"
+        return "\(Int(hour)).\(Int(minute))"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tble_view.separatorColor = .white
@@ -60,17 +78,33 @@ class sleep: UIViewController {
         self.btn_custom.addTarget(self, action: #selector(custom_click_method), for: .touchUpInside)
         self.btn_add.addTarget(self, action: #selector(add_click_method), for: .touchUpInside)
         
-        self.submit_date_WB()
+        self.caluclate_last_7_days()
+    }
+    
+    @objc func caluclate_last_7_days() {
         
+        for indexx in 1...7 {
+            let sevenDaysAgo = Calendar.current.date(byAdding: .day, value: -indexx, to: Date())
+            
+            let separate_time = "\(sevenDaysAgo!)".components(separatedBy: " ")
+            let before_space_value = separate_time[0]
+            
+            self.arr_7_days.add(before_space_value as Any)
+        }
+        print(self.arr_7_days.lastObject as Any)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.arrSleep.removeAllObjects()
+        self.submit_date_WB()
     }
     
     @objc func add_click_method() {
-        light_vibration()
+        self.light_vibration()
         
-        //updateChartData
-        updateChartData()
         let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "add_sleep_time_id")
-        //self.navigationController?.pushViewController(push, animated: true)
+        self.navigationController?.pushViewController(push, animated: true)
     }
     
     @objc func week_click_method() {
@@ -104,12 +138,9 @@ class sleep: UIViewController {
                  
                 parameters = [
                     "action"        : "sleeplist",
-                    "userId"        : "32",//String(myString),
-                    "startDate"          : String("2024-04-03"),
-                    "enddate"          : String("2024-04-09"),
-                    
-                     
-                    
+                    "userId"        : String(myString),
+                    "startDate"     : "\(self.arr_7_days.lastObject!)",
+                    "enddate"       : String(Date.getCurrentDateCustom()),
                 ]
                 
                 print("parameters-------\(String(describing: parameters))")
@@ -130,9 +161,16 @@ class sleep: UIViewController {
                             if strSuccess.lowercased() == "success" {
                                 ERProgressHud.sharedInstance.hide()
                                 
-                                self.view.makeToast(JSON["msg"] as? String)
-                                self.success_with_back_show_alert(message: (JSON["msg"] as? String)!)
+                                // self.view.makeToast(JSON["msg"] as? String)
+                                // self.success_with_back_show_alert(message: (JSON["msg"] as? String)!)
                                 
+                                var ar : NSArray!
+                                ar = (JSON["data"] as! Array<Any>) as NSArray
+                                self.arrSleep.addObjects(from: ar as! [Any])
+                                
+                                self.tble_view.delegate = self
+                                self.tble_view.dataSource = self
+                                self.tble_view.reloadData()
                             } else {
                                 if (JSON["msg"] as? String == your_are_not_auth) {
                                     self.refresh_token_WB()
@@ -280,22 +318,48 @@ extension sleep: UITableViewDataSource , UITableViewDelegate, ChartViewDelegate 
             l.form = .circle
             l.formSize = 9
             l.font = UIFont(name: "HelveticaNeue-Light", size: 11)!
-            l.xEntrySpace = 4
-    //        chartView.legend = l
+            l.xEntrySpace = 6
 
-            /*let marker = XYMarkerView(color: UIColor(white: 180/250, alpha: 1),
-                                      font: .systemFont(ofSize: 12),
-                                      textColor: .white,
-                                      insets: UIEdgeInsets(top: 8, left: 8, bottom: 20, right: 8),
-                                      xAxisValueFormatter: cell.chartView.xAxis.valueFormatter!)
-            marker.chartView = cell.chartView
-            marker.minimumSize = CGSize(width: 80, height: 40)
-            cell.chartView.marker = marker
+            var add_time = 0.0
+            let yVals = (0..<self.arrSleep.count).map { [self] (i) -> BarChartDataEntry in
+       
+                let item = self.arrSleep[i] as? [String:Any]
+                
+                 let str_start_time:String! = (item!["sleepTime"] as! String)
+                 let str_end_time:String! = (item!["wakeupTime"] as! String)
+                
+                let dateDiff = time_difference(start_time: String(str_start_time), end_time: String(str_end_time))
+                print(dateDiff as Any)
+                
+                add_time += Double(dateDiff)!
+                
+                let myDouble = Double(dateDiff)
+                return BarChartDataEntry(x: Double(i), y: myDouble!, icon: UIImage(named: "logo1"))
+               
+            }
             
-            cell.sliderX.value = 12
-            cell.sliderY.value = 50
-            slidersValueChanged(nil)*/
+            // print(add_time as Any)
+            // print(add_time/Double(self.arrSleep.count) as Any)
+            let doubleStr = String(format: "%.2f", (add_time/Double(self.arrSleep.count))) // "3.14"
+            cell.lbl_on_avg.text = String(doubleStr)+"h on average"
             
+            var set1: BarChartDataSet! = nil
+            if let set = cell.chartView.data?.first as? BarChartDataSet {
+                set1 = set
+                set1.replaceEntries(yVals)
+                cell.chartView.data?.notifyDataChanged()
+                cell.chartView.notifyDataSetChanged()
+            } else {
+                set1 = BarChartDataSet(entries: yVals, label: "The year 2024")
+                set1.colors = ChartColorTemplates.material()
+                //set1.colors = ChartColorTemplates.joyful()
+                set1.drawValuesEnabled = true
+                
+                let data = BarChartData(dataSet: set1)
+                data.setValueFont(UIFont(name: "HelveticaNeue-Light", size: 10)!)
+                data.barWidth = 0.9
+                cell.chartView.data = data
+            }
             
             return cell
             
@@ -314,53 +378,6 @@ extension sleep: UITableViewDataSource , UITableViewDelegate, ChartViewDelegate 
         }
         
         
-    }
-    
-     func updateChartData() {
-        let indexPath = IndexPath.init(row: 0, section: 0)
-        let cell = self.tble_view.cellForRow(at: indexPath) as! sleep_table_cell
-        
-         self.setDataCount(Int(10) + 1, range: UInt32(10))
-    }
-    
-    func setDataCount(_ count: Int, range: UInt32) {
-        let indexPath = IndexPath.init(row: 0, section: 0)
-        let cell = self.tble_view.cellForRow(at: indexPath) as! sleep_table_cell
-        
-        let start = 1
-        
-        let yVals = (start..<start+count+1).map { (i) -> BarChartDataEntry in
-            let mult = range + 1
-            let val = Double(arc4random_uniform(mult))
-            print(val as Any)
-//            if arc4random_uniform(100) < 25 {
-//                return BarChartDataEntry(x: Double(i), y: val, icon: UIImage(named: "icon"))
-//            } else {
-//                return BarChartDataEntry(x: Double(i), y: val)
-//            }
-            return BarChartDataEntry(x: Double(i), y: val, icon: UIImage(named: "icon"))
-        }
-        
-        
-        var set1: BarChartDataSet! = nil
-        if let set = cell.chartView.data?.first as? BarChartDataSet {
-            set1 = set
-            set1.replaceEntries(yVals)
-            cell.chartView.data?.notifyDataChanged()
-            cell.chartView.notifyDataSetChanged()
-        } else {
-            set1 = BarChartDataSet(entries: yVals, label: "The year 2024")
-            set1.colors = ChartColorTemplates.material()
-            //set1.colors = ChartColorTemplates.joyful()
-            set1.drawValuesEnabled = true
-            
-            let data = BarChartData(dataSet: set1)
-            data.setValueFont(UIFont(name: "HelveticaNeue-Light", size: 10)!)
-            data.barWidth = 0.9
-            cell.chartView.data = data
-        }
-        
-//        chartView.setNeedsDisplay()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -1667,6 +1667,8 @@ class sleep_table_cell : UITableViewCell {
         }
     }
     
+    @IBOutlet weak var lbl_on_avg:UILabel!
+    
 }
 // /* ************** MONITOR - HEART **************************** */
 // /* ********************************************************** */

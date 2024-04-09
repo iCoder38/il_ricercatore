@@ -74,6 +74,92 @@ extension UIViewController {
     @objc func back_click_method() {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    
+    
+    @objc func time_format_converter(time:String)->String {
+        // print(time as Any)
+        let separate_time = String(time).components(separatedBy: ":")
+        
+        let before_space_value = separate_time[0]
+        // print(before_space_value)
+        
+        var set_starting_value:String! = ""
+        var merge:String! = ""
+        
+        if String(before_space_value) == "13" {
+            set_starting_value = "01"
+            merge = String(set_starting_value)+":"+String(separate_time[0])+" PM"
+        } else if String(before_space_value) == "14" {
+            set_starting_value = "02"
+            merge = String(set_starting_value)+":"+String(separate_time[0])+" PM"
+        } else if String(before_space_value) == "15" {
+            set_starting_value = "03"
+            merge = String(set_starting_value)+":"+String(separate_time[0])+" PM"
+        } else if String(before_space_value) == "16" {
+            set_starting_value = "04"
+            merge = String(set_starting_value)+":"+String(separate_time[0])+" PM"
+        } else if String(before_space_value) == "17" {
+            set_starting_value = "05"
+            merge = String(set_starting_value)+":"+String(separate_time[0])+" PM"
+        } else if String(before_space_value) == "18" {
+            set_starting_value = "06"
+            merge = String(set_starting_value)+":"+String(separate_time[0])+" PM"
+        } else if String(before_space_value) == "19" {
+            set_starting_value = "07"
+            merge = String(set_starting_value)+":"+String(separate_time[0])+" PM"
+        } else if String(before_space_value) == "20" {
+            set_starting_value = "08"
+            merge = String(set_starting_value)+":"+String(separate_time[0])+" PM"
+        } else if String(before_space_value) == "21" {
+            set_starting_value = "09"
+            merge = String(set_starting_value)+":"+String(separate_time[0])+" PM"
+        } else if String(before_space_value) == "22" {
+            set_starting_value = "10"
+            merge = String(set_starting_value)+":"+String(separate_time[0])+" PM"
+        } else if String(before_space_value) == "23" {
+            set_starting_value = "11"
+            merge = String(set_starting_value)+":"+String(separate_time[0])+" PM"
+        } else if String(before_space_value) == "24" {
+            set_starting_value = "12"
+            merge = String(set_starting_value)+":"+String(separate_time[0])+" PM"
+        } else {
+            // print(time)
+            set_starting_value = String(time)
+            merge = String(set_starting_value)+" AM"
+        }
+        
+        // print(set_starting_value as Any)
+        
+        return merge
+        
+        
+    }
+    
+    
+    @objc func time_difference(start_time:String,end_time:String)-> String {
+        let time1 = String(start_time)
+        let time2 = String(end_time)
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        
+        let date1 = formatter.date(from: time1)!
+        let date2 = formatter.date(from: time2)!
+        
+        let elapsedTime = date2.timeIntervalSince(date1)
+        
+        // convert from seconds to hours, rounding down to the nearest hour
+        let hours = floor(elapsedTime / 60 / 60)
+        
+        // we have to subtract the number of seconds in hours from minutes to get
+        // the remaining minutes, rounding down to the nearest minute (in case you
+        // want to get seconds down the road)
+        let minutes = floor((elapsedTime - (hours * 60 * 60)) / 60)
+        
+        // print("\(Int(hours)).\(Int(minutes))")
+        return "\(Int(hours)).\(Int(minutes))"
+    }
 }
 
 extension UITextField {
