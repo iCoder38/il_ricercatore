@@ -167,16 +167,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0921D623-84F2-4A92-98ED-0C9A07DE4E96"
+            uuid = "188466A9-F3BB-448D-A729-B0D592CC2D5D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IL-Ricercatore/controllers/screens/goal_settings/goal_settings.swift"
+            filePath = "IL-Ricercatore/controllers/screens/chart_monitors/sleep/sleep.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "my_profile(loader:)"
+            startingLineNumber = "335"
+            endingLineNumber = "335"
+            landmarkName = "setDataCount(_:range:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BB6CD5EF-5F6A-4AE5-A278-F60884F073A8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IL-Ricercatore/controllers/screens/chart_monitors/sleep/sleep.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "submit_date_WB()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

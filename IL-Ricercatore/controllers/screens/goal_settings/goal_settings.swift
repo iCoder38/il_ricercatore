@@ -9,8 +9,9 @@ import UIKit
 import Alamofire
 
 class goal_settings: UIViewController {
-
+    
     var dict_profile:NSDictionary!
+    
     
     @IBOutlet weak var lbl_navigation_title:UILabel! {
         didSet {
@@ -36,11 +37,9 @@ class goal_settings: UIViewController {
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.btn_back.addTarget(self, action: #selector(menu_click_method), for: .touchUpInside)
-        
         
     }
     
@@ -50,15 +49,15 @@ class goal_settings: UIViewController {
     }
     
     @objc func my_profile(loader:String) {
-//        let indexPath = IndexPath.init(row: 0, section: 0)
-//        let cell = self.tble_view.cellForRow(at: indexPath) as! complete_profile_three_table_cell
+        //  let indexPath = IndexPath.init(row: 0, section: 0)
+        //  let cell = self.tble_view.cellForRow(at: indexPath) as! complete_profile_three_table_cell
         
         var parameters:Dictionary<AnyHashable, Any>!
         
         if (loader == "yes") {
             ERProgressHud.sharedInstance.showDarkBackgroundView(withTitle: "Please wait...")
         }
-         
+        
         if let person = UserDefaults.standard.value(forKey: str_save_login_user_data) as? [String:Any] {
             print(person)
             
@@ -100,11 +99,11 @@ class goal_settings: UIViewController {
                                 let defaults = UserDefaults.standard
                                 defaults.setValue(dict, forKey: str_save_login_user_data)
                                 
-                                 self.dict_profile = dict as NSDictionary
+                                self.dict_profile = dict as NSDictionary
                                 
-                                tble_view.delegate = self
-                                tble_view.dataSource = self
-                                tble_view.reloadData()
+                                self.tble_view.delegate = self
+                                self.tble_view.dataSource = self
+                                self.tble_view.reloadData()
                             }
                             else {
                                 self.refresh_token_WB()
@@ -182,23 +181,33 @@ class goal_settings: UIViewController {
             }
         }
     }
-   
+    
     @objc func edit_weight_click_method() {
         
     }
     @objc func edit_water_click_method() {
-        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "set_up_water_tracker_id") as? set_up_water_tracker
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "goal_settings_water_id") as? goal_settings_water
         
-        push!.str_total_drink_water_count = "\(self.dict_profile["water_goal"]!)"
-        push!.str_total_water_count = "\(self.dict_profile["water_goal"]!)"
+        push!.str_value = "\(self.dict_profile["water_goal"]!)"
+        push!.type = "water"
         
         self.navigationController?.pushViewController(push!, animated: true)
     }
     @objc func edit_steps_click_method() {
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "goal_settings_water_id") as? goal_settings_water
         
+        push!.str_value = "\(self.dict_profile["step_goal"]!)"
+        push!.type = "step"
+        
+        self.navigationController?.pushViewController(push!, animated: true)
     }
     @objc func edit_nut_click_method() {
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "goal_settings_water_id") as? goal_settings_water
         
+        push!.str_value = "\(self.dict_profile["nutrition_goal"]!)"
+        push!.type = "nutrition_goal"
+        
+        self.navigationController?.pushViewController(push!, animated: true)
     }
 }
 
@@ -226,9 +235,28 @@ extension goal_settings: UITableViewDataSource , UITableViewDelegate {
         cell.lbl_goal_weight.text = (self.dict_profile["target_wight"] as! String)+" "+(self.dict_profile["target_wight_measurement"] as! String)
         cell.lbl_activity_weight.text = (self.dict_profile["daily_activity"] as! String)
         
-        cell.lbl_daily_water_goal.text = "\(self.dict_profile["water_goal"]!) Glasses"
+        if "\(self.dict_profile["water_goal"]!)" == "0" {
+            cell.lbl_daily_water_goal.text = "\(self.dict_profile["water_goal"]!) Glass"
+        } else if "\(self.dict_profile["water_goal"]!)" == "1" {
+            cell.lbl_daily_water_goal.text = "\(self.dict_profile["water_goal"]!) Glass"
+        } else if "\(self.dict_profile["water_goal"]!)" == "" {
+            cell.lbl_daily_water_goal.text = "\(self.dict_profile["water_goal"]!) Glass"
+        } else {
+            cell.lbl_daily_water_goal.text = "\(self.dict_profile["water_goal"]!) Glasses"
+        }
         
-        cell.lbl_daily_step_goal.text = "\(self.dict_profile["step_goal"]!) Steps"
+         // steps
+        if "\(self.dict_profile["step_goal"]!)" == "0" {
+            cell.lbl_daily_step_goal.text = "\(self.dict_profile["step_goal"]!) Step"
+        } else if "\(self.dict_profile["step_goal"]!)" == "1" {
+            cell.lbl_daily_step_goal.text = "\(self.dict_profile["step_goal"]!) Step"
+        } else if "\(self.dict_profile["step_goal"]!)" == "" {
+            cell.lbl_daily_step_goal.text = "\(self.dict_profile["step_goal"]!) Step"
+        } else {
+            cell.lbl_daily_step_goal.text = "\(self.dict_profile["step_goal"]!) Steps"
+        }
+        
+        
         
         cell.lbl_calorie_budget.text = "\(self.dict_profile["nutrition_goal"]!) Cal"
         

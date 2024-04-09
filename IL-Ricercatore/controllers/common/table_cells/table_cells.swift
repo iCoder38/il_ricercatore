@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DGCharts
 
 class table_cells: UIViewController {
 
@@ -1637,7 +1638,12 @@ class select_workout_table_cell : UITableViewCell {
 // /* ********************************************************** */
 class sleep_table_cell : UITableViewCell {
     
-    
+    // chart
+    @IBOutlet var chartView: BarChartView!
+    @IBOutlet var sliderX: UISlider!
+    @IBOutlet var sliderY: UISlider!
+    @IBOutlet var sliderTextX: UITextField!
+    @IBOutlet var sliderTextY: UITextField!
     
     @IBOutlet weak var lbl_date:UILabel!
     @IBOutlet weak var lbl_total_sleep_time:UILabel!
@@ -1966,4 +1972,99 @@ class goal_settings_table_cell : UITableViewCell {
     @IBOutlet weak var lbl_calorie_budget:UILabel!
     @IBOutlet weak var btn_nutrition_goal:UIButton!
     @IBOutlet weak var btn_edit_nut:UIButton!
+}
+
+
+class goal_settings_water_table_cell : UITableViewCell {
+    
+    @IBOutlet weak var view_counter:UIView! {
+        didSet {
+            view_counter.layer.cornerRadius = 8
+            view_counter.clipsToBounds = true
+            view_counter.backgroundColor = UIColor.init(red: 245.0/255.0, green: 236.0/255.0, blue: 255.0/255.0, alpha: 1)
+        }
+    }
+    
+    @IBOutlet weak var view_digits_counter:UIView! {
+        didSet {
+            view_digits_counter.layer.cornerRadius = 12
+            view_digits_counter.clipsToBounds = true
+            view_digits_counter.backgroundColor = .white
+        }
+    }
+    
+    @IBOutlet weak var lbl_water_count:UILabel!
+    
+    @IBOutlet weak var btn_add:UIButton!
+    @IBOutlet weak var btn_minus:UIButton!
+    
+    @IBOutlet weak var btn_save:UIButton! {
+        didSet {
+            btn_save.layer.cornerRadius = 8
+            btn_save.clipsToBounds = true
+            btn_save.setTitle("Save", for: .normal)
+            btn_save.setTitleColor(.white, for: .normal)
+        }
+    }
+    // steps
+    @IBOutlet weak var view_counter_steps:UIView! {
+        didSet {
+            view_counter_steps.layer.cornerRadius = 8
+            view_counter_steps.clipsToBounds = true
+            view_counter_steps.backgroundColor = UIColor.init(red: 245.0/255.0, green: 236.0/255.0, blue: 255.0/255.0, alpha: 1)
+        }
+    }
+    
+    @IBOutlet weak var view_digits_counter_steps:UIView! {
+        didSet {
+            view_digits_counter_steps.layer.cornerRadius = 12
+            view_digits_counter_steps.clipsToBounds = true
+            view_digits_counter_steps.backgroundColor = .white
+        }
+    }
+    
+    @IBOutlet weak var lbl_water_count_steps:UILabel!
+    
+    @IBOutlet weak var btn_add_steps:UIButton!
+    @IBOutlet weak var btn_minus_steps:UIButton!
+    
+    @IBOutlet weak var btn_save_steps:UIButton! {
+        didSet {
+            btn_save_steps.layer.cornerRadius = 8
+            btn_save_steps.clipsToBounds = true
+            btn_save_steps.setTitle("Save", for: .normal)
+            btn_save_steps.setTitleColor(.white, for: .normal)
+        }
+    }
+    // nut
+    @IBOutlet weak var view_counter_nut:UIView! {
+        didSet {
+            view_counter_nut.layer.cornerRadius = 8
+            view_counter_nut.clipsToBounds = true
+            view_counter_nut.backgroundColor = UIColor.init(red: 245.0/255.0, green: 236.0/255.0, blue: 255.0/255.0, alpha: 1)
+        }
+    }
+    
+    @IBOutlet weak var view_digits_counter_nut:UIView! {
+        didSet {
+            view_digits_counter_nut.layer.cornerRadius = 12
+            view_digits_counter_nut.clipsToBounds = true
+            view_digits_counter_nut.backgroundColor = .white
+        }
+    }
+    
+    @IBOutlet weak var lbl_water_count_nut:UILabel!
+    
+    @IBOutlet weak var btn_add_nut:UIButton!
+    @IBOutlet weak var btn_minus_nut:UIButton!
+    
+    @IBOutlet weak var btn_save_nut:UIButton! {
+        didSet {
+            btn_save_nut.layer.cornerRadius = 8
+            btn_save_nut.clipsToBounds = true
+            btn_save_nut.setTitle("Save", for: .normal)
+            btn_save_nut.setTitleColor(.white, for: .normal)
+        }
+    }
+    
 }
