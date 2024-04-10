@@ -14,6 +14,7 @@ class sleep: UIViewController {
     var arrSleep:NSMutableArray! = []
     
     var arr_7_days:NSMutableArray! = []
+    var str_do_not_change:String! = "0"
     
     @IBOutlet weak var btn_back:UIButton! {
         didSet {
@@ -121,6 +122,7 @@ class sleep: UIViewController {
     
     
     @objc func submit_date_WB() {
+         
         
         ERProgressHud.sharedInstance.showDarkBackgroundView(withTitle: "Please wait...")
         var parameters:Dictionary<AnyHashable, Any>!
@@ -136,12 +138,25 @@ class sleep: UIViewController {
                 let x : Int = person["userId"] as! Int
                 let myString = String(x)
                  
-                parameters = [
-                    "action"        : "sleeplist",
-                    "userId"        : String(myString),
-                    "startDate"     : "\(self.arr_7_days.lastObject!)",
-                    "enddate"       : String(Date.getCurrentDateCustom()),
-                ]
+                if (self.str_instake_status == "0") {
+                    parameters = [
+                        "action"        : "sleeplist",
+                        "userId"        : String(myString),
+                        "startDate"     : "\(self.arr_7_days.lastObject!)",
+                        "enddate"       : String(Date.getCurrentDateCustom()),
+                    ]
+                } else {
+                    self.str_do_not_change = "1"
+                    let indexPath = IndexPath.init(row: 0, section: 0)
+                    let cell = self.tble_view.cellForRow(at: indexPath) as! sleep_table_cell
+                    parameters = [
+                        "action"        : "sleeplist",
+                        "userId"        : String(myString),
+                        "startDate"     : String((cell.btn_date_one.titleLabel?.text)!),
+                        "enddate"       : String((cell.btn_date_two.titleLabel?.text)!),
+                    ]
+                }
+                
                 
                 print("parameters-------\(String(describing: parameters))")
                 
@@ -163,6 +178,8 @@ class sleep: UIViewController {
                                 
                                 // self.view.makeToast(JSON["msg"] as? String)
                                 // self.success_with_back_show_alert(message: (JSON["msg"] as? String)!)
+                                
+                                self.arrSleep.removeAllObjects()
                                 
                                 var ar : NSArray!
                                 ar = (JSON["data"] as! Array<Any>) as NSArray
@@ -233,7 +250,10 @@ class sleep: UIViewController {
                         UserDefaults.standard.set("", forKey: str_save_last_api_token)
                         UserDefaults.standard.set(str_token, forKey: str_save_last_api_token)
                         
-                        self.submit_date_WB()
+                        
+                            self.submit_date_WB()
+                       
+                        
                         
                     } else {
                         ERProgressHud.sharedInstance.hide()
@@ -249,6 +269,31 @@ class sleep: UIViewController {
                 break
             }
         }
+    }
+    
+    @objc func date_click_start() {
+        let indexPath = IndexPath.init(row: 0, section: 0)
+        let cell = self.tble_view.cellForRow(at: indexPath) as! sleep_table_cell
+        
+        let selectedDate = Date().dateByAddingDays(-6)
+        
+        RPicker.selectDate(title: "Select date", cancelText: "Cancel", datePickerMode: .date, minDate:selectedDate, maxDate: Date.now, didSelectDate: { (selectedDate) in
+            
+            cell.btn_date_one.setTitle(selectedDate.dateString(date_fomatter_yyyy_MM_dd), for: .normal)
+            
+        })
+    }
+    @objc func date_click_end() {
+        let indexPath = IndexPath.init(row: 0, section: 0)
+        let cell = self.tble_view.cellForRow(at: indexPath) as! sleep_table_cell
+        
+        let selectedDate = Date().dateByAddingDays(-6)
+        
+        RPicker.selectDate(title: "Select date", cancelText: "Cancel", datePickerMode: .date, minDate:selectedDate, maxDate: Date.now, didSelectDate: { (selectedDate) in
+            
+            cell.btn_date_two.setTitle(selectedDate.dateString(date_fomatter_yyyy_MM_dd), for: .normal)
+            
+        })
     }
 }
 
@@ -274,7 +319,7 @@ extension sleep: UITableViewDataSource , UITableViewDelegate, ChartViewDelegate 
             backgroundView.backgroundColor = .clear
             cell.selectedBackgroundView = backgroundView
             
-            cell.chartView.delegate = self
+            /*cell.chartView.delegate = self
             
             cell.chartView.drawBarShadowEnabled = false
             cell.chartView.drawValueAboveBarEnabled = false
@@ -318,15 +363,49 @@ extension sleep: UITableViewDataSource , UITableViewDelegate, ChartViewDelegate 
             l.form = .circle
             l.formSize = 9
             l.font = UIFont(name: "HelveticaNeue-Light", size: 11)!
-            l.xEntrySpace = 6
-
+            l.xEntrySpace = 7*/
+            
+            cell.chartView.delegate = self
+            
+            cell.chartView.chartDescription.enabled = false
+            cell.chartView.maxVisibleCount = 60
+            cell.chartView.pinchZoomEnabled = false
+            cell.chartView.drawBarShadowEnabled = false
+            
+            let leftAxisFormatter = NumberFormatter()
+            leftAxisFormatter.minimumFractionDigits = 0
+            leftAxisFormatter.maximumFractionDigits = 1
+            leftAxisFormatter.negativeSuffix = " H"
+            leftAxisFormatter.positiveSuffix = " H"
+            
+            let leftAxis = cell.chartView.leftAxis
+            leftAxis.labelFont = .systemFont(ofSize: 10)
+            leftAxis.labelCount = 6
+            leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: leftAxisFormatter)
+            leftAxis.labelPosition = .outsideChart
+            leftAxis.spaceTop = 0.15
+            leftAxis.axisMinimum = 0 // FIXME: HUH?? this replaces startAtZero = YES
+            
+            let rightAxis = cell.chartView.rightAxis
+            rightAxis.enabled = true
+            rightAxis.labelFont = .systemFont(ofSize: 10)
+            rightAxis.labelCount = 6
+            rightAxis.valueFormatter = leftAxis.valueFormatter
+            rightAxis.spaceTop = 0.15
+            rightAxis.axisMinimum = 0
+            
+            let xAxis = cell.chartView.xAxis
+            xAxis.labelPosition = .bottom
+                    
+            cell.chartView.legend.enabled = false
+            
             var add_time = 0.0
             let yVals = (0..<self.arrSleep.count).map { [self] (i) -> BarChartDataEntry in
-       
+                
                 let item = self.arrSleep[i] as? [String:Any]
                 
-                 let str_start_time:String! = (item!["sleepTime"] as! String)
-                 let str_end_time:String! = (item!["wakeupTime"] as! String)
+                let str_start_time:String! = (item!["sleepTime"] as! String)
+                let str_end_time:String! = (item!["wakeupTime"] as! String)
                 
                 let dateDiff = time_difference(start_time: String(str_start_time), end_time: String(str_end_time))
                 print(dateDiff as Any)
@@ -335,7 +414,7 @@ extension sleep: UITableViewDataSource , UITableViewDelegate, ChartViewDelegate 
                 
                 let myDouble = Double(dateDiff)
                 return BarChartDataEntry(x: Double(i), y: myDouble!, icon: UIImage(named: "logo1"))
-               
+                
             }
             
             // print(add_time as Any)
@@ -344,6 +423,25 @@ extension sleep: UITableViewDataSource , UITableViewDelegate, ChartViewDelegate 
             cell.lbl_on_avg.text = String(doubleStr)+"h on average"
             
             var set1: BarChartDataSet! = nil
+            if let set = cell.chartView.data?.first as? BarChartDataSet {
+                set1 = set
+                set1?.replaceEntries(yVals)
+                cell.chartView.data?.notifyDataChanged()
+                cell.chartView.notifyDataSetChanged()
+                set1.drawValuesEnabled = true
+            } else {
+                set1 = BarChartDataSet(entries: yVals, label: "Data Set")
+                set1.colors = ChartColorTemplates.vordiplom()
+                set1.drawValuesEnabled = true
+                
+                let data = BarChartData(dataSet: set1)
+                cell.chartView.data = data
+                cell.chartView.fitBars = true
+            }
+            
+            cell.chartView.setNeedsDisplay()
+            
+            /*var set1: BarChartDataSet! = nil
             if let set = cell.chartView.data?.first as? BarChartDataSet {
                 set1 = set
                 set1.replaceEntries(yVals)
@@ -359,7 +457,12 @@ extension sleep: UITableViewDataSource , UITableViewDelegate, ChartViewDelegate 
                 data.setValueFont(UIFont(name: "HelveticaNeue-Light", size: 10)!)
                 data.barWidth = 0.9
                 cell.chartView.data = data
-            }
+            }*/
+            
+            
+            
+            
+            
             
             return cell
             
@@ -372,6 +475,98 @@ extension sleep: UITableViewDataSource , UITableViewDelegate, ChartViewDelegate 
             let backgroundView = UIView()
             backgroundView.backgroundColor = .clear
             cell.selectedBackgroundView = backgroundView
+            
+            if (self.str_do_not_change == "0") {
+                cell.btn_date_one.setTitle("\(self.arr_7_days.lastObject!)", for: .normal)
+                cell.btn_date_two.setTitle(String(Date.getCurrentDateCustom()), for: .normal)
+                
+                cell.lbl_dates_two.text = "\(self.arr_7_days.lastObject!) - \(Date.getCurrentDateCustom())"
+            } else {
+                cell.lbl_dates_two.text = (cell.btn_date_one.titleLabel?.text)!+" - "+(cell.btn_date_two.titleLabel?.text)!
+            }
+            
+            cell.btn_date_one.addTarget(self, action: #selector(date_click_start), for: .touchUpInside)
+            cell.btn_date_two.addTarget(self, action: #selector(date_click_end), for: .touchUpInside)
+            
+            
+            
+            cell.btn_submit.addTarget(self, action: #selector(submit_date_WB), for: .touchUpInside)
+            
+            cell.chartView_two.delegate = self
+            
+            cell.chartView_two.chartDescription.enabled = false
+            cell.chartView_two.maxVisibleCount = 60
+            cell.chartView_two.pinchZoomEnabled = false
+            cell.chartView_two.drawBarShadowEnabled = false
+            
+            let leftAxisFormatter = NumberFormatter()
+            leftAxisFormatter.minimumFractionDigits = 0
+            leftAxisFormatter.maximumFractionDigits = 1
+            leftAxisFormatter.negativeSuffix = " H"
+            leftAxisFormatter.positiveSuffix = " H"
+            
+            let leftAxis = cell.chartView_two.leftAxis
+            leftAxis.labelFont = .systemFont(ofSize: 10)
+            leftAxis.labelCount = 6
+            leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: leftAxisFormatter)
+            leftAxis.labelPosition = .outsideChart
+            leftAxis.spaceTop = 0.15
+            leftAxis.axisMinimum = 0 // FIXME: HUH?? this replaces startAtZero = YES
+            
+            let rightAxis = cell.chartView_two.rightAxis
+            rightAxis.enabled = true
+            rightAxis.labelFont = .systemFont(ofSize: 10)
+            rightAxis.labelCount = 6
+            rightAxis.valueFormatter = leftAxis.valueFormatter
+            rightAxis.spaceTop = 0.15
+            rightAxis.axisMinimum = 0
+            
+            let xAxis = cell.chartView_two.xAxis
+            xAxis.labelPosition = .bottom
+                    
+            cell.chartView_two.legend.enabled = false
+            
+            var add_time = 0.0
+            let yVals = (0..<self.arrSleep.count).map { [self] (i) -> BarChartDataEntry in
+                
+                let item = self.arrSleep[i] as? [String:Any]
+                
+                let str_start_time:String! = (item!["sleepTime"] as! String)
+                let str_end_time:String! = (item!["wakeupTime"] as! String)
+                
+                let dateDiff = time_difference(start_time: String(str_start_time), end_time: String(str_end_time))
+                print(dateDiff as Any)
+                
+                add_time += Double(dateDiff)!
+                
+                let myDouble = Double(dateDiff)
+                return BarChartDataEntry(x: Double(i), y: myDouble!, icon: UIImage(named: "logo1"))
+                
+            }
+            
+            // print(add_time as Any)
+            // print(add_time/Double(self.arrSleep.count) as Any)
+            let doubleStr = String(format: "%.2f", (add_time/Double(self.arrSleep.count))) // "3.14"
+            cell.lbl_on_avg_two.text = String(doubleStr)+"h on average"
+             
+            var set1: BarChartDataSet! = nil
+            if let set = cell.chartView_two.data?.first as? BarChartDataSet {
+                set1 = set
+                set1?.replaceEntries(yVals)
+                cell.chartView_two.data?.notifyDataChanged()
+                cell.chartView_two.notifyDataSetChanged()
+                set1.drawValuesEnabled = true
+            } else {
+                set1 = BarChartDataSet(entries: yVals, label: "Data Set")
+                set1.colors = ChartColorTemplates.vordiplom()
+                set1.drawValuesEnabled = true
+                
+                let data = BarChartData(dataSet: set1)
+                cell.chartView_two.data = data
+                cell.chartView_two.fitBars = true
+            }
+            
+            cell.chartView_two.setNeedsDisplay()
             
             return cell
             
@@ -388,7 +583,7 @@ extension sleep: UITableViewDataSource , UITableViewDelegate, ChartViewDelegate 
         if (self.str_instake_status == "0") {
             return 300
         } else {
-            return 240
+            return 330
         }
     }
 

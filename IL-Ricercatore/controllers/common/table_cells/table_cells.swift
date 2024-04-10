@@ -1640,13 +1640,14 @@ class sleep_table_cell : UITableViewCell {
     
     // chart
     @IBOutlet var chartView: BarChartView!
-    @IBOutlet var sliderX: UISlider!
-    @IBOutlet var sliderY: UISlider!
-    @IBOutlet var sliderTextX: UITextField!
-    @IBOutlet var sliderTextY: UITextField!
-    
-    @IBOutlet weak var lbl_date:UILabel!
-    @IBOutlet weak var lbl_total_sleep_time:UILabel!
+    @IBOutlet var chartView_two: BarChartView!
+//    @IBOutlet var sliderX: UISlider!
+//    @IBOutlet var sliderY: UISlider!
+//    @IBOutlet var sliderTextX: UITextField!
+//    @IBOutlet var sliderTextY: UITextField!
+//    
+//    @IBOutlet weak var lbl_date:UILabel!
+//    @IBOutlet weak var lbl_total_sleep_time:UILabel!
     
     @IBOutlet weak var btn_date_one:UIButton! {
         didSet {
@@ -1668,6 +1669,10 @@ class sleep_table_cell : UITableViewCell {
     }
     
     @IBOutlet weak var lbl_on_avg:UILabel!
+    @IBOutlet weak var lbl_on_avg_two:UILabel!
+    
+    @IBOutlet weak var lbl_dates:UILabel!
+    @IBOutlet weak var lbl_dates_two:UILabel!
     
 }
 // /* ************** MONITOR - HEART **************************** */
@@ -1842,6 +1847,10 @@ class add_step_time_table_cell : UITableViewCell {
 // /* ********************************************************** */
 class steps_table_cell : UITableViewCell {
     
+    // chart
+    @IBOutlet var chartView: BarChartView!
+    @IBOutlet var chartView_two: BarChartView!
+    
     @IBOutlet weak var lbl_date:UILabel!
     @IBOutlet weak var lbl_total_sleep_time:UILabel!
     
@@ -1863,6 +1872,12 @@ class steps_table_cell : UITableViewCell {
             btn_submit.clipsToBounds = true
         }
     }
+    
+    @IBOutlet weak var lbl_on_avg:UILabel!
+    @IBOutlet weak var lbl_on_avg_two:UILabel!
+    
+    @IBOutlet weak var lbl_dates:UILabel!
+    @IBOutlet weak var lbl_dates_two:UILabel!
     
 }
 // /* ************** WORKOUT DETAILS *************************** */
