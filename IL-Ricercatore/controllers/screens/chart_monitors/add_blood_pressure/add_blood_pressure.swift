@@ -88,8 +88,8 @@ class add_blood_pressure: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         self.btn_time.setTitle("Time: "+Date.getCurrentTime(), for: .normal)
         self.btn_date.setTitle("Date: Today", for: .normal)
         
-        self.str_selected_time = Date.getCurrentDate()
-        self.str_selected_date = Date.getCurrentTime()
+        self.str_selected_time = Date.getCurrentTime()
+        self.str_selected_date = Date.getCurrentDate()
         
         self.btn_time.addTarget(self, action: #selector(time_click), for: .touchUpInside)
         self.btn_date.addTarget(self, action: #selector(date_click), for: .touchUpInside)
@@ -229,12 +229,14 @@ class add_blood_pressure: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 let myString = String(x)
                 
                 parameters = [
-                    "action"        : "heartadd",
+                    "action"        : "bloodpadd",
                     "userId"        : String(myString),
-                    "date"          : String(self.str_selected_date),
+                    "date"          : Date.getCurrentDateCustom(),
                     "time"          : String(self.str_selected_time),
-                    "bmp"           : String(self.lbl_heart_rate.text!),
-                    "bmp_measurement"   :"BPM",
+                    "bp_max"        : String(self.str_left_value),
+                    "bp_min"        : String(self.str_right_value),
+                    "body_location" : String(self.txt_body_position.text!),
+                    "arm_location"  : String(self.txt_arm_location.text!),
                      
                     
                 ]

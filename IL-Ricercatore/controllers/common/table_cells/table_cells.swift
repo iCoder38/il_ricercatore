@@ -1641,6 +1641,8 @@ class sleep_table_cell : UITableViewCell {
     // chart
     @IBOutlet var chartView: BarChartView!
     @IBOutlet var chartView_two: BarChartView!
+    
+    
 //    @IBOutlet var sliderX: UISlider!
 //    @IBOutlet var sliderY: UISlider!
 //    @IBOutlet var sliderTextX: UITextField!
@@ -1674,12 +1676,16 @@ class sleep_table_cell : UITableViewCell {
     @IBOutlet weak var lbl_dates:UILabel!
     @IBOutlet weak var lbl_dates_two:UILabel!
     
+    @IBOutlet weak var lbl_header_date:UILabel!
+    
 }
 // /* ************** MONITOR - HEART **************************** */
 // /* ********************************************************** */
 class heart_table_cell : UITableViewCell {
     
-    
+    // chart
+    @IBOutlet var chartView: BarChartView!
+    @IBOutlet var chartView_two: BarChartView!
     
     @IBOutlet weak var lbl_date:UILabel!
     @IBOutlet weak var lbl_total_sleep_time:UILabel!
@@ -1702,6 +1708,14 @@ class heart_table_cell : UITableViewCell {
             btn_submit.clipsToBounds = true
         }
     }
+    
+    
+    @IBOutlet weak var lbl_on_avg:UILabel!
+    @IBOutlet weak var lbl_on_avg_two:UILabel!
+    
+    @IBOutlet weak var lbl_dates_two:UILabel!
+    
+    @IBOutlet weak var lbl_header_date:UILabel!
     
 }
 // /* ************** MONITOR - WEIGHT **************************** */
@@ -1709,6 +1723,10 @@ class heart_table_cell : UITableViewCell {
 class weight_table_cell : UITableViewCell {
     
     
+    // chart
+    @IBOutlet var chartView: BarChartView!
+    @IBOutlet var chartView_two: BarChartView!
+    
     
     @IBOutlet weak var lbl_date:UILabel!
     @IBOutlet weak var lbl_total_sleep_time:UILabel!
@@ -1731,13 +1749,18 @@ class weight_table_cell : UITableViewCell {
             btn_submit.clipsToBounds = true
         }
     }
+    @IBOutlet weak var lbl_on_avg:UILabel!
+    @IBOutlet weak var lbl_on_avg_two:UILabel!
     
+    @IBOutlet weak var lbl_dates_two:UILabel!
+    
+    @IBOutlet weak var lbl_header_date:UILabel!
 }
 // /* ************** MONITOR - BLOOD PRESSURE **************************** */
 // /* ********************************************************** */
 class blood_pressure_table_cell : UITableViewCell {
     
-    
+    @IBOutlet weak var chartView:BarChartView!
     
     @IBOutlet weak var lbl_date:UILabel!
     @IBOutlet weak var lbl_total_sleep_time:UILabel!
@@ -1760,6 +1783,11 @@ class blood_pressure_table_cell : UITableViewCell {
             btn_submit.clipsToBounds = true
         }
     }
+    
+    @IBOutlet weak var lbl_header_date:UILabel!
+    
+    @IBOutlet weak var lbl_day_time:UILabel!
+    @IBOutlet weak var lbl_value:UILabel!
     
 }
 // /* ************** MONITOR - SLEEP **************************** */
@@ -1878,6 +1906,8 @@ class steps_table_cell : UITableViewCell {
     
     @IBOutlet weak var lbl_dates:UILabel!
     @IBOutlet weak var lbl_dates_two:UILabel!
+    
+    @IBOutlet weak var lbl_header_date:UILabel!
     
 }
 // /* ************** WORKOUT DETAILS *************************** */

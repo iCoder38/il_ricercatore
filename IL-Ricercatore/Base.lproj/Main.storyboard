@@ -7608,6 +7608,7 @@ per your dietrary.</string>
                                         <connections>
                                             <outlet property="chartView" destination="bdb-hf-EvU" id="j0f-aS-3ed"/>
                                             <outlet property="lbl_dates" destination="zyG-rc-Zfy" id="yKJ-3g-LAh"/>
+                                            <outlet property="lbl_header_date" destination="zyG-rc-Zfy" id="kbJ-gT-Cde"/>
                                             <outlet property="lbl_on_avg" destination="4yj-ZC-9gM" id="NTs-cS-8X1"/>
                                         </connections>
                                     </tableViewCell>
@@ -8092,14 +8093,15 @@ per your dietrary.</string>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="chartView" destination="KvS-u9-D59" id="aHK-kg-MP0"/>
+                                            <outlet property="lbl_header_date" destination="X2g-Vw-Ngz" id="7E9-az-RYk"/>
                                             <outlet property="lbl_on_avg" destination="4fW-n4-ghX" id="Wwh-Tp-V8B"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="two_steps_table_cell" rowHeight="240" id="dK4-dv-WRW" customClass="steps_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="350" width="393" height="240"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="two_steps_table_cell" rowHeight="330" id="dK4-dv-WRW" customClass="steps_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="350" width="393" height="330"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dK4-dv-WRW" id="rOc-eb-L6B">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="240"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="330"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01- March - 07 March" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEq-M3-BO7">
@@ -8121,10 +8123,10 @@ per your dietrary.</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q8e-2c-NKz" customClass="BarChartView" customModule="DGCharts">
-                                                    <rect key="frame" x="20" y="101" width="353" height="128"/>
+                                                    <rect key="frame" x="20" y="101" width="353" height="218"/>
                                                     <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="128" id="aQx-xn-8Sx"/>
+                                                        <constraint firstAttribute="height" constant="218" id="aQx-xn-8Sx"/>
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zxv-58-mzc">
@@ -8540,21 +8542,21 @@ per your dietrary.</string>
             <objects>
                 <viewController storyboardIdentifier="heart_id" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WmT-HS-mz0" customClass="heart" customModule="IL_Ricercatore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ygI-Jp-i3T">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_blue" translatesAutoresizingMaskIntoConstraints="NO" id="uo7-jO-102">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="800"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="1200"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9lN-VS-S4k">
-                                <rect key="frame" x="0.0" y="150" width="393" height="650"/>
+                                <rect key="frame" x="0.0" y="150" width="393" height="1050"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="heart_one_table_cell" rowHeight="210" id="3Xy-sZ-9sY" customClass="heart_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="210"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="heart_one_table_cell" rowHeight="300" id="3Xy-sZ-9sY" customClass="heart_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Xy-sZ-9sY" id="mmt-Ba-IkF">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="210"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01- March - 07 March" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcj-J2-IxD">
@@ -8575,11 +8577,11 @@ per your dietrary.</string>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Akr-V9-Huu">
-                                                    <rect key="frame" x="20" y="69" width="353" height="128"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Akr-V9-Huu" customClass="BarChartView" customModule="DGCharts">
+                                                    <rect key="frame" x="20" y="69" width="353" height="220"/>
                                                     <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="128" id="dCm-5q-cfP"/>
+                                                        <constraint firstAttribute="height" constant="220" id="dCm-5q-cfP"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -8595,12 +8597,17 @@ per your dietrary.</string>
                                                 <constraint firstItem="HwR-AO-uDs" firstAttribute="top" secondItem="qcj-J2-IxD" secondAttribute="bottom" constant="8" symbolic="YES" id="rL0-YC-p0N"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="chartView" destination="Akr-V9-Huu" id="B4V-tp-CKI"/>
+                                            <outlet property="lbl_header_date" destination="qcj-J2-IxD" id="vNi-Zw-4eT"/>
+                                            <outlet property="lbl_on_avg" destination="HwR-AO-uDs" id="9Ng-mZ-eIx"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="heart_two_table_cell" rowHeight="240" id="x2w-xg-b3m" customClass="heart_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="260" width="393" height="240"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="heart_two_table_cell" rowHeight="330" id="x2w-xg-b3m" customClass="heart_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="350" width="393" height="330"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="x2w-xg-b3m" id="eHm-RH-jED">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="240"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="330"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01- March - 07 March" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lpf-Px-Y3g">
@@ -8621,11 +8628,11 @@ per your dietrary.</string>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7UX-IC-eLS">
-                                                    <rect key="frame" x="20" y="101" width="353" height="128"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7UX-IC-eLS" customClass="BarChartView" customModule="DGCharts">
+                                                    <rect key="frame" x="20" y="101" width="353" height="218"/>
                                                     <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="128" id="65M-Nx-ViV"/>
+                                                        <constraint firstAttribute="height" constant="218" id="65M-Nx-ViV"/>
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F1e-Z6-ZbO">
@@ -8686,6 +8693,9 @@ per your dietrary.</string>
                                             <outlet property="btn_date_one" destination="F1e-Z6-ZbO" id="Fg1-wF-Dl9"/>
                                             <outlet property="btn_date_two" destination="SH4-gO-P6k" id="Zae-yK-aqY"/>
                                             <outlet property="btn_submit" destination="lWN-7w-X3z" id="p5t-Yu-dBE"/>
+                                            <outlet property="chartView_two" destination="7UX-IC-eLS" id="Ghq-JP-Ngr"/>
+                                            <outlet property="lbl_dates_two" destination="Lpf-Px-Y3g" id="NFe-7y-bHn"/>
+                                            <outlet property="lbl_on_avg_two" destination="m98-qK-3Tn" id="5sd-vx-dWk"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -8782,7 +8792,7 @@ per your dietrary.</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="LZ0-aE-Ppp"/>
-                    <size key="freeformSize" width="393" height="800"/>
+                    <size key="freeformSize" width="393" height="1200"/>
                     <connections>
                         <outlet property="btn_add" destination="gFL-s1-ADC" id="Kb4-SS-bi7"/>
                         <outlet property="btn_back" destination="SLF-gi-Yjk" id="3tl-MN-gN0"/>
@@ -8794,7 +8804,7 @@ per your dietrary.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q6f-tb-mmh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20578" y="-1"/>
+            <point key="canvasLocation" x="20577.862595419847" y="-1.4084507042253522"/>
         </scene>
         <!--Add heart rate-->
         <scene sceneID="Sbs-F5-myB">
@@ -9007,21 +9017,21 @@ per your dietrary.</string>
             <objects>
                 <viewController storyboardIdentifier="weight_id" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bsU-sY-ydm" customClass="weight" customModule="IL_Ricercatore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2Uh-eB-Ehy">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_blue" translatesAutoresizingMaskIntoConstraints="NO" id="pqy-dd-c4Y">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="800"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="1200"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="siS-P3-HuB">
-                                <rect key="frame" x="0.0" y="150" width="393" height="650"/>
+                                <rect key="frame" x="0.0" y="150" width="393" height="1050"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="weight_one_table_cell" rowHeight="210" id="VGK-21-e12" customClass="weight_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="210"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="weight_one_table_cell" rowHeight="300" id="VGK-21-e12" customClass="weight_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VGK-21-e12" id="2V0-3l-qXa">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="210"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01- March - 07 March" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UfO-M5-NiU">
@@ -9042,11 +9052,11 @@ per your dietrary.</string>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EDu-WY-uyi">
-                                                    <rect key="frame" x="20" y="69" width="353" height="128"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EDu-WY-uyi" customClass="BarChartView" customModule="DGCharts">
+                                                    <rect key="frame" x="20" y="69" width="353" height="220"/>
                                                     <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="128" id="AHO-Mg-gI5"/>
+                                                        <constraint firstAttribute="height" constant="220" id="AHO-Mg-gI5"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -9062,12 +9072,17 @@ per your dietrary.</string>
                                                 <constraint firstItem="rTT-91-Hat" firstAttribute="leading" secondItem="2V0-3l-qXa" secondAttribute="leadingMargin" id="hLm-dL-G5k"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="chartView" destination="EDu-WY-uyi" id="Kay-kO-n6P"/>
+                                            <outlet property="lbl_header_date" destination="UfO-M5-NiU" id="JWp-mU-OlH"/>
+                                            <outlet property="lbl_on_avg" destination="rTT-91-Hat" id="6tf-DP-Fq5"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="weight_two_table_cell" rowHeight="240" id="u7L-7w-aJ8" customClass="weight_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="260" width="393" height="240"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="weight_two_table_cell" rowHeight="330" id="u7L-7w-aJ8" customClass="weight_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="350" width="393" height="330"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u7L-7w-aJ8" id="Gdu-tM-w5o">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="240"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="330"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01- March - 07 March" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aX1-3j-nHo">
@@ -9088,11 +9103,11 @@ per your dietrary.</string>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y05-oO-fY3">
-                                                    <rect key="frame" x="20" y="101" width="353" height="128"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y05-oO-fY3" customClass="BarChartView" customModule="DGCharts">
+                                                    <rect key="frame" x="20" y="101" width="353" height="218"/>
                                                     <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="128" id="puL-ZH-AHa"/>
+                                                        <constraint firstAttribute="height" constant="218" id="puL-ZH-AHa"/>
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QQp-Y6-LIk">
@@ -9153,6 +9168,7 @@ per your dietrary.</string>
                                             <outlet property="btn_date_one" destination="QQp-Y6-LIk" id="4kO-qS-A16"/>
                                             <outlet property="btn_date_two" destination="931-28-fHS" id="gkZ-X3-mRT"/>
                                             <outlet property="btn_submit" destination="c6f-vH-AGk" id="jyw-qa-pfg"/>
+                                            <outlet property="chartView_two" destination="y05-oO-fY3" id="xEZ-0Q-BGN"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -9249,7 +9265,7 @@ per your dietrary.</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8lX-Ca-Yma"/>
-                    <size key="freeformSize" width="393" height="800"/>
+                    <size key="freeformSize" width="393" height="1200"/>
                     <connections>
                         <outlet property="btn_add" destination="Edl-JH-eyO" id="whD-ZY-XTO"/>
                         <outlet property="btn_back" destination="gGc-EK-Uav" id="Nno-gX-ftq"/>
@@ -9261,7 +9277,7 @@ per your dietrary.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s8N-bD-hdf" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="21828" y="-2"/>
+            <point key="canvasLocation" x="21826.717557251908" y="-2.1126760563380285"/>
         </scene>
         <!--Add weight-->
         <scene sceneID="1EE-iY-QhY">
@@ -9474,21 +9490,21 @@ per your dietrary.</string>
             <objects>
                 <viewController storyboardIdentifier="blood_pressure_id" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RxT-un-emD" customClass="blood_pressure" customModule="IL_Ricercatore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fre-f4-B8g">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_blue" translatesAutoresizingMaskIntoConstraints="NO" id="APX-om-3Ve">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="800"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="1200"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="5X6-TE-AyE">
-                                <rect key="frame" x="0.0" y="150" width="393" height="650"/>
+                                <rect key="frame" x="0.0" y="150" width="393" height="1050"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="blood_pressure_one_table_cell" rowHeight="210" id="204-Pe-EPo" customClass="blood_pressure_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="210"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="blood_pressure_one_table_cell" rowHeight="350" id="204-Pe-EPo" customClass="blood_pressure_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="350"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="204-Pe-EPo" id="O7r-1t-aOY">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="210"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="350"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01- March - 07 March" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boN-26-uvK">
@@ -9509,32 +9525,49 @@ per your dietrary.</string>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tpU-D4-ENS">
-                                                    <rect key="frame" x="20" y="69" width="353" height="128"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tpU-D4-ENS" customClass="BarChartView" customModule="DGCharts">
+                                                    <rect key="frame" x="20" y="69" width="353" height="220"/>
                                                     <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="128" id="m0b-Q2-B71"/>
+                                                        <constraint firstAttribute="height" constant="220" id="m0b-Q2-B71"/>
                                                     </constraints>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ee-ai-X5Y">
+                                                    <rect key="frame" x="20" y="293" width="353" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="m8b-HZ-KfS"/>
+                                                    </constraints>
+                                                    <string key="text">Blood pressure is measured in millimeters of mercury and your systolic and diastolic readings are and indicators of your hearts health.</string>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="7ee-ai-X5Y" firstAttribute="top" secondItem="tpU-D4-ENS" secondAttribute="bottom" constant="4" id="70i-do-00X"/>
                                                 <constraint firstItem="tpU-D4-ENS" firstAttribute="trailing" secondItem="O7r-1t-aOY" secondAttribute="trailingMargin" id="9fP-Ej-jBA"/>
+                                                <constraint firstItem="7ee-ai-X5Y" firstAttribute="leading" secondItem="O7r-1t-aOY" secondAttribute="leading" constant="20" symbolic="YES" id="CHd-D7-LbA"/>
                                                 <constraint firstItem="tpU-D4-ENS" firstAttribute="top" secondItem="jFg-a2-GMR" secondAttribute="bottom" constant="8" symbolic="YES" id="JR8-DT-lok"/>
                                                 <constraint firstItem="boN-26-uvK" firstAttribute="leading" secondItem="O7r-1t-aOY" secondAttribute="leadingMargin" id="a7Z-Zw-Q9S"/>
                                                 <constraint firstItem="tpU-D4-ENS" firstAttribute="leading" secondItem="O7r-1t-aOY" secondAttribute="leadingMargin" id="bY4-p1-tcE"/>
                                                 <constraint firstItem="boN-26-uvK" firstAttribute="trailing" secondItem="O7r-1t-aOY" secondAttribute="trailingMargin" id="cXP-Zg-9k6"/>
+                                                <constraint firstAttribute="trailing" secondItem="7ee-ai-X5Y" secondAttribute="trailing" constant="20" symbolic="YES" id="dTL-fq-Dt4"/>
                                                 <constraint firstItem="jFg-a2-GMR" firstAttribute="leading" secondItem="O7r-1t-aOY" secondAttribute="leadingMargin" id="hLd-Yq-GQi"/>
                                                 <constraint firstItem="boN-26-uvK" firstAttribute="top" secondItem="O7r-1t-aOY" secondAttribute="topMargin" id="qoh-vA-lXW"/>
                                                 <constraint firstItem="jFg-a2-GMR" firstAttribute="top" secondItem="boN-26-uvK" secondAttribute="bottom" constant="8" symbolic="YES" id="yxc-Nt-YZH"/>
                                                 <constraint firstItem="jFg-a2-GMR" firstAttribute="trailing" secondItem="O7r-1t-aOY" secondAttribute="trailingMargin" id="zOW-D3-RH9"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="chartView" destination="tpU-D4-ENS" id="dRr-cd-SCN"/>
+                                            <outlet property="lbl_header_date" destination="boN-26-uvK" id="QQl-Xo-XJO"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="blood_pressure_two_table_cell" rowHeight="240" id="x6J-HX-pVj" customClass="blood_pressure_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="260" width="393" height="240"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="blood_pressure_two_table_cell" rowHeight="330" id="x6J-HX-pVj" customClass="blood_pressure_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="400" width="393" height="330"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="x6J-HX-pVj" id="tzZ-2P-KcP">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="240"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="330"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01- March - 07 March" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAo-CS-2jY">
@@ -9556,10 +9589,10 @@ per your dietrary.</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zh4-Si-spS">
-                                                    <rect key="frame" x="20" y="101" width="353" height="128"/>
+                                                    <rect key="frame" x="20" y="101" width="353" height="218"/>
                                                     <color key="backgroundColor" systemColor="systemGray5Color"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="128" id="MDa-v0-X62"/>
+                                                        <constraint firstAttribute="height" constant="218" id="MDa-v0-X62"/>
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qsp-Va-G2n">
@@ -9620,6 +9653,46 @@ per your dietrary.</string>
                                             <outlet property="btn_date_one" destination="qsp-Va-G2n" id="GDm-Js-fgR"/>
                                             <outlet property="btn_date_two" destination="I7b-3V-OXv" id="fy6-ZS-HJb"/>
                                             <outlet property="btn_submit" destination="oOj-SN-Thv" id="70I-mq-NTi"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="bp_list" rowHeight="70" id="3kw-HV-kAs" customClass="blood_pressure_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="730" width="393" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3kw-HV-kAs" id="CV4-9G-2PJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01- March - 07 March" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXi-Ph-HHO">
+                                                    <rect key="frame" x="20" y="10" width="353" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="3HB-VK-hjw"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0 Total sleep time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eby-XA-0PZ">
+                                                    <rect key="frame" x="20" y="39" width="353" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="kRK-lX-yU9"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="SXi-Ph-HHO" secondAttribute="trailing" constant="20" symbolic="YES" id="CnZ-ua-NRi"/>
+                                                <constraint firstAttribute="trailing" secondItem="Eby-XA-0PZ" secondAttribute="trailing" constant="20" symbolic="YES" id="Ikk-pv-PZz"/>
+                                                <constraint firstItem="SXi-Ph-HHO" firstAttribute="top" secondItem="CV4-9G-2PJ" secondAttribute="top" constant="10" id="Tha-tx-WHv"/>
+                                                <constraint firstItem="Eby-XA-0PZ" firstAttribute="top" secondItem="SXi-Ph-HHO" secondAttribute="bottom" constant="8" symbolic="YES" id="UAc-ic-MQf"/>
+                                                <constraint firstItem="Eby-XA-0PZ" firstAttribute="leading" secondItem="CV4-9G-2PJ" secondAttribute="leading" constant="20" symbolic="YES" id="ay3-6S-9yV"/>
+                                                <constraint firstItem="SXi-Ph-HHO" firstAttribute="leading" secondItem="CV4-9G-2PJ" secondAttribute="leading" constant="20" symbolic="YES" id="q3g-qZ-xlR"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lbl_day_time" destination="SXi-Ph-HHO" id="gvr-6i-cG3"/>
+                                            <outlet property="lbl_value" destination="Eby-XA-0PZ" id="bWU-6O-3Ud"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -9716,7 +9789,7 @@ per your dietrary.</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5C1-0n-nlD"/>
-                    <size key="freeformSize" width="393" height="800"/>
+                    <size key="freeformSize" width="393" height="1200"/>
                     <connections>
                         <outlet property="btn_add" destination="syC-Tg-uKn" id="WW1-4t-5e6"/>
                         <outlet property="btn_back" destination="pZE-Dy-EJu" id="NE6-BY-Y5W"/>
@@ -9728,7 +9801,7 @@ per your dietrary.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Xz-qL-pb3" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="23121" y="-1"/>
+            <point key="canvasLocation" x="23119.847328244276" y="-1.4084507042253522"/>
         </scene>
         <!--Add blood pressure-->
         <scene sceneID="HZ3-jY-w2M">
@@ -12139,8 +12212,8 @@ per your dietrary.</string>
         <image name="person" catalog="system" width="128" height="121"/>
         <image name="phone" catalog="system" width="128" height="115"/>
         <image name="play_video" width="64" height="64"/>
-        <image name="plus" width="24" height="24"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="plus" width="24" height="24"/>
         <image name="plus_yellow" width="64" height="64"/>
         <image name="quote" width="512" height="512"/>
         <image name="recycling-water" width="256" height="256"/>

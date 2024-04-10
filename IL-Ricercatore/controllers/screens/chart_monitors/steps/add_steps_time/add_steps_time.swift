@@ -176,13 +176,17 @@ class add_steps_time: UIViewController {
                             
                             if strSuccess.lowercased() == "success" {
                                 ERProgressHud.sharedInstance.hide()
-                                
+                                self.view.makeToast(JSON["msg"] as? String)
                                 let alert = NewYorkAlertController(title: String("Success").uppercased(), message: JSON["msg"] as? String, style: .alert)
-                                let cancel = NewYorkButton(title: "dismiss", style: .cancel)
+                                 
+                                let cancel = NewYorkButton(title: "dismiss", style: .cancel) {
+                                    _ in
+                                    self.navigationController?.popViewController(animated: true)
+                                }
                                 alert.addButtons([cancel])
                                 self.present(alert, animated: true)
                                 
-                                self.navigationController?.popViewController(animated: true)
+                                
                             } else {
                                 if (JSON["msg"] as? String == your_are_not_auth) {
                                     self.refresh_token_WB()

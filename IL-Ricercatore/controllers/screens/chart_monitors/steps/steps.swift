@@ -120,7 +120,7 @@ class steps: UIViewController {
                  
                 if (self.str_step_status == "0") {
                     parameters = [
-                        "action"        : "sleeplist",
+                        "action"        : "stepslist",
                         "userId"        : String(myString),
                         "startDate"     : "\(self.arr_7_days.lastObject!)",
                         "enddate"       : String(Date.getCurrentDateCustom()),
@@ -128,9 +128,9 @@ class steps: UIViewController {
                 } else {
                     self.str_do_not_change = "1"
                     let indexPath = IndexPath.init(row: 0, section: 0)
-                    let cell = self.tble_view.cellForRow(at: indexPath) as! sleep_table_cell
+                    let cell = self.tble_view.cellForRow(at: indexPath) as! steps_table_cell
                     parameters = [
-                        "action"        : "sleeplist",
+                        "action"        : "stepslist",
                         "userId"        : String(myString),
                         "startDate"     : String((cell.btn_date_one.titleLabel?.text)!),
                         "enddate"       : String((cell.btn_date_two.titleLabel?.text)!),
@@ -344,15 +344,22 @@ extension steps: UITableViewDataSource , UITableViewDelegate, ChartViewDelegate 
             let yVals2 = (0..<self.arrSteps.count).map { (i) -> BarChartDataEntry in
                 let item = self.arrSteps[i] as? [String:Any]
                 
-                let str_start_time:String! = (item!["sleepTime"] as! String)
+                /*let str_start_time:String! = (item!["sleepTime"] as! String)
                 let str_end_time:String! = (item!["wakeupTime"] as! String)
                 
                 let dateDiff = time_difference(start_time: String(str_start_time), end_time: String(str_end_time))
                 print(dateDiff as Any)
                 
-                add_time += Double(dateDiff)!
                 
-                let myDouble = Double(dateDiff)
+                 let myDouble = Double(dateDiff)
+                */
+                
+                
+                // header date
+                cell.lbl_header_date.text = get_number_convert_into_months(date_one: "\(self.arr_7_days.lastObject!)")+" - "+get_number_convert_into_months(date_one: String(Date.getCurrentDateCustom()))
+                
+                add_time += Double("\(item!["totalSteps"]!)")!
+                let myDouble = Double("\(item!["totalSteps"]!)")
                 return BarChartDataEntry(x: Double(i), y: myDouble!, icon: UIImage(named: "logo1"))
             }
             
@@ -368,7 +375,7 @@ extension steps: UITableViewDataSource , UITableViewDelegate, ChartViewDelegate 
             } else {
                 set1 = BarChartDataSet(entries: yVals2, label: "Data Set")
                 set1.colors = ChartColorTemplates.vordiplom()
-                set1.drawValuesEnabled = false
+                set1.drawValuesEnabled = true
                 
                 let data = BarChartData(dataSet: set1)
                 cell.chartView.data = data
@@ -393,9 +400,14 @@ extension steps: UITableViewDataSource , UITableViewDelegate, ChartViewDelegate 
                 cell.btn_date_one.setTitle("\(self.arr_7_days.lastObject!)", for: .normal)
                 cell.btn_date_two.setTitle(String(Date.getCurrentDateCustom()), for: .normal)
                 
-                cell.lbl_dates_two.text = "\(self.arr_7_days.lastObject!) - \(Date.getCurrentDateCustom())"
+                // cell.lbl_dates_two.text = "\(self.arr_7_days.lastObject!) - \(Date.getCurrentDateCustom())"
+                
+                // header date
+                cell.lbl_dates_two.text = get_number_convert_into_months(date_one: "\(self.arr_7_days.lastObject!)")+" - "+get_number_convert_into_months(date_one: String(Date.getCurrentDateCustom()))
             } else {
-                cell.lbl_dates_two.text = (cell.btn_date_one.titleLabel?.text)!+" - "+(cell.btn_date_two.titleLabel?.text)!
+                // cell.lbl_dates_two.text = (cell.btn_date_one.titleLabel?.text)!+" - "+(cell.btn_date_two.titleLabel?.text)!
+                // header date
+                cell.lbl_dates_two.text = get_number_convert_into_months(date_one: (cell.btn_date_one.titleLabel?.text)!)+" - "+get_number_convert_into_months(date_one: (cell.btn_date_two.titleLabel?.text)!)
             }
             
             cell.btn_date_one.addTarget(self, action: #selector(date_click_start), for: .touchUpInside)
@@ -404,6 +416,85 @@ extension steps: UITableViewDataSource , UITableViewDelegate, ChartViewDelegate 
             
             
             cell.btn_submit.addTarget(self, action: #selector(submit_date_WB), for: .touchUpInside)
+            
+            cell.chartView_two.delegate = self
+            
+            cell.chartView_two.chartDescription.enabled = false
+            cell.chartView_two.maxVisibleCount = 60
+            cell.chartView_two.pinchZoomEnabled = false
+            cell.chartView_two.drawBarShadowEnabled = false
+            
+            let leftAxisFormatter = NumberFormatter()
+            leftAxisFormatter.minimumFractionDigits = 0
+            leftAxisFormatter.maximumFractionDigits = 1
+            leftAxisFormatter.negativeSuffix = " H"
+            leftAxisFormatter.positiveSuffix = " H"
+            
+            let leftAxis = cell.chartView_two.leftAxis
+            leftAxis.labelFont = .systemFont(ofSize: 10)
+            leftAxis.labelCount = 6
+            leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: leftAxisFormatter)
+            leftAxis.labelPosition = .outsideChart
+            leftAxis.spaceTop = 0.15
+            leftAxis.axisMinimum = 0 // FIXME: HUH?? this replaces startAtZero = YES
+            
+            let rightAxis = cell.chartView_two.rightAxis
+            rightAxis.enabled = true
+            rightAxis.labelFont = .systemFont(ofSize: 10)
+            rightAxis.labelCount = 6
+            rightAxis.valueFormatter = leftAxis.valueFormatter
+            rightAxis.spaceTop = 0.15
+            rightAxis.axisMinimum = 0
+            
+            let xAxis = cell.chartView_two.xAxis
+            xAxis.labelPosition = .bottom
+                    
+            cell.chartView_two.legend.enabled = false
+            
+            var add_time = 0.0
+            let yVals = (0..<self.arrSteps.count).map { [self] (i) -> BarChartDataEntry in
+                
+                let item = self.arrSteps[i] as? [String:Any]
+                
+                /*let str_start_time:String! = (item!["sleepTime"] as! String)
+                let str_end_time:String! = (item!["wakeupTime"] as! String)
+                
+                let dateDiff = time_difference(start_time: String(str_start_time), end_time: String(str_end_time))
+                print(dateDiff as Any)
+                
+                add_time += Double(dateDiff)!
+                
+                let myDouble = Double(dateDiff)*/
+                
+                add_time += Double("\(item!["totalSteps"]!)")!
+                let myDouble = Double("\(item!["totalSteps"]!)")
+                return BarChartDataEntry(x: Double(i), y: myDouble!, icon: UIImage(named: "logo1"))
+                
+            }
+            
+            // print(add_time as Any)
+            // print(add_time/Double(self.arrSleep.count) as Any)
+            let doubleStr = String(format: "%.2f", (add_time/Double(self.arrSteps.count))) // "3.14"
+            cell.lbl_on_avg_two.text = String(doubleStr)+"h on average"
+             
+            var set1: BarChartDataSet! = nil
+            if let set = cell.chartView_two.data?.first as? BarChartDataSet {
+                set1 = set
+                set1?.replaceEntries(yVals)
+                cell.chartView_two.data?.notifyDataChanged()
+                cell.chartView_two.notifyDataSetChanged()
+                set1.drawValuesEnabled = true
+            } else {
+                set1 = BarChartDataSet(entries: yVals, label: "Data Set")
+                set1.colors = ChartColorTemplates.vordiplom()
+                set1.drawValuesEnabled = true
+                
+                let data = BarChartData(dataSet: set1)
+                cell.chartView_two.data = data
+                cell.chartView_two.fitBars = true
+            }
+            
+            cell.chartView_two.setNeedsDisplay()
             
             return cell
             

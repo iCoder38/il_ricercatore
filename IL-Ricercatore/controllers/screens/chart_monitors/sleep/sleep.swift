@@ -407,6 +407,13 @@ extension sleep: UITableViewDataSource , UITableViewDelegate, ChartViewDelegate 
                 let str_start_time:String! = (item!["sleepTime"] as! String)
                 let str_end_time:String! = (item!["wakeupTime"] as! String)
                 
+                /*
+                 cell.btn_date_one.setTitle("\(self.arr_7_days.lastObject!)", for: .normal)
+                 cell.btn_date_two.setTitle(String(Date.getCurrentDateCustom()), for: .normal)
+                 */
+                // header date
+                cell.lbl_header_date.text = get_number_convert_into_months(date_one: "\(self.arr_7_days.lastObject!)")+" - "+get_number_convert_into_months(date_one: String(Date.getCurrentDateCustom()))
+                
                 let dateDiff = time_difference(start_time: String(str_start_time), end_time: String(str_end_time))
                 print(dateDiff as Any)
                 
@@ -480,9 +487,15 @@ extension sleep: UITableViewDataSource , UITableViewDelegate, ChartViewDelegate 
                 cell.btn_date_one.setTitle("\(self.arr_7_days.lastObject!)", for: .normal)
                 cell.btn_date_two.setTitle(String(Date.getCurrentDateCustom()), for: .normal)
                 
-                cell.lbl_dates_two.text = "\(self.arr_7_days.lastObject!) - \(Date.getCurrentDateCustom())"
+                // cell.lbl_dates_two.text = "\(self.arr_7_days.lastObject!) - \(Date.getCurrentDateCustom())"
+                
+                // header date
+                cell.lbl_dates_two.text = get_number_convert_into_months(date_one: "\(self.arr_7_days.lastObject!)")+" - "+get_number_convert_into_months(date_one: String(Date.getCurrentDateCustom()))
+                
             } else {
-                cell.lbl_dates_two.text = (cell.btn_date_one.titleLabel?.text)!+" - "+(cell.btn_date_two.titleLabel?.text)!
+                // cell.lbl_dates_two.text = (cell.btn_date_one.titleLabel?.text)!+" - "+(cell.btn_date_two.titleLabel?.text)!
+                // header date
+                cell.lbl_dates_two.text = get_number_convert_into_months(date_one: (cell.btn_date_one.titleLabel?.text)!)+" - "+get_number_convert_into_months(date_one: (cell.btn_date_two.titleLabel?.text)!)
             }
             
             cell.btn_date_one.addTarget(self, action: #selector(date_click_start), for: .touchUpInside)
