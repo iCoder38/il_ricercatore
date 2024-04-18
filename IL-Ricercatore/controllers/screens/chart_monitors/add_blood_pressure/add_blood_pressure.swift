@@ -214,6 +214,38 @@ class add_blood_pressure: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             return
         }
         
+        if String(self.str_left_value) == "" {
+            let alert = NewYorkAlertController(title: String("Alert").uppercased(), message: String("Value should not be zero"), style: .alert)
+            let cancel = NewYorkButton(title: "dismiss", style: .cancel)
+            alert.addButtons([cancel])
+            self.present(alert, animated: true)
+            return
+        }
+        
+        if String(self.str_left_value) == "0" {
+            let alert = NewYorkAlertController(title: String("Alert").uppercased(), message: String("Value should not be zero"), style: .alert)
+            let cancel = NewYorkButton(title: "dismiss", style: .cancel)
+            alert.addButtons([cancel])
+            self.present(alert, animated: true)
+            return
+        }
+        
+        if String(self.str_right_value) == "" {
+            let alert = NewYorkAlertController(title: String("Alert").uppercased(), message: String("Value should not be zero"), style: .alert)
+            let cancel = NewYorkButton(title: "dismiss", style: .cancel)
+            alert.addButtons([cancel])
+            self.present(alert, animated: true)
+            return
+        }
+        
+        if String(self.str_right_value) == "0" {
+            let alert = NewYorkAlertController(title: String("Alert").uppercased(), message: String("Value should not be zero"), style: .alert)
+            let cancel = NewYorkButton(title: "dismiss", style: .cancel)
+            alert.addButtons([cancel])
+            self.present(alert, animated: true)
+            return
+        }
+        
         ERProgressHud.sharedInstance.showDarkBackgroundView(withTitle: "Please wait...")
         var parameters:Dictionary<AnyHashable, Any>!
         

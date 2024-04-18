@@ -476,6 +476,7 @@ extension blood_pressure: UITableViewDataSource , UITableViewDelegate, ChartView
                  self.updateChartData()*/
                 var add_time = 0.0
                 
+                
                 let yVals = (0..<self.arr_heart.count).map { (i) -> BarChartDataEntry in
                     
                     // header date

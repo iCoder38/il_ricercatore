@@ -523,6 +523,20 @@ class water_intake: UIViewController {
             }
         }
     }
+    
+    
+    @objc func date_click_method() {
+        let indexPath = IndexPath.init(row: 0, section: 0)
+        let cell = self.tble_view.cellForRow(at: indexPath) as! water_intake_table_cell
+        
+        RPicker.selectDate(title: "Select date", cancelText: "Cancel", datePickerMode: .date,maxDate: Date.now, didSelectDate: { (selectedDate) in
+            cell.btn_date.setTitle(selectedDate.dateString("yyyy-MM-dd"), for: .normal)
+            // self.meal_track_record_WB(loader: "yes")
+        })
+        
+        
+    }
+    
 }
 
 //MARK:- TABLE VIEW -
@@ -553,6 +567,8 @@ extension water_intake: UITableViewDataSource , UITableViewDelegate {
         
         cell.btn_add.addTarget(self, action: #selector(add_click_method), for: .touchUpInside)
         cell.btn_minus.addTarget(self, action: #selector(minus_click_method), for: .touchUpInside)
+        
+        cell.btn_date.addTarget(self, action: #selector(date_click_method), for: .touchUpInside)
         
         return cell
         

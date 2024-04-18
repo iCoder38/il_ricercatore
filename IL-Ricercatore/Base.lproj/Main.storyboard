@@ -4650,15 +4650,40 @@ per your dietrary.</string>
                                 <rect key="frame" x="0.0" y="85" width="393" height="1115"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="water_intake_table_cell" rowHeight="314" id="NSy-TW-V6j" customClass="water_intake_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="314"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="water_intake_table_cell" rowHeight="429" id="NSy-TW-V6j" customClass="water_intake_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="429"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NSy-TW-V6j" id="ysZ-EW-FnW">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="314"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="429"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YqT-cH-a1A">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ws-no-ym8">
                                                     <rect key="frame" x="20" y="11" width="353" height="70"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23R-T9-XHr">
+                                                            <rect key="frame" x="0.0" y="0.0" width="353" height="70"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sIv-v8-buf">
+                                                            <rect key="frame" x="305" y="15" width="40" height="40"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                            <state key="normal" image="edit"/>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="23R-T9-XHr" secondAttribute="bottom" id="99H-ti-Lrh"/>
+                                                        <constraint firstAttribute="trailing" secondItem="23R-T9-XHr" secondAttribute="trailing" id="Puc-WG-8K0"/>
+                                                        <constraint firstItem="23R-T9-XHr" firstAttribute="top" secondItem="8ws-no-ym8" secondAttribute="top" id="RiA-Gm-UJ2"/>
+                                                        <constraint firstAttribute="height" constant="70" id="SQd-fl-BZc"/>
+                                                        <constraint firstItem="23R-T9-XHr" firstAttribute="leading" secondItem="8ws-no-ym8" secondAttribute="leading" id="ZhC-Kc-6Jh"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YqT-cH-a1A">
+                                                    <rect key="frame" x="20" y="89" width="353" height="70"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="of 10 Glasses" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Vq-cH-SYv">
                                                             <rect key="frame" x="40" y="15" width="257" height="40"/>
@@ -4703,7 +4728,7 @@ per your dietrary.</string>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RLW-gy-bv8">
-                                                    <rect key="frame" x="20" y="89" width="353" height="140"/>
+                                                    <rect key="frame" x="20" y="167" width="353" height="140"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="recycling-water" translatesAutoresizingMaskIntoConstraints="NO" id="GXK-5X-F0l">
                                                             <rect key="frame" x="126.66666666666666" y="20" width="100" height="100"/>
@@ -4745,7 +4770,7 @@ per your dietrary.</string>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8CC-YL-hq8">
-                                                    <rect key="frame" x="20" y="237" width="353" height="70"/>
+                                                    <rect key="frame" x="20" y="315" width="353" height="70"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xfz-zG-giO">
                                                             <rect key="frame" x="8" y="15" width="289" height="40"/>
@@ -4781,11 +4806,14 @@ per your dietrary.</string>
                                             <constraints>
                                                 <constraint firstItem="RLW-gy-bv8" firstAttribute="leading" secondItem="ysZ-EW-FnW" secondAttribute="leadingMargin" id="1bG-wl-3Mr"/>
                                                 <constraint firstItem="YqT-cH-a1A" firstAttribute="trailing" secondItem="ysZ-EW-FnW" secondAttribute="trailingMargin" id="1uK-nW-QSu"/>
-                                                <constraint firstItem="YqT-cH-a1A" firstAttribute="top" secondItem="ysZ-EW-FnW" secondAttribute="topMargin" id="506-5C-dgx"/>
+                                                <constraint firstItem="YqT-cH-a1A" firstAttribute="top" secondItem="ysZ-EW-FnW" secondAttribute="topMargin" constant="78" id="506-5C-dgx"/>
                                                 <constraint firstItem="8CC-YL-hq8" firstAttribute="leading" secondItem="ysZ-EW-FnW" secondAttribute="leadingMargin" id="6u5-gz-Rlm"/>
+                                                <constraint firstItem="8ws-no-ym8" firstAttribute="trailing" secondItem="ysZ-EW-FnW" secondAttribute="trailingMargin" id="8kq-KN-cSw"/>
                                                 <constraint firstItem="8CC-YL-hq8" firstAttribute="trailing" secondItem="ysZ-EW-FnW" secondAttribute="trailingMargin" id="IQC-TZ-6RH"/>
                                                 <constraint firstItem="RLW-gy-bv8" firstAttribute="trailing" secondItem="ysZ-EW-FnW" secondAttribute="trailingMargin" id="VjZ-CE-LoW"/>
+                                                <constraint firstItem="8ws-no-ym8" firstAttribute="leading" secondItem="ysZ-EW-FnW" secondAttribute="leadingMargin" id="WMD-w5-LHV"/>
                                                 <constraint firstItem="YqT-cH-a1A" firstAttribute="leading" secondItem="ysZ-EW-FnW" secondAttribute="leadingMargin" id="crg-sJ-PFD"/>
+                                                <constraint firstItem="8ws-no-ym8" firstAttribute="top" secondItem="ysZ-EW-FnW" secondAttribute="topMargin" id="h3T-AL-3aw"/>
                                                 <constraint firstItem="8CC-YL-hq8" firstAttribute="top" secondItem="RLW-gy-bv8" secondAttribute="bottom" constant="8" symbolic="YES" id="i2y-x1-wEv"/>
                                                 <constraint firstItem="RLW-gy-bv8" firstAttribute="top" secondItem="YqT-cH-a1A" secondAttribute="bottom" constant="8" symbolic="YES" id="pFV-xv-Fz8"/>
                                             </constraints>
@@ -4797,6 +4825,7 @@ per your dietrary.</string>
                                             <outlet property="btn_water_count_edit" destination="LE0-dj-FUs" id="HDF-nb-wPa"/>
                                             <outlet property="lbl_water_glass_count" destination="a6H-qg-Bk8" id="5Af-gR-ZbT"/>
                                             <outlet property="lbl_water_glass_out_of" destination="3Vq-cH-SYv" id="0r0-8D-qwL"/>
+                                            <outlet property="view_date" destination="8ws-no-ym8" id="AOs-8n-5kN"/>
                                             <outlet property="view_glass" destination="YqT-cH-a1A" id="reQ-Jj-TuT"/>
                                             <outlet property="view_glass_measure" destination="RLW-gy-bv8" id="Fs6-qh-4L2"/>
                                             <outlet property="view_reminder" destination="8CC-YL-hq8" id="gIg-Ri-39F"/>
@@ -4878,7 +4907,7 @@ per your dietrary.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1n4-cD-QGB" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10583.969465648854" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="10582.442748091602" y="-2.1126760563380285"/>
         </scene>
         <!--Set up water tracker-->
         <scene sceneID="bUu-pE-VzV">
@@ -12934,8 +12963,8 @@ per your dietrary.</string>
         <image name="person" catalog="system" width="128" height="121"/>
         <image name="phone" catalog="system" width="128" height="115"/>
         <image name="play_video" width="64" height="64"/>
-        <image name="plus" width="24" height="24"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="plus" width="24" height="24"/>
         <image name="plus33" width="24" height="24"/>
         <image name="plus_yellow" width="64" height="64"/>
         <image name="quote" width="512" height="512"/>

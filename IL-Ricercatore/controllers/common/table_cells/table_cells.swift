@@ -1398,6 +1398,15 @@ class water_intake_table_cell : UITableViewCell {
     @IBOutlet weak var btn_add:UIButton!
     @IBOutlet weak var btn_minus:UIButton!
     
+    @IBOutlet weak var view_date:UIView! {
+        didSet {
+            view_date.layer.cornerRadius = 8
+            view_date.clipsToBounds = true
+            view_date.backgroundColor = UIColor.init(red: 245.0/255.0, green: 236.0/255.0, blue: 255.0/255.0, alpha: 1)
+        }
+    }
+    
+    @IBOutlet weak var btn_date:UIButton!
 }
 
 // /* ************** WATER TRACKER ***************************** */
