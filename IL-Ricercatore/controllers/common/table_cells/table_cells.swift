@@ -1719,6 +1719,7 @@ class sleep_table_cell : UITableViewCell {
     @IBOutlet weak var lbl_day_time:UILabel!
     @IBOutlet weak var lbl_value:UILabel!
     
+    @IBOutlet weak var btn_delete:UIButton!
 }
 // /* ************** MONITOR - HEART **************************** */
 // /* ********************************************************** */
@@ -1758,6 +1759,12 @@ class heart_table_cell : UITableViewCell {
     
     @IBOutlet weak var lbl_header_date:UILabel!
     
+    
+    @IBOutlet weak var lbl_day_time:UILabel!
+    @IBOutlet weak var lbl_value:UILabel!
+    
+    @IBOutlet weak var btn_delete:UIButton!
+    
 }
 // /* ************** MONITOR - WEIGHT **************************** */
 // /* ********************************************************** */
@@ -1796,6 +1803,11 @@ class weight_table_cell : UITableViewCell {
     @IBOutlet weak var lbl_dates_two:UILabel!
     
     @IBOutlet weak var lbl_header_date:UILabel!
+    
+    @IBOutlet weak var lbl_day_time:UILabel!
+    @IBOutlet weak var lbl_value:UILabel!
+    
+    @IBOutlet weak var btn_delete:UIButton!
 }
 // /* ************** MONITOR - BLOOD PRESSURE **************************** */
 // /* ********************************************************** */
@@ -1830,6 +1842,7 @@ class blood_pressure_table_cell : UITableViewCell {
     @IBOutlet weak var lbl_day_time:UILabel!
     @IBOutlet weak var lbl_value:UILabel!
     
+    @IBOutlet weak var btn_delete:UIButton!
 }
 // /* ************** MONITOR - SLEEP **************************** */
 // /* ********************************************************** */
@@ -1949,6 +1962,11 @@ class steps_table_cell : UITableViewCell {
     @IBOutlet weak var lbl_dates_two:UILabel!
     
     @IBOutlet weak var lbl_header_date:UILabel!
+    
+    @IBOutlet weak var lbl_day_time:UILabel!
+    @IBOutlet weak var lbl_value:UILabel!
+    
+    @IBOutlet weak var btn_delete:UIButton!
     
 }
 // /* ************** WORKOUT DETAILS *************************** */

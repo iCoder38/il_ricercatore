@@ -64,8 +64,8 @@ class add_weight: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
         self.btn_time.setTitle("Time: "+Date.getCurrentTime(), for: .normal)
         self.btn_date.setTitle("Date: Today", for: .normal)
         
-        self.str_selected_time = Date.getCurrentDate()
-        self.str_selected_date = Date.getCurrentTime()
+        self.str_selected_time = Date.getCurrentTime()
+        self.str_selected_date = Date.getCurrentDateCustom()
         
         self.btn_time.addTarget(self, action: #selector(time_click), for: .touchUpInside)
         self.btn_date.addTarget(self, action: #selector(date_click), for: .touchUpInside)
@@ -83,8 +83,8 @@ class add_weight: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
     @objc func date_click() {
         RPicker.selectDate(title: "Select date", cancelText: "Cancel", datePickerMode: .date,maxDate: Date.now, didSelectDate: { (selectedDate) in
             
-            self.str_selected_date = selectedDate.dateString(date_fomatter)
-            if (selectedDate.dateString(date_fomatter) == Date.getCurrentDate()) {
+            self.str_selected_date = selectedDate.dateString(date_fomatter_yyyy_MM_dd)
+            if (selectedDate.dateString(date_fomatter) == Date.getCurrentDateCustom()) {
                 self.btn_date.setTitle("Date: Today", for: .normal)
             } else {
                 self.btn_date.setTitle("Date: "+selectedDate.dateString(date_fomatter), for: .normal)
@@ -182,12 +182,12 @@ class add_weight: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
                 let myString = String(x)
                 
                 parameters = [
-                    "action"        : "heartadd",
+                    "action"        : "weightadd",
                     "userId"        : String(myString),
                     "date"          : String(self.str_selected_date),
                     "time"          : String(self.str_selected_time),
-                    "bmp"           : String(self.lbl_heart_rate.text!),
-                    "bmp_measurement"   :"BPM",
+                    "weight"           : String(self.lbl_heart_rate.text!),
+                    "weight_measurement"   :"KG",
                      
                     
                 ]

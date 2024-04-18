@@ -58,6 +58,9 @@ var navigation_title_workout_details_en = "name".uppercased()
 // sleep
 var navigation_title_sleep_add = "add sleep time".uppercased()
 
+// sleep monitor
+var navigation_title_sleep_monitor = "sleep monitor".uppercased()
+
 // steps
 var navigation_title_steps_details = "step details".uppercased()
 

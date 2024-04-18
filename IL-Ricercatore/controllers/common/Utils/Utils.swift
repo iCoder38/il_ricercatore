@@ -204,32 +204,77 @@ extension UIViewController {
         return separate_date[2]+" "+month_name
     }
     
-     func getDayOfWeek(_ today:String)-> String {
+    @objc func get_number_convert_into_months_slash(date_one:String)-> String {
+        
+        print(date_one)
+        
+        let separate_date = String(date_one).components(separatedBy: "/")
+        
+        let get_date_data = separate_date[0]
+        print(get_date_data as Any)
+        
+        var month_name:String! = ""
+        if (get_date_data == "01") {
+            month_name = "January"
+        } else if (get_date_data == "02") {
+            month_name = "February"
+        } else if (get_date_data == "03") {
+            month_name = "March"
+        } else if (get_date_data == "04") {
+            month_name = "April"
+        } else if (get_date_data == "05") {
+            month_name = "May"
+        } else if (get_date_data == "06") {
+            month_name = "June"
+        } else if (get_date_data == "07") {
+            month_name = "July"
+        } else if (get_date_data == "08") {
+            month_name = "August"
+        } else if (get_date_data == "09") {
+            month_name = "September"
+        } else if (get_date_data == "10") {
+            month_name = "October"
+        } else if (get_date_data == "11") {
+            month_name = "November"
+        } else if (get_date_data == "12") {
+            month_name = "December"
+        } else {
+            month_name = "N.A."
+        }
+        
+        return separate_date[1]+" - "+month_name
+    }
+    
+    
+    func getDayOfWeek(_ today:String)-> String {
+        // print(today);
+        // let separate_date = String(today).components(separatedBy: "/")
+        
         let formatter  = DateFormatter()
         formatter.dateFormat = "MM/dd/yyyy"
-         guard let todayDate = formatter.date(from: today) else
-         {
-             return "Wrong input"
-         }
+        guard let todayDate = formatter.date(from: today) else
+        {
+            return "Wrong input"
+        }
         let myCalendar = Calendar(identifier: .gregorian)
         let weekDay = myCalendar.component(.weekday, from: todayDate)
-         
-         var day_is:String!
-         if (weekDay == 1) {
-             day_is = "Sunday"
-         } else if (weekDay == 2) {
-             day_is =  "Monday"
-         } else if (weekDay == 3) {
-             day_is =  "Tuesday"
-         } else if (weekDay == 4) {
-             day_is =  "Wednesday"
-         } else if (weekDay == 5) {
-             day_is =  "Thursday"
-         } else if (weekDay == 6) {
-             day_is =  "Friday"
-         } else if (weekDay == 7) {
-             day_is =  "Saturday"
-         }
+        
+        var day_is:String!
+        if (weekDay == 1) {
+            day_is = "Sunday"
+        } else if (weekDay == 2) {
+            day_is =  "Monday"
+        } else if (weekDay == 3) {
+            day_is =  "Tuesday"
+        } else if (weekDay == 4) {
+            day_is =  "Wednesday"
+        } else if (weekDay == 5) {
+            day_is =  "Thursday"
+        } else if (weekDay == 6) {
+            day_is =  "Friday"
+        } else if (weekDay == 7) {
+            day_is =  "Saturday"
+        }
         return day_is
     }
 }

@@ -89,7 +89,7 @@ class add_blood_pressure: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         self.btn_date.setTitle("Date: Today", for: .normal)
         
         self.str_selected_time = Date.getCurrentTime()
-        self.str_selected_date = Date.getCurrentDate()
+        self.str_selected_date = Date.getCurrentDateCustom()
         
         self.btn_time.addTarget(self, action: #selector(time_click), for: .touchUpInside)
         self.btn_date.addTarget(self, action: #selector(date_click), for: .touchUpInside)
@@ -111,11 +111,11 @@ class add_blood_pressure: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @objc func date_click() {
         RPicker.selectDate(title: "Select date", cancelText: "Cancel", datePickerMode: .date,maxDate: Date.now, didSelectDate: { (selectedDate) in
             
-            self.str_selected_date = selectedDate.dateString(date_fomatter)
-            if (selectedDate.dateString(date_fomatter) == Date.getCurrentDate()) {
+            self.str_selected_date = selectedDate.dateString(date_fomatter_yyyy_MM_dd)
+            if (selectedDate.dateString(date_fomatter) == Date.getCurrentDateCustom()) {
                 self.btn_date.setTitle("Date: Today", for: .normal)
             } else {
-                self.btn_date.setTitle("Date: "+selectedDate.dateString(date_fomatter), for: .normal)
+                self.btn_date.setTitle("Date: "+selectedDate.dateString(date_fomatter_yyyy_MM_dd), for: .normal)
             }
         })
     }
@@ -231,7 +231,7 @@ class add_blood_pressure: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 parameters = [
                     "action"        : "bloodpadd",
                     "userId"        : String(myString),
-                    "date"          : Date.getCurrentDateCustom(),
+                    "date"          : String(self.str_selected_date),
                     "time"          : String(self.str_selected_time),
                     "bp_max"        : String(self.str_left_value),
                     "bp_min"        : String(self.str_right_value),

@@ -79,7 +79,7 @@ class blood_pressure: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.arr_heart.removeAllObjects()
-        self.submit_date_WB()
+        self.submit_date_WB(status: "yes")
     }
     
     @objc func caluclate_last_7_days() {
@@ -116,10 +116,12 @@ class blood_pressure: UIViewController {
     }
     
     
-    @objc func submit_date_WB() {
+    @objc func submit_date_WB(status:String) {
          
+        if (status == "yes") {
+            ERProgressHud.sharedInstance.showDarkBackgroundView(withTitle: "Please wait...")
+        }
         
-        ERProgressHud.sharedInstance.showDarkBackgroundView(withTitle: "Please wait...")
         var parameters:Dictionary<AnyHashable, Any>!
         
         if let person = UserDefaults.standard.value(forKey: str_save_login_user_data) as? [String:Any] {
@@ -247,7 +249,7 @@ class blood_pressure: UIViewController {
                         UserDefaults.standard.set("", forKey: str_save_last_api_token)
                         UserDefaults.standard.set(str_token, forKey: str_save_last_api_token)
                         
-                        self.submit_date_WB()
+                        self.submit_date_WB(status: "no")
                         
                     } else {
                         ERProgressHud.sharedInstance.hide()
@@ -288,6 +290,133 @@ class blood_pressure: UIViewController {
         })
     }
     
+    @objc func delete_steps_click_method(_ sender:UIButton) {
+       
+        print(sender.tag)
+        let item = self.arr_heart[sender.tag] as? [String:Any]
+        print(item as Any)
+        
+        
+        ERProgressHud.sharedInstance.showDarkBackgroundView(withTitle: "deleting...")
+        var parameters:Dictionary<AnyHashable, Any>!
+        
+        if let person = UserDefaults.standard.value(forKey: str_save_login_user_data) as? [String:Any] {
+            
+            if let token_id_is = UserDefaults.standard.string(forKey: str_save_last_api_token) {
+                
+                let headers: HTTPHeaders = [
+                    "token":String(token_id_is),
+                ]
+                
+                let x : Int = person["userId"] as! Int
+                let myString = String(x)
+                
+                
+                parameters = [
+                    "action"        : "bloodpressuredelete",
+                    "userId"        : String(myString),
+                    "bloodpressureId"     : "\(item!["bloodpressureId"]!)",
+                    
+                ]
+                
+                print("parameters-------\(String(describing: parameters))")
+                
+                AF.request(application_base_url, method: .post, parameters: parameters as? Parameters,headers: headers).responseJSON {
+                    response in
+                    
+                    switch(response.result) {
+                    case .success(_):
+                        if let data = response.value {
+                            
+                            let JSON = data as! NSDictionary
+                            print(JSON)
+                            
+                            var strSuccess : String!
+                            strSuccess = JSON["status"] as? String
+                            
+                            if strSuccess.lowercased() == "success" {
+                                
+                                self.submit_date_WB(status: "no")
+                                
+                            } else {
+                                if (JSON["msg"] as? String == your_are_not_auth) {
+                                    self.refresh_token_WB2()
+                                } else {
+                                    self.view.makeToast(JSON["msg"] as? String)
+                                }
+                            }
+                            
+                        }
+                        
+                    case .failure(_):
+                        print("Error message:\(String(describing: response.error))")
+                        ERProgressHud.sharedInstance.hide()
+                        self.please_check_your_internet_connection()
+                        
+                        break
+                    }
+                }
+            } else {
+                self.refresh_token_WB2()
+            }
+        }
+    }
+    
+    @objc func refresh_token_WB2() {
+        
+        var parameters:Dictionary<AnyHashable, Any>!
+        
+        if let person = UserDefaults.standard.value(forKey: str_save_login_user_data) as? [String:Any] {
+            
+            let x : Int = person["userId"] as! Int
+            let myString = String(x)
+            
+            parameters = [
+                "action"    : "gettoken",
+                "userId"    : String(myString),
+                "email"     : (person["email"] as! String),
+                "role"      : "Member"
+            ]
+        }
+        
+        print("parameters-------\(String(describing: parameters))")
+        
+        AF.request(application_base_url, method: .post, parameters: parameters as? Parameters).responseJSON {
+            response in
+            
+            switch(response.result) {
+            case .success(_):
+                if let data = response.value {
+                    
+                    let JSON = data as! NSDictionary
+                    print(JSON)
+                    
+                    var strSuccess : String!
+                    strSuccess = JSON["status"] as? String
+                    
+                    if strSuccess.lowercased() == "success" {
+                        
+                        let str_token = (JSON["AuthToken"] as! String)
+                        UserDefaults.standard.set("", forKey: str_save_last_api_token)
+                        UserDefaults.standard.set(str_token, forKey: str_save_last_api_token)
+                        
+                        self.submit_date_WB(status: "no")
+                        
+                    } else {
+                        ERProgressHud.sharedInstance.hide()
+                    }
+                    
+                }
+                
+            case .failure(_):
+                print("Error message:\(String(describing: response.error))")
+                ERProgressHud.sharedInstance.hide()
+                self.please_check_your_internet_connection()
+                
+                break
+            }
+        }
+    }
 }
 
 //MARK:- TABLE VIEW -
@@ -405,6 +534,9 @@ extension blood_pressure: UITableViewDataSource , UITableViewDelegate, ChartView
                 
                 cell.lbl_day_time.text = getDayOfWeek(item!["date"] as! String)
                 cell.lbl_value.text = "\(item!["bp_max"]!) Systolic - \(item!["bp_min"]!) Diastolic"
+                
+                cell.btn_delete.tag = indexPath.row-2
+                cell.btn_delete.addTarget(self, action: #selector(delete_steps_click_method), for: .touchUpInside)
                 
                 return cell
             }

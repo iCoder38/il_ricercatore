@@ -7587,11 +7587,11 @@ per your dietrary.</string>
                                 <rect key="frame" x="0.0" y="150" width="393" height="1050"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="one_table_cell" rowHeight="300" id="v3D-u0-7CY" customClass="sleep_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="300"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="one_table_cell" rowHeight="326" id="v3D-u0-7CY" customClass="sleep_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="326"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v3D-u0-7CY" id="B1z-ZW-JWb">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="300"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="326"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01- March - 07 March" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyG-rc-Zfy">
@@ -7619,6 +7619,13 @@ per your dietrary.</string>
                                                         <constraint firstAttribute="height" constant="220" id="gBM-H0-ikX"/>
                                                     </constraints>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Duration shows your total time slept each night." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXc-wS-eUX">
+                                                    <rect key="frame" x="20" y="297" width="353" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="zyG-rc-Zfy" firstAttribute="trailing" secondItem="B1z-ZW-JWb" secondAttribute="trailingMargin" id="475-Ua-R37"/>
@@ -7640,7 +7647,7 @@ per your dietrary.</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="two_table_cell" rowHeight="330" id="djq-y5-sfT" customClass="sleep_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="350" width="393" height="330"/>
+                                        <rect key="frame" x="0.0" y="376" width="393" height="330"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="djq-y5-sfT" id="UY9-Tb-bPf">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="330"/>
@@ -7735,7 +7742,7 @@ per your dietrary.</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="three_table_cell" rowHeight="70" id="k2a-rc-8uT" customClass="sleep_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="680" width="393" height="70"/>
+                                        <rect key="frame" x="0.0" y="706" width="393" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="k2a-rc-8uT" id="zjt-Ou-Bcm">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="70"/>
@@ -7759,17 +7766,29 @@ per your dietrary.</string>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oug-by-eiT">
+                                                    <rect key="frame" x="333" y="15" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="e99-sW-htS"/>
+                                                        <constraint firstAttribute="width" constant="40" id="jU6-Rq-SKP"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" image="trash" catalog="system"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="sgd-wl-EUi" firstAttribute="top" secondItem="zjt-Ou-Bcm" secondAttribute="top" constant="10" id="32p-74-SDp"/>
+                                                <constraint firstItem="Oug-by-eiT" firstAttribute="top" secondItem="zjt-Ou-Bcm" secondAttribute="topMargin" constant="4" id="Pmc-IL-6gq"/>
                                                 <constraint firstAttribute="trailing" secondItem="sgd-wl-EUi" secondAttribute="trailing" constant="20" symbolic="YES" id="QHa-ec-CcG"/>
                                                 <constraint firstItem="sgd-wl-EUi" firstAttribute="leading" secondItem="zjt-Ou-Bcm" secondAttribute="leading" constant="20" symbolic="YES" id="aM6-p9-aDX"/>
                                                 <constraint firstItem="31s-S7-Zxb" firstAttribute="leading" secondItem="zjt-Ou-Bcm" secondAttribute="leading" constant="20" symbolic="YES" id="abY-Hs-cs1"/>
+                                                <constraint firstItem="Oug-by-eiT" firstAttribute="trailing" secondItem="zjt-Ou-Bcm" secondAttribute="trailingMargin" id="nc8-Zc-as7"/>
                                                 <constraint firstItem="31s-S7-Zxb" firstAttribute="top" secondItem="sgd-wl-EUi" secondAttribute="bottom" constant="8" symbolic="YES" id="tkm-Q4-qTg"/>
                                                 <constraint firstAttribute="trailing" secondItem="31s-S7-Zxb" secondAttribute="trailing" constant="20" symbolic="YES" id="wVn-JV-xT4"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="btn_delete" destination="Oug-by-eiT" id="fQ4-mc-Azs"/>
                                             <outlet property="lbl_day_time" destination="sgd-wl-EUi" id="mP3-8u-bUw"/>
                                             <outlet property="lbl_value" destination="31s-S7-Zxb" id="SSs-Yb-eQH"/>
                                         </connections>
@@ -8113,11 +8132,11 @@ per your dietrary.</string>
                                 <rect key="frame" x="0.0" y="150" width="393" height="1050"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="one_steps_table_cell" rowHeight="300" id="hEz-0X-6pE" customClass="steps_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="300"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="one_steps_table_cell" rowHeight="370" id="hEz-0X-6pE" customClass="steps_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="370"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hEz-0X-6pE" id="Mt0-95-818">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="300"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="370"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01- March - 07 March" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2g-Vw-Ngz">
@@ -8145,16 +8164,28 @@ per your dietrary.</string>
                                                         <constraint firstAttribute="height" constant="220" id="w2B-5t-qOJ"/>
                                                     </constraints>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steps are a useful measure if how much your moving around, and can help you spot changes in your activity's levels." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pe7-zD-fHF">
+                                                    <rect key="frame" x="20" y="297" width="353" height="61"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="61" id="ila-8v-KTY"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="KvS-u9-D59" firstAttribute="trailing" secondItem="Mt0-95-818" secondAttribute="trailingMargin" id="49W-G5-Dsf"/>
                                                 <constraint firstItem="KvS-u9-D59" firstAttribute="top" secondItem="4fW-n4-ghX" secondAttribute="bottom" constant="8" symbolic="YES" id="6JG-4e-E1O"/>
                                                 <constraint firstItem="X2g-Vw-Ngz" firstAttribute="leading" secondItem="Mt0-95-818" secondAttribute="leadingMargin" id="821-BL-HZT"/>
+                                                <constraint firstItem="Pe7-zD-fHF" firstAttribute="trailing" secondItem="Mt0-95-818" secondAttribute="trailingMargin" id="A6d-zT-fei"/>
                                                 <constraint firstItem="X2g-Vw-Ngz" firstAttribute="trailing" secondItem="Mt0-95-818" secondAttribute="trailingMargin" id="Egg-OI-vW5"/>
                                                 <constraint firstItem="4fW-n4-ghX" firstAttribute="top" secondItem="X2g-Vw-Ngz" secondAttribute="bottom" constant="8" symbolic="YES" id="RVL-rd-gRs"/>
+                                                <constraint firstItem="Pe7-zD-fHF" firstAttribute="leading" secondItem="Mt0-95-818" secondAttribute="leadingMargin" id="YOL-Tx-9fc"/>
                                                 <constraint firstItem="X2g-Vw-Ngz" firstAttribute="top" secondItem="Mt0-95-818" secondAttribute="topMargin" id="ZyF-xg-06Q"/>
                                                 <constraint firstItem="4fW-n4-ghX" firstAttribute="leading" secondItem="Mt0-95-818" secondAttribute="leadingMargin" id="dYb-6i-b1t"/>
                                                 <constraint firstItem="4fW-n4-ghX" firstAttribute="trailing" secondItem="Mt0-95-818" secondAttribute="trailingMargin" id="iUC-Mm-zyD"/>
+                                                <constraint firstItem="Pe7-zD-fHF" firstAttribute="top" secondItem="KvS-u9-D59" secondAttribute="bottom" constant="8" symbolic="YES" id="kYk-if-fBX"/>
                                                 <constraint firstItem="KvS-u9-D59" firstAttribute="leading" secondItem="Mt0-95-818" secondAttribute="leadingMargin" id="urv-Lk-vde"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -8165,7 +8196,7 @@ per your dietrary.</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="two_steps_table_cell" rowHeight="330" id="dK4-dv-WRW" customClass="steps_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="350" width="393" height="330"/>
+                                        <rect key="frame" x="0.0" y="420" width="393" height="330"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dK4-dv-WRW" id="rOc-eb-L6B">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="330"/>
@@ -8257,6 +8288,58 @@ per your dietrary.</string>
                                             <outlet property="chartView_two" destination="q8e-2c-NKz" id="I4S-d2-sYy"/>
                                             <outlet property="lbl_dates_two" destination="KEq-M3-BO7" id="n1b-AB-SHu"/>
                                             <outlet property="lbl_on_avg_two" destination="JEF-fs-R7x" id="2kk-lU-GoD"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="three_steps_table_cell" rowHeight="70" id="4SS-RB-pJF" customClass="steps_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="750" width="393" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4SS-RB-pJF" id="LJf-0G-6FF">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01- March - 07 March" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dD7-jD-Pe0">
+                                                    <rect key="frame" x="20" y="10" width="353" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="S0V-65-uAH"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0 Total sleep time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lW-AT-f7V">
+                                                    <rect key="frame" x="20" y="39" width="353" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="ZVi-mP-RkE"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEP-e5-f04">
+                                                    <rect key="frame" x="333" y="15" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="0oq-RY-faJ"/>
+                                                        <constraint firstAttribute="height" constant="40" id="QM7-Kx-FSI"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" image="trash" catalog="system"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="dD7-jD-Pe0" firstAttribute="leading" secondItem="LJf-0G-6FF" secondAttribute="leading" constant="20" symbolic="YES" id="62g-UG-L2E"/>
+                                                <constraint firstItem="dD7-jD-Pe0" firstAttribute="top" secondItem="LJf-0G-6FF" secondAttribute="top" constant="10" id="8bG-o0-tBy"/>
+                                                <constraint firstItem="7lW-AT-f7V" firstAttribute="leading" secondItem="LJf-0G-6FF" secondAttribute="leading" constant="20" symbolic="YES" id="ISc-g5-h6z"/>
+                                                <constraint firstItem="GEP-e5-f04" firstAttribute="top" secondItem="LJf-0G-6FF" secondAttribute="topMargin" constant="4" id="JaU-5A-j4Y"/>
+                                                <constraint firstAttribute="trailing" secondItem="7lW-AT-f7V" secondAttribute="trailing" constant="20" symbolic="YES" id="YJz-WC-Lb3"/>
+                                                <constraint firstAttribute="trailing" secondItem="dD7-jD-Pe0" secondAttribute="trailing" constant="20" symbolic="YES" id="nqD-Ym-gpc"/>
+                                                <constraint firstItem="7lW-AT-f7V" firstAttribute="top" secondItem="dD7-jD-Pe0" secondAttribute="bottom" constant="8" symbolic="YES" id="tWd-h8-d9U"/>
+                                                <constraint firstItem="GEP-e5-f04" firstAttribute="trailing" secondItem="LJf-0G-6FF" secondAttribute="trailingMargin" id="uXS-4q-H1g"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="btn_delete" destination="GEP-e5-f04" id="aif-hK-4dz"/>
+                                            <outlet property="lbl_day_time" destination="dD7-jD-Pe0" id="1ea-Zb-p8f"/>
+                                            <outlet property="lbl_value" destination="7lW-AT-f7V" id="47j-8l-E86"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -8619,11 +8702,11 @@ per your dietrary.</string>
                                 <rect key="frame" x="0.0" y="150" width="393" height="1050"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="heart_one_table_cell" rowHeight="300" id="3Xy-sZ-9sY" customClass="heart_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="300"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="heart_one_table_cell" rowHeight="377" id="3Xy-sZ-9sY" customClass="heart_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="377"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Xy-sZ-9sY" id="mmt-Ba-IkF">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="300"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="377"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01- March - 07 March" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcj-J2-IxD">
@@ -8651,14 +8734,26 @@ per your dietrary.</string>
                                                         <constraint firstAttribute="height" constant="220" id="dCm-5q-cfP"/>
                                                     </constraints>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hear rate is measured in beats per minutes (bpm) and can be elevated by things like activity, stress or excitement" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nd3-8o-YHh">
+                                                    <rect key="frame" x="20" y="297" width="353" height="61"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="61" id="jhG-vf-yll"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="Nd3-8o-YHh" firstAttribute="top" secondItem="Akr-V9-Huu" secondAttribute="bottom" constant="8" symbolic="YES" id="0TR-yN-LiB"/>
                                                 <constraint firstItem="qcj-J2-IxD" firstAttribute="leading" secondItem="mmt-Ba-IkF" secondAttribute="leadingMargin" id="13B-jI-kGd"/>
                                                 <constraint firstItem="Akr-V9-Huu" firstAttribute="trailing" secondItem="mmt-Ba-IkF" secondAttribute="trailingMargin" id="2tF-ef-Tfz"/>
                                                 <constraint firstItem="HwR-AO-uDs" firstAttribute="trailing" secondItem="mmt-Ba-IkF" secondAttribute="trailingMargin" id="H7c-kP-HfU"/>
                                                 <constraint firstItem="qcj-J2-IxD" firstAttribute="top" secondItem="mmt-Ba-IkF" secondAttribute="topMargin" id="Lc1-Lq-GcX"/>
                                                 <constraint firstItem="qcj-J2-IxD" firstAttribute="trailing" secondItem="mmt-Ba-IkF" secondAttribute="trailingMargin" id="RvN-6W-eV3"/>
+                                                <constraint firstItem="Nd3-8o-YHh" firstAttribute="trailing" secondItem="mmt-Ba-IkF" secondAttribute="trailingMargin" id="V2Z-ps-bG4"/>
                                                 <constraint firstItem="Akr-V9-Huu" firstAttribute="leading" secondItem="mmt-Ba-IkF" secondAttribute="leadingMargin" id="YJz-Q3-gYc"/>
+                                                <constraint firstItem="Nd3-8o-YHh" firstAttribute="leading" secondItem="mmt-Ba-IkF" secondAttribute="leadingMargin" id="kOL-uH-GkK"/>
                                                 <constraint firstItem="HwR-AO-uDs" firstAttribute="leading" secondItem="mmt-Ba-IkF" secondAttribute="leadingMargin" id="lDb-oF-afI"/>
                                                 <constraint firstItem="Akr-V9-Huu" firstAttribute="top" secondItem="HwR-AO-uDs" secondAttribute="bottom" constant="8" symbolic="YES" id="nDi-Vh-a7s"/>
                                                 <constraint firstItem="HwR-AO-uDs" firstAttribute="top" secondItem="qcj-J2-IxD" secondAttribute="bottom" constant="8" symbolic="YES" id="rL0-YC-p0N"/>
@@ -8671,7 +8766,7 @@ per your dietrary.</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="heart_two_table_cell" rowHeight="330" id="x2w-xg-b3m" customClass="heart_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="350" width="393" height="330"/>
+                                        <rect key="frame" x="0.0" y="427" width="393" height="330"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="x2w-xg-b3m" id="eHm-RH-jED">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="330"/>
@@ -8763,6 +8858,58 @@ per your dietrary.</string>
                                             <outlet property="chartView_two" destination="7UX-IC-eLS" id="Ghq-JP-Ngr"/>
                                             <outlet property="lbl_dates_two" destination="Lpf-Px-Y3g" id="NFe-7y-bHn"/>
                                             <outlet property="lbl_on_avg_two" destination="m98-qK-3Tn" id="5sd-vx-dWk"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="heart_three_table_cell" rowHeight="70" id="Wvd-Hg-vUy" customClass="heart_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="757" width="393" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wvd-Hg-vUy" id="YiR-9c-cjm">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01- March - 07 March" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUY-H5-gSg">
+                                                    <rect key="frame" x="20" y="10" width="353" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="G4s-sC-kuZ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0 Total sleep time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYt-l2-p2C">
+                                                    <rect key="frame" x="20" y="39" width="353" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="r2q-4q-aPD"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZgW-11-6PE">
+                                                    <rect key="frame" x="333" y="15" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="c07-09-2yx"/>
+                                                        <constraint firstAttribute="width" constant="40" id="ege-cP-3II"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" image="trash" catalog="system"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ZgW-11-6PE" firstAttribute="top" secondItem="YiR-9c-cjm" secondAttribute="topMargin" constant="4" id="3nh-IU-3al"/>
+                                                <constraint firstAttribute="trailing" secondItem="lUY-H5-gSg" secondAttribute="trailing" constant="20" symbolic="YES" id="QNu-t8-PCE"/>
+                                                <constraint firstAttribute="trailing" secondItem="iYt-l2-p2C" secondAttribute="trailing" constant="20" symbolic="YES" id="STB-5N-TwY"/>
+                                                <constraint firstItem="lUY-H5-gSg" firstAttribute="top" secondItem="YiR-9c-cjm" secondAttribute="top" constant="10" id="bm3-aa-bnZ"/>
+                                                <constraint firstItem="iYt-l2-p2C" firstAttribute="leading" secondItem="YiR-9c-cjm" secondAttribute="leading" constant="20" symbolic="YES" id="gA2-fo-5uX"/>
+                                                <constraint firstItem="iYt-l2-p2C" firstAttribute="top" secondItem="lUY-H5-gSg" secondAttribute="bottom" constant="8" symbolic="YES" id="gW7-yL-G29"/>
+                                                <constraint firstItem="ZgW-11-6PE" firstAttribute="trailing" secondItem="YiR-9c-cjm" secondAttribute="trailingMargin" id="jKW-b7-BpP"/>
+                                                <constraint firstItem="lUY-H5-gSg" firstAttribute="leading" secondItem="YiR-9c-cjm" secondAttribute="leading" constant="20" symbolic="YES" id="z1m-9P-zrL"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="btn_delete" destination="ZgW-11-6PE" id="Epr-eT-nZN"/>
+                                            <outlet property="lbl_day_time" destination="lUY-H5-gSg" id="0D1-Ql-r74"/>
+                                            <outlet property="lbl_value" destination="iYt-l2-p2C" id="mg0-C8-5N1"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -9094,11 +9241,11 @@ per your dietrary.</string>
                                 <rect key="frame" x="0.0" y="150" width="393" height="1050"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="weight_one_table_cell" rowHeight="300" id="VGK-21-e12" customClass="weight_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="300"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="weight_one_table_cell" rowHeight="301" id="VGK-21-e12" customClass="weight_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="301"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VGK-21-e12" id="2V0-3l-qXa">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="300"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="301"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01- March - 07 March" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UfO-M5-NiU">
@@ -9146,7 +9293,7 @@ per your dietrary.</string>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="weight_two_table_cell" rowHeight="330" id="u7L-7w-aJ8" customClass="weight_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="350" width="393" height="330"/>
+                                        <rect key="frame" x="0.0" y="351" width="393" height="330"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u7L-7w-aJ8" id="Gdu-tM-w5o">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="330"/>
@@ -9236,6 +9383,58 @@ per your dietrary.</string>
                                             <outlet property="btn_date_two" destination="931-28-fHS" id="gkZ-X3-mRT"/>
                                             <outlet property="btn_submit" destination="c6f-vH-AGk" id="jyw-qa-pfg"/>
                                             <outlet property="chartView_two" destination="y05-oO-fY3" id="xEZ-0Q-BGN"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="weight_three_table_cell" rowHeight="70" id="GF0-iP-hf9" customClass="weight_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="681" width="393" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GF0-iP-hf9" id="RUX-jf-Y8m">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01- March - 07 March" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xCf-ua-NCb">
+                                                    <rect key="frame" x="20" y="10" width="353" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="0zY-fF-vIK"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0 Total sleep time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lit-aW-0SP">
+                                                    <rect key="frame" x="20" y="39" width="353" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="U7B-vK-hKX"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyi-OE-TsI">
+                                                    <rect key="frame" x="333" y="15" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="G6m-og-AQe"/>
+                                                        <constraint firstAttribute="height" constant="40" id="VOi-P2-gGa"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" image="trash" catalog="system"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="dyi-OE-TsI" firstAttribute="trailing" secondItem="RUX-jf-Y8m" secondAttribute="trailingMargin" id="Ben-jW-Pj9"/>
+                                                <constraint firstAttribute="trailing" secondItem="xCf-ua-NCb" secondAttribute="trailing" constant="20" symbolic="YES" id="EgB-7e-3W4"/>
+                                                <constraint firstItem="Lit-aW-0SP" firstAttribute="top" secondItem="xCf-ua-NCb" secondAttribute="bottom" constant="8" symbolic="YES" id="Guv-uU-0NV"/>
+                                                <constraint firstItem="Lit-aW-0SP" firstAttribute="leading" secondItem="RUX-jf-Y8m" secondAttribute="leading" constant="20" symbolic="YES" id="Qg8-KY-3Bo"/>
+                                                <constraint firstItem="xCf-ua-NCb" firstAttribute="leading" secondItem="RUX-jf-Y8m" secondAttribute="leading" constant="20" symbolic="YES" id="ZSw-Uw-b2W"/>
+                                                <constraint firstAttribute="trailing" secondItem="Lit-aW-0SP" secondAttribute="trailing" constant="20" symbolic="YES" id="eMx-1V-rNh"/>
+                                                <constraint firstItem="dyi-OE-TsI" firstAttribute="top" secondItem="RUX-jf-Y8m" secondAttribute="topMargin" constant="4" id="gWb-yi-xWq"/>
+                                                <constraint firstItem="xCf-ua-NCb" firstAttribute="top" secondItem="RUX-jf-Y8m" secondAttribute="top" constant="10" id="mBW-xm-bnI"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="btn_delete" destination="dyi-OE-TsI" id="nvm-6b-32N"/>
+                                            <outlet property="lbl_day_time" destination="xCf-ua-NCb" id="y9w-ub-Kkl"/>
+                                            <outlet property="lbl_value" destination="Lit-aW-0SP" id="lrr-Qa-YnA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -9747,10 +9946,21 @@ per your dietrary.</string>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSI-wc-hZ2">
+                                                    <rect key="frame" x="342" y="15" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="pHz-qL-E6N"/>
+                                                        <constraint firstAttribute="height" constant="40" id="xcd-ZI-7lf"/>
+                                                    </constraints>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" image="trash" catalog="system"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="OSI-wc-hZ2" firstAttribute="top" secondItem="CV4-9G-2PJ" secondAttribute="top" constant="15" id="0nY-MV-iaC"/>
                                                 <constraint firstAttribute="trailing" secondItem="SXi-Ph-HHO" secondAttribute="trailing" constant="20" symbolic="YES" id="CnZ-ua-NRi"/>
                                                 <constraint firstAttribute="trailing" secondItem="Eby-XA-0PZ" secondAttribute="trailing" constant="20" symbolic="YES" id="Ikk-pv-PZz"/>
+                                                <constraint firstAttribute="trailing" secondItem="OSI-wc-hZ2" secondAttribute="trailing" constant="11" id="SkW-4A-7kG"/>
                                                 <constraint firstItem="SXi-Ph-HHO" firstAttribute="top" secondItem="CV4-9G-2PJ" secondAttribute="top" constant="10" id="Tha-tx-WHv"/>
                                                 <constraint firstItem="Eby-XA-0PZ" firstAttribute="top" secondItem="SXi-Ph-HHO" secondAttribute="bottom" constant="8" symbolic="YES" id="UAc-ic-MQf"/>
                                                 <constraint firstItem="Eby-XA-0PZ" firstAttribute="leading" secondItem="CV4-9G-2PJ" secondAttribute="leading" constant="20" symbolic="YES" id="ay3-6S-9yV"/>
@@ -9758,6 +9968,7 @@ per your dietrary.</string>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="btn_delete" destination="OSI-wc-hZ2" id="lyr-I0-M23"/>
                                             <outlet property="lbl_day_time" destination="SXi-Ph-HHO" id="gvr-6i-cG3"/>
                                             <outlet property="lbl_value" destination="Eby-XA-0PZ" id="bWU-6O-3Ud"/>
                                         </connections>
@@ -12734,6 +12945,7 @@ per your dietrary.</string>
         <image name="search" width="24" height="24"/>
         <image name="sleeping" width="512" height="512"/>
         <image name="slim" width="512" height="512"/>
+        <image name="trash" catalog="system" width="117" height="128"/>
         <image name="trophy" width="512" height="512"/>
         <image name="uncheck" width="24" height="24"/>
         <image name="uncheck_one" width="24" height="24"/>
