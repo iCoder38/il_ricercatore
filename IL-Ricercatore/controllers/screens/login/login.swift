@@ -14,12 +14,20 @@ class login: UIViewController {
     @IBOutlet weak var txt_password:UITextField!
     
     @IBOutlet weak var btn_login:UIButton!
+    @IBOutlet weak var btn_sign_up:UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.btn_login.addTarget(self, action: #selector(login_wb), for: .touchUpInside)
+        self.btn_sign_up.addTarget(self, action: #selector(sign_up_click_method), for: .touchUpInside)
         self.remember_me()
+    }
+    
+    @objc func sign_up_click_method() {
+        // push to dashboard
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "welcome_id")
+        self.navigationController?.pushViewController(push, animated: true)
     }
 
     @objc func remember_me() {
@@ -145,6 +153,7 @@ class login: UIViewController {
                 "email"     : (person["email"] as! String),
                 "role"      : "Member"
             ]
+            
         }
         
         print("parameters-------\(String(describing: parameters))")

@@ -29,11 +29,13 @@ var navigation_title_set_up_water_tracker_en = "set up water tracker".uppercased
 var navigation_title_set_up_water_reminder_en = "water reminder".uppercased()
 
 // invite friends
-var navigation_title_invite_friends_en = "friends".uppercased()
+var navigation_title_invite_friends_en = " search friends".uppercased()
 
 //  friends
 var navigation_title_friends_en = "friends".uppercased()
 
+// user profile
+var navigation_title_user_profile_en = "user profile".uppercased()
 
 // reminders
 var navigation_title_remimders_en = "reminders".uppercased()

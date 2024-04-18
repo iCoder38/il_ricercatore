@@ -29,6 +29,8 @@
 		B977AE612B2D8BE200EF12BA /* complete_profile_two.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977AE602B2D8BE200EF12BA /* complete_profile_two.swift */; };
 		B977AE642B2D90F000EF12BA /* complete_profile_three.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977AE632B2D90F000EF12BA /* complete_profile_three.swift */; };
 		B977AE672B2D97E500EF12BA /* breakfast_food.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977AE662B2D97E500EF12BA /* breakfast_food.swift */; };
+		B98303C52BD0FC6800C82F23 /* search_friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98303C42BD0FC6800C82F23 /* search_friends.swift */; };
+		B98303C82BD0FF7800C82F23 /* user_profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98303C72BD0FF7800C82F23 /* user_profile.swift */; };
 		B9B371F72BAD576900A64F06 /* add_heart_rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B371F62BAD576900A64F06 /* add_heart_rate.swift */; };
 		B9B371F92BAD57EC00A64F06 /* heart.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B371F82BAD57EC00A64F06 /* heart.swift */; };
 		B9B371FC2BAD7CCD00A64F06 /* weight.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B371FB2BAD7CCD00A64F06 /* weight.swift */; };
@@ -124,6 +126,8 @@
 		B977AE602B2D8BE200EF12BA /* complete_profile_two.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = complete_profile_two.swift; sourceTree = "<group>"; };
 		B977AE632B2D90F000EF12BA /* complete_profile_three.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = complete_profile_three.swift; sourceTree = "<group>"; };
 		B977AE662B2D97E500EF12BA /* breakfast_food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = breakfast_food.swift; sourceTree = "<group>"; };
+		B98303C42BD0FC6800C82F23 /* search_friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = search_friends.swift; sourceTree = "<group>"; };
+		B98303C72BD0FF7800C82F23 /* user_profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user_profile.swift; sourceTree = "<group>"; };
 		B9B371F62BAD576900A64F06 /* add_heart_rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = add_heart_rate.swift; sourceTree = "<group>"; };
 		B9B371F82BAD57EC00A64F06 /* heart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = heart.swift; sourceTree = "<group>"; };
 		B9B371FB2BAD7CCD00A64F06 /* weight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weight.swift; sourceTree = "<group>"; };
@@ -366,6 +370,7 @@
 		B977AE582B2D7C2900EF12BA /* screens */ = {
 			isa = PBXGroup;
 			children = (
+				B98303C22BD0F70100C82F23 /* New Group */,
 				B9034E6E2BBD6F1000AD6924 /* goal_settings */,
 				B9034E6B2BBD5D1100AD6924 /* meal_track */,
 				B9E314282BADBF850027A02F /* post */,
@@ -386,6 +391,8 @@
 				B9DD5A1E2B31C5AB006B2D60 /* water_reminder */,
 				B9CC8EDF2B32F38E00130035 /* invite_friends */,
 				B9CC8EE22B32F74500130035 /* friends */,
+				B98303C32BD0FC4E00C82F23 /* search_friends */,
+				B98303C62BD0FF6B00C82F23 /* user_profile */,
 				B9CC8EE52B33016D00130035 /* reminders */,
 				B9CC8EE82B3309A200130035 /* workout */,
 				B93581172B342D3F00DEA73C /* personalise_workout */,
@@ -431,6 +438,29 @@
 				B977AE662B2D97E500EF12BA /* breakfast_food.swift */,
 			);
 			path = breakfast_food;
+			sourceTree = "<group>";
+		};
+		B98303C22BD0F70100C82F23 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		B98303C32BD0FC4E00C82F23 /* search_friends */ = {
+			isa = PBXGroup;
+			children = (
+				B98303C42BD0FC6800C82F23 /* search_friends.swift */,
+			);
+			path = search_friends;
+			sourceTree = "<group>";
+		};
+		B98303C62BD0FF6B00C82F23 /* user_profile */ = {
+			isa = PBXGroup;
+			children = (
+				B98303C72BD0FF7800C82F23 /* user_profile.swift */,
+			);
+			path = user_profile;
 			sourceTree = "<group>";
 		};
 		B9B371F42BAD573D00A64F06 /* heart */ = {
@@ -1045,6 +1075,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9B371FC2BAD7CCD00A64F06 /* weight.swift in Sources */,
+				B98303C52BD0FC6800C82F23 /* search_friends.swift in Sources */,
 				B9CC8EE12B32F3AE00130035 /* invite_friends.swift in Sources */,
 				B9DD5A172B31B303006B2D60 /* track_meal_reminder.swift in Sources */,
 				B939EF162B3190F300B9556C /* edit_meal_calories.swift in Sources */,
@@ -1059,6 +1090,7 @@
 				B9B371FF2BAD7CDF00A64F06 /* add_weight.swift in Sources */,
 				B9EF41762B346D5000335435 /* LeftPaddingTextField.swift in Sources */,
 				B95075892B32C7F800291EAC /* side_bar_menu.swift in Sources */,
+				B98303C82BD0FF7800C82F23 /* user_profile.swift in Sources */,
 				B9EF41782B346D5000335435 /* UIStackView+Utility.swift in Sources */,
 				B9EF41772B346D5000335435 /* NewYorkButton.swift in Sources */,
 				B92ACF572BBE8D4300158E9B /* goal_settings_water.swift in Sources */,

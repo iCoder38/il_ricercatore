@@ -25,12 +25,12 @@ class side_bar_menu: UIViewController {
     } 
     
     @objc func search_friend_click_method() {
-        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "friends_id")
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "invite_friends_id")
         self.navigationController?.pushViewController(push, animated: true)
     }
     
     @objc func friend_click_method() {
-        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "invite_friends_id")
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "friends_id")
         self.navigationController?.pushViewController(push, animated: true)
     }
     @objc func tracker_click_method() {
@@ -55,6 +55,15 @@ class side_bar_menu: UIViewController {
     }
     @objc func goal_setting_click_method() {
         let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "goal_settings_id")
+        self.navigationController?.pushViewController(push, animated: true)
+    }
+    @objc func logout_click_method() {
+        
+        let defaults = UserDefaults.standard
+        defaults.setValue("", forKey: str_save_login_user_data)
+        defaults.setValue(nil, forKey: str_save_login_user_data)
+        
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "login_id")
         self.navigationController?.pushViewController(push, animated: true)
     }
 }
@@ -93,6 +102,7 @@ extension side_bar_menu: UITableViewDataSource , UITableViewDelegate {
         cell.btn_friends.addTarget(self, action: #selector(friend_click_method), for: .touchUpInside)
         cell.btn_search_friends.addTarget(self, action: #selector(search_friend_click_method), for: .touchUpInside)
         cell.btn_goal_setting.addTarget(self, action: #selector(goal_setting_click_method), for: .touchUpInside)
+        cell.btn_logout.addTarget(self, action: #selector(logout_click_method), for: .touchUpInside)
         
         return cell
         

@@ -1476,7 +1476,45 @@ class friends_table_cell : UITableViewCell {
     }
     @IBOutlet weak var lbl_title:UILabel!
     @IBOutlet weak var lbl_sub_title:UILabel!
+    
+    
 }
+
+// /* ******************* SEARCH FRIEND ************************* */
+// /* ********************************************************** */
+class search_friends_table_cell : UITableViewCell {
+    @IBOutlet weak var img_profile:UIImageView! {
+        didSet {
+            img_profile.layer.cornerRadius = 25
+            img_profile.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var lbl_title:UILabel!
+    @IBOutlet weak var lbl_sub_title:UILabel!
+    
+    @IBOutlet weak var btn_add:UIButton!
+}
+
+// /* ******************* USER FRIENDS ************************* */
+// /* ********************************************************** */
+class user_friends_table_cell : UITableViewCell {
+    @IBOutlet weak var img_profile:UIImageView! {
+        didSet {
+            img_profile.layer.cornerRadius = 60
+            img_profile.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var lbl_name:UILabel!
+    @IBOutlet weak var lbl_email:UILabel!
+    
+    @IBOutlet weak var lbl_sex:UILabel!
+    @IBOutlet weak var lbl_dob:UILabel!
+    @IBOutlet weak var lbl_alcohol:UILabel!
+    @IBOutlet weak var lbl_smoke:UILabel!
+    @IBOutlet weak var lbl_taking_med:UILabel!
+    
+}
+
 // /* ************************* REMINDERS ********************** */
 // /* ********************************************************** */
 class reminders_table_cell : UITableViewCell {
@@ -1677,6 +1715,9 @@ class sleep_table_cell : UITableViewCell {
     @IBOutlet weak var lbl_dates_two:UILabel!
     
     @IBOutlet weak var lbl_header_date:UILabel!
+    
+    @IBOutlet weak var lbl_day_time:UILabel!
+    @IBOutlet weak var lbl_value:UILabel!
     
 }
 // /* ************** MONITOR - HEART **************************** */

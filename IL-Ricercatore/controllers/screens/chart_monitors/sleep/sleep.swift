@@ -304,174 +304,132 @@ extension sleep: UITableViewDataSource , UITableViewDelegate, ChartViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return self.arrSleep.count+2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if (self.str_instake_status == "0") {
-            
-            let cell:sleep_table_cell = tableView.dequeueReusableCell(withIdentifier: "one_table_cell") as! sleep_table_cell
-            
-            cell.backgroundColor = .clear
-            
-            let backgroundView = UIView()
-            backgroundView.backgroundColor = .clear
-            cell.selectedBackgroundView = backgroundView
-            
-            /*cell.chartView.delegate = self
-            
-            cell.chartView.drawBarShadowEnabled = false
-            cell.chartView.drawValueAboveBarEnabled = false
-            
-            cell.chartView.maxVisibleCount = 60
-            
-            let xAxis = cell.chartView.xAxis
-            xAxis.labelPosition = .bottom
-            xAxis.labelFont = .systemFont(ofSize: 10)
-            xAxis.granularity = 1
-            xAxis.labelCount = 7
-            xAxis.valueFormatter = DayAxisValueFormatter(chart: cell.chartView)
-            
-            let leftAxisFormatter = NumberFormatter()
-            leftAxisFormatter.minimumFractionDigits = 0
-            leftAxisFormatter.maximumFractionDigits = 1
-            leftAxisFormatter.negativeSuffix = " H"
-            leftAxisFormatter.positiveSuffix = " H"
-            
-            let leftAxis = cell.chartView.leftAxis
-            leftAxis.labelFont = .systemFont(ofSize: 10)
-            leftAxis.labelCount = 6
-            leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: leftAxisFormatter)
-            leftAxis.labelPosition = .outsideChart
-            leftAxis.spaceTop = 0.15
-            leftAxis.axisMinimum = 0 // FIXME: HUH?? this replaces startAtZero = YES
-            
-            let rightAxis = cell.chartView.rightAxis
-            rightAxis.enabled = true
-            rightAxis.labelFont = .systemFont(ofSize: 10)
-            rightAxis.labelCount = 6
-            rightAxis.valueFormatter = leftAxis.valueFormatter
-            rightAxis.spaceTop = 0.15
-            rightAxis.axisMinimum = 0
-            
-            let l = cell.chartView.legend
-            l.horizontalAlignment = .left
-            l.verticalAlignment = .bottom
-            l.orientation = .horizontal
-            l.drawInside = false
-            l.form = .circle
-            l.formSize = 9
-            l.font = UIFont(name: "HelveticaNeue-Light", size: 11)!
-            l.xEntrySpace = 7*/
-            
-            cell.chartView.delegate = self
-            
-            cell.chartView.chartDescription.enabled = false
-            cell.chartView.maxVisibleCount = 60
-            cell.chartView.pinchZoomEnabled = false
-            cell.chartView.drawBarShadowEnabled = false
-            
-            let leftAxisFormatter = NumberFormatter()
-            leftAxisFormatter.minimumFractionDigits = 0
-            leftAxisFormatter.maximumFractionDigits = 1
-            leftAxisFormatter.negativeSuffix = " H"
-            leftAxisFormatter.positiveSuffix = " H"
-            
-            let leftAxis = cell.chartView.leftAxis
-            leftAxis.labelFont = .systemFont(ofSize: 10)
-            leftAxis.labelCount = 6
-            leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: leftAxisFormatter)
-            leftAxis.labelPosition = .outsideChart
-            leftAxis.spaceTop = 0.15
-            leftAxis.axisMinimum = 0 // FIXME: HUH?? this replaces startAtZero = YES
-            
-            let rightAxis = cell.chartView.rightAxis
-            rightAxis.enabled = true
-            rightAxis.labelFont = .systemFont(ofSize: 10)
-            rightAxis.labelCount = 6
-            rightAxis.valueFormatter = leftAxis.valueFormatter
-            rightAxis.spaceTop = 0.15
-            rightAxis.axisMinimum = 0
-            
-            let xAxis = cell.chartView.xAxis
-            xAxis.labelPosition = .bottom
+            if indexPath.row == 0 {
+                let cell:sleep_table_cell = tableView.dequeueReusableCell(withIdentifier: "one_table_cell") as! sleep_table_cell
+                
+                cell.backgroundColor = .clear
+                
+                let backgroundView = UIView()
+                backgroundView.backgroundColor = .clear
+                cell.selectedBackgroundView = backgroundView
+                
+                cell.chartView.delegate = self
+                
+                cell.chartView.chartDescription.enabled = false
+                cell.chartView.maxVisibleCount = 60
+                cell.chartView.pinchZoomEnabled = false
+                cell.chartView.drawBarShadowEnabled = false
+                
+                let leftAxisFormatter = NumberFormatter()
+                leftAxisFormatter.minimumFractionDigits = 0
+                leftAxisFormatter.maximumFractionDigits = 1
+                leftAxisFormatter.negativeSuffix = " H"
+                leftAxisFormatter.positiveSuffix = " H"
+                
+                let leftAxis = cell.chartView.leftAxis
+                leftAxis.labelFont = .systemFont(ofSize: 10)
+                leftAxis.labelCount = 6
+                leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: leftAxisFormatter)
+                leftAxis.labelPosition = .outsideChart
+                leftAxis.spaceTop = 0.15
+                leftAxis.axisMinimum = 0 // FIXME: HUH?? this replaces startAtZero = YES
+                
+                let rightAxis = cell.chartView.rightAxis
+                rightAxis.enabled = true
+                rightAxis.labelFont = .systemFont(ofSize: 10)
+                rightAxis.labelCount = 6
+                rightAxis.valueFormatter = leftAxis.valueFormatter
+                rightAxis.spaceTop = 0.15
+                rightAxis.axisMinimum = 0
+                
+                let xAxis = cell.chartView.xAxis
+                xAxis.labelPosition = .bottom
+                        
+                cell.chartView.legend.enabled = false
+                
+                var add_time = 0.0
+                let yVals = (0..<self.arrSleep.count).map { [self] (i) -> BarChartDataEntry in
                     
-            cell.chartView.legend.enabled = false
-            
-            var add_time = 0.0
-            let yVals = (0..<self.arrSleep.count).map { [self] (i) -> BarChartDataEntry in
+                    let item = self.arrSleep[i] as? [String:Any]
+                    
+                    let str_start_time:String! = (item!["sleepTime"] as! String)
+                    let str_end_time:String! = (item!["wakeupTime"] as! String)
+                    
+                    /*
+                     cell.btn_date_one.setTitle("\(self.arr_7_days.lastObject!)", for: .normal)
+                     cell.btn_date_two.setTitle(String(Date.getCurrentDateCustom()), for: .normal)
+                     */
+                    // header date
+                    cell.lbl_header_date.text = get_number_convert_into_months(date_one: "\(self.arr_7_days.lastObject!)")+" - "+get_number_convert_into_months(date_one: String(Date.getCurrentDateCustom()))
+                    
+                    let dateDiff = time_difference(start_time: String(str_start_time), end_time: String(str_end_time))
+                    print(dateDiff as Any)
+                    
+                    add_time += Double(dateDiff)!
+                    
+                    let myDouble = Double(dateDiff)
+                    return BarChartDataEntry(x: Double(i), y: myDouble!, icon: UIImage(named: "logo1"))
+                    
+                }
                 
-                let item = self.arrSleep[i] as? [String:Any]
+                // print(add_time as Any)
+                // print(add_time/Double(self.arrSleep.count) as Any)
+                let doubleStr = String(format: "%.2f", (add_time/Double(self.arrSleep.count))) // "3.14"
+                cell.lbl_on_avg.text = String(doubleStr)+"h on average"
                 
-                let str_start_time:String! = (item!["sleepTime"] as! String)
-                let str_end_time:String! = (item!["wakeupTime"] as! String)
+                var set1: BarChartDataSet! = nil
+                if let set = cell.chartView.data?.first as? BarChartDataSet {
+                    set1 = set
+                    set1?.replaceEntries(yVals)
+                    cell.chartView.data?.notifyDataChanged()
+                    cell.chartView.notifyDataSetChanged()
+                    set1.drawValuesEnabled = true
+                } else {
+                    set1 = BarChartDataSet(entries: yVals, label: "Data Set")
+                    set1.colors = ChartColorTemplates.vordiplom()
+                    set1.drawValuesEnabled = true
+                    
+                    let data = BarChartData(dataSet: set1)
+                    cell.chartView.data = data
+                    cell.chartView.fitBars = true
+                }
                 
-                /*
-                 cell.btn_date_one.setTitle("\(self.arr_7_days.lastObject!)", for: .normal)
-                 cell.btn_date_two.setTitle(String(Date.getCurrentDateCustom()), for: .normal)
-                 */
-                // header date
-                cell.lbl_header_date.text = get_number_convert_into_months(date_one: "\(self.arr_7_days.lastObject!)")+" - "+get_number_convert_into_months(date_one: String(Date.getCurrentDateCustom()))
+                cell.chartView.setNeedsDisplay()
                 
-                let dateDiff = time_difference(start_time: String(str_start_time), end_time: String(str_end_time))
-                print(dateDiff as Any)
+                return cell
                 
-                add_time += Double(dateDiff)!
+            } else if indexPath.row == 1 {
+                let cell:sleep_table_cell = tableView.dequeueReusableCell(withIdentifier: "two_table_cell") as! sleep_table_cell
                 
-                let myDouble = Double(dateDiff)
-                return BarChartDataEntry(x: Double(i), y: myDouble!, icon: UIImage(named: "logo1"))
+                cell.backgroundColor = .clear
                 
-            }
-            
-            // print(add_time as Any)
-            // print(add_time/Double(self.arrSleep.count) as Any)
-            let doubleStr = String(format: "%.2f", (add_time/Double(self.arrSleep.count))) // "3.14"
-            cell.lbl_on_avg.text = String(doubleStr)+"h on average"
-            
-            var set1: BarChartDataSet! = nil
-            if let set = cell.chartView.data?.first as? BarChartDataSet {
-                set1 = set
-                set1?.replaceEntries(yVals)
-                cell.chartView.data?.notifyDataChanged()
-                cell.chartView.notifyDataSetChanged()
-                set1.drawValuesEnabled = true
+                let backgroundView = UIView()
+                backgroundView.backgroundColor = .clear
+                cell.selectedBackgroundView = backgroundView
+                
+                return cell
             } else {
-                set1 = BarChartDataSet(entries: yVals, label: "Data Set")
-                set1.colors = ChartColorTemplates.vordiplom()
-                set1.drawValuesEnabled = true
+                let cell:sleep_table_cell = tableView.dequeueReusableCell(withIdentifier: "three_table_cell") as! sleep_table_cell
                 
-                let data = BarChartData(dataSet: set1)
-                cell.chartView.data = data
-                cell.chartView.fitBars = true
+                cell.backgroundColor = .clear
+                
+                let backgroundView = UIView()
+                backgroundView.backgroundColor = .clear
+                cell.selectedBackgroundView = backgroundView
+               
+                let item = self.arrSleep[indexPath.row-2] as? [String:Any]
+                
+                /*cell.lbl_day_time.text = getDayOfWeek(item!["date"] as! String)
+                cell.lbl_value.text = "\(item!["bp_max"]!) Systolic - \(item!["bp_min"]!) Diastolic"*/
+                
+                return cell
             }
-            
-            cell.chartView.setNeedsDisplay()
-            
-            /*var set1: BarChartDataSet! = nil
-            if let set = cell.chartView.data?.first as? BarChartDataSet {
-                set1 = set
-                set1.replaceEntries(yVals)
-                cell.chartView.data?.notifyDataChanged()
-                cell.chartView.notifyDataSetChanged()
-            } else {
-                set1 = BarChartDataSet(entries: yVals, label: "The year 2024")
-                set1.colors = ChartColorTemplates.material()
-                //set1.colors = ChartColorTemplates.joyful()
-                set1.drawValuesEnabled = true
-                
-                let data = BarChartData(dataSet: set1)
-                data.setValueFont(UIFont(name: "HelveticaNeue-Light", size: 10)!)
-                data.barWidth = 0.9
-                cell.chartView.data = data
-            }*/
-            
-            
-            
-            
-            
-            
-            return cell
             
         } else {
             

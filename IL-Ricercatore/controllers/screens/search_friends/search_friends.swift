@@ -1,27 +1,28 @@
 //
-//  friends.swift
+//  search_friends.swift
 //  IL-Ricercatore
 //
-//  Created by Dishant Rajput on 20/12/23.
+//  Created by Dishant Rajput on 18/04/24.
 //
 
 import UIKit
 import Alamofire
 import SDWebImage
 
-class friends: UIViewController, UITextFieldDelegate {
-
+class search_friends: UIViewController, UITextFieldDelegate {
+    
     var arr_friends:NSMutableArray! = []
     @IBOutlet weak var btn_menu:UIButton! {
         didSet {
             btn_menu.tintColor = .black
-            btn_menu.addTarget(self, action: #selector(menu_click_method), for: .touchUpInside)
+            btn_menu.setImage(UIImage(systemName: "arrow.left"), for: .normal)
+            btn_menu.addTarget(self, action: #selector(back_click_method), for: .touchUpInside)
         }
     }
     
     @IBOutlet weak var lbl_navigation_title:UILabel! {
         didSet {
-            lbl_navigation_title.text = navigation_title_friends_en
+            lbl_navigation_title.text = navigation_title_invite_friends_en
         }
     }
     
@@ -59,8 +60,6 @@ class friends: UIViewController, UITextFieldDelegate {
         
         self.txt_search.delegate = self
         
-        
-        
         self.friends_list_WB()
     }
     
@@ -90,12 +89,9 @@ class friends: UIViewController, UITextFieldDelegate {
                 
                 
                 parameters = [
-                    "action"    : "frinedlist",
+                    "action"    : "userlist",
                     "userId"    : String(myString),
-                    "status"    : "2",
                 ]
-                
-                
                 
                 print("parameters-------\(String(describing: parameters))")
                 
@@ -227,9 +223,8 @@ class friends: UIViewController, UITextFieldDelegate {
                 
                 
                 parameters = [
-                    "action"    : "frinedlist",
+                    "action"    : "userlist",
                     "userId"    : String(myString),
-                    "status"    : "2",
                     "keyword"   : String(self.txt_search.text!)
                 ]
                 
@@ -345,9 +340,8 @@ class friends: UIViewController, UITextFieldDelegate {
     }
 }
 
-
 //MARK:- TABLE VIEW -
-extension friends: UITableViewDataSource , UITableViewDelegate {
+extension search_friends: UITableViewDataSource , UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -358,20 +352,19 @@ extension friends: UITableViewDataSource , UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell:friends_table_cell = tableView.dequeueReusableCell(withIdentifier: "friends_table_cell") as! friends_table_cell
+        let cell:search_friends_table_cell = tableView.dequeueReusableCell(withIdentifier: "search_friends_table_cell") as! search_friends_table_cell
         
         let item = self.arr_friends[indexPath.row] as? [String:Any]
         print(item as Any)
         
-        cell.lbl_title.text = (item!["receiver_userName"] as! String)
+        cell.lbl_title.text = (item!["userName"] as! String)
         cell.lbl_sub_title.text = (item!["created"] as! String)
         
         cell.img_profile.sd_imageIndicator = SDWebImageActivityIndicator.grayLarge
-        cell.img_profile.sd_setImage(with: URL(string: (item!["receiver_profile_picture"] as! String)), placeholderImage: UIImage(named: "logo"))
+        cell.img_profile.sd_setImage(with: URL(string: (item!["profile_picture"] as! String)), placeholderImage: UIImage(named: "logo"))
         
         self.btn_search.addTarget(self, action: #selector(search_click_method), for: .touchUpInside)
         
-         
         cell.backgroundColor = .clear
         
         let backgroundView = UIView()
@@ -384,8 +377,20 @@ extension friends: UITableViewDataSource , UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        /*let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "calorie_information_id")
-        self.navigationController?.pushViewController(push, animated: true)*/
+        
+        let item = self.arr_friends[indexPath.row] as? [String:Any]
+        print(item as Any)
+        
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "user_profile_id") as? user_profile
+        
+        if "\(item!["receiverId"]!)" == "" {
+            push!.str_friend_id = "\(item!["userId"]!)"
+        } else {
+            push!.str_friend_id = "\(item!["receiverId"]!)"
+        }
+        
+        self.navigationController?.pushViewController(push!, animated: true)
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
