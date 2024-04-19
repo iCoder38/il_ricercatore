@@ -17,6 +17,9 @@ let your_are_not_auth = "You are not authorize to access the API"
 let date_fomatter = "MM-dd-yyyy"
 let date_fomatter_yyyy_MM_dd = "yyyy-MM-dd"
 
+var app_name = "IL-Recercatore"
+var appstore_URL = "https://www.google.co.in"
+
 class Utils: NSObject {
     
 }
@@ -245,6 +248,46 @@ extension UIViewController {
         return separate_date[1]+" - "+month_name
     }
     
+    @objc func get_number_convert_into_months_slash_glucose(date_one:String)-> String {
+        
+        print(date_one)
+        
+        let separate_date = String(date_one).components(separatedBy: "-")
+        
+        let get_date_data = separate_date[1]
+        print(get_date_data as Any)
+        
+        var month_name:String! = ""
+        if (get_date_data == "01") {
+            month_name = "January"
+        } else if (get_date_data == "02") {
+            month_name = "February"
+        } else if (get_date_data == "03") {
+            month_name = "March"
+        } else if (get_date_data == "04") {
+            month_name = "April"
+        } else if (get_date_data == "05") {
+            month_name = "May"
+        } else if (get_date_data == "06") {
+            month_name = "June"
+        } else if (get_date_data == "07") {
+            month_name = "July"
+        } else if (get_date_data == "08") {
+            month_name = "August"
+        } else if (get_date_data == "09") {
+            month_name = "September"
+        } else if (get_date_data == "10") {
+            month_name = "October"
+        } else if (get_date_data == "11") {
+            month_name = "November"
+        } else if (get_date_data == "12") {
+            month_name = "December"
+        } else {
+            month_name = "N.A."
+        }
+        
+        return separate_date[1]+" - "+month_name
+    }
     
     func getDayOfWeek(_ today:String)-> String {
         // print(today);
@@ -344,7 +387,6 @@ extension Date {
         dateFormatter.dateFormat = date_fomatter_yyyy_MM_dd
         return dateFormatter.string(from: Date())
     }
-    
     
     static func getCurrentTime() -> String {
         let dateFormatter = DateFormatter()

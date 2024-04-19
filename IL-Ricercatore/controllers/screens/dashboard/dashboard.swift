@@ -211,6 +211,10 @@ class dashboard: UIViewController {
         let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "meal_track_id")
         self.navigationController?.pushViewController(push, animated: true)
     }
+    @objc func add_glucose_click_methd() {
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "blood_glucose_id")
+        self.navigationController?.pushViewController(push, animated: true)
+    }
 }
 
 //MARK:- TABLE VIEW -
@@ -299,6 +303,7 @@ extension dashboard: UITableViewDataSource , UITableViewDelegate {
         cell.btn_heart.addTarget(self, action: #selector(heart_click_method), for: .touchUpInside)
         cell.btn_weight.addTarget(self, action: #selector(weight_click_method), for: .touchUpInside)
         cell.btn_blood_pressure.addTarget(self, action: #selector(blood_pressure_click_method), for: .touchUpInside)
+        cell.btn_blood_glucose.addTarget(self, action: #selector(add_glucose_click_methd), for: .touchUpInside)
         
         cell.view_more_post.addTarget(self, action: #selector(view_more_post_click_method), for: .touchUpInside)
         

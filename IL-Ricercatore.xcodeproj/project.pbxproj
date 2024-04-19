@@ -12,6 +12,8 @@
 		B9034E702BBD6F1C00AD6924 /* goal_settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9034E6F2BBD6F1C00AD6924 /* goal_settings.swift */; };
 		B92185F42BC520BF0014FF55 /* DayAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92185F32BC520BE0014FF55 /* DayAxisValueFormatter.swift */; };
 		B92ACF572BBE8D4300158E9B /* goal_settings_water.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92ACF562BBE8D4300158E9B /* goal_settings_water.swift */; };
+		B92B9B562BD29464003175BA /* add_blood_glucose.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92B9B552BD29464003175BA /* add_blood_glucose.swift */; };
+		B92B9B592BD294AF003175BA /* blood_glucose.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92B9B582BD294AF003175BA /* blood_glucose.swift */; };
 		B93581192B342D5800DEA73C /* personalised_workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93581182B342D5800DEA73C /* personalised_workout.swift */; };
 		B939EF072B316DF400B9556C /* dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939EF062B316DF400B9556C /* dashboard.swift */; };
 		B939EF0A2B316F0900B9556C /* all_text.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939EF092B316F0900B9556C /* all_text.swift */; };
@@ -109,6 +111,8 @@
 		B9034E6F2BBD6F1C00AD6924 /* goal_settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goal_settings.swift; sourceTree = "<group>"; };
 		B92185F32BC520BE0014FF55 /* DayAxisValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayAxisValueFormatter.swift; sourceTree = "<group>"; };
 		B92ACF562BBE8D4300158E9B /* goal_settings_water.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goal_settings_water.swift; sourceTree = "<group>"; };
+		B92B9B552BD29464003175BA /* add_blood_glucose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = add_blood_glucose.swift; sourceTree = "<group>"; };
+		B92B9B582BD294AF003175BA /* blood_glucose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = blood_glucose.swift; sourceTree = "<group>"; };
 		B93581182B342D5800DEA73C /* personalised_workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = personalised_workout.swift; sourceTree = "<group>"; };
 		B939EF062B316DF400B9556C /* dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dashboard.swift; sourceTree = "<group>"; };
 		B939EF092B316F0900B9556C /* all_text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = all_text.swift; sourceTree = "<group>"; };
@@ -257,6 +261,23 @@
 				B92ACF562BBE8D4300158E9B /* goal_settings_water.swift */,
 			);
 			path = goal_settings_water;
+			sourceTree = "<group>";
+		};
+		B92B9B542BD29447003175BA /* blood_glucose */ = {
+			isa = PBXGroup;
+			children = (
+				B92B9B572BD29490003175BA /* add_blood_glucose */,
+				B92B9B582BD294AF003175BA /* blood_glucose.swift */,
+			);
+			path = blood_glucose;
+			sourceTree = "<group>";
+		};
+		B92B9B572BD29490003175BA /* add_blood_glucose */ = {
+			isa = PBXGroup;
+			children = (
+				B92B9B552BD29464003175BA /* add_blood_glucose.swift */,
+			);
+			path = add_blood_glucose;
 			sourceTree = "<group>";
 		};
 		B93581172B342D3F00DEA73C /* personalise_workout */ = {
@@ -500,7 +521,7 @@
 		B9BC35A52B998CA6004C9431 /* chart_monitors */ = {
 			isa = PBXGroup;
 			children = (
-				B9E314242BAD9B580027A02F /* blood_pressure.swift */,
+				B92B9B542BD29447003175BA /* blood_glucose */,
 				B9E314232BAD9B4C0027A02F /* add_blood_pressure */,
 				B950F90E2B9A049900C01D3B /* steps */,
 				B9BC35A62B998CDB004C9431 /* sleep */,
@@ -644,6 +665,7 @@
 		B9E314232BAD9B4C0027A02F /* add_blood_pressure */ = {
 			isa = PBXGroup;
 			children = (
+				B9E314242BAD9B580027A02F /* blood_pressure.swift */,
 				B9E314262BAD9B6B0027A02F /* add_blood_pressure.swift */,
 			);
 			path = add_blood_pressure;
@@ -1075,6 +1097,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9B371FC2BAD7CCD00A64F06 /* weight.swift in Sources */,
+				B92B9B592BD294AF003175BA /* blood_glucose.swift in Sources */,
 				B98303C52BD0FC6800C82F23 /* search_friends.swift in Sources */,
 				B9CC8EE12B32F3AE00130035 /* invite_friends.swift in Sources */,
 				B9DD5A172B31B303006B2D60 /* track_meal_reminder.swift in Sources */,
@@ -1101,6 +1124,7 @@
 				B9EF41792B346D5000335435 /* NewYorkAlertController.swift in Sources */,
 				B977AE572B2D7C0F00EF12BA /* create_an_account.swift in Sources */,
 				B950F9132B9A05C200C01D3B /* add_steps_time.swift in Sources */,
+				B92B9B562BD29464003175BA /* add_blood_glucose.swift in Sources */,
 				B9E745362B29C1E9007E018A /* AppDelegate.swift in Sources */,
 				B9E7456D2B29DE34007E018A /* welcome.swift in Sources */,
 				B9CC8EE72B33017700130035 /* reminders.swift in Sources */,

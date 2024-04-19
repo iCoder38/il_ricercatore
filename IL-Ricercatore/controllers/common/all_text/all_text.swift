@@ -29,7 +29,7 @@ var navigation_title_set_up_water_tracker_en = "set up water tracker".uppercased
 var navigation_title_set_up_water_reminder_en = "water reminder".uppercased()
 
 // invite friends
-var navigation_title_invite_friends_en = " search friends".uppercased()
+var navigation_title_invite_friends_en = " search request".uppercased()
 
 //  friends
 var navigation_title_friends_en = "friends".uppercased()

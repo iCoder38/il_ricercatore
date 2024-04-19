@@ -1072,7 +1072,15 @@ class dashboard_table_cell : UITableViewCell {
             // btn_sleep.setTitle("Cal Burnt", for: .normal)
         }
     }
-    
+    @IBOutlet weak var btn_blood_glucose:UIButton! {
+        didSet {
+            btn_blood_glucose.layer.cornerRadius = 12
+            btn_blood_glucose.clipsToBounds = true
+            btn_blood_glucose.backgroundColor = light_purple_color
+            btn_blood_glucose.setTitleColor(.black, for: .normal)
+            // btn_sleep.setTitle("Cal Burnt", for: .normal)
+        }
+    }
     @IBOutlet weak var view_more_post:UIButton!
     
     @IBOutlet weak var btn_nut_plus:UIButton!
@@ -1407,6 +1415,8 @@ class water_intake_table_cell : UITableViewCell {
     }
     
     @IBOutlet weak var btn_date:UIButton!
+    
+    @IBOutlet weak var lbl_date:UILabel!
 }
 
 // /* ************** WATER TRACKER ***************************** */
@@ -1472,6 +1482,8 @@ class invite_friends_table_cell : UITableViewCell {
     }
     @IBOutlet weak var lbl_title:UILabel!
     @IBOutlet weak var lbl_sub_title:UILabel!
+    
+    @IBOutlet weak var btn_add_friend:UIButton!
 }
 
 // /* ************************* FRIEND ************************* */
@@ -1730,6 +1742,66 @@ class sleep_table_cell : UITableViewCell {
     
     @IBOutlet weak var btn_delete:UIButton!
 }
+
+
+// /* ************** MONITOR - BLOOD GLUCOSE **************************** */
+// /* ********************************************************** */
+class add_blood_glucose_table_cell : UITableViewCell {
+    
+   //  @IBOutlet weak var
+    
+}
+
+// /* ************** MONITOR - BLOOD GLUCOSE **************************** */
+// /* ********************************************************** */
+class blood_glucose_table_cell : UITableViewCell {
+    
+    // chart
+    @IBOutlet var chartView: BarChartView!
+    @IBOutlet var chartView_two: BarChartView!
+    
+    
+//    @IBOutlet var sliderX: UISlider!
+//    @IBOutlet var sliderY: UISlider!
+//    @IBOutlet var sliderTextX: UITextField!
+//    @IBOutlet var sliderTextY: UITextField!
+//
+//    @IBOutlet weak var lbl_date:UILabel!
+//    @IBOutlet weak var lbl_total_sleep_time:UILabel!
+    
+    @IBOutlet weak var btn_date_one:UIButton! {
+        didSet {
+            btn_date_one.layer.cornerRadius = 8
+            btn_date_one.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var btn_date_two:UIButton! {
+        didSet {
+            btn_date_two.layer.cornerRadius = 8
+            btn_date_two.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var btn_submit:UIButton! {
+        didSet {
+            btn_submit.layer.cornerRadius = 8
+            btn_submit.clipsToBounds = true
+        }
+    }
+    
+    @IBOutlet weak var lbl_on_avg:UILabel!
+    @IBOutlet weak var lbl_on_avg_two:UILabel!
+    
+    @IBOutlet weak var lbl_dates:UILabel!
+    @IBOutlet weak var lbl_dates_two:UILabel!
+    
+    @IBOutlet weak var lbl_header_date:UILabel!
+    
+    @IBOutlet weak var lbl_day_time:UILabel!
+    @IBOutlet weak var lbl_value:UILabel!
+    
+    @IBOutlet weak var btn_delete:UIButton!
+}
+
 // /* ************** MONITOR - HEART **************************** */
 // /* ********************************************************** */
 class heart_table_cell : UITableViewCell {

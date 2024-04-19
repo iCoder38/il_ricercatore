@@ -8,10 +8,16 @@
 import UIKit
 import Alamofire
 import SDWebImage
+import ContactsUI
 
 class search_friends: UIViewController, UITextFieldDelegate {
     
     var arr_friends:NSMutableArray! = []
+    
+    let contactStore = CNContactStore()
+    var contacts = [CNContact]()
+    var arr_store_all_contacts:NSMutableArray! = []
+    
     @IBOutlet weak var btn_menu:UIButton! {
         didSet {
             btn_menu.tintColor = .black
@@ -60,10 +66,49 @@ class search_friends: UIViewController, UITextFieldDelegate {
         
         self.txt_search.delegate = self
         
-        self.friends_list_WB()
+        // self.friends_list_WB()
+        self.get_all_local_contacts()
     }
     
-    
+    @objc func get_all_local_contacts() {
+        
+        let keys = [
+                CNContactFormatter.descriptorForRequiredKeys(for: .fullName),
+                        CNContactPhoneNumbersKey,
+                        CNContactEmailAddressesKey
+                ] as [Any]
+        let request = CNContactFetchRequest(keysToFetch: keys as! [CNKeyDescriptor])
+        do {
+            try contactStore.enumerateContacts(with: request){
+                    (contact, stop) in
+                // Array containing all unified contacts from everywhere
+                contacts.append(contact)
+                for phoneNumber in contact.phoneNumbers {
+                    if let number = phoneNumber.value as? CNPhoneNumber, let label = phoneNumber.label {
+                        let localizedLabel = CNLabeledValue<CNPhoneNumber>.localizedString(forLabel: label)
+                        // print("\(contact.givenName) \(contact.familyName) tel:\(localizedLabel) -- \(number.stringValue), email: \(contact.emailAddresses)")
+                        print("\(contact.givenName) \(contact.familyName)")
+                        print("tel:\(number.stringValue)")
+                        
+                        var custom = [
+                            "name":"\(contact.givenName) \(contact.familyName)",
+                            "phone_number":"\(number.stringValue)",
+                            "email":"\(contact.emailAddresses)",
+                            "image":""
+                        ]
+                        self.arr_store_all_contacts.add(custom)
+                    }
+                }
+            }
+            // print(self.arr_store_all_contacts)
+            self.tble_view.delegate = self
+            self.tble_view.dataSource = self
+            self.tble_view.reloadData()
+        } catch {
+            print("unable to fetch contacts")
+        }
+        
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
@@ -338,6 +383,25 @@ class search_friends: UIViewController, UITextFieldDelegate {
             }
         }
     }
+    
+    @objc func validation_before_share(_ sender:UIButton) {
+        
+    }
+    @objc func share_click_method() {
+        // text to share
+        let text = "Download "+app_name+" app\nLink: \(appstore_URL)"
+        
+        // set up activity view controller
+        let textToShare = [ text ]
+        let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+        
+        // exclude some activity types from the list (optional)
+        activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
+        
+        // present the view controller
+        self.present(activityViewController, animated: true, completion: nil)
+    }
 }
 
 //MARK:- TABLE VIEW -
@@ -347,14 +411,29 @@ extension search_friends: UITableViewDataSource , UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.arr_friends.count
+        return self.arr_store_all_contacts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell:search_friends_table_cell = tableView.dequeueReusableCell(withIdentifier: "search_friends_table_cell") as! search_friends_table_cell
         
-        let item = self.arr_friends[indexPath.row] as? [String:Any]
+        cell.backgroundColor = .clear
+        
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = .clear
+        cell.selectedBackgroundView = backgroundView
+        
+        let item = self.arr_store_all_contacts[indexPath.row] as? [String:Any]
+        cell.lbl_title.text = (item!["name"] as! String)
+        cell.lbl_sub_title.text = (item!["phone_number"] as! String)
+        
+        cell.img_profile.sd_imageIndicator = SDWebImageActivityIndicator.grayLarge
+        cell.img_profile.sd_setImage(with: URL(string: (item!["image"] as! String)), placeholderImage: UIImage(named: "logo"))
+         
+        cell.btn_add.tag = indexPath.row
+        cell.btn_add.addTarget(self, action: #selector(share_click_method), for: .touchUpInside)
+        /*let item = self.arr_friends[indexPath.row] as? [String:Any]
         print(item as Any)
         
         cell.lbl_title.text = (item!["userName"] as! String)
@@ -364,12 +443,8 @@ extension search_friends: UITableViewDataSource , UITableViewDelegate {
         cell.img_profile.sd_setImage(with: URL(string: (item!["profile_picture"] as! String)), placeholderImage: UIImage(named: "logo"))
         
         self.btn_search.addTarget(self, action: #selector(search_click_method), for: .touchUpInside)
+        */
         
-        cell.backgroundColor = .clear
-        
-        let backgroundView = UIView()
-        backgroundView.backgroundColor = .clear
-        cell.selectedBackgroundView = backgroundView
         
         return cell
         
@@ -377,19 +452,6 @@ extension search_friends: UITableViewDataSource , UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        let item = self.arr_friends[indexPath.row] as? [String:Any]
-        print(item as Any)
-        
-        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "user_profile_id") as? user_profile
-        
-        if "\(item!["receiverId"]!)" == "" {
-            push!.str_friend_id = "\(item!["userId"]!)"
-        } else {
-            push!.str_friend_id = "\(item!["receiverId"]!)"
-        }
-        
-        self.navigationController?.pushViewController(push!, animated: true)
         
     }
     

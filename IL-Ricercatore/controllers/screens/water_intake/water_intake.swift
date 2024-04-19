@@ -19,7 +19,7 @@ class water_intake: UIViewController {
     var str_updated_value:String!
     
     var str_set_date_for_server:String!
-    
+    var arr_7_days:NSMutableArray! = []
     @IBOutlet weak var btn_menu:UIButton! {
         didSet {
             btn_menu.tintColor = .white
@@ -62,12 +62,28 @@ class water_intake: UIViewController {
         
         self.my_profile(loader: "yes")
         
+        self.caluclate_last_7_days()
+        
+    }
+    
+    @objc func caluclate_last_7_days() {
+        
+        for indexx in 1...7 {
+            let sevenDaysAgo = Calendar.current.date(byAdding: .day, value: -indexx, to: Date())
+            
+            let separate_time = "\(sevenDaysAgo!)".components(separatedBy: " ")
+            let before_space_value = separate_time[0]
+            
+            self.arr_7_days.add(before_space_value as Any)
+        }
+        print(self.arr_7_days.lastObject as Any)
     }
     
     @objc func reminder_click_method() {
         let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "water_reminder_id")
         self.navigationController?.pushViewController(push, animated: true)
     }
+    
     @objc func water_count_edit_click_method() {
         let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "set_up_water_tracker_id") as? set_up_water_tracker
         
@@ -530,7 +546,8 @@ class water_intake: UIViewController {
         let cell = self.tble_view.cellForRow(at: indexPath) as! water_intake_table_cell
         
         RPicker.selectDate(title: "Select date", cancelText: "Cancel", datePickerMode: .date,maxDate: Date.now, didSelectDate: { (selectedDate) in
-            cell.btn_date.setTitle(selectedDate.dateString("yyyy-MM-dd"), for: .normal)
+            // cell.btn_date.setTitle(selectedDate.dateString("yyyy-MM-dd"), for: .normal)
+            cell.lbl_date.text = selectedDate.dateString("MM-dd-yyyy")
             // self.meal_track_record_WB(loader: "yes")
         })
         
@@ -558,6 +575,8 @@ extension water_intake: UITableViewDataSource , UITableViewDelegate {
         let backgroundView = UIView()
         backgroundView.backgroundColor = .clear
         cell.selectedBackgroundView = backgroundView
+        
+        cell.lbl_date.text = Date.getCurrentDate()
         
         cell.lbl_water_glass_count.text = String(self.str_done_water_count)
         cell.lbl_water_glass_out_of.text = "of \(self.str_total_water!) Glasses"
