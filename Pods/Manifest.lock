@@ -1,17 +1,19 @@
 PODS:
-  - Alamofire (5.8.1)
+  - Alamofire (5.9.1)
   - DGCharts (5.1.0):
     - DGCharts/Core (= 5.1.0)
   - DGCharts/Core (5.1.0)
-  - SDWebImage (5.18.5):
-    - SDWebImage/Core (= 5.18.5)
-  - SDWebImage/Core (5.18.5)
-  - SwiftyJSON (5.0.1)
-  - Toast-Swift (5.1.0)
+  - GrowingTextView (0.7.2)
+  - SDWebImage (5.19.1):
+    - SDWebImage/Core (= 5.19.1)
+  - SDWebImage/Core (5.19.1)
+  - SwiftyJSON (5.0.2)
+  - Toast-Swift (5.1.1)
 
 DEPENDENCIES:
   - Alamofire
   - DGCharts
+  - GrowingTextView
   - SDWebImage
   - SwiftyJSON
   - Toast-Swift
@@ -20,17 +22,19 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - DGCharts
+    - GrowingTextView
     - SDWebImage
     - SwiftyJSON
     - Toast-Swift
 
 SPEC CHECKSUMS:
-  Alamofire: 3ca42e259043ee0dc5c0cdd76c4bc568b8e42af7
+  Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
   DGCharts: 1c6daf585b6cfc78807af44ea690d357c410627f
-  SDWebImage: 7ac2b7ddc5e8484c79aa90fc4e30b149d6a2c88f
-  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
-  Toast-Swift: dd369e68ee529f542c65bd0d0c6c50cd743cf6f2
+  GrowingTextView: 876bf42005b5e4a4fd740597db12caaf41f0fe6c
+  SDWebImage: 40b0b4053e36c660a764958bff99eed16610acbb
+  SwiftyJSON: f5b1bf1cd8dd53cd25887ac0eabcfd92301c6a5a
+  Toast-Swift: 7a03a532afe3a560d4044bc7c237e2864d295173
 
-PODFILE CHECKSUM: 546374f4f9085a232c894c883f0e7402e0d65d5c
+PODFILE CHECKSUM: 119ad62c990e697216ee4f1b7e349285879e3031
 
 COCOAPODS: 1.15.2

@@ -27,5 +27,6 @@ target 'IL-Ricercatore' do
   pod 'Toast-Swift'
 #  pod 'Toast-Swift', '~> 5.1.0'
   pod 'DGCharts'
-
+  pod 'GrowingTextView'
+  
 end

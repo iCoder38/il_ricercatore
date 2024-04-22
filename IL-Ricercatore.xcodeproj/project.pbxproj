@@ -10,6 +10,7 @@
 		954C65DC212E54C567406C7D /* Pods_IL_RicercatoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F91823D86349C8CA52D202EE /* Pods_IL_RicercatoreTests.framework */; };
 		B9034E6D2BBD5D1B00AD6924 /* meal_track.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9034E6C2BBD5D1B00AD6924 /* meal_track.swift */; };
 		B9034E702BBD6F1C00AD6924 /* goal_settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9034E6F2BBD6F1C00AD6924 /* goal_settings.swift */; };
+		B907E3F62BD62E96000B1B5D /* comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = B907E3F52BD62E96000B1B5D /* comments.swift */; };
 		B92185F42BC520BF0014FF55 /* DayAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92185F32BC520BE0014FF55 /* DayAxisValueFormatter.swift */; };
 		B92ACF572BBE8D4300158E9B /* goal_settings_water.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92ACF562BBE8D4300158E9B /* goal_settings_water.swift */; };
 		B92B9B562BD29464003175BA /* add_blood_glucose.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92B9B552BD29464003175BA /* add_blood_glucose.swift */; };
@@ -109,6 +110,7 @@
 		B4EB8D2179DF5A2785A7CF0E /* Pods_IL_Ricercatore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IL_Ricercatore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9034E6C2BBD5D1B00AD6924 /* meal_track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = meal_track.swift; sourceTree = "<group>"; };
 		B9034E6F2BBD6F1C00AD6924 /* goal_settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goal_settings.swift; sourceTree = "<group>"; };
+		B907E3F52BD62E96000B1B5D /* comments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = comments.swift; sourceTree = "<group>"; };
 		B92185F32BC520BE0014FF55 /* DayAxisValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayAxisValueFormatter.swift; sourceTree = "<group>"; };
 		B92ACF562BBE8D4300158E9B /* goal_settings_water.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goal_settings_water.swift; sourceTree = "<group>"; };
 		B92B9B552BD29464003175BA /* add_blood_glucose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = add_blood_glucose.swift; sourceTree = "<group>"; };
@@ -253,6 +255,14 @@
 				B92ACF552BBE8D2E00158E9B /* goal_settings_water */,
 			);
 			path = goal_settings;
+			sourceTree = "<group>";
+		};
+		B907E3F42BD62E8A000B1B5D /* comments */ = {
+			isa = PBXGroup;
+			children = (
+				B907E3F52BD62E96000B1B5D /* comments.swift */,
+			);
+			path = comments;
 			sourceTree = "<group>";
 		};
 		B92ACF552BBE8D2E00158E9B /* goal_settings_water */ = {
@@ -674,6 +684,7 @@
 		B9E314282BADBF850027A02F /* post */ = {
 			isa = PBXGroup;
 			children = (
+				B907E3F42BD62E8A000B1B5D /* comments */,
 				B9F846A22BBC308C00A89CAF /* post_details */,
 				B9E196892BADC7340005E28C /* daily_q */,
 				B9E196882BADC7250005E28C /* all_post_category */,
@@ -1157,6 +1168,7 @@
 				B9EF41632B3456FE00335435 /* select_workout.swift in Sources */,
 				B9034E6D2BBD5D1B00AD6924 /* meal_track.swift in Sources */,
 				B977AE5B2B2D814800EF12BA /* Utils.swift in Sources */,
+				B907E3F62BD62E96000B1B5D /* comments.swift in Sources */,
 				B939EF132B318E4100B9556C /* eat_meal_time.swift in Sources */,
 				B950F9102B9A04B100C01D3B /* steps.swift in Sources */,
 				B9538BA62B886B0C00722BF8 /* api.swift in Sources */,

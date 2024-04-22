@@ -433,6 +433,23 @@ class post_details_table_cell : UITableViewCell {
     @IBOutlet weak var lbl_title:UILabel!
     @IBOutlet weak var lbl_comments_likes:UILabel!
     @IBOutlet weak var lbl_description:UILabel!
+    
+    @IBOutlet weak var btn_like:UIButton!
+    @IBOutlet weak var btn_comment:UIButton!
+    @IBOutlet weak var btn_share:UIButton!
+}
+// /* ************** COMPLETE PROFILE ************************* */
+// /* ********************************************************** */
+class comments_table_cell : UITableViewCell {
+    @IBOutlet weak var img_profile:UIImageView! {
+        didSet {
+            img_profile.layer.cornerRadius = 12
+            img_profile.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var lbl_name:UILabel!
+    @IBOutlet weak var lbl_time:UILabel!
+    @IBOutlet weak var lbl_message:UILabel!
 }
 
 // /* ************** DAILY Q ************************* */
@@ -464,7 +481,7 @@ class daily_q_table_cell : UITableViewCell {
     @IBOutlet weak var lbl_comments_like:UILabel!
     
     @IBOutlet weak var btn_play:UIButton!
-    
+    @IBOutlet weak var btn_read_more:UIButton!
     @IBOutlet weak var img_profile:UIImageView! {
         didSet {
             img_profile.layer.cornerRadius = 12

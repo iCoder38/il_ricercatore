@@ -17,6 +17,9 @@ class daily_q: UIViewController {
     
     var arr_daily_q:NSMutableArray! = []
     
+    var page : Int! = 1
+    var loadMore : Int! = 1;
+    
     @IBOutlet weak var btn_back:UIButton! {
         didSet {
             btn_back.tintColor = .white
@@ -41,16 +44,40 @@ class daily_q: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.daily_q_WB()
+        
         self.tble_view.separatorColor = .clear
     }
     
-    
-    
-    @objc func daily_q_WB() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         
+        self.daily_q_WB(status: "yes", pageNumber: 1)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+                
+        if scrollView == self.tble_view {
+            let isReachingEnd = scrollView.contentOffset.y >= 0
+                && scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height)
+            if(isReachingEnd) {
+                if(loadMore == 1) {
+                    loadMore = 0
+                    page += 1
+                    print(page as Any)
+                    
+                    self.daily_q_WB(status: "no", pageNumber: page)
+                    
+                }
+            }
+        }
+    }
+    
+    @objc func daily_q_WB(status:String,pageNumber: Int) {
         
-        ERProgressHud.sharedInstance.showDarkBackgroundView(withTitle: "Please wait...")
+        if (status == "yes") {
+            ERProgressHud.sharedInstance.showDarkBackgroundView(withTitle: "Please wait...")
+        }
+        
         var parameters:Dictionary<AnyHashable, Any>!
         
         if let person = UserDefaults.standard.value(forKey: str_save_login_user_data) as? [String:Any] {
@@ -69,7 +96,7 @@ class daily_q: UIViewController {
                     "userId"        : String(myString),
                     "posttype"      : String(str_post_type),
                     "key_word"      : "",
-                    "pageNo"        : "1",
+                    "pageNo"        : pageNumber,
                 ]
                 
                 print("parameters-------\(String(describing: parameters))")
@@ -97,6 +124,7 @@ class daily_q: UIViewController {
                                 self.tble_view.delegate = self
                                 self.tble_view.dataSource = self
                                 self.tble_view.reloadData()
+                                self.loadMore = 1
                                 
                             } else {
                                 if (JSON["msg"] as? String == your_are_not_auth) {
@@ -160,7 +188,7 @@ class daily_q: UIViewController {
                         UserDefaults.standard.set("", forKey: str_save_last_api_token)
                         UserDefaults.standard.set(str_token, forKey: str_save_last_api_token)
                         
-                        self.daily_q_WB()
+                        self.daily_q_WB(status: "no", pageNumber: 1)
                         
                     } else {
                         ERProgressHud.sharedInstance.hide()
@@ -176,6 +204,13 @@ class daily_q: UIViewController {
                 break
             }
         }
+    }
+    
+    @objc func read_more_click_method(_ sender:UIButton) {
+        let item = self.arr_daily_q[sender.tag] as? [String:Any]
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "post_details_id") as? post_details
+        push!.dictDetails = (item! as NSDictionary)
+        self.navigationController?.pushViewController(push!, animated: true)
     }
     
 }
@@ -207,16 +242,20 @@ extension daily_q: UITableViewDataSource , UITableViewDelegate {
         cell.lbl_sub_title.text = (item!["description"] as! String)
         cell.lbl_comments_like.text = "Comments  (\(item!["total_comment"]!))     Like  (\(item!["total_Like"]!))"
         
+        cell.btn_read_more.addTarget(self, action: #selector(read_more_click_method), for: .touchUpInside)
+        
         if (item!["imageType"] as! String) == "Video" {
             cell.btn_play.isHidden = false
-            cell.img_profile.isHidden = true
+            cell.img_profile.isHidden = false
+            cell.img_profile.sd_imageIndicator = SDWebImageActivityIndicator.whiteLarge
+            cell.img_profile.sd_setImage(with: URL(string: (item!["video_cover_image"] as! String)), placeholderImage: UIImage(named: "logo"))
         } else {
             cell.btn_play.isHidden = true
             cell.img_profile.isHidden = false
             cell.img_profile.sd_imageIndicator = SDWebImageActivityIndicator.whiteLarge
             cell.img_profile.sd_setImage(with: URL(string: (item!["image"] as! String)), placeholderImage: UIImage(named: "logo"))
         }
-        
+        cell.btn_play.isUserInteractionEnabled = false
         /*let videoURL = NSURL(string: (item!["image"] as! String))
         let player = AVPlayer(url: videoURL! as URL)
 
@@ -228,6 +267,7 @@ extension daily_q: UITableViewDataSource , UITableViewDelegate {
         return cell
         
     }
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
