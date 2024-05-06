@@ -19,6 +19,7 @@ class daily_q: UIViewController {
     
     var page : Int! = 1
     var loadMore : Int! = 1;
+    var str_like_status:String!
     
     @IBOutlet weak var btn_back:UIButton! {
         didSet {
@@ -212,6 +213,147 @@ class daily_q: UIViewController {
         push!.dictDetails = (item! as NSDictionary)
         self.navigationController?.pushViewController(push!, animated: true)
     }
+    @objc func like_click_method(_ sender:UIButton) {
+        
+        let item = self.arr_daily_q[sender.tag] as? [String:Any]
+        
+        ERProgressHud.sharedInstance.showDarkBackgroundView(withTitle: "Please wait...")
+        var parameters:Dictionary<AnyHashable, Any>!
+        
+        if let person = UserDefaults.standard.value(forKey: str_save_login_user_data) as? [String:Any] {
+            
+            if let token_id_is = UserDefaults.standard.string(forKey: str_save_last_api_token) {
+                
+                let headers: HTTPHeaders = [
+                    "token":String(token_id_is),
+                ]
+                
+                let x : Int = person["userId"] as! Int
+                let myString = String(x)
+                
+                if "\(item!["you_liked"]!)" == "No" {
+                     
+                    self.str_like_status = "1"
+                } else {
+                     
+                    self.str_like_status = "0"
+                }
+                
+                parameters = [
+                    "action"    : "likeadd",
+                    "userId"    : String(myString),
+                    "postId"    : "\(item!["postId"]!)",
+                    "status"    : String(self.str_like_status),
+                ]
+                
+                print("parameters-------\(String(describing: parameters))")
+                
+                AF.request(application_base_url, method: .post, parameters: parameters as? Parameters,headers: headers).responseJSON {[self]
+                    response in
+                    
+                    switch(response.result) {
+                    case .success(_):
+                        if let data = response.value {
+                            
+                            let JSON = data as! NSDictionary
+                            print(JSON)
+                            
+                            var strSuccess : String!
+                            strSuccess = JSON["status"] as? String
+                            
+                            if strSuccess.lowercased() == "success" {
+                                ERProgressHud.sharedInstance.hide()
+                                self.arr_daily_q.removeAllObjects()
+                                self.view.makeToast(JSON["msg"] as? String)
+                                self.daily_q_WB(status: "yes", pageNumber: 1)
+                            } else {
+                                if (JSON["msg"] as? String == your_are_not_auth) {
+                                    self.refresh_token_WB2()
+                                } else {
+                                    self.view.makeToast(JSON["msg"] as? String)
+                                }
+                            }
+                            
+                        }
+                        
+                    case .failure(_):
+                        print("Error message:\(String(describing: response.error))")
+                        ERProgressHud.sharedInstance.hide()
+                        self.please_check_your_internet_connection()
+                        
+                        break
+                    }
+                }
+            } else {
+                self.refresh_token_WB2()
+            }
+        }
+    }
+    
+    @objc func refresh_token_WB2() {
+        
+        var parameters:Dictionary<AnyHashable, Any>!
+        
+        if let person = UserDefaults.standard.value(forKey: str_save_login_user_data) as? [String:Any] {
+            
+            let x : Int = person["userId"] as! Int
+            let myString = String(x)
+            
+            parameters = [
+                "action"    : "gettoken",
+                "userId"    : String(myString),
+                "email"     : (person["email"] as! String),
+                "role"      : "Member"
+            ]
+        }
+        
+        print("parameters-------\(String(describing: parameters))")
+        
+        AF.request(application_base_url, method: .post, parameters: parameters as? Parameters).responseJSON {
+            response in
+            
+            switch(response.result) {
+            case .success(_):
+                if let data = response.value {
+                    
+                    let JSON = data as! NSDictionary
+                    print(JSON)
+                    
+                    var strSuccess : String!
+                    strSuccess = JSON["status"] as? String
+                    
+                    if strSuccess.lowercased() == "success" {
+                        
+                        let str_token = (JSON["AuthToken"] as! String)
+                        UserDefaults.standard.set("", forKey: str_save_last_api_token)
+                        UserDefaults.standard.set(str_token, forKey: str_save_last_api_token)
+                        
+                        
+                        // self.like_click_method()
+                       
+                    } else {
+                        ERProgressHud.sharedInstance.hide()
+                    }
+                    
+                }
+                
+            case .failure(_):
+                print("Error message:\(String(describing: response.error))")
+                ERProgressHud.sharedInstance.hide()
+                self.please_check_your_internet_connection()
+                
+                break
+            }
+        }
+    }
+    
+    @objc func comment_click_method(_ sender:UIButton) {
+        let item = self.arr_daily_q[sender.tag] as? [String:Any]
+        
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "comments_id") as? comments
+        push!.str_post_id = "\(item!["postId"]!)"
+        self.navigationController?.pushViewController(push!, animated: true)
+    }
     
 }
 
@@ -244,6 +386,15 @@ extension daily_q: UITableViewDataSource , UITableViewDelegate {
         
         cell.btn_read_more.addTarget(self, action: #selector(read_more_click_method), for: .touchUpInside)
         
+        if "\(item!["you_liked"]!)" == "No" {
+            cell.btn_like.setImage(UIImage(systemName: "hand.thumbsup"), for: .normal)
+            cell.btn_like.tintColor = .black
+        } else {
+            cell.btn_like.setImage(UIImage(systemName: "hand.thumbsup.fill"), for: .normal)
+            cell.btn_like.tintColor = .systemPink
+        }
+        
+        
         if (item!["imageType"] as! String) == "Video" {
             cell.btn_play.isHidden = false
             cell.img_profile.isHidden = false
@@ -256,13 +407,11 @@ extension daily_q: UITableViewDataSource , UITableViewDelegate {
             cell.img_profile.sd_setImage(with: URL(string: (item!["image"] as! String)), placeholderImage: UIImage(named: "logo"))
         }
         cell.btn_play.isUserInteractionEnabled = false
-        /*let videoURL = NSURL(string: (item!["image"] as! String))
-        let player = AVPlayer(url: videoURL! as URL)
-
-        let playerLayer = AVPlayerLayer(player: player)
-        playerLayer.frame = cell.view_video.bounds
-        cell.view_video.layer.addSublayer(playerLayer)
-        player.play()*/
+        
+        cell.btn_like.tag = indexPath.row
+        cell.btn_like.addTarget(self, action: #selector(like_click_method), for: .touchUpInside)
+        // cell.btn_comment.addTarget(self, action: #selector(comment_click_method), for: .touchUpInside)
+        // cell.btn_play.addTarget(self, action: #selector(play_video), for: .touchUpInside)
         
         return cell
         

@@ -183,8 +183,10 @@ class goal_settings: UIViewController {
     }
     
     @objc func edit_weight_click_method() {
-        
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "weight_goal_id") as? weight_goal
+        self.navigationController?.pushViewController(push!, animated: true)
     }
+    
     @objc func edit_water_click_method() {
         let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "goal_settings_water_id") as? goal_settings_water
         

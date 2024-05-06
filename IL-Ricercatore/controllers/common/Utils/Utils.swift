@@ -26,6 +26,11 @@ class Utils: NSObject {
 
 extension UIViewController {
     
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
     @objc func please_check_your_internet_connection() {
         let alert = NewYorkAlertController(title: String("Error").uppercased(), message: String("Please check your Internet Connection"), style: .alert)
         let cancel = NewYorkButton(title: "dismiss", style: .cancel)

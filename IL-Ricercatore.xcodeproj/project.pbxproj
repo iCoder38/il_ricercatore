@@ -80,6 +80,8 @@
 		B9EF417B2B346D5000335435 /* NewYorkAlertViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EF41732B346D5000335435 /* NewYorkAlertViewType.swift */; };
 		B9EF417E2B3472A200335435 /* RPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EF417D2B3472A200335435 /* RPicker.swift */; };
 		B9F846A42BBC309800A89CAF /* post_details.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F846A32BBC309800A89CAF /* post_details.swift */; };
+		B9F886DB2BE8A57600060C3A /* faq.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F886DA2BE8A57600060C3A /* faq.swift */; };
+		B9F886DE2BE8AFBC00060C3A /* weight_goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F886DD2BE8AFBC00060C3A /* weight_goal.swift */; };
 		C5BFC0301EE4F9A443CD5D07 /* Pods_IL_Ricercatore_IL_RicercatoreUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D337E89B1732A3FAD1C904 /* Pods_IL_Ricercatore_IL_RicercatoreUITests.framework */; };
 		CC2907F9E3711E9DA121E7AC /* Pods_IL_Ricercatore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4EB8D2179DF5A2785A7CF0E /* Pods_IL_Ricercatore.framework */; };
 /* End PBXBuildFile section */
@@ -184,6 +186,8 @@
 		B9EF41732B346D5000335435 /* NewYorkAlertViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewYorkAlertViewType.swift; sourceTree = "<group>"; };
 		B9EF417D2B3472A200335435 /* RPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPicker.swift; sourceTree = "<group>"; };
 		B9F846A32BBC309800A89CAF /* post_details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = post_details.swift; sourceTree = "<group>"; };
+		B9F886DA2BE8A57600060C3A /* faq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = faq.swift; sourceTree = "<group>"; };
+		B9F886DD2BE8AFBC00060C3A /* weight_goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weight_goal.swift; sourceTree = "<group>"; };
 		E0D7EEB5A7075BA29381C28A /* Pods-IL-Ricercatore-IL-RicercatoreUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IL-Ricercatore-IL-RicercatoreUITests.debug.xcconfig"; path = "Target Support Files/Pods-IL-Ricercatore-IL-RicercatoreUITests/Pods-IL-Ricercatore-IL-RicercatoreUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E4D7AAAD93B5AF1DD06172AC /* Pods-IL-Ricercatore-IL-RicercatoreUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IL-Ricercatore-IL-RicercatoreUITests.release.xcconfig"; path = "Target Support Files/Pods-IL-Ricercatore-IL-RicercatoreUITests/Pods-IL-Ricercatore-IL-RicercatoreUITests.release.xcconfig"; sourceTree = "<group>"; };
 		F91823D86349C8CA52D202EE /* Pods_IL_RicercatoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IL_RicercatoreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -251,6 +255,7 @@
 		B9034E6E2BBD6F1000AD6924 /* goal_settings */ = {
 			isa = PBXGroup;
 			children = (
+				B9F886DC2BE8AFAC00060C3A /* weight_goal */,
 				B9034E6F2BBD6F1C00AD6924 /* goal_settings.swift */,
 				B92ACF552BBE8D2E00158E9B /* goal_settings_water */,
 			);
@@ -401,7 +406,7 @@
 		B977AE582B2D7C2900EF12BA /* screens */ = {
 			isa = PBXGroup;
 			children = (
-				B98303C22BD0F70100C82F23 /* New Group */,
+				B98303C22BD0F70100C82F23 /* faq */,
 				B9034E6E2BBD6F1000AD6924 /* goal_settings */,
 				B9034E6B2BBD5D1100AD6924 /* meal_track */,
 				B9E314282BADBF850027A02F /* post */,
@@ -471,11 +476,12 @@
 			path = breakfast_food;
 			sourceTree = "<group>";
 		};
-		B98303C22BD0F70100C82F23 /* New Group */ = {
+		B98303C22BD0F70100C82F23 /* faq */ = {
 			isa = PBXGroup;
 			children = (
+				B9F886DA2BE8A57600060C3A /* faq.swift */,
 			);
-			path = "New Group";
+			path = faq;
 			sourceTree = "<group>";
 		};
 		B98303C32BD0FC4E00C82F23 /* search_friends */ = {
@@ -868,6 +874,14 @@
 			path = post_details;
 			sourceTree = "<group>";
 		};
+		B9F886DC2BE8AFAC00060C3A /* weight_goal */ = {
+			isa = PBXGroup;
+			children = (
+				B9F886DD2BE8AFBC00060C3A /* weight_goal.swift */,
+			);
+			path = weight_goal;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1112,6 +1126,7 @@
 				B98303C52BD0FC6800C82F23 /* search_friends.swift in Sources */,
 				B9CC8EE12B32F3AE00130035 /* invite_friends.swift in Sources */,
 				B9DD5A172B31B303006B2D60 /* track_meal_reminder.swift in Sources */,
+				B9F886DB2BE8A57600060C3A /* faq.swift in Sources */,
 				B939EF162B3190F300B9556C /* edit_meal_calories.swift in Sources */,
 				B939EF0A2B316F0900B9556C /* all_text.swift in Sources */,
 				B9CC8EE42B32F74F00130035 /* friends.swift in Sources */,
@@ -1164,6 +1179,7 @@
 				B9E314252BAD9B580027A02F /* blood_pressure.swift in Sources */,
 				B9034E702BBD6F1C00AD6924 /* goal_settings.swift in Sources */,
 				B9CC8EEE2B330E6600130035 /* days_workout.swift in Sources */,
+				B9F886DE2BE8AFBC00060C3A /* weight_goal.swift in Sources */,
 				B9EF416A2B346AFB00335435 /* ERProgressHud.swift in Sources */,
 				B9EF41632B3456FE00335435 /* select_workout.swift in Sources */,
 				B9034E6D2BBD5D1B00AD6924 /* meal_track.swift in Sources */,

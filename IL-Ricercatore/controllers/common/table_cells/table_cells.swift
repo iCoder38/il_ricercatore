@@ -417,6 +417,15 @@ class all_post_table_cell : UITableViewCell {
             btn_milestones.setTitle("Forum", for: .normal)
         }
     }
+    @IBOutlet weak var btn_faq:UIButton! {
+        didSet {
+            btn_faq.layer.cornerRadius = 12
+            btn_faq.clipsToBounds = true
+            btn_faq.backgroundColor = light_purple_color
+            btn_faq.setTitleColor(.black, for: .normal)
+            btn_faq.setTitle("FAQ", for: .normal)
+        }
+    }
     
 }
 
@@ -488,6 +497,11 @@ class daily_q_table_cell : UITableViewCell {
             img_profile.clipsToBounds = true
         }
     }
+    
+    @IBOutlet weak var btn_like:UIButton!
+    @IBOutlet weak var btn_comment:UIButton!
+    @IBOutlet weak var btn_share:UIButton!
+    
 }
 
 // /* ************** COMPLETE PROFILE ************************* */

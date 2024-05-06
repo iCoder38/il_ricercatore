@@ -61,6 +61,11 @@ class all_post: UIViewController {
         push!.str_post_type = String("Milestone")
         self.navigationController?.pushViewController(push!, animated: true)
     }
+    @objc func faq_click_method() {
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "faq_id") as? faq
+        // push!.str_post_type = String("Faq")
+        self.navigationController?.pushViewController(push!, animated: true)
+    }
 }
 
 //MARK:- TABLE VIEW -
@@ -88,6 +93,8 @@ extension all_post: UITableViewDataSource , UITableViewDelegate {
         cell.btn_stories.addTarget(self, action: #selector(stories_click_method), for: .touchUpInside)
         cell.btn_forum.addTarget(self, action: #selector(forum_click_method), for: .touchUpInside)
         cell.btn_milestones.addTarget(self, action: #selector(milestones_click_method), for: .touchUpInside)
+        cell.btn_faq.addTarget(self, action: #selector(faq_click_method), for: .touchUpInside)
+        
         return cell
         
     }
