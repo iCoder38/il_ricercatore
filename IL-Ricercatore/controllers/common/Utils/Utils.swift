@@ -20,6 +20,11 @@ let date_fomatter_yyyy_MM_dd = "yyyy-MM-dd"
 var app_name = "IL-Recercatore"
 var appstore_URL = "https://www.google.co.in"
 
+
+// for local notification
+var local_notification_water_intake_header = "Water intake"
+var local_notification_water_intake_body = "Drink water"
+
 class Utils: NSObject {
     
 }

@@ -6,13 +6,23 @@
 //
 
 import UIKit
+import UserNotifications
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-       
+        
         // sleep(20)
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+            if granted {
+                print("Notification permission granted")
+            } else {
+                print("Notification permission denied: \(error?.localizedDescription ?? "")")
+            }
+        }
+        
         return true
     }
 
@@ -25,5 +35,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       
     }
 
+    
+    
+    
+    
+     
+    // MARK:- WHEN APP IS IN FOREGROUND - ( after click popup ) -
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        //print("User Info = ",notification.request.content.userInfo)
+        completionHandler([.alert, .badge, .sound,.banner])
+        
+        print("User Info dishu = ",notification.request.content.userInfo)
+        
+    }
+    
+    // MARK:- WHEN APP IS IN BACKGROUND - ( after click popup ) -
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        print("User Info = ",response.notification.request.content.userInfo)
+        
+        let dict = response.notification.request.content.userInfo
+        print(dict as Any)
+        
+        
+        
+        
+    }
+    
+    
+    
+    
 
 }

@@ -7,8 +7,9 @@
 
 import UIKit
 import Alamofire
+import UserNotifications
 
-class dashboard: UIViewController {
+class dashboard: UIViewController, UNUserNotificationCenterDelegate {
 
     var dict_dashboard:NSDictionary!
     
@@ -29,6 +30,8 @@ class dashboard: UIViewController {
         }
     }
     
+    var lastScheduledBadgeCount = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: true)
@@ -36,9 +39,138 @@ class dashboard: UIViewController {
         self.tble_view.separatorColor = .clear
         self.btn_menu.addTarget(self, action: #selector(menu_click_method), for: .touchUpInside)
         
+        // self.my_profile(loader: "yes")
+        // self.local_timer()
+        /*requestNotificationAuthorization()
+        UNUserNotificationCenter.current().delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
+        // scheduleNotification()
+        
+        // set reminder evey hour
+        // scheduleHourlyNotificationsBetween(startTime: 9, endTime: 17)*/
+        
         self.my_profile(loader: "yes")
+        
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "water_reminders_id")
+        self.navigationController?.pushViewController(push, animated: true)
+        
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    @objc func appDidBecomeActive() {
+        scheduleCustomDateNotification()
+    }
+    
+    func requestNotificationAuthorization() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+            if granted {
+                print("Notification permission granted")
+            } else {
+                print("Notification permission denied: \(error?.localizedDescription ?? "")")
+            }
+        }
+    }
+    
+    func updateBadgeCount() {
+        // Fetch the current badge count
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            DispatchQueue.main.async {
+                self.lastScheduledBadgeCount = UIApplication.shared.applicationIconBadgeNumber
+                UIApplication.shared.applicationIconBadgeNumber = self.lastScheduledBadgeCount
+            }
+        }
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        // Decrease the badge count by 1 if user interacts with the notification
+        lastScheduledBadgeCount -= 1
+        UIApplication.shared.applicationIconBadgeNumber = lastScheduledBadgeCount
+        
+        // Call the completion handler when finished processing the notification
+        completionHandler()
+    }
+    
+    func scheduleCustomDateNotification() {
+        /*let content = UNMutableNotificationContent()
+         content.title = "Reminder"
+         content.body = "Don't forget your task!"
+         
+         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false) // Notification will be delivered after 10 seconds
+         
+         let request = UNNotificationRequest(identifier: "reminderNotification", content: content, trigger: trigger)
+         
+         UNUserNotificationCenter.current().add(request) { (error) in
+         if let error = error {
+         print("Error scheduling notification: \(error.localizedDescription)")
+         } else {
+         print("Notification scheduled successfully!")
+         }
+         }*/
+        let content = UNMutableNotificationContent()
+        content.title = "Water Intake"
+        content.body = "Don't forget your task!"
+         content.badge = 1
+        content.sound = .default
+        
+        // Define the date and time components for the trigger
+        var dateComponents = DateComponents()
+        dateComponents.year = 2024
+        dateComponents.month = 5
+        dateComponents.day = 6
+        dateComponents.hour = 16 // 24 hour format
+        dateComponents.minute = 48
+        
+        // Create a trigger with the specified date and time
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+        
+        // Create a request for the notification
+        let request = UNNotificationRequest(identifier: "reminderNotification", content: content, trigger: trigger)
+        
+        // Add the request to the notification center
+        UNUserNotificationCenter.current().add(request) { (error) in
+            if let error = error {
+                print("Error scheduling notification: \(error.localizedDescription)")
+            } else {
+                print("Notification scheduled successfully!")
+                self.updateBadgeCount()
+            }
+        }
+    }
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+            // Show the notification banner even when the app is open
+            completionHandler([.alert, .sound, .badge])
+        }
+    
+    func scheduleHourlyNotificationsBetween(startTime: Int, endTime: Int) {
+        let content = UNMutableNotificationContent()
+        content.title = "Hourly Reminder"
+        content.body = "Don't forget your task!"
+        content.sound = .default
+        
+        let center = UNUserNotificationCenter.current()
+        center.removeAllPendingNotificationRequests()
+        
+        let calendar = Calendar.current
+        let now = Date()
+        
+        var dateComponents = calendar.dateComponents([.year, .month, .day, .hour], from: now)
+        dateComponents.minute = 0 // Start from the top of the hour
+        
+        for hour in startTime..<endTime {
+            dateComponents.hour = hour
+            
+            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+            center.add(request)
+        }
+    }
+         
+    
+    
+                                                        
     @objc func my_profile(loader:String) {
 //        let indexPath = IndexPath.init(row: 0, section: 0)
 //        let cell = self.tble_view.cellForRow(at: indexPath) as! complete_profile_three_table_cell
