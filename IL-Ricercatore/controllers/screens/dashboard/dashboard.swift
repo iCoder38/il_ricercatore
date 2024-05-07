@@ -51,10 +51,28 @@ class dashboard: UIViewController, UNUserNotificationCenterDelegate {
         
         self.my_profile(loader: "yes")
         
-        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "water_reminders_id")
-        self.navigationController?.pushViewController(push, animated: true)
+        /*let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "water_reminders_id")
+        self.navigationController?.pushViewController(push, animated: true)*/
         
+         self.getAllReminders()
+        //self.disableReminder()
     }
+    
+    func getAllReminders() {
+        UNUserNotificationCenter.current().getPendingNotificationRequests { (requests) in
+            for request in requests {
+                print("Identifier: \(request.identifier)")
+                print("Content: \(request.content)")
+                print("Trigger: \(request.trigger)")
+                print("---------")
+            }
+        }
+    }
+    
+    func disableReminder() {
+            let center = UNUserNotificationCenter.current()
+            center.removePendingNotificationRequests(withIdentifiers: ["07D26954-F24B-4F0D-890A-3829C3AEFFDD"])
+        }
     
     deinit {
         NotificationCenter.default.removeObserver(self)

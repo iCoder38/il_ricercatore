@@ -213,10 +213,20 @@ class water_reminders: UIViewController, UNUserNotificationCenterDelegate {
         UNUserNotificationCenter.current().delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
         
+        /*var set_custom = [
+            "":"",
+            "":""
+        ]
+        let defaults = UserDefaults.standard
+        defaults.setValue(set_custom, forKey: "key_water_reminder")*/
+        
         if (self.str_users_select_type == "3") {
             self.convert_date_time_accordingly()
         } else if (self.str_users_select_type == "2") {
             self.scheduleTwoNotifications()
+        } else {
+            // remind me every hour
+            self.scheduleMultipleNotifications()
         }
         
     }
@@ -360,6 +370,36 @@ class water_reminders: UIViewController, UNUserNotificationCenterDelegate {
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request)
+    }
+    
+    func scheduleMultipleNotifications() {
+        let separate_time2 = self.btn_time_two.titleLabel?.text!.components(separatedBy: ":")
+        let hr1 = separate_time2![0]
+        let min1 = separate_time2![1]
+        
+        let int_hr1 = Int(hr1)
+        let int_min1 = Int(min1)
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Water Intake"
+        content.body = "Don't forget your task!"
+        content.sound = .default
+        
+        let center = UNUserNotificationCenter.current()
+        center.removeAllPendingNotificationRequests()
+        
+        let calendar = Calendar.current
+        let now = Date()
+        
+        for hour in int_hr1!...int_min1! { // Example: Schedule notifications every hour from 9 AM to 5 PM
+            var dateComponents = calendar.dateComponents([.year, .month, .day, .hour], from: now)
+            dateComponents.hour = hour
+            dateComponents.minute = 0
+            
+            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+            center.add(request)
+        }
     }
     
     // LOCAL NOTIFICATION

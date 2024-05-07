@@ -1397,6 +1397,80 @@ class track_meal_reminder_table_cell : UITableViewCell {
         }
     }
     
+    
+    
+    
+    
+    
+    
+    @IBOutlet weak var btn_checkmark_breakfast:UIButton! {
+        didSet {
+            btn_checkmark_breakfast.setImage(UIImage(named: "uncheck"), for: .normal)
+        }
+    }
+    @IBOutlet weak var btn_checkmark_morning_snack:UIButton! {
+        didSet {
+            btn_checkmark_morning_snack.setImage(UIImage(named: "uncheck"), for: .normal)
+        }
+    }
+    @IBOutlet weak var btn_checkmark_lunch:UIButton! {
+        didSet {
+            btn_checkmark_lunch.setImage(UIImage(named: "uncheck"), for: .normal)
+        }
+    }
+    @IBOutlet weak var btn_checkmark_evening_snack:UIButton! {
+        didSet {
+            btn_checkmark_evening_snack.setImage(UIImage(named: "uncheck"), for: .normal)
+        }
+    }
+    @IBOutlet weak var btn_checkmark_dinner:UIButton! {
+        didSet {
+            btn_checkmark_dinner.setImage(UIImage(named: "uncheck"), for: .normal)
+        }
+    }
+    
+    
+    @IBOutlet weak var lbl_checkmark_breakfast_time:UILabel! {
+        didSet {
+            lbl_checkmark_breakfast_time.textColor = UIColor.gray
+            lbl_checkmark_breakfast_time.text = "disabled"
+        }
+    }
+    
+    @IBOutlet weak var lbl_checkmark_morning_snack_time:UILabel!  {
+        didSet {
+            lbl_checkmark_morning_snack_time.textColor = UIColor.gray
+            lbl_checkmark_morning_snack_time.text = "disabled"
+        }
+    }
+    @IBOutlet weak var lbl_checkmark_lunch_time:UILabel!  {
+        didSet {
+            lbl_checkmark_lunch_time.textColor = UIColor.gray
+            lbl_checkmark_lunch_time.text = "disabled"
+        }
+    }
+    @IBOutlet weak var lbl_checkmark_evening_snack_time:UILabel!  {
+        didSet {
+            lbl_checkmark_evening_snack_time.textColor = UIColor.gray
+            lbl_checkmark_evening_snack_time.text = "disabled"
+        }
+    }
+    @IBOutlet weak var lbl_checkmark_dinner_time:UILabel!  {
+        didSet {
+            lbl_checkmark_dinner_time.textColor = UIColor.gray
+            lbl_checkmark_dinner_time.text = "disabled"
+        }
+    }
+    
+    
+    @IBOutlet weak var btn_continue:UIButton! {
+        didSet {
+            btn_continue.layer.cornerRadius = 8
+            btn_continue.clipsToBounds = true
+            btn_continue.setTitle("Set".uppercased(), for: .normal)
+            btn_continue.setTitleColor(.white, for: .normal)
+        }
+    }
 }
 
 // /* ************** WATER INTAKE ****************************** */
@@ -1570,6 +1644,12 @@ class user_friends_table_cell : UITableViewCell {
 // /* ************************* REMINDERS ********************** */
 // /* ********************************************************** */
 class reminders_table_cell : UITableViewCell {
+    @IBOutlet weak var img_profile:UIImageView! {
+        didSet {
+            img_profile.layer.cornerRadius = 20
+            img_profile.clipsToBounds = true
+        }
+    }
     @IBOutlet weak var lbl_title:UILabel!
     @IBOutlet weak var lbl_sub_title:UILabel!
     @IBOutlet weak var btn_edit:UIButton!

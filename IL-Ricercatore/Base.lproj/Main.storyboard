@@ -4279,11 +4279,11 @@ per your dietrary.</string>
                                 <rect key="frame" x="0.0" y="85" width="393" height="1115"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="track_meal_reminder_table_cell" rowHeight="466" id="EMd-fN-334" customClass="track_meal_reminder_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="466"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="track_meal_reminder_table_cell" rowHeight="558" id="EMd-fN-334" customClass="track_meal_reminder_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="558"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EMd-fN-334" id="kQq-a6-emz">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="466"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="558"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get reminded to track your meal" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8Z-4a-WZp">
@@ -4650,12 +4650,26 @@ per your dietrary.</string>
                                                         <constraint firstItem="N8v-jK-Pgf" firstAttribute="top" secondItem="UO0-QY-98I" secondAttribute="bottom" constant="8" symbolic="YES" id="zZh-nP-aw7"/>
                                                     </constraints>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZc-eo-UjS">
+                                                    <rect key="frame" x="20" y="487" width="353" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="jre-Ce-xLs"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="18"/>
+                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                    <state key="normal" title="Save" backgroundImage="yellow_gradient_button">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="wR6-5S-2CA" firstAttribute="top" secondItem="UQ1-Mt-ccY" secondAttribute="bottom" constant="8" symbolic="YES" id="2nz-CD-mDH"/>
                                                 <constraint firstItem="wR6-5S-2CA" firstAttribute="trailing" secondItem="kQq-a6-emz" secondAttribute="trailingMargin" id="7md-0T-eNr"/>
+                                                <constraint firstItem="wZc-eo-UjS" firstAttribute="trailing" secondItem="kQq-a6-emz" secondAttribute="trailingMargin" id="Ayh-Pr-8bn"/>
                                                 <constraint firstItem="s8Z-4a-WZp" firstAttribute="trailing" secondItem="kQq-a6-emz" secondAttribute="trailingMargin" id="CZR-xN-Tgh"/>
+                                                <constraint firstItem="wZc-eo-UjS" firstAttribute="leading" secondItem="kQq-a6-emz" secondAttribute="leadingMargin" id="FUR-a7-jrC"/>
                                                 <constraint firstItem="UQ1-Mt-ccY" firstAttribute="trailing" secondItem="kQq-a6-emz" secondAttribute="trailingMargin" id="JaB-ai-X03"/>
+                                                <constraint firstItem="wZc-eo-UjS" firstAttribute="bottom" secondItem="kQq-a6-emz" secondAttribute="bottomMargin" id="RYs-oT-CbB"/>
                                                 <constraint firstItem="s8Z-4a-WZp" firstAttribute="top" secondItem="kQq-a6-emz" secondAttribute="topMargin" id="SD2-9V-3cm"/>
                                                 <constraint firstItem="UQ1-Mt-ccY" firstAttribute="top" secondItem="s8Z-4a-WZp" secondAttribute="bottom" constant="8" symbolic="YES" id="XSF-dz-sU5"/>
                                                 <constraint firstItem="s8Z-4a-WZp" firstAttribute="leading" secondItem="kQq-a6-emz" secondAttribute="leadingMargin" id="YQv-5I-8jX"/>
@@ -4664,7 +4678,18 @@ per your dietrary.</string>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="btn_checkmark_breakfast" destination="kHV-So-x3z" id="vQy-E2-xux"/>
+                                            <outlet property="btn_checkmark_dinner" destination="QVx-Kd-3IK" id="r7G-TZ-auM"/>
+                                            <outlet property="btn_checkmark_evening_snack" destination="Vei-pv-JHm" id="DZ8-QF-oN4"/>
+                                            <outlet property="btn_checkmark_lunch" destination="iGS-3C-lbz" id="ng5-uF-I3W"/>
+                                            <outlet property="btn_checkmark_morning_snack" destination="xXc-PQ-g58" id="fnu-dD-ofP"/>
+                                            <outlet property="btn_continue" destination="wZc-eo-UjS" id="Mhd-TO-BmY"/>
                                             <outlet property="lbl_breakfast" destination="wIS-hB-mPf" id="SUn-OX-1g4"/>
+                                            <outlet property="lbl_checkmark_breakfast_time" destination="wIS-hB-mPf" id="ZPF-jA-HoV"/>
+                                            <outlet property="lbl_checkmark_dinner_time" destination="d5U-cY-Nx6" id="dBA-3k-bcW"/>
+                                            <outlet property="lbl_checkmark_evening_snack_time" destination="nND-bd-4Su" id="hJG-08-ffl"/>
+                                            <outlet property="lbl_checkmark_lunch_time" destination="4Lh-AY-DPR" id="FLb-kl-yTr"/>
+                                            <outlet property="lbl_checkmark_morning_snack_time" destination="h7b-xB-f5X" id="Rbe-fs-S9c"/>
                                             <outlet property="lbl_dinner" destination="d5U-cY-Nx6" id="gcf-Mh-mGC"/>
                                             <outlet property="lbl_evening_snack" destination="nND-bd-4Su" id="Aqb-2y-ME1"/>
                                             <outlet property="lbl_lunch" destination="4Lh-AY-DPR" id="lfT-gR-egh"/>
@@ -4694,14 +4719,27 @@ per your dietrary.</string>
                                             <color key="titleColor" systemColor="systemOrangeColor"/>
                                         </state>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nqa-ED-I2W">
+                                        <rect key="frame" x="8" y="3" width="40" height="40"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="LdG-8j-AKR"/>
+                                            <constraint firstAttribute="height" constant="40" id="aI9-BM-SQL"/>
+                                        </constraints>
+                                        <color key="tintColor" systemColor="viewFlipsideBackgroundColor"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="list.bullet" catalog="system"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="5rM-Qt-kym" firstAttribute="leading" secondItem="fxI-Vt-GlE" secondAttribute="leading" constant="16" id="2xQ-xa-qdz"/>
                                     <constraint firstItem="5rM-Qt-kym" firstAttribute="top" secondItem="fxI-Vt-GlE" secondAttribute="top" constant="10" id="3zl-D5-0Dg"/>
+                                    <constraint firstItem="nqa-ED-I2W" firstAttribute="leading" secondItem="fxI-Vt-GlE" secondAttribute="leading" constant="8" id="4PQ-Ia-Dhd"/>
                                     <constraint firstAttribute="bottom" secondItem="5rM-Qt-kym" secondAttribute="bottom" id="9ZN-a1-QiC"/>
                                     <constraint firstItem="3CJ-KH-pSP" firstAttribute="top" secondItem="fxI-Vt-GlE" secondAttribute="top" constant="5" id="D1A-cG-KeQ"/>
                                     <constraint firstAttribute="trailing" secondItem="3CJ-KH-pSP" secondAttribute="trailing" constant="8" id="Leu-qn-PIR"/>
+                                    <constraint firstAttribute="bottom" secondItem="nqa-ED-I2W" secondAttribute="bottom" constant="4" id="Qwq-yp-P5X"/>
                                     <constraint firstAttribute="trailing" secondItem="5rM-Qt-kym" secondAttribute="trailing" constant="16" id="abJ-v4-9ug"/>
                                     <constraint firstAttribute="height" constant="47" id="rTX-DO-cfG"/>
                                 </constraints>
@@ -4726,6 +4764,7 @@ per your dietrary.</string>
                     <navigationItem key="navigationItem" id="jUh-KA-9Pd"/>
                     <size key="freeformSize" width="393" height="1200"/>
                     <connections>
+                        <outlet property="btn_menu" destination="nqa-ED-I2W" id="WwJ-sN-PGG"/>
                         <outlet property="btn_reset" destination="3CJ-KH-pSP" id="8DU-ca-9TY"/>
                         <outlet property="lbl_navigation_title" destination="5rM-Qt-kym" id="wSa-A3-dnc"/>
                         <outlet property="tble_view" destination="cTf-P2-qS9" id="Lvb-p7-loH"/>
@@ -6514,6 +6553,7 @@ per your dietrary.</string>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="btn_edit" destination="5yl-xm-1qG" id="JZE-pm-tqa"/>
+                                            <outlet property="img_profile" destination="yZ8-LH-pnN" id="yMk-4l-hta"/>
                                             <outlet property="lbl_sub_title" destination="cvr-aN-wPE" id="5cy-Z8-y1v"/>
                                             <outlet property="lbl_title" destination="5X2-D4-ASK" id="cHf-gR-e0A"/>
                                         </connections>
@@ -13953,10 +13993,10 @@ per your dietrary.</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AzD-kE-abh">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AzD-kE-abh">
                                 <rect key="frame" x="0.0" y="1118" width="414" height="82"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nqp-FP-kCQ" customClass="GrowingTextView" customModule="GrowingTextView">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nqp-FP-kCQ" customClass="GrowingTextView" customModule="GrowingTextView">
                                         <rect key="frame" x="8" y="8" width="366" height="33"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -14031,7 +14071,7 @@ per your dietrary.</string>
                                     <constraint firstAttribute="height" constant="88" id="pTE-iL-MIx"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MRS-Mr-I7C">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MRS-Mr-I7C">
                                 <rect key="frame" x="0.0" y="88" width="414" height="1030"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -14916,14 +14956,6 @@ per your dietrary.</string>
             <point key="canvasLocation" x="33803.816793893129" y="138.73239436619718"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="HYZ-yT-3Ve">
-            <size key="intrinsicContentSize" width="-1" height="30"/>
-        </designable>
-        <designable name="nqp-FP-kCQ">
-            <size key="intrinsicContentSize" width="-1" height="30"/>
-        </designable>
-    </designables>
     <resources>
         <image name="11" width="600" height="167"/>
         <image name="22" width="150" height="126"/>
@@ -14973,8 +15005,8 @@ per your dietrary.</string>
         <image name="person" catalog="system" width="128" height="121"/>
         <image name="phone" catalog="system" width="128" height="115"/>
         <image name="play_video" width="64" height="64"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus" width="24" height="24"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus33" width="24" height="24"/>
         <image name="plus_yellow" width="64" height="64"/>
         <image name="quote" width="512" height="512"/>

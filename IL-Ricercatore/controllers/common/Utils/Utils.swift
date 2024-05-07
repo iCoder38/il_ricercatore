@@ -25,11 +25,56 @@ var appstore_URL = "https://www.google.co.in"
 var local_notification_water_intake_header = "Water intake"
 var local_notification_water_intake_body = "Drink water"
 
+var identifier_meal_reminder_breakfast = "reminder_meal_breakfast"
+var local_notification_meal_reminder_breakfast_header = "Meal reminder"
+var local_notification_meal_reminder_breakfast_body = "Reminder: meal"
+
 class Utils: NSObject {
     
 }
 
 extension UIViewController {
+    
+    func scheduleDailyReminder(hour: Int, minute: Int,header:String,body:String,identifier:String) {
+        let content = UNMutableNotificationContent()
+        content.title = header
+        content.body = body
+        content.sound = .default
+        
+        let center = UNUserNotificationCenter.current()
+        // center.removeAllPendingNotificationRequests()
+        
+        var dateComponents = DateComponents()
+        dateComponents.hour = hour
+        dateComponents.minute = minute
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        // center.add(request)
+        
+        // Add the request to the notification center
+        UNUserNotificationCenter.current().add(request) { (error) in
+            if let error = error {
+                print("Error scheduling notification: \(error.localizedDescription)")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.view.makeToast("Error scheduling notification: \(error.localizedDescription)")
+                }
+            } else {
+                print("Notification scheduled successfully!")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.set_local_notification_toast(text: "Breakfast")
+                }
+                // self.updateBadgeCount()
+            }
+        }
+        
+    }
+    
+    
+    
+    @objc func set_local_notification_toast(text:String) {
+        self.view.makeToast("\(text): Notification scheduled successfully!")
+    }
     
     @objc func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
