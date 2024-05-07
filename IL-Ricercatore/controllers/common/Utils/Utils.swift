@@ -20,12 +20,25 @@ let date_fomatter_yyyy_MM_dd = "yyyy-MM-dd"
 var app_name = "IL-Recercatore"
 var appstore_URL = "https://www.google.co.in"
 
+// type
+var type_breakfast = "Breakfast"
+var type_morning_snack = "Morning snack"
+var type_lunch = "Lunch"
+var type_evening_snack = "Evening snack"
+var type_dinner = "Dinner"
+var type_every_day = "Every day"
 
 // for local notification
 var local_notification_water_intake_header = "Water intake"
 var local_notification_water_intake_body = "Drink water"
 
+var identifier_meal_reminder_dinner = "reminder_dinner"
+var identifier_meal_reminder_evening_snack = "reminder_evening_snack"
+var identifier_meal_reminder_lunch = "reminder_meal_lunch"
 var identifier_meal_reminder_breakfast = "reminder_meal_breakfast"
+var identifier_meal_reminder_morning_snack = "reminder_meal_morning_snack"
+var identifier_meal_reminder_every_day = "reminder_meal_remind_every_day"
+
 var local_notification_meal_reminder_breakfast_header = "Meal reminder"
 var local_notification_meal_reminder_breakfast_body = "Reminder: meal"
 
@@ -35,7 +48,7 @@ class Utils: NSObject {
 
 extension UIViewController {
     
-    func scheduleDailyReminder(hour: Int, minute: Int,header:String,body:String,identifier:String) {
+    func scheduleDailyReminder(hour: Int, minute: Int,header:String,body:String,identifier:String,text:String) {
         let content = UNMutableNotificationContent()
         content.title = header
         content.body = body
@@ -62,7 +75,46 @@ extension UIViewController {
             } else {
                 print("Notification scheduled successfully!")
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    self.set_local_notification_toast(text: "Breakfast")
+                    self.set_local_notification_toast(type: text, status: "e")
+                }
+                // self.updateBadgeCount()
+            }
+        }
+        
+    }
+    
+    
+    func scheduleReminderCustomDayAndTime(for year: Int, month: Int, day: Int, hour: Int, minute: Int,identifier:String,type:String) {
+        let content = UNMutableNotificationContent()
+        content.title = "Reminder"
+        content.body = "Don't forget your task!"
+        content.sound = .default
+        
+        let center = UNUserNotificationCenter.current()
+        center.removeAllPendingNotificationRequests()
+        
+        var dateComponents = DateComponents()
+        dateComponents.year = year
+        dateComponents.month = month
+        dateComponents.day = day
+        dateComponents.hour = hour
+        dateComponents.minute = minute
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        // center.add(request)
+        
+        // Add the request to the notification center
+        UNUserNotificationCenter.current().add(request) { (error) in
+            if let error = error {
+                print("Error scheduling notification: \(error.localizedDescription)")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.view.makeToast("Error scheduling notification: \(error.localizedDescription)")
+                }
+            } else {
+                print("Notification scheduled successfully!")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.set_local_notification_toast(type: type, status: "enable")
                 }
                 // self.updateBadgeCount()
             }
@@ -72,8 +124,35 @@ extension UIViewController {
     
     
     
-    @objc func set_local_notification_toast(text:String) {
-        self.view.makeToast("\(text): Notification scheduled successfully!")
+    func disable_reminder(identifier:String,text:String) {
+        debugPrint(identifier as Any)
+        
+        let center = UNUserNotificationCenter.current()
+        center.removePendingNotificationRequests(withIdentifiers: [identifier])
+        
+        self.set_local_notification_toast(type: text, status: "d")
+    }
+    
+    
+    @objc func set_local_notification_toast(type:String,status:String) {
+        if (status == "enable" || status == "e") {
+            self.view.makeToast("\(type): Notification scheduled successfully!")
+        } else {
+            self.view.makeToast("\(type): Notification disabled successfully!")
+        }
+        
+    }
+    
+    func convertTo12HourFormat(time: String) -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        
+        if let date = dateFormatter.date(from: time) {
+            dateFormatter.dateFormat = "h:mm a"
+            return dateFormatter.string(from: date)
+        }
+        
+        return nil
     }
     
     @objc func dismissKeyboard() {

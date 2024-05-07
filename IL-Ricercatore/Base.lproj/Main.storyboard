@@ -4318,7 +4318,7 @@ per your dietrary.</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9:10 AM" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wIS-hB-mPf">
-                                                            <rect key="frame" x="265" y="10" width="80" height="30"/>
+                                                            <rect key="frame" x="265" y="9" width="80" height="30"/>
                                                             <color key="backgroundColor" red="1" green="0.69956418210000004" blue="0.60130055370000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="80" id="PtR-zT-jGT"/>
@@ -4508,7 +4508,7 @@ per your dietrary.</string>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remind me every day at" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFU-fy-6Td">
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remind me every day at" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFU-fy-6Td">
                                                             <rect key="frame" x="46" y="243" width="153.33333333333334" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="anb-Fv-rh5"/>
@@ -4517,7 +4517,7 @@ per your dietrary.</string>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nh7-d5-1jQ">
+                                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nh7-d5-1jQ">
                                                             <rect key="frame" x="8" y="243" width="30" height="30"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
@@ -4527,7 +4527,7 @@ per your dietrary.</string>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                             <state key="normal" image="uncheck_one"/>
                                                         </button>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dM-ls-PH4">
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dM-ls-PH4">
                                                             <rect key="frame" x="8" y="281" width="337" height="1"/>
                                                             <color key="backgroundColor" systemColor="systemGray2Color"/>
                                                             <constraints>
@@ -4537,7 +4537,7 @@ per your dietrary.</string>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remind me every week on" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sO2-3n-2yh">
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remind me every week on" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sO2-3n-2yh">
                                                             <rect key="frame" x="45.999999999999986" y="290" width="168.66666666666663" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="oUZ-CL-TaM"/>
@@ -4546,7 +4546,7 @@ per your dietrary.</string>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2QZ-tf-WHC">
+                                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2QZ-tf-WHC">
                                                             <rect key="frame" x="8" y="290" width="30" height="30"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
@@ -4556,7 +4556,7 @@ per your dietrary.</string>
                                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                             <state key="normal" image="uncheck_one"/>
                                                         </button>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jh2-T0-q4L">
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jh2-T0-q4L">
                                                             <rect key="frame" x="8" y="328" width="337" height="1"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <color key="backgroundColor" systemColor="systemGray2Color"/>
@@ -4564,7 +4564,7 @@ per your dietrary.</string>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunday" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wnu-3G-qdC">
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunday" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wnu-3G-qdC">
                                                             <rect key="frame" x="265" y="290" width="80" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="80" id="qgx-hH-d1t"/>
@@ -4574,7 +4574,7 @@ per your dietrary.</string>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9:30 AM" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VjG-e0-Thd">
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9:30 AM" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VjG-e0-Thd">
                                                             <rect key="frame" x="265" y="243" width="79" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="79" id="0Nb-UZ-3U8"/>
@@ -4584,12 +4584,64 @@ per your dietrary.</string>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EVERYDAY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Wg-u6-Gnz">
+                                                            <rect key="frame" x="276" y="33" width="61" height="10"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="61" id="aof-2v-fK9"/>
+                                                                <constraint firstAttribute="height" constant="10" id="x4s-2Q-yns"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="8"/>
+                                                            <color key="textColor" systemColor="systemGray2Color"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EVERYDAY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEU-km-5Qw">
+                                                            <rect key="frame" x="274" y="81" width="61" height="10"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="61" id="LbM-sO-K6y"/>
+                                                                <constraint firstAttribute="height" constant="10" id="syE-qE-5eA"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="8"/>
+                                                            <color key="textColor" systemColor="systemGray2Color"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EVERYDAY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6P-O7-U0g">
+                                                            <rect key="frame" x="275" y="129" width="61" height="10"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="61" id="LNJ-WA-nOC"/>
+                                                                <constraint firstAttribute="height" constant="10" id="gf7-0u-zzB"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="8"/>
+                                                            <color key="textColor" systemColor="systemGray2Color"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EVERYDAY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Cq-J3-qvo">
+                                                            <rect key="frame" x="275" y="176" width="61" height="10"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="10" id="YiX-iF-fc1"/>
+                                                                <constraint firstAttribute="width" constant="61" id="fDS-Nt-JQl"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="8"/>
+                                                            <color key="textColor" systemColor="systemGray2Color"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EVERYDAY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQp-qR-eZF">
+                                                            <rect key="frame" x="274" y="223" width="61" height="10"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="10" id="edb-VB-m4n"/>
+                                                                <constraint firstAttribute="width" constant="61" id="wiA-Sa-G4r"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="8"/>
+                                                            <color key="textColor" systemColor="systemGray2Color"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="Vei-pv-JHm" firstAttribute="top" secondItem="UO0-QY-98I" secondAttribute="bottom" constant="8" symbolic="YES" id="0MF-1o-1JH"/>
                                                         <constraint firstAttribute="height" constant="336" id="1Qb-SW-BQj"/>
+                                                        <constraint firstAttribute="trailing" secondItem="D6P-O7-U0g" secondAttribute="trailing" constant="17" id="2If-eG-anq"/>
                                                         <constraint firstItem="wnu-3G-qdC" firstAttribute="top" secondItem="2dM-ls-PH4" secondAttribute="bottom" constant="8" symbolic="YES" id="3Fh-7a-Fe4"/>
+                                                        <constraint firstItem="1zK-xC-Len" firstAttribute="top" secondItem="8Wg-u6-Gnz" secondAttribute="bottom" constant="3" id="3ne-Bh-Ynw"/>
                                                         <constraint firstItem="47u-LY-XjG" firstAttribute="leading" secondItem="xXc-PQ-g58" secondAttribute="trailing" constant="8" symbolic="YES" id="6HC-7r-kKX"/>
                                                         <constraint firstItem="UO0-QY-98I" firstAttribute="top" secondItem="4Lh-AY-DPR" secondAttribute="bottom" constant="6" id="6wF-zz-gdl"/>
                                                         <constraint firstAttribute="trailing" secondItem="wIS-hB-mPf" secondAttribute="trailing" constant="8" id="7HJ-Wg-H0M"/>
@@ -4612,15 +4664,18 @@ per your dietrary.</string>
                                                         <constraint firstItem="nND-bd-4Su" firstAttribute="top" secondItem="UO0-QY-98I" secondAttribute="bottom" constant="10" id="JCL-yE-eaQ"/>
                                                         <constraint firstAttribute="trailing" secondItem="1zK-xC-Len" secondAttribute="trailing" constant="8" id="Jcv-KN-FJQ"/>
                                                         <constraint firstItem="80V-k5-WNx" firstAttribute="leading" secondItem="wR6-5S-2CA" secondAttribute="leading" constant="8" id="MM6-uw-5nE"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ZEU-km-5Qw" secondAttribute="trailing" constant="18" id="MhU-Ou-Co2"/>
+                                                        <constraint firstAttribute="trailing" secondItem="8Wg-u6-Gnz" secondAttribute="trailing" constant="16" id="NUs-Q7-CJw"/>
                                                         <constraint firstItem="h7b-xB-f5X" firstAttribute="top" secondItem="1zK-xC-Len" secondAttribute="bottom" constant="10" id="OOr-Ds-HEg"/>
                                                         <constraint firstItem="Vei-pv-JHm" firstAttribute="leading" secondItem="wR6-5S-2CA" secondAttribute="leading" constant="8" id="OqE-CG-OEC"/>
                                                         <constraint firstItem="iGS-3C-lbz" firstAttribute="top" secondItem="z0u-st-36r" secondAttribute="bottom" constant="8" symbolic="YES" id="PuF-G7-2aP"/>
-                                                        <constraint firstItem="1zK-xC-Len" firstAttribute="top" secondItem="wIS-hB-mPf" secondAttribute="bottom" constant="6" id="QoG-6c-uqW"/>
+                                                        <constraint firstItem="1zK-xC-Len" firstAttribute="top" secondItem="wIS-hB-mPf" secondAttribute="bottom" constant="7" id="QoG-6c-uqW"/>
                                                         <constraint firstItem="80V-k5-WNx" firstAttribute="top" secondItem="nND-bd-4Su" secondAttribute="bottom" constant="6" id="Rvk-gV-Q3B"/>
                                                         <constraint firstItem="z0u-st-36r" firstAttribute="top" secondItem="h7b-xB-f5X" secondAttribute="bottom" constant="6" id="Sfw-Ax-dmH"/>
                                                         <constraint firstItem="2QZ-tf-WHC" firstAttribute="top" secondItem="2dM-ls-PH4" secondAttribute="bottom" constant="8" symbolic="YES" id="T9F-cu-4PM"/>
                                                         <constraint firstItem="UO0-QY-98I" firstAttribute="leading" secondItem="wR6-5S-2CA" secondAttribute="leading" constant="8" id="VJb-Cu-Rh4"/>
                                                         <constraint firstItem="FFU-fy-6Td" firstAttribute="leading" secondItem="nh7-d5-1jQ" secondAttribute="trailing" constant="8" symbolic="YES" id="Vha-K6-Ea8"/>
+                                                        <constraint firstAttribute="trailing" secondItem="LQp-qR-eZF" secondAttribute="trailing" constant="18" id="X6z-zZ-2xq"/>
                                                         <constraint firstAttribute="trailing" secondItem="d5U-cY-Nx6" secondAttribute="trailing" constant="8" id="Y9m-lg-Xge"/>
                                                         <constraint firstItem="FFU-fy-6Td" firstAttribute="top" secondItem="SLO-JK-4oZ" secondAttribute="bottom" constant="8" symbolic="YES" id="YZk-HM-Uia"/>
                                                         <constraint firstItem="kHV-So-x3z" firstAttribute="leading" secondItem="wR6-5S-2CA" secondAttribute="leading" constant="8" id="YcP-pr-nVc"/>
@@ -4632,15 +4687,20 @@ per your dietrary.</string>
                                                         <constraint firstItem="2dM-ls-PH4" firstAttribute="leading" secondItem="wR6-5S-2CA" secondAttribute="leading" constant="8" id="dql-TL-6sX"/>
                                                         <constraint firstItem="xSR-gF-6Ms" firstAttribute="leading" secondItem="iGS-3C-lbz" secondAttribute="trailing" constant="8" symbolic="YES" id="g6T-Sx-GA9"/>
                                                         <constraint firstItem="cdJ-By-jdX" firstAttribute="leading" secondItem="QVx-Kd-3IK" secondAttribute="trailing" constant="8" symbolic="YES" id="ggR-9z-HpT"/>
+                                                        <constraint firstItem="z0u-st-36r" firstAttribute="top" secondItem="ZEU-km-5Qw" secondAttribute="bottom" constant="2" id="h4X-i8-WUg"/>
                                                         <constraint firstItem="d5U-cY-Nx6" firstAttribute="top" secondItem="80V-k5-WNx" secondAttribute="bottom" constant="10" id="hgQ-xd-64F"/>
                                                         <constraint firstItem="47u-LY-XjG" firstAttribute="top" secondItem="1zK-xC-Len" secondAttribute="bottom" constant="8" symbolic="YES" id="iUg-IN-3z6"/>
                                                         <constraint firstItem="sO2-3n-2yh" firstAttribute="top" secondItem="2dM-ls-PH4" secondAttribute="bottom" constant="8" symbolic="YES" id="jq4-23-1yD"/>
                                                         <constraint firstItem="QVx-Kd-3IK" firstAttribute="leading" secondItem="wR6-5S-2CA" secondAttribute="leading" constant="8" id="k0L-IU-960"/>
+                                                        <constraint firstItem="UO0-QY-98I" firstAttribute="top" secondItem="D6P-O7-U0g" secondAttribute="bottom" constant="1" id="lPB-kg-GoL"/>
                                                         <constraint firstItem="SLO-JK-4oZ" firstAttribute="top" secondItem="d5U-cY-Nx6" secondAttribute="bottom" constant="6" id="odg-8W-o9G"/>
-                                                        <constraint firstItem="wIS-hB-mPf" firstAttribute="top" secondItem="wR6-5S-2CA" secondAttribute="top" constant="10" id="tCU-rw-Jml"/>
+                                                        <constraint firstItem="wIS-hB-mPf" firstAttribute="top" secondItem="wR6-5S-2CA" secondAttribute="top" constant="9" id="tCU-rw-Jml"/>
                                                         <constraint firstItem="Bw2-db-VGs" firstAttribute="top" secondItem="wR6-5S-2CA" secondAttribute="top" constant="8" id="tJb-a7-tYN"/>
+                                                        <constraint firstItem="80V-k5-WNx" firstAttribute="top" secondItem="1Cq-J3-qvo" secondAttribute="bottom" constant="1" id="th2-9j-oO5"/>
+                                                        <constraint firstAttribute="trailing" secondItem="1Cq-J3-qvo" secondAttribute="trailing" constant="17" id="vL9-dk-J9I"/>
                                                         <constraint firstItem="xSR-gF-6Ms" firstAttribute="top" secondItem="z0u-st-36r" secondAttribute="bottom" constant="8" symbolic="YES" id="vZE-S7-dNq"/>
                                                         <constraint firstItem="Bw2-db-VGs" firstAttribute="leading" secondItem="kHV-So-x3z" secondAttribute="trailing" constant="8" symbolic="YES" id="vlf-cX-lSC"/>
+                                                        <constraint firstItem="SLO-JK-4oZ" firstAttribute="top" secondItem="LQp-qR-eZF" secondAttribute="bottom" constant="1" id="vt9-fG-uc8"/>
                                                         <constraint firstAttribute="trailing" secondItem="2dM-ls-PH4" secondAttribute="trailing" constant="8" id="wDy-ZH-nP8"/>
                                                         <constraint firstItem="nh7-d5-1jQ" firstAttribute="leading" secondItem="wR6-5S-2CA" secondAttribute="leading" constant="8" id="xds-E2-88Y"/>
                                                         <constraint firstItem="2QZ-tf-WHC" firstAttribute="leading" secondItem="wR6-5S-2CA" secondAttribute="leading" constant="8" id="ygX-3J-rta"/>
@@ -4650,7 +4710,7 @@ per your dietrary.</string>
                                                         <constraint firstItem="N8v-jK-Pgf" firstAttribute="top" secondItem="UO0-QY-98I" secondAttribute="bottom" constant="8" symbolic="YES" id="zZh-nP-aw7"/>
                                                     </constraints>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZc-eo-UjS">
+                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZc-eo-UjS">
                                                     <rect key="frame" x="20" y="487" width="353" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="jre-Ce-xLs"/>
@@ -4683,17 +4743,21 @@ per your dietrary.</string>
                                             <outlet property="btn_checkmark_evening_snack" destination="Vei-pv-JHm" id="DZ8-QF-oN4"/>
                                             <outlet property="btn_checkmark_lunch" destination="iGS-3C-lbz" id="ng5-uF-I3W"/>
                                             <outlet property="btn_checkmark_morning_snack" destination="xXc-PQ-g58" id="fnu-dD-ofP"/>
+                                            <outlet property="btn_checkmark_remind_me_every_day" destination="nh7-d5-1jQ" id="s7L-9N-qrs"/>
                                             <outlet property="btn_continue" destination="wZc-eo-UjS" id="Mhd-TO-BmY"/>
                                             <outlet property="lbl_breakfast" destination="wIS-hB-mPf" id="SUn-OX-1g4"/>
+                                            <outlet property="lbl_breakfast_day_status" destination="8Wg-u6-Gnz" id="A5l-xO-gL9"/>
                                             <outlet property="lbl_checkmark_breakfast_time" destination="wIS-hB-mPf" id="ZPF-jA-HoV"/>
                                             <outlet property="lbl_checkmark_dinner_time" destination="d5U-cY-Nx6" id="dBA-3k-bcW"/>
                                             <outlet property="lbl_checkmark_evening_snack_time" destination="nND-bd-4Su" id="hJG-08-ffl"/>
                                             <outlet property="lbl_checkmark_lunch_time" destination="4Lh-AY-DPR" id="FLb-kl-yTr"/>
                                             <outlet property="lbl_checkmark_morning_snack_time" destination="h7b-xB-f5X" id="Rbe-fs-S9c"/>
+                                            <outlet property="lbl_checkmark_remind_day" destination="VjG-e0-Thd" id="mqV-qL-O0d"/>
                                             <outlet property="lbl_dinner" destination="d5U-cY-Nx6" id="gcf-Mh-mGC"/>
                                             <outlet property="lbl_evening_snack" destination="nND-bd-4Su" id="Aqb-2y-ME1"/>
                                             <outlet property="lbl_lunch" destination="4Lh-AY-DPR" id="lfT-gR-egh"/>
                                             <outlet property="lbl_morning_snack" destination="h7b-xB-f5X" id="x1a-Q2-ca3"/>
+                                            <outlet property="lbl_remind_every_day" destination="VjG-e0-Thd" id="gXs-uW-Yem"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -13993,10 +14057,10 @@ per your dietrary.</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AzD-kE-abh">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AzD-kE-abh">
                                 <rect key="frame" x="0.0" y="1118" width="414" height="82"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nqp-FP-kCQ" customClass="GrowingTextView" customModule="GrowingTextView">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nqp-FP-kCQ" customClass="GrowingTextView" customModule="GrowingTextView">
                                         <rect key="frame" x="8" y="8" width="366" height="33"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -14071,7 +14135,7 @@ per your dietrary.</string>
                                     <constraint firstAttribute="height" constant="88" id="pTE-iL-MIx"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MRS-Mr-I7C">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MRS-Mr-I7C">
                                 <rect key="frame" x="0.0" y="88" width="414" height="1030"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -14956,6 +15020,14 @@ per your dietrary.</string>
             <point key="canvasLocation" x="33803.816793893129" y="138.73239436619718"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="HYZ-yT-3Ve">
+            <size key="intrinsicContentSize" width="-1" height="30"/>
+        </designable>
+        <designable name="nqp-FP-kCQ">
+            <size key="intrinsicContentSize" width="-1" height="30"/>
+        </designable>
+    </designables>
     <resources>
         <image name="11" width="600" height="167"/>
         <image name="22" width="150" height="126"/>
@@ -15005,8 +15077,8 @@ per your dietrary.</string>
         <image name="person" catalog="system" width="128" height="121"/>
         <image name="phone" catalog="system" width="128" height="115"/>
         <image name="play_video" width="64" height="64"/>
-        <image name="plus" width="24" height="24"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="plus" width="24" height="24"/>
         <image name="plus33" width="24" height="24"/>
         <image name="plus_yellow" width="64" height="64"/>
         <image name="quote" width="512" height="512"/>

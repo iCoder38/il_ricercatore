@@ -54,7 +54,7 @@ class dashboard: UIViewController, UNUserNotificationCenterDelegate {
         /*let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "water_reminders_id")
         self.navigationController?.pushViewController(push, animated: true)*/
         
-         self.getAllReminders()
+        //  self.getAllReminders()
         //self.disableReminder()
     }
     

@@ -1396,7 +1396,11 @@ class track_meal_reminder_table_cell : UITableViewCell {
             lbl_dinner.backgroundColor = .clear
         }
     }
-    
+    @IBOutlet weak var lbl_remind_every_day:UILabel! {
+        didSet {
+            lbl_remind_every_day.backgroundColor = .clear
+        }
+    }
     
     
     
@@ -1462,6 +1466,19 @@ class track_meal_reminder_table_cell : UITableViewCell {
         }
     }
     
+    @IBOutlet weak var lbl_checkmark_remind_day:UILabel!  {
+        didSet {
+            lbl_checkmark_remind_day.textColor = UIColor.gray
+            lbl_checkmark_remind_day.text = "disabled"
+        }
+    }
+    
+    @IBOutlet weak var btn_checkmark_remind_me_every_day:UIButton! {
+        didSet {
+            btn_checkmark_remind_me_every_day.setImage(UIImage(named: "uncheck_one"), for: .normal)
+        }
+    }
+    
     
     @IBOutlet weak var btn_continue:UIButton! {
         didSet {
@@ -1471,6 +1488,8 @@ class track_meal_reminder_table_cell : UITableViewCell {
             btn_continue.setTitleColor(.white, for: .normal)
         }
     }
+    
+    @IBOutlet weak var lbl_breakfast_day_status:UILabel!
 }
 
 // /* ************** WATER INTAKE ****************************** */
