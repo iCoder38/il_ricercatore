@@ -142,6 +142,21 @@ class track_meal_reminder: UIViewController, UNUserNotificationCenterDelegate {
                                 cell.lbl_checkmark_morning_snack_time.text = self.convertTo12HourFormat(time: "\(hour):\(minute)")
                                 cell.lbl_checkmark_morning_snack_time.textColor = .black
                             }
+                            
+                            
+                            
+                            if let year = dateComponents.year, let month = dateComponents.month, let day = dateComponents.day {
+                                debugPrint("\(year)")
+                                debugPrint("\(month)")
+                                debugPrint("\(day)")
+                                cell.lbl_morning_snack_status.text = "Date: \(year)-\(month)-\(day)"
+                            } else {
+                                cell.lbl_morning_snack_status.text = "EVERYDAY"
+                            }
+                            
+                            
+                            
+                            
                         }
                         
                         cell.btn_checkmark_morning_snack.tag = 1
@@ -162,6 +177,21 @@ class track_meal_reminder: UIViewController, UNUserNotificationCenterDelegate {
                                 cell.lbl_checkmark_lunch_time.text = self.convertTo12HourFormat(time: "\(hour):\(minute)")
                                 cell.lbl_checkmark_lunch_time.textColor = .black
                             }
+                            
+                            
+                            
+                            if let year = dateComponents.year, let month = dateComponents.month, let day = dateComponents.day {
+                                debugPrint("\(year)")
+                                debugPrint("\(month)")
+                                debugPrint("\(day)")
+                                cell.lbl_lunch_status.text = "Date: \(year)-\(month)-\(day)"
+                            } else {
+                                cell.lbl_lunch_status.text = "EVERYDAY"
+                            }
+                            
+                            
+                            
+                            
                         }
                         
                         cell.btn_checkmark_lunch.tag = 1
@@ -182,6 +212,22 @@ class track_meal_reminder: UIViewController, UNUserNotificationCenterDelegate {
                                 cell.lbl_checkmark_evening_snack_time.text = self.convertTo12HourFormat(time: "\(hour):\(minute)")
                                 cell.lbl_checkmark_evening_snack_time.textColor = .black
                             }
+                            
+                            
+                            
+                            
+                            if let year = dateComponents.year, let month = dateComponents.month, let day = dateComponents.day {
+                                debugPrint("\(year)")
+                                debugPrint("\(month)")
+                                debugPrint("\(day)")
+                                cell.lbl_evening_snack_status.text = "Date: \(year)-\(month)-\(day)"
+                            } else {
+                                cell.lbl_evening_snack_status.text = "EVERYDAY"
+                            }
+                            
+                            
+                            
+                            
                         }
                         
                         cell.btn_checkmark_evening_snack.tag = 1
@@ -202,6 +248,22 @@ class track_meal_reminder: UIViewController, UNUserNotificationCenterDelegate {
                                 cell.lbl_checkmark_dinner_time.text = self.convertTo12HourFormat(time: "\(hour):\(minute)")
                                 cell.lbl_checkmark_dinner_time.textColor = .black
                             }
+                            
+                            
+                            
+                            
+                            if let year = dateComponents.year, let month = dateComponents.month, let day = dateComponents.day {
+                                debugPrint("\(year)")
+                                debugPrint("\(month)")
+                                debugPrint("\(day)")
+                                cell.lbl_dinner_status.text = "Date: \(year)-\(month)-\(day)"
+                            } else {
+                                cell.lbl_dinner_status.text = "EVERYDAY"
+                            }
+                            
+                            
+                            
+                            
                         }
                         
                         cell.btn_checkmark_dinner.tag = 1
@@ -332,7 +394,50 @@ class track_meal_reminder: UIViewController, UNUserNotificationCenterDelegate {
     
     
     
-    
+    // dynamic
+    @objc func open_custom_day(header:String,body:String,identifier:String,time:String,type:String) {
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            let actionSheet = NewYorkAlertController(title: "Select Day or Date", message: nil, style: .actionSheet)
+            
+            let cameraa = NewYorkButton(title: "Every day", style: .default) { _ in
+                self.set_reminder_everyday(set_header: header,
+                                  set_body: body,
+                                  set_identifier: identifier,
+                                  get_full_time: time,
+                                  type: type)
+                
+                // refresh
+                self.get_all_reminders()
+            }
+            
+            let gallery = NewYorkButton(title: "Custom date", style: .default) { _ in
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    RPicker.selectDate(title: "Select date", cancelText: "Cancel", datePickerMode: .date,minDate: Date.now, didSelectDate: { (selectedDate) in
+                        
+                        self.set_reminder_custom_day_time(set_header: header,
+                                                          set_body: body,
+                                                          set_identifier: identifier,
+                                                          get_full_time: time,
+                                                          get_full_date: selectedDate.dateString("yyyy-MM-dd"),
+                                                          type: type)
+                        
+                        // refresh
+                        self.get_all_reminders()
+                       
+                    })
+                    
+                }
+            }
+            
+            let cancel = NewYorkButton(title: "Cancel", style: .cancel)
+            
+            actionSheet.addButtons([cameraa, gallery, cancel])
+            
+            self.present(actionSheet, animated: true)
+        }
+    }
     
     
     
@@ -504,7 +609,11 @@ class track_meal_reminder: UIViewController, UNUserNotificationCenterDelegate {
             //
             //
             //
-            self.open_custom_day()
+            self.open_custom_day(header: local_notification_meal_reminder_breakfast_header,
+                                 body: local_notification_meal_reminder_breakfast_body,
+                                 identifier: identifier_meal_reminder_breakfast,
+                                 time: String(self.str_selected_time),
+                                 type: type_breakfast)
             
             
              
@@ -512,52 +621,7 @@ class track_meal_reminder: UIViewController, UNUserNotificationCenterDelegate {
         })
     }
     
-    @objc func open_custom_day() {
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            let actionSheet = NewYorkAlertController(title: "Select Day or Date", message: nil, style: .actionSheet)
-            
-            let cameraa = NewYorkButton(title: "Every day", style: .default) { _ in
-                self.set_reminder_everyday(set_header: local_notification_meal_reminder_breakfast_header,
-                                  set_body: local_notification_meal_reminder_breakfast_body,
-                                  set_identifier: identifier_meal_reminder_breakfast,
-                                  get_full_time: self.str_selected_time,
-                                  type: type_breakfast)
-            }
-            
-            let gallery = NewYorkButton(title: "Custom date", style: .default) { _ in
-                // print("camera clicked done")
-                
-                // self.open_camera_or_gallery(str_type: "g")
-                
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                    RPicker.selectDate(title: "Select date", cancelText: "Cancel", datePickerMode: .date,minDate: Date.now, didSelectDate: { (selectedDate) in
-                        // cell.lbl_time.text = selectedDate.dateString("yyyy-MM-dd")
-                        // self.meal_track_record_WB(loader: "yes")
-                        /*self.set_reminder(set_header: local_notification_meal_reminder_breakfast_header,
-                                          set_body: local_notification_meal_reminder_breakfast_body,
-                                          set_identifier: identifier_meal_reminder_breakfast,
-                                          get_full_time: self.str_selected_time,
-                                          type: "Breakfast")*/
-                        self.set_reminder_custom_day_time(set_header: local_notification_meal_reminder_breakfast_header,
-                                                          set_body: local_notification_meal_reminder_breakfast_body,
-                                                          set_identifier: identifier_meal_reminder_breakfast,
-                                                          get_full_time: self.str_selected_time,
-                                                          get_full_date: selectedDate.dateString("yyyy-MM-dd"),
-                                                          type: type_breakfast)
-                       
-                    })
-                    
-                }
-            }
-            
-            let cancel = NewYorkButton(title: "Cancel", style: .cancel)
-            
-            actionSheet.addButtons([cameraa, gallery, cancel])
-            
-            self.present(actionSheet, animated: true)
-        }
-    }
+    
     
      
     
@@ -722,11 +786,13 @@ class track_meal_reminder: UIViewController, UNUserNotificationCenterDelegate {
             
             
             print(self.str_selected_time_for_morning_snack as Any)
-            self.set_reminder_everyday(set_header: local_notification_meal_reminder_breakfast_header,
-                              set_body: local_notification_meal_reminder_breakfast_body,
-                              set_identifier: identifier_meal_reminder_morning_snack,
-                              get_full_time: self.str_selected_time_for_morning_snack,
-                              type: type_morning_snack)
+            
+            
+            self.open_custom_day(header: local_notification_meal_reminder_breakfast_header,
+                                 body: local_notification_meal_reminder_breakfast_body,
+                                 identifier: identifier_meal_reminder_morning_snack,
+                                 time: String(self.str_selected_time_for_morning_snack),
+                                 type: type_morning_snack)
             
             
         })
@@ -895,11 +961,11 @@ class track_meal_reminder: UIViewController, UNUserNotificationCenterDelegate {
             
             
             
-            self.set_reminder_everyday(set_header: local_notification_meal_reminder_breakfast_header,
-                              set_body: local_notification_meal_reminder_breakfast_body,
-                              set_identifier: identifier_meal_reminder_lunch,
-                              get_full_time: self.str_selected_time_for_lunch,
-                              type: type_lunch)
+            self.open_custom_day(header: local_notification_meal_reminder_breakfast_header,
+                                 body: local_notification_meal_reminder_breakfast_body,
+                                 identifier: identifier_meal_reminder_lunch,
+                                 time: String(self.str_selected_time_for_lunch),
+                                 type: type_lunch)
             
             
             
@@ -1067,11 +1133,11 @@ class track_meal_reminder: UIViewController, UNUserNotificationCenterDelegate {
             }
             
             
-            self.set_reminder_everyday(set_header: local_notification_meal_reminder_breakfast_header,
-                              set_body: local_notification_meal_reminder_breakfast_body,
-                              set_identifier: identifier_meal_reminder_evening_snack,
-                              get_full_time: self.str_selected_time_for_evening_snack,
-                              type: type_evening_snack)
+            self.open_custom_day(header: local_notification_meal_reminder_breakfast_header,
+                                 body: local_notification_meal_reminder_breakfast_body,
+                                 identifier: identifier_meal_reminder_evening_snack,
+                                 time: String(self.str_selected_time_for_evening_snack),
+                                 type: type_evening_snack)
             
         })
     }
@@ -1237,11 +1303,11 @@ class track_meal_reminder: UIViewController, UNUserNotificationCenterDelegate {
             }
             
             
-            self.set_reminder_everyday(set_header: local_notification_meal_reminder_breakfast_header,
-                              set_body: local_notification_meal_reminder_breakfast_body,
-                              set_identifier: identifier_meal_reminder_dinner,
-                              get_full_time: self.str_selected_time_for_dinner,
-                              type: type_dinner)
+            self.open_custom_day(header: local_notification_meal_reminder_breakfast_header,
+                                 body: local_notification_meal_reminder_breakfast_body,
+                                 identifier: identifier_meal_reminder_dinner,
+                                 time: String(self.str_selected_time_for_dinner),
+                                 type: type_dinner)
             
             
         })
@@ -1416,7 +1482,7 @@ class track_meal_reminder: UIViewController, UNUserNotificationCenterDelegate {
         
     }
     
-    @objc func remind_me_every_day_at() {
+    /*@objc func remind_me_every_day_at() {
         let indexPath = IndexPath.init(row: 0, section: 0)
         let cell = self.tble_view.cellForRow(at: indexPath) as! track_meal_reminder_table_cell
         
@@ -1445,7 +1511,7 @@ class track_meal_reminder: UIViewController, UNUserNotificationCenterDelegate {
             
             cell.lbl_checkmark_dinner_time.text = "disabled"
         }
-    }
+    }*/
     
     
     @objc func complete_profile_click_method() {

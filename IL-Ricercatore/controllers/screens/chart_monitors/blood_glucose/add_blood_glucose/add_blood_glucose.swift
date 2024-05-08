@@ -144,13 +144,16 @@ class add_blood_glucose: UIViewController, UITextFieldDelegate {
         
         // self.caluclate_last_7_days()
     }
+    
     override func dismissKeyboard() {
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
     }
+    
     @objc func caluclate_last_7_days() {
         
         for indexx in 1...7 {

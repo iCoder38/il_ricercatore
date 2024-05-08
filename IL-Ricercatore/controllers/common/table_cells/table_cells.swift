@@ -1490,6 +1490,10 @@ class track_meal_reminder_table_cell : UITableViewCell {
     }
     
     @IBOutlet weak var lbl_breakfast_day_status:UILabel!
+    @IBOutlet weak var lbl_morning_snack_status:UILabel!
+    @IBOutlet weak var lbl_lunch_status:UILabel!
+    @IBOutlet weak var lbl_evening_snack_status:UILabel!
+    @IBOutlet weak var lbl_dinner_status:UILabel!
 }
 
 // /* ************** WATER INTAKE ****************************** */
@@ -1672,6 +1676,62 @@ class reminders_table_cell : UITableViewCell {
     @IBOutlet weak var lbl_title:UILabel!
     @IBOutlet weak var lbl_sub_title:UILabel!
     @IBOutlet weak var btn_edit:UIButton!
+}
+// /* ************************* WORKOUT REMINDERS ************** */
+// /* ********************************************************** */
+class workout_reminders_table_cell : UITableViewCell {
+    @IBOutlet weak var btn_reminde_me_every_at_checkmark:UIButton!  {
+        didSet {
+            btn_reminde_me_every_at_checkmark.backgroundColor = .clear
+            btn_reminde_me_every_at_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
+        }
+    }
+    @IBOutlet weak var btn_reminde_me_every_at_time:UIButton! {
+        didSet {
+            btn_reminde_me_every_at_time.backgroundColor = .systemGray5
+            btn_reminde_me_every_at_time.tag = 0
+            btn_reminde_me_every_at_time.setTitle("disable", for: .normal)
+            btn_reminde_me_every_at_time.layer.cornerRadius = 8
+            btn_reminde_me_every_at_time.clipsToBounds = true
+        }
+    }
+    
+    //sunday
+    @IBOutlet weak var btn_sunday_checkmark:UIButton!  {
+        didSet {
+            btn_sunday_checkmark.backgroundColor = .clear
+            btn_sunday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
+        }
+    }
+    @IBOutlet weak var btn_sunday_time:UIButton! {
+        didSet {
+            btn_sunday_time.backgroundColor = .systemGray5
+            btn_sunday_time.tag = 0
+            btn_sunday_time.setTitle("disable", for: .normal)
+            btn_sunday_time.layer.cornerRadius = 8
+            btn_sunday_time.clipsToBounds = true
+        }
+    }
+    
+    //monday
+    @IBOutlet weak var btn_monday_checkmark:UIButton!  {
+        didSet {
+            btn_monday_checkmark.backgroundColor = .clear
+            btn_monday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
+        }
+    }
+    @IBOutlet weak var btn_monday_time:UIButton! {
+        didSet {
+            btn_monday_time.backgroundColor = .systemGray5
+            btn_monday_time.tag = 0
+            btn_monday_time.setTitle("disable", for: .normal)
+            btn_monday_time.layer.cornerRadius = 8
+            btn_monday_time.clipsToBounds = true
+        }
+    }
+    
+    
+    
 }
 // /* ************************* WORKOUT SETTINGS ************** */
 // /* ********************************************************** */

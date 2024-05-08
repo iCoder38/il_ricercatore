@@ -20,6 +20,15 @@ let date_fomatter_yyyy_MM_dd = "yyyy-MM-dd"
 var app_name = "IL-Recercatore"
 var appstore_URL = "https://www.google.co.in"
 
+// days
+var day_sunday = 1
+var day_monday = 2
+var day_tuesday = 3
+var day_wednesday = 4
+var day_thursday = 5
+var day_friday = 6
+var day_saturday = 7
+
 // type
 var type_breakfast = "Breakfast"
 var type_morning_snack = "Morning snack"
@@ -27,17 +36,34 @@ var type_lunch = "Lunch"
 var type_evening_snack = "Evening snack"
 var type_dinner = "Dinner"
 var type_every_day = "Every day"
+var type_sunday = "Sunday"
+var type_monday = "Monday"
+
+var type_workout_remind_me_every_at = "Remind me every at"
 
 // for local notification
 var local_notification_water_intake_header = "Water intake"
 var local_notification_water_intake_body = "Drink water"
 
-var identifier_meal_reminder_dinner = "reminder_dinner"
-var identifier_meal_reminder_evening_snack = "reminder_evening_snack"
+
+var local_notification_workout_reminder_header = "Workout reminder"
+var local_notification_workout_reminder_body = "Daily task"
+
+
+// identifiers
+
+// workout
+var identifier_meal_reminder_remind_me_every_at = "reminder_workout_remind_me_at"
+var identifier_meal_sunday = "reminder_workout_sunday"
+var identifier_meal_monday = "reminder_workout_monday"
+
+// meal
+var identifier_meal_reminder_dinner = "reminder_meal_dinner"
+var identifier_meal_reminder_evening_snack = "reminder_meal_evening_snack"
 var identifier_meal_reminder_lunch = "reminder_meal_lunch"
 var identifier_meal_reminder_breakfast = "reminder_meal_breakfast"
 var identifier_meal_reminder_morning_snack = "reminder_meal_morning_snack"
-var identifier_meal_reminder_every_day = "reminder_meal_remind_every_day"
+// var identifier_meal_reminder_every_day = "reminder_meal_remind_every_day"
 
 var local_notification_meal_reminder_breakfast_header = "Meal reminder"
 var local_notification_meal_reminder_breakfast_body = "Reminder: meal"
@@ -47,6 +73,56 @@ class Utils: NSObject {
 }
 
 extension UIViewController {
+    
+    func weekday_reminder(header:String,body:String,day:Int,get_full_time:String,identifier:String,type:String) {
+        var int_hr:Int!
+        var int_min:Int!
+        
+        let separate_time = "\(get_full_time)".components(separatedBy: ":")
+        debugPrint(separate_time.count as Any)
+        debugPrint(separate_time as Any)
+        
+        let hr = separate_time[0]
+        if (hr == ""){
+            return
+        }
+        let min = separate_time[1]
+        
+        int_hr = Int(hr)
+        int_min = Int(min)
+        
+        let content = UNMutableNotificationContent()
+        content.title = header
+        content.body = body
+        content.sound = .default
+        
+        var dateComponents = DateComponents()
+        dateComponents.weekday = day
+        dateComponents.hour = int_hr
+        dateComponents.minute = int_min
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        // center.add(request)
+        
+        // Add the request to the notification center
+        UNUserNotificationCenter.current().add(request) { (error) in
+            if let error = error {
+                print("Error scheduling notification: \(error.localizedDescription)")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.view.makeToast("Error scheduling notification: \(error.localizedDescription)")
+                }
+            } else {
+                print("Notification scheduled successfully!")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.set_local_notification_toast(type: type, status: "e")
+                }
+                // self.updateBadgeCount()
+            }
+        }
+        
+        
+    }
     
     func scheduleDailyReminder(hour: Int, minute: Int,header:String,body:String,identifier:String,text:String) {
         let content = UNMutableNotificationContent()
@@ -131,6 +207,20 @@ extension UIViewController {
         center.removePendingNotificationRequests(withIdentifiers: [identifier])
         
         self.set_local_notification_toast(type: text, status: "d")
+    }
+    
+    func disable_reminder2(identifier:String,text:String,type:String) {
+        debugPrint(identifier as Any)
+        
+        let center = UNUserNotificationCenter.current()
+        center.removePendingNotificationRequests(withIdentifiers: [identifier])
+        
+        if (type == "all") {
+            self.view.makeToast("All weekdays notifications are cleared")
+        } else {
+            self.set_local_notification_toast(type: text, status: "d")
+        }
+        
     }
     
     
