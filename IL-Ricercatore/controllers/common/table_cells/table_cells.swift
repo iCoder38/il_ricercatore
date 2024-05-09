@@ -1730,9 +1730,245 @@ class workout_reminders_table_cell : UITableViewCell {
         }
     }
     
+    //tuesday
+    @IBOutlet weak var btn_tuesday_checkmark:UIButton!  {
+        didSet {
+            btn_tuesday_checkmark.backgroundColor = .clear
+            btn_tuesday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
+        }
+    }
+    @IBOutlet weak var btn_tuesday_time:UIButton! {
+        didSet {
+            btn_tuesday_time.backgroundColor = .systemGray5
+            btn_tuesday_time.tag = 0
+            btn_tuesday_time.setTitle("disable", for: .normal)
+            btn_tuesday_time.layer.cornerRadius = 8
+            btn_tuesday_time.clipsToBounds = true
+        }
+    }
+    
+    
+    //wednesday
+    @IBOutlet weak var btn_wednesday_checkmark:UIButton!  {
+        didSet {
+            btn_wednesday_checkmark.backgroundColor = .clear
+            btn_wednesday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
+        }
+    }
+    @IBOutlet weak var btn_wednesday_time:UIButton! {
+        didSet {
+            btn_wednesday_time.backgroundColor = .systemGray5
+            btn_wednesday_time.tag = 0
+            btn_wednesday_time.setTitle("disable", for: .normal)
+            btn_wednesday_time.layer.cornerRadius = 8
+            btn_wednesday_time.clipsToBounds = true
+        }
+    }
+    
+    
+    //thursday
+    @IBOutlet weak var btn_thursday_checkmark:UIButton!  {
+        didSet {
+            btn_thursday_checkmark.backgroundColor = .clear
+            btn_thursday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
+        }
+    }
+    @IBOutlet weak var btn_thursday_time:UIButton! {
+        didSet {
+            btn_thursday_time.backgroundColor = .systemGray5
+            btn_thursday_time.tag = 0
+            btn_thursday_time.setTitle("disable", for: .normal)
+            btn_thursday_time.layer.cornerRadius = 8
+            btn_thursday_time.clipsToBounds = true
+        }
+    }
+    
+    
+    //friday
+    @IBOutlet weak var btn_friday_checkmark:UIButton!  {
+        didSet {
+            btn_friday_checkmark.backgroundColor = .clear
+            btn_friday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
+        }
+    }
+    @IBOutlet weak var btn_friday_time:UIButton! {
+        didSet {
+            btn_friday_time.backgroundColor = .systemGray5
+            btn_friday_time.tag = 0
+            btn_friday_time.setTitle("disable", for: .normal)
+            btn_friday_time.layer.cornerRadius = 8
+            btn_friday_time.clipsToBounds = true
+        }
+    }
+    
+    
+    //saturday
+    @IBOutlet weak var btn_saturday_checkmark:UIButton!  {
+        didSet {
+            btn_saturday_checkmark.backgroundColor = .clear
+            btn_saturday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
+        }
+    }
+    @IBOutlet weak var btn_saturday_time:UIButton! {
+        didSet {
+            btn_saturday_time.backgroundColor = .systemGray5
+            btn_saturday_time.tag = 0
+            btn_saturday_time.setTitle("disable", for: .normal)
+            btn_saturday_time.layer.cornerRadius = 8
+            btn_saturday_time.clipsToBounds = true
+        }
+    }
+    
     
     
 }
+
+// /* ************************* WALK REMINDERS ************** */
+// /* ********************************************************** */
+class walk_reminders_table_cell : UITableViewCell {
+    @IBOutlet weak var btn_reminde_me_every_at_checkmark:UIButton!  {
+        didSet {
+            btn_reminde_me_every_at_checkmark.backgroundColor = .clear
+            btn_reminde_me_every_at_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
+        }
+    }
+    @IBOutlet weak var btn_reminde_me_every_at_time:UIButton! {
+        didSet {
+            btn_reminde_me_every_at_time.backgroundColor = .systemGray5
+            btn_reminde_me_every_at_time.tag = 0
+            btn_reminde_me_every_at_time.setTitle("disable", for: .normal)
+            btn_reminde_me_every_at_time.layer.cornerRadius = 8
+            btn_reminde_me_every_at_time.clipsToBounds = true
+        }
+    }
+    
+    //sunday
+    @IBOutlet weak var btn_sunday_checkmark:UIButton!  {
+        didSet {
+            btn_sunday_checkmark.backgroundColor = .clear
+            btn_sunday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
+        }
+    }
+    @IBOutlet weak var btn_sunday_time:UIButton! {
+        didSet {
+            btn_sunday_time.backgroundColor = .systemGray5
+            btn_sunday_time.tag = 0
+            btn_sunday_time.setTitle("disable", for: .normal)
+            btn_sunday_time.layer.cornerRadius = 8
+            btn_sunday_time.clipsToBounds = true
+        }
+    }
+    
+    //monday
+    @IBOutlet weak var btn_monday_checkmark:UIButton!  {
+        didSet {
+            btn_monday_checkmark.backgroundColor = .clear
+            btn_monday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
+        }
+    }
+    @IBOutlet weak var btn_monday_time:UIButton! {
+        didSet {
+            btn_monday_time.backgroundColor = .systemGray5
+            btn_monday_time.tag = 0
+            btn_monday_time.setTitle("disable", for: .normal)
+            btn_monday_time.layer.cornerRadius = 8
+            btn_monday_time.clipsToBounds = true
+        }
+    }
+    
+    //tuesday
+    @IBOutlet weak var btn_tuesday_checkmark:UIButton!  {
+        didSet {
+            btn_tuesday_checkmark.backgroundColor = .clear
+            btn_tuesday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
+        }
+    }
+    @IBOutlet weak var btn_tuesday_time:UIButton! {
+        didSet {
+            btn_tuesday_time.backgroundColor = .systemGray5
+            btn_tuesday_time.tag = 0
+            btn_tuesday_time.setTitle("disable", for: .normal)
+            btn_tuesday_time.layer.cornerRadius = 8
+            btn_tuesday_time.clipsToBounds = true
+        }
+    }
+    
+    
+    //wednesday
+    @IBOutlet weak var btn_wednesday_checkmark:UIButton!  {
+        didSet {
+            btn_wednesday_checkmark.backgroundColor = .clear
+            btn_wednesday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
+        }
+    }
+    @IBOutlet weak var btn_wednesday_time:UIButton! {
+        didSet {
+            btn_wednesday_time.backgroundColor = .systemGray5
+            btn_wednesday_time.tag = 0
+            btn_wednesday_time.setTitle("disable", for: .normal)
+            btn_wednesday_time.layer.cornerRadius = 8
+            btn_wednesday_time.clipsToBounds = true
+        }
+    }
+    
+    
+    //thursday
+    @IBOutlet weak var btn_thursday_checkmark:UIButton!  {
+        didSet {
+            btn_thursday_checkmark.backgroundColor = .clear
+            btn_thursday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
+        }
+    }
+    @IBOutlet weak var btn_thursday_time:UIButton! {
+        didSet {
+            btn_thursday_time.backgroundColor = .systemGray5
+            btn_thursday_time.tag = 0
+            btn_thursday_time.setTitle("disable", for: .normal)
+            btn_thursday_time.layer.cornerRadius = 8
+            btn_thursday_time.clipsToBounds = true
+        }
+    }
+    
+    
+    //friday
+    @IBOutlet weak var btn_friday_checkmark:UIButton!  {
+        didSet {
+            btn_friday_checkmark.backgroundColor = .clear
+            btn_friday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
+        }
+    }
+    @IBOutlet weak var btn_friday_time:UIButton! {
+        didSet {
+            btn_friday_time.backgroundColor = .systemGray5
+            btn_friday_time.tag = 0
+            btn_friday_time.setTitle("disable", for: .normal)
+            btn_friday_time.layer.cornerRadius = 8
+            btn_friday_time.clipsToBounds = true
+        }
+    }
+    
+    
+    //saturday
+    @IBOutlet weak var btn_saturday_checkmark:UIButton!  {
+        didSet {
+            btn_saturday_checkmark.backgroundColor = .clear
+            btn_saturday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
+        }
+    }
+    @IBOutlet weak var btn_saturday_time:UIButton! {
+        didSet {
+            btn_saturday_time.backgroundColor = .systemGray5
+            btn_saturday_time.tag = 0
+            btn_saturday_time.setTitle("disable", for: .normal)
+            btn_saturday_time.layer.cornerRadius = 8
+            btn_saturday_time.clipsToBounds = true
+        }
+    }
+    
+    
+    
+}
+
 // /* ************************* WORKOUT SETTINGS ************** */
 // /* ********************************************************** */
 class workout_setting_table_cell : UITableViewCell {

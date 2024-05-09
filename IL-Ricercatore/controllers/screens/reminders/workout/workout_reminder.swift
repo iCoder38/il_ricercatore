@@ -12,6 +12,11 @@ class workout_reminder: UIViewController, UNUserNotificationCenterDelegate {
     var str_remind_me_every_at_status:String! = "0"
     var str_sunday_status:String! = "0"
     var str_monday_status:String! = "0"
+    var str_wednesday_status:String! = "0"
+    var str_thursday_status:String! = "0"
+    var str_friday_status:String! = "0"
+    var str_saturday_status:String! = "0"
+    var str_tuesday_status:String! = "0"
     
     var str_selected_time:String! = ""
     
@@ -138,6 +143,118 @@ class workout_reminder: UIViewController, UNUserNotificationCenterDelegate {
                         }
                     }
                     
+                    // tuesday
+                   
+                    if ("\(request.identifier)") == identifier_meal_tuesday {
+                        
+                        if let calendarTrigger = request.trigger as? UNCalendarNotificationTrigger {
+                            let dateComponents = calendarTrigger.dateComponents
+                            if let hour = dateComponents.hour, let minute = dateComponents.minute {
+                                
+                                cell.btn_tuesday_time.tag = 1
+                                cell.btn_tuesday_checkmark.tag = 1
+                                cell.btn_tuesday_checkmark.setImage(UIImage(named: "check"), for: .normal)
+                                cell.btn_tuesday_time.backgroundColor = .systemPurple
+                                cell.btn_tuesday_time.isUserInteractionEnabled = true
+                                self.str_tuesday_status = "1"
+                                cell.btn_tuesday_time.setTitle(self.convertTo12HourFormat(time: "\(hour):\(minute)"), for: .normal)
+                                
+                                // action
+                                cell.btn_tuesday_time.addTarget(self, action: #selector(time_picker_tuesday), for: .touchUpInside)
+                                
+                            }
+                        }
+                    }
+                    
+                    // wednesday
+                    if ("\(request.identifier)") == identifier_meal_wednesday {
+                        
+                        if let calendarTrigger = request.trigger as? UNCalendarNotificationTrigger {
+                            let dateComponents = calendarTrigger.dateComponents
+                            if let hour = dateComponents.hour, let minute = dateComponents.minute {
+                                
+                                cell.btn_wednesday_time.tag = 1
+                                cell.btn_wednesday_checkmark.tag = 1
+                                cell.btn_wednesday_checkmark.setImage(UIImage(named: "check"), for: .normal)
+                                cell.btn_wednesday_time.backgroundColor = .systemPurple
+                                cell.btn_wednesday_time.isUserInteractionEnabled = true
+                                self.str_wednesday_status = "1"
+                                cell.btn_wednesday_time.setTitle(self.convertTo12HourFormat(time: "\(hour):\(minute)"), for: .normal)
+                                
+                                // action
+                                cell.btn_wednesday_time.addTarget(self, action: #selector(time_picker_wednesday), for: .touchUpInside)
+                                
+                            }
+                        }
+                    }
+                    
+                    // thursday
+                    if ("\(request.identifier)") == identifier_meal_thursday {
+                        
+                        if let calendarTrigger = request.trigger as? UNCalendarNotificationTrigger {
+                            let dateComponents = calendarTrigger.dateComponents
+                            if let hour = dateComponents.hour, let minute = dateComponents.minute {
+                                
+                                cell.btn_thursday_time.tag = 1
+                                cell.btn_thursday_checkmark.tag = 1
+                                cell.btn_thursday_checkmark.setImage(UIImage(named: "check"), for: .normal)
+                                cell.btn_thursday_time.backgroundColor = .systemPurple
+                                cell.btn_thursday_time.isUserInteractionEnabled = true
+                                self.str_thursday_status = "1"
+                                cell.btn_thursday_time.setTitle(self.convertTo12HourFormat(time: "\(hour):\(minute)"), for: .normal)
+                                
+                                // action
+                                cell.btn_thursday_time.addTarget(self, action: #selector(time_picker_thursday), for: .touchUpInside)
+                                
+                            }
+                        }
+                    }
+                    
+                    // friday
+                    if ("\(request.identifier)") == identifier_meal_friday {
+                        
+                        if let calendarTrigger = request.trigger as? UNCalendarNotificationTrigger {
+                            let dateComponents = calendarTrigger.dateComponents
+                            if let hour = dateComponents.hour, let minute = dateComponents.minute {
+                                
+                                cell.btn_friday_time.tag = 1
+                                cell.btn_friday_checkmark.tag = 1
+                                cell.btn_friday_checkmark.setImage(UIImage(named: "check"), for: .normal)
+                                cell.btn_friday_time.backgroundColor = .systemPurple
+                                cell.btn_friday_time.isUserInteractionEnabled = true
+                                self.str_friday_status = "1"
+                                cell.btn_friday_time.setTitle(self.convertTo12HourFormat(time: "\(hour):\(minute)"), for: .normal)
+                                
+                                // action
+                                cell.btn_friday_time.addTarget(self, action: #selector(time_picker_friday), for: .touchUpInside)
+                                
+                            }
+                        }
+                    }
+                    
+                    // saturday
+                    if ("\(request.identifier)") == identifier_meal_saturday {
+                        
+                        if let calendarTrigger = request.trigger as? UNCalendarNotificationTrigger {
+                            let dateComponents = calendarTrigger.dateComponents
+                            if let hour = dateComponents.hour, let minute = dateComponents.minute {
+                                
+                                cell.btn_saturday_time.tag = 1
+                                cell.btn_saturday_checkmark.tag = 1
+                                cell.btn_saturday_checkmark.setImage(UIImage(named: "check"), for: .normal)
+                                cell.btn_saturday_time.backgroundColor = .systemPurple
+                                cell.btn_saturday_time.isUserInteractionEnabled = true
+                                self.str_saturday_status = "1"
+                                cell.btn_saturday_time.setTitle(self.convertTo12HourFormat(time: "\(hour):\(minute)"), for: .normal)
+                                
+                                // action
+                                cell.btn_saturday_time.addTarget(self, action: #selector(time_picker_saturday), for: .touchUpInside)
+                                
+                            }
+                        }
+                    }
+                    
+                    
                     
                     
                     
@@ -153,22 +270,83 @@ class workout_reminder: UIViewController, UNUserNotificationCenterDelegate {
         // disable all days
         cell.btn_sunday_time.tag = 0
         cell.btn_sunday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
-        cell.btn_sunday_time.backgroundColor = .systemGray
+        cell.btn_sunday_time.backgroundColor = .systemGray5
         cell.btn_sunday_time.isUserInteractionEnabled = false
         cell.btn_sunday_time.setTitle("disable", for: .normal)
         self.str_sunday_status = "0"
         
         cell.btn_monday_time.tag = 0
         cell.btn_monday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
-        cell.btn_monday_time.backgroundColor = .systemGray
+        cell.btn_monday_time.backgroundColor = .systemGray5
         cell.btn_monday_time.isUserInteractionEnabled = false
         cell.btn_monday_time.setTitle("disable", for: .normal)
         self.str_monday_status = "0"
         
+        cell.btn_tuesday_time.tag = 0
+        cell.btn_tuesday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
+        cell.btn_tuesday_time.backgroundColor = .systemGray5
+        cell.btn_tuesday_time.isUserInteractionEnabled = false
+        cell.btn_tuesday_time.setTitle("disable", for: .normal)
+        self.str_tuesday_status = "0"
+        
+        
+        cell.btn_wednesday_time.tag = 0
+        cell.btn_wednesday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
+        cell.btn_wednesday_time.backgroundColor = .systemGray5
+        cell.btn_wednesday_time.isUserInteractionEnabled = false
+        cell.btn_wednesday_time.setTitle("disable", for: .normal)
+        self.str_wednesday_status = "0"
+        
+        
+        cell.btn_thursday_time.tag = 0
+        cell.btn_thursday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
+        cell.btn_thursday_time.backgroundColor = .systemGray5
+        cell.btn_thursday_time.isUserInteractionEnabled = false
+        cell.btn_thursday_time.setTitle("disable", for: .normal)
+        self.str_thursday_status = "0"
+        
+        
+        cell.btn_friday_time.tag = 0
+        cell.btn_friday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
+        cell.btn_friday_time.backgroundColor = .systemGray5
+        cell.btn_friday_time.isUserInteractionEnabled = false
+        cell.btn_friday_time.setTitle("disable", for: .normal)
+        self.str_friday_status = "0"
+        
+        cell.btn_saturday_time.tag = 0
+        cell.btn_saturday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
+        cell.btn_saturday_time.backgroundColor = .systemGray5
+        cell.btn_saturday_time.isUserInteractionEnabled = false
+        cell.btn_saturday_time.setTitle("disable", for: .normal)
+        self.str_saturday_status = "0"
+        
         // disable reminder
         let center = UNUserNotificationCenter.current()
-        center.removePendingNotificationRequests(withIdentifiers: ["identifier_meal_sunday","identifier_meal_monday"])
+        center.removePendingNotificationRequests(withIdentifiers: [identifier_meal_sunday,
+                                                                   identifier_meal_monday,
+                                                                   identifier_meal_tuesday,
+                                                                   identifier_meal_wednesday,
+                                                                   identifier_meal_thursday,
+                                                                   identifier_meal_friday,
+                                                                   identifier_meal_saturday])
         self.view.makeToast("All weekdays notifications are cleared")
+    }
+    
+    @objc func disbale_remind_me_every_at() {
+        let indexPath = IndexPath.init(row: 0, section: 0)
+        let cell = self.tble_view.cellForRow(at: indexPath) as! workout_reminders_table_cell
+        
+        // disable remind me every
+        cell.btn_reminde_me_every_at_time.tag = 0
+        cell.btn_reminde_me_every_at_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
+        cell.btn_reminde_me_every_at_time.backgroundColor = .systemGray5
+        cell.btn_reminde_me_every_at_time.isUserInteractionEnabled = false
+        cell.btn_reminde_me_every_at_time.setTitle("disable", for: .normal)
+        self.str_remind_me_every_at_status = "0"
+        
+        // disable reminder remind me at
+        let center = UNUserNotificationCenter.current()
+        center.removePendingNotificationRequests(withIdentifiers: [identifier_meal_reminder_remind_me_every_at])
     }
     
     @objc func remind_me_every_at_click_method() {
@@ -192,7 +370,7 @@ class workout_reminder: UIViewController, UNUserNotificationCenterDelegate {
         } else {
             cell.btn_reminde_me_every_at_time.tag = 0
             cell.btn_reminde_me_every_at_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
-            cell.btn_reminde_me_every_at_time.backgroundColor = .systemGray
+            cell.btn_reminde_me_every_at_time.backgroundColor = .systemGray5
             cell.btn_reminde_me_every_at_time.isUserInteractionEnabled = false
             cell.btn_reminde_me_every_at_time.setTitle("disable", for: .normal)
             self.str_remind_me_every_at_status = "0"
@@ -212,7 +390,7 @@ class workout_reminder: UIViewController, UNUserNotificationCenterDelegate {
         }
         
         RPicker.selectDate(title: "Select Time", cancelText: "Cancel", datePickerMode: .time, didSelectDate: { (selectedDate) in
-            cell.btn_reminde_me_every_at_time.setTitle(selectedDate.dateString("hh:mm"), for: .normal)
+            cell.btn_reminde_me_every_at_time.setTitle(selectedDate.dateString("hh:mm a"), for: .normal)
             self.str_selected_time = selectedDate.dateString("HH:mm")
             
             
@@ -233,17 +411,8 @@ class workout_reminder: UIViewController, UNUserNotificationCenterDelegate {
         
         if (cell.btn_sunday_time.tag == 0) {
             
-            // disable remind me every
-            cell.btn_reminde_me_every_at_time.tag = 0
-            cell.btn_reminde_me_every_at_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
-            cell.btn_reminde_me_every_at_time.backgroundColor = .systemGray
-            cell.btn_reminde_me_every_at_time.isUserInteractionEnabled = false
-            cell.btn_reminde_me_every_at_time.setTitle("disable", for: .normal)
-            self.str_remind_me_every_at_status = "0"
-            
-            // disable reminder remind me at
-            let center = UNUserNotificationCenter.current()
-            center.removePendingNotificationRequests(withIdentifiers: ["identifier_meal_reminder_remind_me_every_at"])
+            // disable remind me every at
+            self.disbale_remind_me_every_at()
             
             
             cell.btn_sunday_time.tag = 1
@@ -258,7 +427,7 @@ class workout_reminder: UIViewController, UNUserNotificationCenterDelegate {
         } else {
             cell.btn_sunday_time.tag = 0
             cell.btn_sunday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
-            cell.btn_sunday_time.backgroundColor = .systemGray
+            cell.btn_sunday_time.backgroundColor = .systemGray5
             cell.btn_sunday_time.isUserInteractionEnabled = false
             cell.btn_sunday_time.setTitle("disable", for: .normal)
             self.str_sunday_status = "0"
@@ -280,7 +449,7 @@ class workout_reminder: UIViewController, UNUserNotificationCenterDelegate {
         }
         
         RPicker.selectDate(title: "Select Time", cancelText: "Cancel", datePickerMode: .time, didSelectDate: { (selectedDate) in
-            cell.btn_sunday_time.setTitle(selectedDate.dateString("hh:mm"), for: .normal)
+            cell.btn_sunday_time.setTitle(selectedDate.dateString("hh:mm a"), for: .normal)
             self.str_selected_time = selectedDate.dateString("HH:mm")
             
             
@@ -302,17 +471,8 @@ class workout_reminder: UIViewController, UNUserNotificationCenterDelegate {
         
         if (cell.btn_monday_time.tag == 0) {
             
-            // disable remind me every
-            cell.btn_monday_time.tag = 0
-            cell.btn_monday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
-            cell.btn_monday_time.backgroundColor = .systemGray
-            cell.btn_monday_time.isUserInteractionEnabled = false
-            cell.btn_monday_time.setTitle("disable", for: .normal)
-            self.str_monday_status = "0"
-            
-            // disable reminder remind me at
-            let center = UNUserNotificationCenter.current()
-            center.removePendingNotificationRequests(withIdentifiers: ["identifier_meal_reminder_remind_me_every_at"])
+            // disable remind me every at
+            self.disbale_remind_me_every_at()
             
             cell.btn_monday_time.tag = 1
             cell.btn_monday_checkmark.setImage(UIImage(named: "check"), for: .normal)
@@ -326,7 +486,7 @@ class workout_reminder: UIViewController, UNUserNotificationCenterDelegate {
         } else {
             cell.btn_monday_time.tag = 0
             cell.btn_monday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
-            cell.btn_monday_time.backgroundColor = .systemGray
+            cell.btn_monday_time.backgroundColor = .systemGray5
             cell.btn_monday_time.isUserInteractionEnabled = false
             cell.btn_monday_time.setTitle("disable", for: .normal)
             self.str_monday_status = "0"
@@ -348,7 +508,7 @@ class workout_reminder: UIViewController, UNUserNotificationCenterDelegate {
         }
         
         RPicker.selectDate(title: "Select Time", cancelText: "Cancel", datePickerMode: .time, didSelectDate: { (selectedDate) in
-            cell.btn_monday_time.setTitle(selectedDate.dateString("hh:mm"), for: .normal)
+            cell.btn_monday_time.setTitle(selectedDate.dateString("hh:mm a"), for: .normal)
             self.str_selected_time = selectedDate.dateString("HH:mm")
             
             
@@ -358,6 +518,339 @@ class workout_reminder: UIViewController, UNUserNotificationCenterDelegate {
                                   get_full_time: String(self.str_selected_time),
                                   identifier: identifier_meal_monday,
                                   type: type_monday)
+            
+        })
+        
+    }
+    
+    
+    // tuesday
+    @objc func tuesday_click_method() {
+        let indexPath = IndexPath.init(row: 0, section: 0)
+        let cell = self.tble_view.cellForRow(at: indexPath) as! workout_reminders_table_cell
+        
+        if (cell.btn_tuesday_time.tag == 0) {
+            
+            // disable remind me every
+            cell.btn_tuesday_time.tag = 0
+            cell.btn_tuesday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
+            cell.btn_tuesday_time.backgroundColor = .systemGray5
+            cell.btn_tuesday_time.isUserInteractionEnabled = false
+            cell.btn_tuesday_time.setTitle("disable", for: .normal)
+            self.str_tuesday_status = "0"
+            
+            // disable remind me every at
+            self.disbale_remind_me_every_at()
+            
+            cell.btn_tuesday_time.tag = 1
+            cell.btn_tuesday_checkmark.setImage(UIImage(named: "check"), for: .normal)
+            cell.btn_tuesday_time.backgroundColor = .systemPurple
+            cell.btn_tuesday_time.isUserInteractionEnabled = true
+            cell.btn_tuesday_time.setTitle("select", for: .normal)
+            self.str_tuesday_status = "1"
+            // action
+            cell.btn_tuesday_time.addTarget(self, action: #selector(time_picker_tuesday), for: .touchUpInside)
+            
+        } else {
+            cell.btn_tuesday_time.tag = 0
+            cell.btn_tuesday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
+            cell.btn_tuesday_time.backgroundColor = .systemGray5
+            cell.btn_tuesday_time.isUserInteractionEnabled = false
+            cell.btn_tuesday_time.setTitle("disable", for: .normal)
+            self.str_tuesday_status = "0"
+            
+            // disable reminder
+            self.disable_reminder(identifier: identifier_meal_tuesday, text: type_tuesday)
+        }
+    }
+    
+    @objc func time_picker_tuesday() {
+        let indexPath = IndexPath.init(row: 0, section: 0)
+        let cell = self.tble_view.cellForRow(at: indexPath) as! workout_reminders_table_cell
+        
+        
+        //
+        if (self.str_tuesday_status == "0") {
+            self.alert_custom(message: "Please enable")
+            return
+        }
+        
+        RPicker.selectDate(title: "Select Time", cancelText: "Cancel", datePickerMode: .time, didSelectDate: { (selectedDate) in
+            cell.btn_tuesday_time.setTitle(selectedDate.dateString("hh:mm a"), for: .normal)
+            self.str_selected_time = selectedDate.dateString("HH:mm")
+            
+            
+            self.weekday_reminder(header: local_notification_workout_reminder_header,
+                                  body: local_notification_workout_reminder_body,
+                                  day: day_tuesday,
+                                  get_full_time: String(self.str_selected_time),
+                                  identifier: identifier_meal_tuesday,
+                                  type: type_tuesday)
+            
+        })
+        
+    }
+    
+    // wednesday
+    @objc func wednesday_click_method() {
+        let indexPath = IndexPath.init(row: 0, section: 0)
+        let cell = self.tble_view.cellForRow(at: indexPath) as! workout_reminders_table_cell
+        
+        if (cell.btn_wednesday_time.tag == 0) {
+            
+            // disable remind me every
+            cell.btn_wednesday_time.tag = 0
+            cell.btn_wednesday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
+            cell.btn_wednesday_time.backgroundColor = .systemGray5
+            cell.btn_wednesday_time.isUserInteractionEnabled = false
+            cell.btn_wednesday_time.setTitle("disable", for: .normal)
+            self.str_wednesday_status = "0"
+            
+            // disable remind me every at
+            self.disbale_remind_me_every_at()
+            
+            cell.btn_wednesday_time.tag = 1
+            cell.btn_wednesday_checkmark.setImage(UIImage(named: "check"), for: .normal)
+            cell.btn_wednesday_time.backgroundColor = .systemPurple
+            cell.btn_wednesday_time.isUserInteractionEnabled = true
+            cell.btn_wednesday_time.setTitle("select", for: .normal)
+            self.str_wednesday_status = "1"
+            // action
+            cell.btn_wednesday_time.addTarget(self, action: #selector(time_picker_wednesday), for: .touchUpInside)
+            
+        } else {
+            cell.btn_wednesday_time.tag = 0
+            cell.btn_wednesday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
+            cell.btn_wednesday_time.backgroundColor = .systemGray5
+            cell.btn_wednesday_time.isUserInteractionEnabled = false
+            cell.btn_wednesday_time.setTitle("disable", for: .normal)
+            self.str_wednesday_status = "0"
+            
+            // disable reminder
+            self.disable_reminder(identifier: identifier_meal_wednesday, text: type_wednesday)
+        }
+    }
+    
+    @objc func time_picker_wednesday() {
+        let indexPath = IndexPath.init(row: 0, section: 0)
+        let cell = self.tble_view.cellForRow(at: indexPath) as! workout_reminders_table_cell
+        
+        
+        //
+        if (self.str_wednesday_status == "0") {
+            self.alert_custom(message: "Please enable")
+            return
+        }
+        
+        RPicker.selectDate(title: "Select Time", cancelText: "Cancel", datePickerMode: .time, didSelectDate: { (selectedDate) in
+            cell.btn_wednesday_time.setTitle(selectedDate.dateString("hh:mm a"), for: .normal)
+            self.str_selected_time = selectedDate.dateString("HH:mm")
+            
+            
+            self.weekday_reminder(header: local_notification_workout_reminder_header,
+                                  body: local_notification_workout_reminder_body,
+                                  day: day_wednesday,
+                                  get_full_time: String(self.str_selected_time),
+                                  identifier: identifier_meal_wednesday,
+                                  type: type_wednesday)
+            
+        })
+        
+    }
+    
+    // thursday
+    @objc func thursday_click_method() {
+        let indexPath = IndexPath.init(row: 0, section: 0)
+        let cell = self.tble_view.cellForRow(at: indexPath) as! workout_reminders_table_cell
+        
+        if (cell.btn_thursday_time.tag == 0) {
+            
+            // disable remind me every
+            cell.btn_thursday_time.tag = 0
+            cell.btn_thursday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
+            cell.btn_thursday_time.backgroundColor = .systemGray5
+            cell.btn_thursday_time.isUserInteractionEnabled = false
+            cell.btn_thursday_time.setTitle("disable", for: .normal)
+            self.str_thursday_status = "0"
+            
+            // disable remind me every at
+            self.disbale_remind_me_every_at()
+            
+            cell.btn_thursday_time.tag = 1
+            cell.btn_thursday_checkmark.setImage(UIImage(named: "check"), for: .normal)
+            cell.btn_thursday_time.backgroundColor = .systemPurple
+            cell.btn_thursday_time.isUserInteractionEnabled = true
+            cell.btn_thursday_time.setTitle("select", for: .normal)
+            self.str_thursday_status = "1"
+            // action
+            cell.btn_thursday_time.addTarget(self, action: #selector(time_picker_thursday), for: .touchUpInside)
+            
+        } else {
+            cell.btn_thursday_time.tag = 0
+            cell.btn_thursday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
+            cell.btn_thursday_time.backgroundColor = .systemGray5
+            cell.btn_thursday_time.isUserInteractionEnabled = false
+            cell.btn_thursday_time.setTitle("disable", for: .normal)
+            self.str_thursday_status = "0"
+            
+            // disable reminder
+            self.disable_reminder(identifier: identifier_meal_thursday, text: type_thursday)
+        }
+    }
+    
+    @objc func time_picker_thursday() {
+        let indexPath = IndexPath.init(row: 0, section: 0)
+        let cell = self.tble_view.cellForRow(at: indexPath) as! workout_reminders_table_cell
+        
+        
+        //
+        if (self.str_thursday_status == "0") {
+            self.alert_custom(message: "Please enable")
+            return
+        }
+        
+        RPicker.selectDate(title: "Select Time", cancelText: "Cancel", datePickerMode: .time, didSelectDate: { (selectedDate) in
+            cell.btn_thursday_time.setTitle(selectedDate.dateString("hh:mm a"), for: .normal)
+            self.str_selected_time = selectedDate.dateString("HH:mm")
+            
+            
+            self.weekday_reminder(header: local_notification_workout_reminder_header,
+                                  body: local_notification_workout_reminder_body,
+                                  day: day_thursday,
+                                  get_full_time: String(self.str_selected_time),
+                                  identifier: identifier_meal_thursday,
+                                  type: type_thursday)
+            
+        })
+        
+    }
+    // friday
+    @objc func friday_click_method() {
+        let indexPath = IndexPath.init(row: 0, section: 0)
+        let cell = self.tble_view.cellForRow(at: indexPath) as! workout_reminders_table_cell
+        
+        if (cell.btn_friday_time.tag == 0) {
+            
+            // disable remind me every
+            cell.btn_friday_time.tag = 0
+            cell.btn_friday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
+            cell.btn_friday_time.backgroundColor = .systemGray5
+            cell.btn_friday_time.isUserInteractionEnabled = false
+            cell.btn_friday_time.setTitle("disable", for: .normal)
+            self.str_friday_status = "0"
+            
+            // disable remind me every at
+            self.disbale_remind_me_every_at()
+            
+            cell.btn_friday_time.tag = 1
+            cell.btn_friday_checkmark.setImage(UIImage(named: "check"), for: .normal)
+            cell.btn_friday_time.backgroundColor = .systemPurple
+            cell.btn_friday_time.isUserInteractionEnabled = true
+            cell.btn_friday_time.setTitle("select", for: .normal)
+            self.str_friday_status = "1"
+            // action
+            cell.btn_friday_time.addTarget(self, action: #selector(time_picker_friday), for: .touchUpInside)
+            
+        } else {
+            cell.btn_friday_time.tag = 0
+            cell.btn_friday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
+            cell.btn_friday_time.backgroundColor = .systemGray5
+            cell.btn_friday_time.isUserInteractionEnabled = false
+            cell.btn_friday_time.setTitle("disable", for: .normal)
+            self.str_friday_status = "0"
+            
+            // disable reminder
+            self.disable_reminder(identifier: identifier_meal_friday, text: type_friday)
+        }
+    }
+    
+    @objc func time_picker_friday() {
+        let indexPath = IndexPath.init(row: 0, section: 0)
+        let cell = self.tble_view.cellForRow(at: indexPath) as! workout_reminders_table_cell
+        
+        
+        //
+        if (self.str_friday_status == "0") {
+            self.alert_custom(message: "Please enable")
+            return
+        }
+        
+        RPicker.selectDate(title: "Select Time", cancelText: "Cancel", datePickerMode: .time, didSelectDate: { (selectedDate) in
+            cell.btn_friday_time.setTitle(selectedDate.dateString("hh:mm a"), for: .normal)
+            self.str_selected_time = selectedDate.dateString("HH:mm")
+            
+            
+            self.weekday_reminder(header: local_notification_workout_reminder_header,
+                                  body: local_notification_workout_reminder_body,
+                                  day: day_friday,
+                                  get_full_time: String(self.str_selected_time),
+                                  identifier: identifier_meal_friday,
+                                  type: type_friday)
+            
+        })
+        
+    }
+    
+    // saturday
+    @objc func saturday_click_method() {
+        let indexPath = IndexPath.init(row: 0, section: 0)
+        let cell = self.tble_view.cellForRow(at: indexPath) as! workout_reminders_table_cell
+        
+        if (cell.btn_saturday_time.tag == 0) {
+            
+            // disable remind me every
+            cell.btn_saturday_time.tag = 0
+            cell.btn_saturday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
+            cell.btn_saturday_time.backgroundColor = .systemGray5
+            cell.btn_saturday_time.isUserInteractionEnabled = false
+            cell.btn_saturday_time.setTitle("disable", for: .normal)
+            self.str_saturday_status = "0"
+            
+            // disable remind me every at
+            self.disbale_remind_me_every_at()
+            
+            cell.btn_saturday_time.tag = 1
+            cell.btn_saturday_checkmark.setImage(UIImage(named: "check"), for: .normal)
+            cell.btn_saturday_time.backgroundColor = .systemPurple
+            cell.btn_saturday_time.isUserInteractionEnabled = true
+            cell.btn_saturday_time.setTitle("select", for: .normal)
+            self.str_saturday_status = "1"
+            // action
+            cell.btn_saturday_time.addTarget(self, action: #selector(time_picker_saturday), for: .touchUpInside)
+            
+        } else {
+            cell.btn_saturday_time.tag = 0
+            cell.btn_saturday_checkmark.setImage(UIImage(named: "uncheck"), for: .normal)
+            cell.btn_saturday_time.backgroundColor = .systemGray5
+            cell.btn_saturday_time.isUserInteractionEnabled = false
+            cell.btn_saturday_time.setTitle("disable", for: .normal)
+            self.str_saturday_status = "0"
+            
+            // disable reminder
+            self.disable_reminder(identifier: identifier_meal_saturday, text: type_saturday)
+        }
+    }
+    
+    @objc func time_picker_saturday() {
+        let indexPath = IndexPath.init(row: 0, section: 0)
+        let cell = self.tble_view.cellForRow(at: indexPath) as! workout_reminders_table_cell
+        
+        if (self.str_saturday_status == "0") {
+            self.alert_custom(message: "Please enable")
+            return
+        }
+        
+        RPicker.selectDate(title: "Select Time", cancelText: "Cancel", datePickerMode: .time, didSelectDate: { (selectedDate) in
+            cell.btn_saturday_time.setTitle(selectedDate.dateString("hh:mm a"), for: .normal)
+            self.str_selected_time = selectedDate.dateString("HH:mm")
+            
+            
+            self.weekday_reminder(header: local_notification_workout_reminder_header,
+                                  body: local_notification_workout_reminder_body,
+                                  day: day_saturday,
+                                  get_full_time: String(self.str_selected_time),
+                                  identifier: identifier_meal_saturday,
+                                  type: type_saturday)
             
         })
         
@@ -382,24 +875,56 @@ class workout_reminder: UIViewController, UNUserNotificationCenterDelegate {
         self.int_hr = Int(hr)
         self.int_min = Int(min)
         
-        self.scheduleDailyReminder(hour: self.int_hr,
+        let content = UNMutableNotificationContent()
+        content.title = set_header
+        content.body = set_body
+        content.sound = .default
+        
+        let center = UNUserNotificationCenter.current()
+        // center.removeAllPendingNotificationRequests()
+        
+        var dateComponents = DateComponents()
+        dateComponents.hour = self.int_hr
+        dateComponents.minute = self.int_min
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        let request = UNNotificationRequest(identifier: set_identifier, content: content, trigger: trigger)
+        // center.add(request)
+        
+        // Add the request to the notification center
+        UNUserNotificationCenter.current().add(request) { (error) in
+            if let error = error {
+                print("Error scheduling notification: \(error.localizedDescription)")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.view.makeToast("Error scheduling notification: \(error.localizedDescription)")
+                }
+            } else {
+                print("Notification scheduled successfully!")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.set_local_notification_toast(type: type, status: "e")
+                }
+                // self.updateBadgeCount()
+            }
+        }
+        
+        /*self.scheduleDailyReminder(hour: self.int_hr,
                                    minute: self.int_min,
                                    header: set_header,
                                    body: set_body,
-                                   identifier: set_identifier, text: type)
+                                   identifier: set_identifier, text: type)*/
     }
     @objc func set_reminder_custom_day_time(set_header:String,set_body:String,set_identifier:String,get_full_time:String,get_full_date:String,type:String) {
-        print(get_full_date as Any)
-        print(get_full_time as Any)
+        // print(get_full_date as Any)
+        // print(get_full_time as Any)
         
         let separate_date = "\(get_full_date)".components(separatedBy: "-")
-        debugPrint(separate_date[0]) // yyyy
-        debugPrint(separate_date[1]) // mm
-        debugPrint(separate_date[2]) // dd
+        // debugPrint(separate_date[0]) // yyyy
+        // debugPrint(separate_date[1]) // mm
+        // debugPrint(separate_date[2]) // dd
         
         let separate_time = "\(get_full_time)".components(separatedBy: ":")
-        debugPrint(separate_time.count as Any)
-        debugPrint(separate_time as Any)
+        // debugPrint(separate_time.count as Any)
+        // debugPrint(separate_time as Any)
         
         let yyyy = separate_date[0]
         let mm = separate_date[1]
@@ -550,7 +1075,20 @@ extension workout_reminder: UITableViewDataSource , UITableViewDelegate {
         cell.btn_monday_checkmark.tag = 0
         cell.btn_monday_checkmark.addTarget(self, action: #selector(monday_click_method), for: .touchUpInside)
         
+        cell.btn_tuesday_checkmark.tag = 0
+        cell.btn_tuesday_checkmark.addTarget(self, action: #selector(tuesday_click_method), for: .touchUpInside)
         
+        cell.btn_wednesday_checkmark.tag = 0
+        cell.btn_wednesday_checkmark.addTarget(self, action: #selector(wednesday_click_method), for: .touchUpInside)
+        
+        cell.btn_thursday_checkmark.tag = 0
+        cell.btn_thursday_checkmark.addTarget(self, action: #selector(thursday_click_method), for: .touchUpInside)
+        
+        cell.btn_friday_checkmark.tag = 0
+        cell.btn_friday_checkmark.addTarget(self, action: #selector(friday_click_method), for: .touchUpInside)
+        
+        cell.btn_saturday_checkmark.tag = 0
+        cell.btn_saturday_checkmark.addTarget(self, action: #selector(saturday_click_method), for: .touchUpInside)
         
         return cell
         
@@ -563,7 +1101,7 @@ extension workout_reminder: UITableViewDataSource , UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 270
+        return 324
     }
 
 }

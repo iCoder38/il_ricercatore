@@ -38,6 +38,11 @@ var type_dinner = "Dinner"
 var type_every_day = "Every day"
 var type_sunday = "Sunday"
 var type_monday = "Monday"
+var type_tuesday = "Tuesday"
+var type_wednesday = "Wednesday"
+var type_thursday = "Thursday"
+var type_friday = "Friday"
+var type_saturday = "Saturday"
 
 var type_workout_remind_me_every_at = "Remind me every at"
 
@@ -50,12 +55,30 @@ var local_notification_workout_reminder_header = "Workout reminder"
 var local_notification_workout_reminder_body = "Daily task"
 
 
+var local_notification_walk_reminder_header = "Walk reminder"
+var local_notification_walk_reminder_body = "Daily task"
+
 // identifiers
+
+// walk
+var identifier_walk_reminder_remind_me_every_at = "reminder_walk_remind_me_at"
+var identifier_walk_sunday = "reminder_walk_sunday"
+var identifier_walk_monday = "reminder_walk_monday"
+var identifier_walk_tuesday = "reminder_walk_tuesday"
+var identifier_walk_wednesday = "reminder_walk_wednesday"
+var identifier_walk_thursday = "reminder_walk_thursday"
+var identifier_walk_friday = "reminder_walk_friday"
+var identifier_walk_saturday = "reminder_walk_saturday"
 
 // workout
 var identifier_meal_reminder_remind_me_every_at = "reminder_workout_remind_me_at"
 var identifier_meal_sunday = "reminder_workout_sunday"
 var identifier_meal_monday = "reminder_workout_monday"
+var identifier_meal_tuesday = "reminder_workout_tuesday"
+var identifier_meal_wednesday = "reminder_workout_wednesday"
+var identifier_meal_thursday = "reminder_workout_thursday"
+var identifier_meal_friday = "reminder_workout_friday"
+var identifier_meal_saturday = "reminder_workout_saturday"
 
 // meal
 var identifier_meal_reminder_dinner = "reminder_meal_dinner"

@@ -39,8 +39,8 @@ class reminders: UIViewController {
         super.viewDidLoad()
         self.tble_view.separatorColor = .white
         
-        self.arr_reminder = ["Drink Water", "Meal reminder","Workout reminder"]
-        self.arr_reminder_image = ["water", "meal",""]
+        self.arr_reminder = ["Drink Water", "Meal reminder","Workout reminder","Walk reminder"]
+        self.arr_reminder_image = ["water", "meal","",""]
         
     }
 }
@@ -84,6 +84,9 @@ extension reminders: UITableViewDataSource , UITableViewDelegate {
             self.navigationController?.pushViewController(push, animated: true)
         } else if indexPath.row == 2 {
             let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "workout_reminder_id")
+            self.navigationController?.pushViewController(push, animated: true)
+        }  else if indexPath.row == 3 {
+            let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "walk_reminder_id")
             self.navigationController?.pushViewController(push, animated: true)
         }
         
