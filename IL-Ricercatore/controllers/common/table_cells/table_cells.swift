@@ -1677,6 +1677,25 @@ class reminders_table_cell : UITableViewCell {
     @IBOutlet weak var lbl_sub_title:UILabel!
     @IBOutlet weak var btn_edit:UIButton!
 }
+
+// /* ************************* CALORIES BURNOUT ********************** */
+// /* ********************************************************** */
+class calories_burnout_table_cell : UITableViewCell {
+    
+    @IBOutlet weak var lbl_title:UILabel!
+    @IBOutlet weak var lbl_sub_title:UILabel!
+}
+
+// /* ************************* CALORIES BURNOUT ********************** */
+// /* ********************************************************** */
+class show_all_cal_burnt_ctivity_table_cell : UITableViewCell {
+    
+    @IBOutlet weak var lbl_title:UILabel!
+    @IBOutlet weak var lbl_calories_per_hr:UILabel!
+    @IBOutlet weak var lbl_duration:UILabel!
+    @IBOutlet weak var lbl_total_calories:UILabel!
+}
+
 // /* ************************* WORKOUT REMINDERS ************** */
 // /* ********************************************************** */
 class workout_reminders_table_cell : UITableViewCell {

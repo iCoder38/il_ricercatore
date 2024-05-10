@@ -348,11 +348,6 @@ class track_meal_reminder: UIViewController, UNUserNotificationCenterDelegate {
                                               minute: self.int_min,
                                               identifier: set_identifier,
                                               type: type)
-        /*self.scheduleDailyReminder(hour: self.int_hr,
-                                   minute: self.int_min,
-                                   header: set_header,
-                                   body: set_body,
-                                   identifier: set_identifier, text: type)*/
     }
     
     func requestNotificationAuthorization() {

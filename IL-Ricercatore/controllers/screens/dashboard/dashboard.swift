@@ -365,6 +365,10 @@ class dashboard: UIViewController, UNUserNotificationCenterDelegate {
         let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "blood_glucose_id")
         self.navigationController?.pushViewController(push, animated: true)
     }
+    @objc func cal_burnt_click_method() {
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "calories_burnout_id")
+        self.navigationController?.pushViewController(push, animated: true)
+    }
 }
 
 //MARK:- TABLE VIEW -
@@ -458,6 +462,7 @@ extension dashboard: UITableViewDataSource , UITableViewDelegate {
         cell.view_more_post.addTarget(self, action: #selector(view_more_post_click_method), for: .touchUpInside)
         
         cell.btn_nut_plus.addTarget(self, action: #selector(nut_plus_click_methd), for: .touchUpInside)
+        cell.btn_cal_burn.addTarget(self, action: #selector(cal_burnt_click_method), for: .touchUpInside)
         
         return cell
         

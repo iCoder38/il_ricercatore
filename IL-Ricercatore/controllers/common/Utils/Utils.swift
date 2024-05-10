@@ -20,6 +20,16 @@ let date_fomatter_yyyy_MM_dd = "yyyy-MM-dd"
 var app_name = "IL-Recercatore"
 var appstore_URL = "https://www.google.co.in"
 
+// rapid api
+var str_rapid_api_header = "23faaa439fmsh27a2b4cf902db09p183b39jsn534baaae20b4"
+var str_rapid_api_host = "calories-burned-by-api-ninjas.p.rapidapi.com"
+
+var set_URL = "https://calories-burned-by-api-ninjas.p.rapidapi.com/v1/caloriesburned?activity="
+
+
+
+
+
 // days
 var day_sunday = 1
 var day_monday = 2
@@ -58,7 +68,15 @@ var local_notification_workout_reminder_body = "Daily task"
 var local_notification_walk_reminder_header = "Walk reminder"
 var local_notification_walk_reminder_body = "Daily task"
 
+
+var local_notification_weight_reminder_header = "Weight reminder"
+var local_notification_weight_reminder_body = "Daily task"
+
 // identifiers
+
+// weight
+var identifier_weight_reminder_remind_me_every_at = "reminder_weight_remind_me_at"
+var identifier_weight_reminder_remind_me_only1 = "reminder_weight_remind_me_only1"
 
 // walk
 var identifier_walk_reminder_remind_me_every_at = "reminder_walk_remind_me_at"
@@ -594,6 +612,15 @@ extension Date {
         
         return dateFormatter.string(from: self)
     }
+    
+    func dateStringCustommmm(_ format: String = "dd/MM, hh:mm a") -> String {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        
+        return dateFormatter.string(from: self)
+    }
+    
     func dateString2(_ format: String = "yyyy-MM-dd") -> String {
         
         let dateFormatter = DateFormatter()
