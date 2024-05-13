@@ -359,32 +359,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "04BE75FC-4825-408C-ADFD-E268D14E881B"
+            uuid = "E29DCF9E-41D3-494A-8CD6-FE8C5E13DA38"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IL-Ricercatore/controllers/screens/calories_burnout/calories_set/calories_set.swift"
+            filePath = "IL-Ricercatore/controllers/screens/calories_burnout/show_all_activity/show_all_cal_burnt_ctivity.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
-            landmarkName = "rapid_api_cal_burnt()"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "my_profile()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "20CE21D3-C848-4C64-B7B6-5708345408C3"
+            uuid = "23FB1B87-1A93-4634-BC83-66E11DEB07EA"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IL-Ricercatore/controllers/screens/calories_burnout/calories_set/calories_set.swift"
+            filePath = "IL-Ricercatore/controllers/screens/calories_burnout/show_all_activity/show_all_cal_burnt_ctivity.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "rapid_api_cal_burnt()"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "my_profile()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

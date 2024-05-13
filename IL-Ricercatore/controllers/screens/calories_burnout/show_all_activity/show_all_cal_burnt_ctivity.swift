@@ -6,10 +6,14 @@
 //
 
 import UIKit
+import SwiftyJSON
+import Alamofire
 
 class show_all_cal_burnt_ctivity: UIViewController {
 
     var get_array:Array<Any>!
+    
+    var indexx:Int!
     
     @IBOutlet weak var btn_back:UIButton! {
         didSet {
@@ -79,7 +83,195 @@ extension show_all_cal_burnt_ctivity: UITableViewDataSource , UITableViewDelegat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
+        self.indexx = indexPath.row
+        self.my_profile()
         
+    }
+    
+    @objc func my_profile() {
+        
+        let item = self.get_array[self.indexx] as? [String:Any]
+        
+        var array: [[String: Any]] = []
+        
+        // Append dictionaries to the array
+        array.append([
+            "calories_per_hour": "\(item!["calories_per_hour"]!)",
+            "duration_minutes": "\(item!["duration_minutes"]!)",
+            "name": (item!["name"] as! String),
+            "total_calories": "\(item!["total_calories"]!)",
+            "image": ""
+        ])
+        
+        // Convert array to JSON data
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: array, options: .prettyPrinted)
+            
+            // Convert JSON data to string (optional)
+            if let jsonString = String(data: jsonData, encoding: .utf8) {
+                print(jsonString)
+                
+                var parameters:Dictionary<AnyHashable, Any>!
+                
+                
+                ERProgressHud.sharedInstance.showDarkBackgroundView(withTitle: "Please wait...")
+                
+                
+                if let person = UserDefaults.standard.value(forKey: str_save_login_user_data) as? [String:Any] {
+                    print(person)
+                    
+                    let x : Int = person["userId"] as! Int
+                    let myString = String(x)
+                    
+                    if let token_id_is = UserDefaults.standard.string(forKey: str_save_last_api_token) {
+                        
+                        let headers: HTTPHeaders = [
+                            "token":String(token_id_is),
+                        ]
+                        
+                        parameters = [
+                            "action"            : "myworkoutadd",
+                            "userId"            : String(myString),
+                            "date"              :Date.getCurrentDateCustom(),
+                            "json_record_details":jsonString,
+                        ]
+                        
+                        print("parameters-------\(String(describing: parameters))")
+                        
+                        AF.request(application_base_url, method: .post, parameters: parameters as? Parameters,headers: headers).responseJSON {
+                            response in
+                            
+                            switch(response.result) {
+                            case .success(_):
+                                if let data = response.value {
+                                    
+                                    let JSON = data as! NSDictionary
+                                    print(JSON)
+                                    
+                                    var strSuccess : String!
+                                    strSuccess = JSON["status"] as? String
+                                    
+                                    if strSuccess.lowercased() == "success" {
+                                        ERProgressHud.sharedInstance.hide()
+                                        
+                                        self.view.makeToast(JSON["msg"] as? String)
+                                        
+                                    }
+                                    else {
+                                        self.refresh_token_WB()
+                                    }
+                                    
+                                }
+                                
+                            case .failure(_):
+                                print("Error message:\(String(describing: response.error))")
+                                ERProgressHud.sharedInstance.hide()
+                                self.please_check_your_internet_connection()
+                                
+                                break
+                            }
+                        }
+                    } else {
+                        self.refresh_token_WB()
+                    }
+                }
+                
+                
+                
+                
+                
+            }
+        } catch {
+            print("Error converting to JSON: \(error)")
+        }
+        
+        /*var custom = [
+         "calories_per_hour" : "\(item!["calories_per_hour"]!)",
+         "duration_minutes"  : "\(item!["duration_minutes"]!)",
+         "name"              : (item!["name"] as! String),
+         "total_calories"    : "\(item!["total_calories"]!)",
+         "image"             : ""
+         ]
+         var arr_add:NSMutableArray! = []
+         do {
+         // Convert dictionary to JSON data
+         let jsonData = try JSONSerialization.data(withJSONObject: custom, options: .prettyPrinted)
+         print(jsonData)
+         // Convert JSON data to string (optional)
+         if let jsonString = String(data: jsonData, encoding: .utf8) {
+         print(jsonString)
+         arr_add.add(jsonString)
+         print(arr_add)
+         }
+         } catch {
+         print("Error converting to JSON: \(error)")
+         }
+         
+         
+         
+         
+         let paramsJSON = JSON(custom)
+         let paramsString = paramsJSON.rawString(String.Encoding.utf8, options: JSONSerialization.WritingOptions.prettyPrinted)!
+         print(paramsString)*/
+        
+        
+        
+    }
+    
+    @objc func refresh_token_WB() {
+        
+        var parameters:Dictionary<AnyHashable, Any>!
+        
+        if let person = UserDefaults.standard.value(forKey: str_save_login_user_data) as? [String:Any] {
+            
+            let x : Int = person["userId"] as! Int
+            let myString = String(x)
+            
+            parameters = [
+                "action"    : "gettoken",
+                "userId"    : String(myString),
+                "email"     : (person["email"] as! String),
+                "role"      : "Member"
+            ]
+        }
+        
+        print("parameters-------\(String(describing: parameters))")
+        
+        AF.request(application_base_url, method: .post, parameters: parameters as? Parameters).responseJSON {
+            response in
+            
+            switch(response.result) {
+            case .success(_):
+                if let data = response.value {
+                    
+                    let JSON = data as! NSDictionary
+                    print(JSON)
+                    
+                    var strSuccess : String!
+                    strSuccess = JSON["status"] as? String
+                    
+                    if strSuccess.lowercased() == "success" {
+                        
+                        let str_token = (JSON["AuthToken"] as! String)
+                        UserDefaults.standard.set("", forKey: str_save_last_api_token)
+                        UserDefaults.standard.set(str_token, forKey: str_save_last_api_token)
+                        
+                        self.my_profile()
+                        
+                    } else {
+                        ERProgressHud.sharedInstance.hide()
+                    }
+                    
+                }
+                
+            case .failure(_):
+                print("Error message:\(String(describing: response.error))")
+                ERProgressHud.sharedInstance.hide()
+                self.please_check_your_internet_connection()
+                
+                break
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -87,3 +279,4 @@ extension show_all_cal_burnt_ctivity: UITableViewDataSource , UITableViewDelegat
     }
 
 }
+ 
