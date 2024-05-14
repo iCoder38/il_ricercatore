@@ -945,6 +945,9 @@ class meal_track_table_cell : UITableViewCell {
     @IBOutlet weak var btn_evening_snack:UIButton!
     @IBOutlet weak var btn_dinner:UIButton!
     
+    @IBOutlet weak var lbl_title:UILabel!
+    @IBOutlet weak var lbl_sub_title:UILabel!
+    @IBOutlet weak var lbl_cal:UILabel!
 }
 
 
@@ -1683,7 +1686,51 @@ class reminders_table_cell : UITableViewCell {
 class calories_burnout_table_cell : UITableViewCell {
     
     @IBOutlet weak var lbl_title:UILabel!
+    @IBOutlet weak var lbl_calories_per_hr:UILabel!
+    @IBOutlet weak var lbl_duration:UILabel!
+    @IBOutlet weak var lbl_total_calories:UILabel!
+    
+    
+    
+}
+
+// /* ************************* CALORIES BURNOUT ********************** */
+// /* ********************************************************** */
+class health_logs_table_cell : UITableViewCell {
+    
+    @IBOutlet weak var lbl_title:UILabel!
     @IBOutlet weak var lbl_sub_title:UILabel!
+}
+
+// /* ************************* CALORIES BURNOUT ********************** */
+// /* ********************************************************** */
+class edit_logs_table_cell : UITableViewCell {
+    
+    @IBOutlet weak var lbl_title:UILabel!
+    
+    @IBOutlet weak var btn_add:UIButton!
+    @IBOutlet weak var btn_minus:UIButton!
+    
+    @IBOutlet weak var view_counter:UIView! {
+        didSet {
+            view_counter.layer.cornerRadius = 8
+            view_counter.clipsToBounds = true
+            view_counter.backgroundColor = UIColor.init(red: 245.0/255.0, green: 236.0/255.0, blue: 255.0/255.0, alpha: 1)
+        }
+    }
+    
+    @IBOutlet weak var view_digits_counter:UIView! {
+        didSet {
+            view_digits_counter.layer.cornerRadius = 12
+            view_digits_counter.clipsToBounds = true
+            view_digits_counter.backgroundColor = .white
+        }
+    }
+    
+    @IBOutlet weak var lbl_counter:UILabel!
+    @IBOutlet weak var btn_save:UIButton!
+    
+    @IBOutlet weak var lbl_subtitle:UILabel!
 }
 
 // /* ************************* CALORIES BURNOUT ********************** */
@@ -1993,6 +2040,14 @@ class walk_reminders_table_cell : UITableViewCell {
 class workout_setting_table_cell : UITableViewCell {
     @IBOutlet weak var lbl_title:UILabel!
 }
+// /* ************************* SELECT MEAL ************** */
+// /* ********************************************************** */
+class select_meal_table_cell : UITableViewCell {
+    @IBOutlet weak var lbl_title:UILabel!
+    @IBOutlet weak var lbl_sub_title:UILabel!
+    @IBOutlet weak var lbl_calories:UILabel!
+}
+
 // /* ******************* DAYS WORKOUT ************************* */
 // /* ********************************************************** */
 class days_workout_table_cell : UITableViewCell {

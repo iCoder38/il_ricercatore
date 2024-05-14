@@ -96,11 +96,11 @@ extension show_all_cal_burnt_ctivity: UITableViewDataSource , UITableViewDelegat
         
         // Append dictionaries to the array
         array.append([
-            "calories_per_hour": "\(item!["calories_per_hour"]!)",
-            "duration_minutes": "\(item!["duration_minutes"]!)",
-            "name": (item!["name"] as! String),
-            "total_calories": "\(item!["total_calories"]!)",
-            "image": ""
+            "calories_per_hour" : "\(item!["calories_per_hour"]!)",
+            "duration_minutes"  : "\(item!["duration_minutes"]!)",
+            "name"              : (item!["name"] as! String),
+            "total_calories"    : "\(item!["total_calories"]!)",
+            "image"             : ""
         ])
         
         // Convert array to JSON data
@@ -113,9 +113,7 @@ extension show_all_cal_burnt_ctivity: UITableViewDataSource , UITableViewDelegat
                 
                 var parameters:Dictionary<AnyHashable, Any>!
                 
-                
                 ERProgressHud.sharedInstance.showDarkBackgroundView(withTitle: "Please wait...")
-                
                 
                 if let person = UserDefaults.standard.value(forKey: str_save_login_user_data) as? [String:Any] {
                     print(person)
@@ -176,45 +174,10 @@ extension show_all_cal_burnt_ctivity: UITableViewDataSource , UITableViewDelegat
                     }
                 }
                 
-                
-                
-                
-                
             }
         } catch {
             print("Error converting to JSON: \(error)")
         }
-        
-        /*var custom = [
-         "calories_per_hour" : "\(item!["calories_per_hour"]!)",
-         "duration_minutes"  : "\(item!["duration_minutes"]!)",
-         "name"              : (item!["name"] as! String),
-         "total_calories"    : "\(item!["total_calories"]!)",
-         "image"             : ""
-         ]
-         var arr_add:NSMutableArray! = []
-         do {
-         // Convert dictionary to JSON data
-         let jsonData = try JSONSerialization.data(withJSONObject: custom, options: .prettyPrinted)
-         print(jsonData)
-         // Convert JSON data to string (optional)
-         if let jsonString = String(data: jsonData, encoding: .utf8) {
-         print(jsonString)
-         arr_add.add(jsonString)
-         print(arr_add)
-         }
-         } catch {
-         print("Error converting to JSON: \(error)")
-         }
-         
-         
-         
-         
-         let paramsJSON = JSON(custom)
-         let paramsString = paramsJSON.rawString(String.Encoding.utf8, options: JSONSerialization.WritingOptions.prettyPrinted)!
-         print(paramsString)*/
-        
-        
         
     }
     

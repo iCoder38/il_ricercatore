@@ -46,7 +46,7 @@ class side_bar_menu: UIViewController {
         self.navigationController?.pushViewController(push, animated: true)
     }
     @objc func personalized_workout_click_method() {
-        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "personalised_workout_id")
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "health_logs_id")
         self.navigationController?.pushViewController(push, animated: true)
     }
     @objc func dashboard_click_method() {
@@ -57,6 +57,7 @@ class side_bar_menu: UIViewController {
         let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "goal_settings_id")
         self.navigationController?.pushViewController(push, animated: true)
     }
+    
     @objc func logout_click_method() {
         
         let defaults = UserDefaults.standard

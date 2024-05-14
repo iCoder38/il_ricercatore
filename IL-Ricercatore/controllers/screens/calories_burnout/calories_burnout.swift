@@ -10,14 +10,17 @@ import Foundation
 import Alamofire
 
 class calories_burnout: UIViewController {
-
+    
+    var str_value:String!
+    var arr_calories:NSMutableArray! = []
+    
     @IBOutlet weak var btn_back:UIButton! {
         didSet {
             btn_back.tintColor = .white
             btn_back.addTarget(self, action: #selector(back_click_method), for: .touchUpInside)
         }
     }
-   
+    
     @IBOutlet weak var view_navigation_title:UILabel! {
         didSet {
             view_navigation_title.text = "CAL BURNT"
@@ -29,8 +32,7 @@ class calories_burnout: UIViewController {
         didSet {
             tbleView.tableFooterView = UIView.init(frame: CGRect(origin: .zero, size: .zero))
             tbleView.backgroundColor = .white
-            tbleView.delegate = self
-            tbleView.dataSource = self
+            
             
         }
     }
@@ -52,6 +54,7 @@ class calories_burnout: UIViewController {
         
         self.btn_add_more.addTarget(self, action: #selector(add_more_click_method), for: .touchUpInside)
         
+        self.list_WB()
         // self.rapid_api_cal_burnt()
     }
     
@@ -60,11 +63,152 @@ class calories_burnout: UIViewController {
         self.navigationController?.pushViewController(push, animated: true)
     }
     
+    @objc func list_WB() {
+        
+        var parameters:Dictionary<AnyHashable, Any>!
+        
+        ERProgressHud.sharedInstance.showDarkBackgroundView(withTitle: "Please wait...")
+        
+        if let person = UserDefaults.standard.value(forKey: str_save_login_user_data) as? [String:Any] {
+            print(person)
+            
+            let x : Int = person["userId"] as! Int
+            let myString = String(x)
+            
+            if let token_id_is = UserDefaults.standard.string(forKey: str_save_last_api_token) {
+                
+                let headers: HTTPHeaders = [
+                    "token":String(token_id_is),
+                ]
+                //            action: myworkoutlist
+                //            userId:
+                //            startDate:
+                //            enddate:
+                parameters = [
+                    "action"    : "myworkoutlist",
+                    "userId"    : String(myString),
+                    "startDate" : "2024-05-13",
+                    "enddate"   : "2024-05-13",
+                    
+                ]
+                
+                print("parameters-------\(String(describing: parameters))")
+                
+                AF.request(application_base_url, method: .post, parameters: parameters as? Parameters,headers: headers).responseJSON {
+                    response in
+                    
+                    switch(response.result) {
+                    case .success(_):
+                        if let data = response.value {
+                            
+                            let JSON = data as! NSDictionary
+                            print(JSON)
+                            
+                            var strSuccess : String!
+                            strSuccess = JSON["status"] as? String
+                            
+                            if strSuccess.lowercased() == "success" {
+                                ERProgressHud.sharedInstance.hide()
+                                
+                                var ar : NSArray!
+                                ar = (JSON["data"] as! Array<Any>) as NSArray
+                                self.arr_calories.addObjects(from: ar as! [Any])
+                                print(self.arr_calories.count)
+                                
+                                self.tbleView.delegate = self
+                                self.tbleView.dataSource = self
+                                self.tbleView.reloadData()
+                                
+                                // self.view.makeToast(JSON["msg"] as? String)
+                                
+                            }
+                            else {
+                                self.refresh_token_WB_list()
+                            }
+                            
+                        }
+                        
+                    case .failure(_):
+                        print("Error message:\(String(describing: response.error))")
+                        ERProgressHud.sharedInstance.hide()
+                        self.please_check_your_internet_connection()
+                        
+                        break
+                    }
+                }
+            } else {
+                self.refresh_token_WB_list()
+            }
+        }
+        
+    }
     
-    @objc func my_profile() {
+    @objc func refresh_token_WB_list() {
         
-        // Convert array to JSON data
+        var parameters:Dictionary<AnyHashable, Any>!
         
+        if let person = UserDefaults.standard.value(forKey: str_save_login_user_data) as? [String:Any] {
+            
+            let x : Int = person["userId"] as! Int
+            let myString = String(x)
+            
+            parameters = [
+                "action"    : "gettoken",
+                "userId"    : String(myString),
+                "email"     : (person["email"] as! String),
+                "role"      : "Member"
+            ]
+        }
+        
+        print("parameters-------\(String(describing: parameters))")
+        
+        AF.request(application_base_url, method: .post, parameters: parameters as? Parameters).responseJSON {
+            response in
+            
+            switch(response.result) {
+            case .success(_):
+                if let data = response.value {
+                    
+                    let JSON = data as! NSDictionary
+                    print(JSON)
+                    
+                    var strSuccess : String!
+                    strSuccess = JSON["status"] as? String
+                    
+                    if strSuccess.lowercased() == "success" {
+                        
+                        let str_token = (JSON["AuthToken"] as! String)
+                        UserDefaults.standard.set("", forKey: str_save_last_api_token)
+                        UserDefaults.standard.set(str_token, forKey: str_save_last_api_token)
+                        
+                        self.list_WB()
+                        
+                    } else {
+                        ERProgressHud.sharedInstance.hide()
+                    }
+                    
+                }
+                
+            case .failure(_):
+                print("Error message:\(String(describing: response.error))")
+                ERProgressHud.sharedInstance.hide()
+                self.please_check_your_internet_connection()
+                
+                break
+            }
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @objc func delete_workout() {
         
         var parameters:Dictionary<AnyHashable, Any>!
         
@@ -130,7 +274,7 @@ class calories_burnout: UIViewController {
                 self.refresh_token_WB_delete()
             }
         }
-         
+        
     }
     
     @objc func refresh_token_WB_delete() {
@@ -171,7 +315,7 @@ class calories_burnout: UIViewController {
                         UserDefaults.standard.set("", forKey: str_save_last_api_token)
                         UserDefaults.standard.set(str_token, forKey: str_save_last_api_token)
                         
-                        self.my_profile()
+                        self.delete_workout()
                         
                     } else {
                         ERProgressHud.sharedInstance.hide()
@@ -189,6 +333,8 @@ class calories_burnout: UIViewController {
         }
     }
     
+    
+    
 }
 
 //MARK:- TABLE VIEW -
@@ -198,14 +344,25 @@ extension calories_burnout: UITableViewDataSource , UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return self.arr_calories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell:calories_burnout_table_cell = tableView.dequeueReusableCell(withIdentifier: "calories_burnout_table_cell") as! calories_burnout_table_cell
         
+        let item = self.arr_calories[indexPath.row] as? [String:Any]
         
+        var ar : NSArray!
+        ar = (item!["json_record_details"] as! Array<Any>) as NSArray
+        print(ar as Any)
+        
+        let item2 = ar[indexPath.row] as? [String:Any]
+        print(item2 as Any)
+        cell.lbl_title.text = "\(item2!["name"]!)"
+        cell.lbl_calories_per_hr.text = "Calories per hour: \(item2!["calories_per_hour"]!)"
+        cell.lbl_duration.text = "Duration: \(item2!["duration_minutes"]!)"
+        cell.lbl_total_calories.text = "Total Calories: \(item2!["total_calories"]!)"
         cell.backgroundColor = .clear
         
         let backgroundView = UIView()
@@ -223,7 +380,7 @@ extension calories_burnout: UITableViewDataSource , UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return UITableView.automaticDimension
     }
 
 }

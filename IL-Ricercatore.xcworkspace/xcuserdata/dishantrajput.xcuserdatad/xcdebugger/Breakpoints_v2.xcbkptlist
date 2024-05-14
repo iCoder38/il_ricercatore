@@ -119,22 +119,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D3B55B21-F573-425D-BD90-1FEC8A00DEE1"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IL-Ricercatore/controllers/screens/meal_track/meal_track.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "214"
-            endingLineNumber = "214"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "D4463DC8-DC01-40AF-AEB3-FAEC83E17889"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -359,32 +343,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E29DCF9E-41D3-494A-8CD6-FE8C5E13DA38"
+            uuid = "7A368152-2F8A-4DBD-B687-D3A6BA8262AA"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IL-Ricercatore/controllers/screens/calories_burnout/show_all_activity/show_all_cal_burnt_ctivity.swift"
+            filePath = "IL-Ricercatore/controllers/screens/health_logs/edit_logs/edit_logs.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "my_profile()"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "my_profile(loader:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "23FB1B87-1A93-4634-BC83-66E11DEB07EA"
-            shouldBeEnabled = "Yes"
+            uuid = "163AE1EB-E67F-487B-8957-21249D29851D"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IL-Ricercatore/controllers/screens/calories_burnout/show_all_activity/show_all_cal_burnt_ctivity.swift"
+            filePath = "IL-Ricercatore/controllers/screens/meal_track/meal_track.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
-            landmarkName = "my_profile()"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "meal_track_record_WB(loader:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

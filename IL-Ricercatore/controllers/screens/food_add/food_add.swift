@@ -9,21 +9,31 @@ import UIKit
 
 class food_add: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    @IBOutlet weak var btn_back:UIButton! {
+        didSet {
+            btn_back.tintColor = .white
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBOutlet weak var view_navigation_title:UILabel! {
+        didSet {
+            view_navigation_title.text = "FAQ(s)"
+            view_navigation_title.textColor = .white
+        }
     }
-    */
-
+    
+    @IBOutlet weak var tbleView: UITableView! {
+        didSet {
+            tbleView.tableFooterView = UIView.init(frame: CGRect(origin: .zero, size: .zero))
+            tbleView.backgroundColor = .white
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        // self.btn_back.addTarget(self, action: #selector(btn_back_click), for: .touchUpInside)
+        
+    }
 }

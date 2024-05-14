@@ -10,8 +10,17 @@ import Alamofire
 import SDWebImage
 
 class meal_track: UIViewController {
-
+    
     var arr_meal_track:NSMutableArray! = []
+    var arr_all_mutable_array:NSMutableArray! = []
+    
+    // Data for sections and rows
+    let sections = ["Breakfast", "Morning Snack","Lunch","Evening Snack","Dinner"]
+    var section1Data:NSMutableArray! = []// = ["Row 1", "Row 2", "Row 3"]
+    let section2Data:NSMutableArray! = []// = ["Row A", "Row B"]
+    let section3Data:NSMutableArray! = []//
+    let section4Data:NSMutableArray! = []//
+    let section5Data:NSMutableArray! = []//
     
     @IBOutlet weak var lbl_navigation_title:UILabel! {
         didSet {
@@ -26,7 +35,12 @@ class meal_track: UIViewController {
             btn_back.addTarget(self, action: #selector(back_click_method), for: .touchUpInside)
         }
     }
-    
+    @IBOutlet weak var btn_add:UIButton! {
+        didSet {
+            btn_add.isHidden = true
+            btn_add.addTarget(self, action: #selector(add_click_method), for: .touchUpInside)
+        }
+    }
     @IBOutlet weak var tble_view:UITableView! {
         didSet {
             
@@ -38,24 +52,30 @@ class meal_track: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        self.tble_view.delegate = self
-        self.tble_view.dataSource = self
-        self.tble_view.reloadData()
+          
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         self.meal_track_record_WB(loader: "yes")
     }
     
+    @objc func add_click_method() {
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "select_meal_id") as? select_meal
+        push!.array = section1Data as! [[String : Any]]
+        push?.getData = section1Data
+        self.navigationController?.pushViewController(push!, animated: true)
+    }
     @objc func meal_track_record_WB(loader:String) {
-        let indexPath = IndexPath.init(row: 0, section: 0)
-        let cell = self.tble_view.cellForRow(at: indexPath) as! meal_track_table_cell
+        // let indexPath = IndexPath.init(row: 0, section: 0)
+        // let cell = self.tble_view.cellForRow(at: indexPath) as! meal_track_table_cell
         
         var parameters:Dictionary<AnyHashable, Any>!
         
         if (loader == "yes") {
             ERProgressHud.sharedInstance.showDarkBackgroundView(withTitle: "Please wait...")
         }
-         
+        
         if let person = UserDefaults.standard.value(forKey: str_save_login_user_data) as? [String:Any] {
             print(person)
             
@@ -71,13 +91,13 @@ class meal_track: UIViewController {
                 parameters = [
                     "action"        : "foodlist",
                     "userId"        : String(myString),
-                    "startDate"     : String(cell.lbl_time.text!),
-                    "enddate"       : String(cell.lbl_time.text!),
+                    "startDate"     : Date.getCurrentDateCustom(),
+                    "enddate"       : Date.getCurrentDateCustom(),
                 ]
                 
                 print("parameters-------\(String(describing: parameters))")
                 
-                AF.request(application_base_url, method: .post, parameters: parameters as? Parameters,headers: headers).responseJSON {
+                AF.request(application_base_url, method: .post, parameters: parameters as? Parameters,headers: headers).responseJSON { [self]
                     response in
                     
                     switch(response.result) {
@@ -93,9 +113,176 @@ class meal_track: UIViewController {
                             if strSuccess.lowercased() == "success" {
                                 ERProgressHud.sharedInstance.hide()
                                 
+                                self.arr_meal_track.removeAllObjects()
+                                self.section1Data.removeAllObjects()
+                                self.section2Data.removeAllObjects()
+                                self.section3Data.removeAllObjects()
+                                self.section4Data.removeAllObjects()
+                                self.section5Data.removeAllObjects()
                                 var ar : NSArray!
                                 ar = (JSON["data"] as! Array<Any>) as NSArray
                                 self.arr_meal_track.addObjects(from: ar as! [Any])
+                                
+                                // print(self.arr_meal_track as Any)
+                                
+                                var ar2 : NSArray!
+                                var ar_morning_snack : NSArray!
+                                var ar_lunch : NSArray!
+                                var ar_evening_snack : NSArray!
+                                var ar_dinner : NSArray!
+                                
+                                
+                                for indexx in 0..<self.arr_meal_track.count {
+                                    print(indexx as Any)
+                                    let item = self.arr_meal_track[indexx] as? [String:Any]
+                                    
+                                    
+                                    ar2 = (item!["breakfast_json"] as! Array<Any>) as NSArray
+                                    print(ar2 as Any)
+                                    // one more loop for morning
+                                    for morning_indexx in 0..<ar2.count {
+                                        let item = ar2[morning_indexx] as? [String:Any]
+                                        // print(morning_indexx as Any)
+                                        
+                                        
+                                        let custom = [
+                                            
+                                            "calories":"\(item!["calories"]!)",
+                                            "carbohydrates_total_g":"\(item!["carbohydrates_total_g"]!)",
+                                            "cholesterol_mg":"\(item!["cholesterol_mg"]!)",
+                                            "fat_saturated_g":"\(item!["fat_saturated_g"]!)",
+                                            "fat_total_g":"\(item!["fat_total_g"]!)",
+                                            "fiber_g":"\(item!["fiber_g"]!)",
+                                            "name":"\(item!["name"]!)",
+                                            "potassium_mg":"\(item!["potassium_mg"]!)",
+                                            "protein_g":"\(item!["protein_g"]!)",
+                                            "serving_size_g":"\(item!["serving_size_g"]!)",
+                                            "sodium_mg":"\(item!["sodium_mg"]!)",
+                                            "sugar_g":"\(item!["sugar_g"]!)",
+                                        ]
+                                        section1Data.add(custom)//append(contentsOf: custom)
+                                        
+                                        
+                                    }
+                                    
+                                    // loop for morning snack
+                                    ar_morning_snack = (item!["morning_snack_json"] as! Array<Any>) as NSArray
+                                    print(ar_morning_snack as Any)
+                                    for morning_snack_indexx in 0..<ar_morning_snack.count {
+                                        let item = ar_morning_snack[morning_snack_indexx] as? [String:Any]
+                                        // print(morning_indexx as Any)
+                                     
+                                        
+                                        var custom = [
+                                            
+                                            "calories":"\(item!["calories"]!)",
+                                            "carbohydrates_total_g":"\(item!["carbohydrates_total_g"]!)",
+                                            "cholesterol_mg":"\(item!["cholesterol_mg"]!)",
+                                            "fat_saturated_g":"\(item!["fat_saturated_g"]!)",
+                                            "fat_total_g":"\(item!["fat_total_g"]!)",
+                                            "fiber_g":"\(item!["fiber_g"]!)",
+                                            "name":"\(item!["name"]!)",
+                                            "potassium_mg":"\(item!["potassium_mg"]!)",
+                                            "protein_g":"\(item!["protein_g"]!)",
+                                            "serving_size_g":"\(item!["serving_size_g"]!)",
+                                            "sodium_mg":"\(item!["sodium_mg"]!)",
+                                            "sugar_g":"\(item!["sugar_g"]!)",
+                                        ]
+                                        
+                                        section2Data.add(custom)
+                                        
+                                    }
+                                    // loop for lunch
+                                    ar_lunch = (item!["lunch_json"] as! Array<Any>) as NSArray
+                                    print(ar_lunch as Any)
+                                    for lunch_indexx in 0..<ar_lunch.count {
+                                        let item = ar_lunch[lunch_indexx] as? [String:Any]
+                                        // print(morning_indexx as Any)
+                                     
+                                        
+                                        var custom = [
+                                            
+                                            "calories":"\(item!["calories"]!)",
+                                            "carbohydrates_total_g":"\(item!["carbohydrates_total_g"]!)",
+                                            "cholesterol_mg":"\(item!["cholesterol_mg"]!)",
+                                            "fat_saturated_g":"\(item!["fat_saturated_g"]!)",
+                                            "fat_total_g":"\(item!["fat_total_g"]!)",
+                                            "fiber_g":"\(item!["fiber_g"]!)",
+                                            "name":"\(item!["name"]!)",
+                                            "potassium_mg":"\(item!["potassium_mg"]!)",
+                                            "protein_g":"\(item!["protein_g"]!)",
+                                            "serving_size_g":"\(item!["serving_size_g"]!)",
+                                            "sodium_mg":"\(item!["sodium_mg"]!)",
+                                            "sugar_g":"\(item!["sugar_g"]!)",
+                                        ]
+                                        
+                                        section3Data.add(custom)
+                                        
+                                    }
+                                    
+                                    // loop for evening snack
+                                    ar_evening_snack = (item!["evening_snack_json"] as! Array<Any>) as NSArray
+                                    print(ar_evening_snack as Any)
+                                    for evening_snack_indexx in 0..<ar_evening_snack.count {
+                                        let item = ar_evening_snack[evening_snack_indexx] as? [String:Any]
+                                        // print(morning_indexx as Any)
+                                        
+                                        
+                                        var custom = [
+                                            
+                                            "calories":"\(item!["calories"]!)",
+                                            "carbohydrates_total_g":"\(item!["carbohydrates_total_g"]!)",
+                                            "cholesterol_mg":"\(item!["cholesterol_mg"]!)",
+                                            "fat_saturated_g":"\(item!["fat_saturated_g"]!)",
+                                            "fat_total_g":"\(item!["fat_total_g"]!)",
+                                            "fiber_g":"\(item!["fiber_g"]!)",
+                                            "name":"\(item!["name"]!)",
+                                            "potassium_mg":"\(item!["potassium_mg"]!)",
+                                            "protein_g":"\(item!["protein_g"]!)",
+                                            "serving_size_g":"\(item!["serving_size_g"]!)",
+                                            "sodium_mg":"\(item!["sodium_mg"]!)",
+                                            "sugar_g":"\(item!["sugar_g"]!)",
+                                        ]
+                                        
+                                        section4Data.add(custom)
+                                        
+                                    }
+                                    
+                                    // loop for dinner
+                                    ar_dinner = (item!["dinner_json"] as! Array<Any>) as NSArray
+                                    print(ar_dinner as Any)
+                                    for dinner_indexx in 0..<ar_dinner.count {
+                                        let item = ar_dinner[dinner_indexx] as? [String:Any]
+                                        // print(morning_indexx as Any)
+                                       
+                                        
+                                        var custom = [
+                                            
+                                            "calories":"\(item!["calories"]!)",
+                                            "carbohydrates_total_g":"\(item!["carbohydrates_total_g"]!)",
+                                            "cholesterol_mg":"\(item!["cholesterol_mg"]!)",
+                                            "fat_saturated_g":"\(item!["fat_saturated_g"]!)",
+                                            "fat_total_g":"\(item!["fat_total_g"]!)",
+                                            "fiber_g":"\(item!["fiber_g"]!)",
+                                            "name":"\(item!["name"]!)",
+                                            "potassium_mg":"\(item!["potassium_mg"]!)",
+                                            "protein_g":"\(item!["protein_g"]!)",
+                                            "serving_size_g":"\(item!["serving_size_g"]!)",
+                                            "sodium_mg":"\(item!["sodium_mg"]!)",
+                                            "sugar_g":"\(item!["sugar_g"]!)",
+                                        ]
+                                        
+                                        section5Data.add(custom)
+                                        
+                                    }
+                                    
+                                }
+                                
+                                
+                                // print(arr_all_mutable_array as Any)
+                                
+                                
+                                
                                 
                                 self.tble_view.delegate = self
                                 self.tble_view.dataSource = self
@@ -194,12 +381,86 @@ class meal_track: UIViewController {
 //MARK:- TABLE VIEW -
 extension meal_track: UITableViewDataSource , UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return sections.count
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections[section]
     }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = CustomHeaderView()
+        print(section)
+        
+        // Set the title of the button based on the section
+            switch section {
+            case 0:
+                headerView.button.setTitle("    Breakfast", for: .normal)
+            case 1:
+                headerView.button.setTitle("    Morning Snack", for: .normal)
+            case 2:
+                headerView.button.setTitle("    Lunch", for: .normal)
+            case 3:
+                headerView.button.setTitle("    Evening Snack", for: .normal)
+            case 4:
+                headerView.button.setTitle("    Dinner", for: .normal)
+            // Add cases for other sections if needed
+            default:
+                break
+            }
+        
+        headerView.buttonr.tag = section
+        headerView.buttonr.addTarget(self, action: #selector(button_r_click_method), for: .touchUpInside)
+        return headerView
+    }
+    
+    @objc func button_r_click_method(_ sender:UIButton) {
+        // print(sender.tag)
+        
+        
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "select_meal_id") as? select_meal
+        push!.array = section1Data as! [[String : Any]]
+        
+        if (sender.tag == 0) {
+            push!.str_param_key = "breakfast_json"
+            push?.getData = section1Data
+        } else if (sender.tag == 1) {
+            push!.str_param_key = "morning_snack_json"
+            push?.getData = section2Data
+        } else if (sender.tag == 2) {
+            push!.str_param_key = "lunch_json"
+            push?.getData = section3Data
+        } else if (sender.tag == 3) {
+            push!.str_param_key = "evening_snack_json"
+            push?.getData = section4Data
+        } else if (sender.tag == 4) {
+            push!.str_param_key = "dinner_json"
+            push?.getData = section5Data
+        } else {
+            push!.str_param_key = "breakfast_json"
+            push?.getData = section1Data
+        }
+        self.navigationController?.pushViewController(push!, animated: true)
+        
+        
+    }
+    
+ 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            switch section {
+            case 0:
+                return section1Data.count
+            case 1:
+                return section2Data.count
+            case 2:
+                return section3Data.count
+            case 3:
+                return section4Data.count
+            case 4:
+                return section5Data.count
+            default:
+                return 0
+            }
+        }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -211,81 +472,38 @@ extension meal_track: UITableViewDataSource , UITableViewDelegate {
         backgroundView.backgroundColor = .clear
         cell.selectedBackgroundView = backgroundView
         
-        print(self.arr_meal_track as Any)
+        cell.backgroundColor = light_pink_color
         
-        cell.lbl_time.text = Date.getCurrentDateCustom()
-        
-        cell.btn_date.addTarget(self, action: #selector(date_click_method), for: .touchUpInside)
-        
-        /*if let person = UserDefaults.standard.value(forKey: str_save_login_user_data) as? [String:Any] {
-            print(person)
-            
-            cell.lbl_name.text = (person["fullName"] as! String)
-            cell.lbl_email.text = (person["email"] as! String)
-            
-            cell.lbl_weight.text = "Current : \(person["current_wight"]!) \(person["current_wight_measurement"]!)"
-            cell.lbl_weight_status.text = "Target : \(person["target_wight"]!) \(person["target_wight_measurement"]!)"
+        switch indexPath.section {
+        case 0:
+            let item = self.section1Data[indexPath.row] as? [String:Any]
+            cell.lbl_title.text = "\(item!["name"]!)"
+            cell.lbl_sub_title.text = "\(item!["serving_size_g"]!) g"
+            cell.lbl_cal.text = "Calories: \(item!["calories"]!)"
+        case 1:
+            let item = self.section2Data[indexPath.row] as? [String:Any]
+            cell.lbl_title.text = "\(item!["name"]!)"
+            cell.lbl_sub_title.text = "\(item!["serving_size_g"]!) g"
+            cell.lbl_cal.text = "Calories: \(item!["calories"]!)"
+        case 2:
+            let item = self.section3Data[indexPath.row] as? [String:Any]
+            cell.lbl_title.text = "\(item!["name"]!)"
+            cell.lbl_sub_title.text = "\(item!["serving_size_g"]!) g"
+            cell.lbl_cal.text = "Calories: \(item!["calories"]!)"
+        case 3:
+            let item = self.section4Data[indexPath.row] as? [String:Any]
+            cell.lbl_title.text = "\(item!["name"]!)"
+            cell.lbl_sub_title.text = "\(item!["serving_size_g"]!) g"
+            cell.lbl_cal.text = "Calories: \(item!["calories"]!)"
+        case 4:
+            let item = self.section5Data[indexPath.row] as? [String:Any]
+            cell.lbl_title.text = "\(item!["name"]!)"
+            cell.lbl_sub_title.text = "\(item!["serving_size_g"]!) g"
+            cell.lbl_cal.text = "Calories: \(item!["calories"]!)"
+        default:
+            break
         }
         
-        cell.lbl_protein.text = "Protein \(self.dict_dashboard["protine"]!) %"
-        
-        let result: Double = Double("\(self.dict_dashboard["protine"]!)")! / 100
-        print(result as Any)
-        cell.progress_view_protein.setProgress(Float(result), animated: true)
-
-        if (result > 0.5) {
-            cell.progress_view_protein.tintColor = .systemBlue
-        } else {
-            cell.progress_view_protein.tintColor = .systemRed
-        }
-        
-        cell.lbl_fat.text = "Fat \(self.dict_dashboard["fats"]!) %"
-        let result_fats: Double = Double("\(self.dict_dashboard["fats"]!)")! / 100
-        print(result_fats as Any)
-        cell.progress_view_fats.setProgress(Float(result_fats), animated: true)
-
-        if (result_fats > 0.5) {
-            cell.progress_view_fats.tintColor = .systemBlue
-        } else {
-            cell.progress_view_fats.tintColor = .systemRed
-        }
-        
-        cell.lbl_curbs.text = "Curbs \(self.dict_dashboard["carbs"]!) %"
-        let result_curbs: Double = Double("\(self.dict_dashboard["carbs"]!)")! / 100
-        print(result_curbs as Any)
-        cell.progress_view_curbs.setProgress(Float(result_curbs), animated: true)
-
-        if (result_curbs > 0.5) {
-            cell.progress_view_curbs.tintColor = .systemBlue
-        } else {
-            cell.progress_view_curbs.tintColor = .systemRed
-        }
-        
-        cell.lbl_fiber.text = "Fiber \(self.dict_dashboard["fiber"]!) %"
-        let result_fiber: Double = Double("\(self.dict_dashboard["fiber"]!)")! / 100
-        print(result_fiber as Any)
-        cell.progress_view_fiber.setProgress(Float(result_fiber), animated: true)
-        
-        if (result_fiber > 0.5) {
-            cell.progress_view_fiber.tintColor = .systemBlue
-        } else {
-            cell.progress_view_fiber.tintColor = .systemRed
-        }
-        
-        
-        // water intake
-        cell.btn_track.addTarget(self, action: #selector(water_track_click_method), for: .touchUpInside)
-        
-        // cell.btn_continue.addTarget(self, action: #selector(complete_profile_click_method), for: .touchUpInside)
-        
-        cell.btn_sleep.addTarget(self, action: #selector(sleep_click_method), for: .touchUpInside)
-        cell.btn_steps.addTarget(self, action: #selector(steps_click_method), for: .touchUpInside)
-        cell.btn_heart.addTarget(self, action: #selector(heart_click_method), for: .touchUpInside)
-        cell.btn_weight.addTarget(self, action: #selector(weight_click_method), for: .touchUpInside)
-        cell.btn_blood_pressure.addTarget(self, action: #selector(blood_pressure_click_method), for: .touchUpInside)
-        
-        cell.view_more_post.addTarget(self, action: #selector(view_more_post_click_method), for: .touchUpInside)
-        */
         return cell
         
     }
@@ -296,7 +514,50 @@ extension meal_track: UITableViewDataSource , UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 930
+        return 74
     }
 
+}
+class CustomHeaderView: UIView {
+    
+    let button: UIButton = {
+        let button = UIButton()
+        button.setTitle(" Button", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.titleLabel?.font = UIFont(name: "Avenir Next Demi Bold", size: 22)
+        button.contentHorizontalAlignment = .left;
+        return button
+    }()
+    
+    let buttonr: UIButton = {
+        let buttonr = UIButton()
+        buttonr.setTitle("", for: .normal)
+        buttonr.setTitleColor(.black, for: .normal)
+        buttonr.translatesAutoresizingMaskIntoConstraints = false
+        buttonr.titleLabel?.font = UIFont(name: "Avenir Next Demi Bold", size: 22)
+        buttonr.setImage(UIImage(named: "plus"), for: .normal)
+        buttonr.contentHorizontalAlignment = .right;
+        return buttonr
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        addSubview(button)
+        addSubview(buttonr)
+        
+        NSLayoutConstraint.activate([
+            button.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0), // Anchor to leading edge of CustomHeaderView
+            button.topAnchor.constraint(equalTo: topAnchor, constant: -6), // Anchor to top edge of CustomHeaderView
+            
+            buttonr.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10), // Anchor to trailing edge of CustomHeaderView
+            buttonr.topAnchor.constraint(equalTo: topAnchor, constant: -6),
+            
+        ])
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
