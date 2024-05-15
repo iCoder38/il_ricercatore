@@ -955,6 +955,9 @@ class meal_track_table_cell : UITableViewCell {
 // /* ********************************************************** */
 class dashboard_table_cell : UITableViewCell {
     
+    @IBOutlet weak var lbl_cal_eaten:UILabel!
+    
+    @IBOutlet weak var btn_edit:UIButton!
     @IBOutlet weak var view_profile_name:UIView! {
         didSet {
             view_profile_name.layer.cornerRadius = 12
@@ -2040,6 +2043,64 @@ class walk_reminders_table_cell : UITableViewCell {
 class workout_setting_table_cell : UITableViewCell {
     @IBOutlet weak var lbl_title:UILabel!
 }
+
+// /* ************************* EDIT PROFILE ************** */
+// /* ********************************************************** */
+class edit_profile_table_cell : UITableViewCell {
+    
+    @IBOutlet weak var img_profile:UIImageView! {
+        didSet {
+            img_profile.layer.cornerRadius = 45
+            img_profile.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var txt_name:UITextField! {
+        didSet {
+            txt_name.layer.cornerRadius = 8
+            txt_name.clipsToBounds = true
+            txt_name.backgroundColor = .clear
+            txt_name.placeholder = "Name"
+            txt_name.setLeftPaddingPoints(20)
+            txt_name.backgroundColor = UIColor.init(red: 243.0/255.0, green: 243.0/255.0, blue: 243.0/255.0, alpha: 1)
+        }
+    }
+    
+    @IBOutlet weak var txt_email:UITextField! {
+        didSet {
+            txt_email.layer.cornerRadius = 8
+            txt_email.clipsToBounds = true
+            txt_email.backgroundColor = .clear
+            txt_email.placeholder = "Email"
+            txt_email.setLeftPaddingPoints(20)
+            txt_email.isUserInteractionEnabled = false
+            txt_email.backgroundColor = UIColor.init(red: 243.0/255.0, green: 243.0/255.0, blue: 243.0/255.0, alpha: 1)
+        }
+    }
+    
+    @IBOutlet weak var txt_phone:UITextField! {
+        didSet {
+            txt_phone.layer.cornerRadius = 8
+            txt_phone.clipsToBounds = true
+            txt_phone.backgroundColor = .clear
+            txt_phone.placeholder = "Phone"
+            txt_phone.setLeftPaddingPoints(20)
+            txt_phone.backgroundColor = UIColor.init(red: 243.0/255.0, green: 243.0/255.0, blue: 243.0/255.0, alpha: 1)
+        }
+    }
+    
+    @IBOutlet weak var txt_address:UITextField! {
+        didSet {
+            txt_address.layer.cornerRadius = 8
+            txt_address.clipsToBounds = true
+            txt_address.backgroundColor = .clear
+            txt_address.placeholder = "Address"
+            txt_address.setLeftPaddingPoints(20)
+            txt_address.backgroundColor = UIColor.init(red: 243.0/255.0, green: 243.0/255.0, blue: 243.0/255.0, alpha: 1)
+        }
+    }
+    @IBOutlet weak var btn_update:UIButton!
+}
+
 // /* ************************* SELECT MEAL ************** */
 // /* ********************************************************** */
 class select_meal_table_cell : UITableViewCell {

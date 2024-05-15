@@ -173,7 +173,7 @@ class meal_track: UIViewController {
                                         // print(morning_indexx as Any)
                                      
                                         
-                                        var custom = [
+                                        let custom = [
                                             
                                             "calories":"\(item!["calories"]!)",
                                             "carbohydrates_total_g":"\(item!["carbohydrates_total_g"]!)",
@@ -200,7 +200,7 @@ class meal_track: UIViewController {
                                         // print(morning_indexx as Any)
                                      
                                         
-                                        var custom = [
+                                        let custom = [
                                             
                                             "calories":"\(item!["calories"]!)",
                                             "carbohydrates_total_g":"\(item!["carbohydrates_total_g"]!)",
@@ -228,7 +228,7 @@ class meal_track: UIViewController {
                                         // print(morning_indexx as Any)
                                         
                                         
-                                        var custom = [
+                                        let custom = [
                                             
                                             "calories":"\(item!["calories"]!)",
                                             "carbohydrates_total_g":"\(item!["carbohydrates_total_g"]!)",
@@ -256,7 +256,7 @@ class meal_track: UIViewController {
                                         // print(morning_indexx as Any)
                                        
                                         
-                                        var custom = [
+                                        let custom = [
                                             
                                             "calories":"\(item!["calories"]!)",
                                             "carbohydrates_total_g":"\(item!["carbohydrates_total_g"]!)",

@@ -23,6 +23,7 @@ var appstore_URL = "https://www.google.co.in"
 // rapid api
 var str_rapid_api_header = "23faaa439fmsh27a2b4cf902db09p183b39jsn534baaae20b4"
 var str_rapid_api_host = "calories-burned-by-api-ninjas.p.rapidapi.com"
+var str_rapid_api_host_for_level = "fitness-calculator.p.rapidapi.com"
 
 var set_URL = "https://calories-burned-by-api-ninjas.p.rapidapi.com/v1/caloriesburned?activity="
 var search_food_query_URL = "https://api.api-ninjas.com/v1/nutrition?query="

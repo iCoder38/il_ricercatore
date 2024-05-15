@@ -8,10 +8,16 @@
 import UIKit
 import Alamofire
 import UserNotifications
+import SDWebImage
 
 class dashboard: UIViewController, UNUserNotificationCenterDelegate {
 
     var dict_dashboard:NSDictionary!
+    
+    var str_selected_level:String! = ""
+    var str_level:String!
+    
+    var str_total_calories_id:String!
     
     @IBOutlet weak var btn_menu:UIButton!
     
@@ -39,25 +45,20 @@ class dashboard: UIViewController, UNUserNotificationCenterDelegate {
         self.tble_view.separatorColor = .clear
         self.btn_menu.addTarget(self, action: #selector(menu_click_method), for: .touchUpInside)
         
-        // self.my_profile(loader: "yes")
-        // self.local_timer()
-        /*requestNotificationAuthorization()
-        UNUserNotificationCenter.current().delegate = self
-        NotificationCenter.default.addObserver(self, selector: #selector(appDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
-        // scheduleNotification()
         
-        // set reminder evey hour
-        // scheduleHourlyNotificationsBetween(startTime: 9, endTime: 17)*/
-        
-        self.my_profile(loader: "yes")
-        
-        /*let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "water_reminders_id")
-        self.navigationController?.pushViewController(push, animated: true)*/
-        
-        //  self.getAllReminders()
-        //self.disableReminder()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.my_profile(loader: "no")
+        // self.general()
+        
+    }
+    
+    @objc func edit_click_method() {
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "edit_profile_id")
+        self.navigationController?.pushViewController(push, animated: true)
+    }
     func getAllReminders() {
         UNUserNotificationCenter.current().getPendingNotificationRequests { (requests) in
             for request in requests {
@@ -185,10 +186,8 @@ class dashboard: UIViewController, UNUserNotificationCenterDelegate {
             center.add(request)
         }
     }
-         
     
     
-                                                        
     @objc func my_profile(loader:String) {
 //        let indexPath = IndexPath.init(row: 0, section: 0)
 //        let cell = self.tble_view.cellForRow(at: indexPath) as! complete_profile_three_table_cell
@@ -242,9 +241,29 @@ class dashboard: UIViewController, UNUserNotificationCenterDelegate {
                                 
                                 self.dict_dashboard = dict as NSDictionary
                                 
-                                self.tble_view.delegate = self
-                                self.tble_view.dataSource = self
-                                self.tble_view.reloadData()
+                                print(self.dict_dashboard["home_page_category"] as! String)
+                                
+                                 let arr = (self.dict_dashboard["home_page_category"] as! String).components(separatedBy: ",")
+                                 print(arr as Any)
+                               
+                                if arr.contains("3") && arr.contains("4") {
+                                    // print("Both 3 and 4 are present in the array.")
+                                    self.str_selected_level = (self.dict_dashboard["daily_activity"] as! String)
+                                    
+                                } else if arr.contains("3") {
+                                    self.str_selected_level = (self.dict_dashboard["daily_activity"] as! String)
+                                    self.str_level = "3"
+                                    // print("Either 3 or 4 (or both) are not present in the array.")
+                                } else if arr.contains("4") {
+                                    self.str_selected_level = (self.dict_dashboard["daily_activity"] as! String)
+                                    self.str_level = "4"
+                                    // print("Either 3 or 4 (or both) are not present in the array.")
+                                } else {
+                                    
+                                }
+                                self.general()
+                                
+                                
                             }
                             else {
                                 self.refresh_token_WB()
@@ -264,6 +283,236 @@ class dashboard: UIViewController, UNUserNotificationCenterDelegate {
                 self.refresh_token_WB()
             }
         }
+        
+    }
+    
+    @objc func general() {
+        
+        var parameters:Dictionary<AnyHashable, Any>!
+        
+        ERProgressHud.sharedInstance.showDarkBackgroundView(withTitle: "Please wait...")
+        
+        parameters = [
+            "action"    : "general",
+        ]
+        
+        print("parameters-------\(String(describing: parameters))")
+        
+        AF.request(application_base_url, method: .post, parameters: parameters as? Parameters ).responseJSON {
+            response in
+            
+            switch(response.result) {
+            case .success(_):
+                if let data = response.value {
+                    
+                    let JSON = data as! NSDictionary
+                    print(JSON)
+                    
+                    var ar : NSArray!
+                    ar = (JSON["Daily_Activity"] as! Array<Any>) as NSArray
+                    // self.activity.addObjects(from: ar as! [Any])
+                     
+                    for indexx in 0..<ar.count {
+                        let item = ar[indexx] as? [String:Any]
+                        print(item as Any)
+                        print(item!["name"] as Any)
+                        
+                        if "\(item!["name"]!)" == (self.str_selected_level!) {
+                            // print(item)
+                            
+                            self.str_selected_level = "level_\(item!["key"]!)"
+                             // print(self.str_selected_level as Any)
+                            
+                            self.get_level_from_rapid()
+                            
+                        }
+                    }
+                }
+                
+            case .failure(_):
+                print("Error message:\(String(describing: response.error))")
+                ERProgressHud.sharedInstance.hide()
+                self.please_check_your_internet_connection()
+                
+                break
+            }
+        }
+    }
+    
+    @objc func get_level_from_rapid() {
+        
+        
+        ERProgressHud.sharedInstance.showDarkBackgroundView(withTitle: "Please wait...")
+        // Define headers
+        let headers = [
+            "content-type": "application/x-www-form-urlencoded",
+            "X-RapidAPI-Key": "a549c19e42msh291ffe0591026cep1d1f1ejsnea1fdd0d9fc8",
+            "X-RapidAPI-Host": str_rapid_api_host_for_level
+        ]
+       
+        var calculate:Double!
+        
+        if (self.dict_dashboard["height_measurement"] as! String) != "cm" {
+            // 5 ft = 5 x 30.48
+            
+            // self.dict_dashboard["height"] as! String
+            
+            
+            let fullNameArr = (self.dict_dashboard["height"] as! String).components(separatedBy: " ")
+            print(fullNameArr as Any)
+            
+            let value = 30.48
+            let myDouble = Double(fullNameArr[0])
+            print(myDouble as Any)
+            
+            calculate = value * myDouble!
+            print(calculate as Any)
+            
+        } else {
+            
+        }
+    
+        var gender = (self.dict_dashboard["gender"] as! String).lowercased()
+        let dynamic_URL =
+        //"https://fitness-calculator.p.rapidapi.com/dailycalorie?age=25&gender=male&height=180.08&weight=70&activitylevel=level_1"
+        
+        "https://fitness-calculator.p.rapidapi.com/dailycalorie?age=\(self.dict_dashboard["dob"] as! String)&gender=\(gender)&height=\(calculate!)&weight=\(self.dict_dashboard["current_wight"] as! String)&activitylevel=\(String(self.str_selected_level))"
+        // Create the request
+        
+        debugPrint(dynamic_URL)
+        
+        guard let url = URL(string: dynamic_URL) else {
+            print("Invalid URL")
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+        
+        // Perform the request
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request) { (data, response, error) in
+            // Check for errors
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                ERProgressHud.sharedInstance.hide()
+                return
+            }
+            
+            // Check if a response was received
+            guard let httpResponse = response as? HTTPURLResponse else {
+                print("No response received")
+                ERProgressHud.sharedInstance.hide()
+                return
+            }
+            
+            // Check for valid status code
+            guard (200...299).contains(httpResponse.statusCode) else {
+                print("Invalid response: \(httpResponse.statusCode)")
+                ERProgressHud.sharedInstance.hide()
+                return
+            }
+            
+            // Check if data was received
+            guard let responseData = data else {
+                print("No data received")
+                ERProgressHud.sharedInstance.hide()
+                return
+            }
+            
+            // Parse the JSON data
+            do {
+                // Try parsing JSON
+                let json = try JSONSerialization.jsonObject(with: responseData, options: [])
+                print("Response JSON: \(json)")
+                // Handle the JSON response here
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    ERProgressHud.sharedInstance.hide()
+                    
+                    
+                    if let jsonDictionary = json as? [String: Any] {
+                        print(jsonDictionary["data"] as Any)
+                        
+                        if let data = jsonDictionary["data"] as? [String: Any] {
+                            print(data["BMR"] as Any)
+                            // Access other values inside "data" if needed
+                            if (self.str_level == "3") {
+                                // self.str_total_calories_id = "\(data["BMR"]!)"
+                                
+                                do {
+                                    // Assuming `responseData` is your Data object containing the JSON response
+                                    let json = try JSONSerialization.jsonObject(with: responseData, options: [])
+
+                                    if let jsonResponse = json as? [String: Any],
+                                       let data = jsonResponse["data"] as? [String: Any],
+                                       let goals = data["goals"] as? [String: Any],
+                                       let weightLossData = goals["Weight loss"] as? [String: Any],
+                                       let calory = weightLossData["calory"] as? Double {
+                                        
+                                        // Accessing the loss weight data
+                                        print("calory: \(calory)")
+                                        // Handle the loss weight data here
+                                        self.str_total_calories_id = "\(calory)"
+                                    } else {
+                                        print("Failed to extract 'loss weight' from 'Weight loss' data or 'Weight loss' data from 'goals'")
+                                    }
+                                } catch {
+                                    print("Error parsing JSON: \(error)")
+                                }
+                                
+                            } else if (self.str_level == "4") {
+                                // self.str_total_calories_id = "\(data["BMR"]!)"
+                                
+                                do {
+                                    // Assuming `responseData` is your Data object containing the JSON response
+                                    let json = try JSONSerialization.jsonObject(with: responseData, options: [])
+
+                                    if let jsonResponse = json as? [String: Any],
+                                       let data = jsonResponse["data"] as? [String: Any],
+                                       let goals = data["goals"] as? [String: Any],
+                                       let weightLossData = goals["Weight loss"] as? [String: Any],
+                                       let calory = weightLossData["calory"] as? Double {
+                                        
+                                        // Accessing the loss weight data
+                                        print("calory: \(calory)")
+                                        // Handle the loss weight data here
+                                        self.str_total_calories_id = "\(calory)"
+                                    } else {
+                                        print("Failed to extract 'loss weight' from 'Weight loss' data or 'Weight loss' data from 'goals'")
+                                    }
+                                } catch {
+                                    print("Error parsing JSON: \(error)")
+                                }
+                                
+                            } else {
+                                self.str_total_calories_id = "\(data["BMR"]!)"
+                            }
+                            
+                            
+                            self.tble_view.delegate = self
+                            self.tble_view.dataSource = self
+                            self.tble_view.reloadData()
+                            
+                        } else {
+                            print("Failed to extract 'data' dictionary from JSON response")
+                        }
+                    } else {
+                        print("JSON is not in expected dictionary format")
+                    }
+                }
+                    
+                    
+                    
+                    
+            } catch let error {
+                ERProgressHud.sharedInstance.hide()
+                print("Error parsing JSON: \(error.localizedDescription)")
+                print("Response Data: \(String(data: responseData, encoding: .utf8) ?? "Empty")")
+            }
+        }
+        
+        dataTask.resume()
         
     }
     
@@ -399,7 +648,14 @@ extension dashboard: UITableViewDataSource , UITableViewDelegate {
             
             cell.lbl_weight.text = "Current : \(person["current_wight"]!) \(person["current_wight_measurement"]!)"
             cell.lbl_weight_status.text = "Target : \(person["target_wight"]!) \(person["target_wight_measurement"]!)"
+            
+            cell.img_view_profile.sd_imageIndicator = SDWebImageActivityIndicator.grayLarge
+            cell.img_view_profile.sd_setImage(with: URL(string: (person["image"] as! String)), placeholderImage: UIImage(named: "logo"))
+            
         }
+        cell.lbl_cal_eaten.text = "0 to \(self.str_total_calories_id!)"
+        
+        cell.btn_edit.addTarget(self, action: #selector(edit_click_method), for: .touchUpInside)
         
         cell.lbl_protein.text = "Protein \(self.dict_dashboard["protine"]!) %"
         
