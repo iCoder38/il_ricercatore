@@ -17,7 +17,7 @@ class dashboard: UIViewController, UNUserNotificationCenterDelegate {
     var str_selected_level:String! = ""
     var str_level:String!
     
-    var str_total_calories_id:String!
+    var str_total_calories_id:String! = "0"
     
     @IBOutlet weak var btn_menu:UIButton!
     
@@ -410,7 +410,14 @@ class dashboard: UIViewController, UNUserNotificationCenterDelegate {
             // Check for valid status code
             guard (200...299).contains(httpResponse.statusCode) else {
                 print("Invalid response: \(httpResponse.statusCode)")
-                ERProgressHud.sharedInstance.hide()
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    ERProgressHud.sharedInstance.hide()
+                    self.tble_view.delegate = self
+                    self.tble_view.dataSource = self
+                    self.tble_view.reloadData()
+                }
+                
                 return
             }
             
@@ -653,7 +660,13 @@ extension dashboard: UITableViewDataSource , UITableViewDelegate {
             cell.img_view_profile.sd_setImage(with: URL(string: (person["image"] as! String)), placeholderImage: UIImage(named: "logo"))
             
         }
-        cell.lbl_cal_eaten.text = "0 to \(self.str_total_calories_id!)"
+        
+        if (self.str_total_calories_id == "") {
+            cell.lbl_cal_eaten.text = "0 to \(self.str_total_calories_id!)"
+        } else {
+            cell.lbl_cal_eaten.text = "0 to \(self.str_total_calories_id!)"
+        }
+        
         
         cell.btn_edit.addTarget(self, action: #selector(edit_click_method), for: .touchUpInside)
         

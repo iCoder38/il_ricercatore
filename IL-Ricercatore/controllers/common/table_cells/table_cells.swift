@@ -2099,6 +2099,13 @@ class edit_profile_table_cell : UITableViewCell {
         }
     }
     @IBOutlet weak var btn_update:UIButton!
+    @IBOutlet weak var btn_profile:UIButton! {
+        didSet {
+            btn_profile.layer.cornerRadius = 8
+            btn_profile.clipsToBounds = true
+            btn_profile.setTitle("Update profile", for: .normal)
+        }
+    }
 }
 
 // /* ************************* SELECT MEAL ************** */

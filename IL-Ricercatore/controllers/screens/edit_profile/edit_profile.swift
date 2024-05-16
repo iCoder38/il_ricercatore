@@ -41,6 +41,10 @@ class edit_profile: UIViewController, UINavigationControllerDelegate, UIImagePic
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         self.my_profile(loader: "yes")
     }
     
@@ -582,6 +586,13 @@ class edit_profile: UIViewController, UINavigationControllerDelegate, UIImagePic
    
         self.str_user_select_image = "1"
     }
+    
+    @objc func complete_profile_WB() {
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "complete_profile_id") as? complete_profile
+        push!.dict_get_user_full_data = self.dict_all_data
+        self.navigationController?.pushViewController(push!, animated: true)
+    }
+    
 }
 
 //MARK:- TABLE VIEW -
@@ -617,6 +628,8 @@ extension edit_profile: UITableViewDataSource , UITableViewDelegate {
         cell.img_profile.addGestureRecognizer(tapGestureRecognizer)
         
         cell.btn_update.addTarget(self, action: #selector(edit_profile_WB), for: .touchUpInside)
+        cell.btn_profile.addTarget(self, action: #selector(complete_profile_WB), for: .touchUpInside)
+        
         return cell
         
     }

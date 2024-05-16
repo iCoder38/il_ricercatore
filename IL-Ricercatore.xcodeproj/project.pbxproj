@@ -440,6 +440,7 @@
 			isa = PBXGroup;
 			children = (
 				B95375B72BF48B620063960B /* edit_profile.swift */,
+				B9D2438B2BF5D4D2004B1A78 /* edit_complete_profile */,
 			);
 			path = edit_profile;
 			sourceTree = "<group>";
@@ -735,6 +736,13 @@
 				B9CDD1852B875E25003E98B1 /* disease_list.swift */,
 			);
 			path = disease_list;
+			sourceTree = "<group>";
+		};
+		B9D2438B2BF5D4D2004B1A78 /* edit_complete_profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = edit_complete_profile;
 			sourceTree = "<group>";
 		};
 		B9DD5A152B31B2EB006B2D60 /* track_meal_reminder */ = {

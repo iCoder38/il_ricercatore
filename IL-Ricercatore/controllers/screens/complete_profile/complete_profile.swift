@@ -10,15 +10,26 @@ import Alamofire
 
 class complete_profile: UIViewController, UITextFieldDelegate {
     
+    var dict_get_user_full_data:NSDictionary!
+    
     var str_height:String! = "0"
     
     var str_current_weight:String! = "0"
     var str_target_weight:String! = "0"
     
+    var activity:NSMutableArray! = []
+    var activity2 = [String]()
+    var ar : NSArray!
+    
+    @IBOutlet weak var btn_back:UIButton! {
+        didSet {
+            btn_back.isHidden = true
+            btn_back.addTarget(self, action: #selector(back_click_method), for: .touchUpInside)
+        }
+    }
     @IBOutlet weak var tble_view:UITableView! {
         didSet {
-            tble_view.delegate = self
-            tble_view.dataSource = self
+            
             tble_view.layer.cornerRadius = 22
             tble_view.clipsToBounds = true
         }
@@ -34,6 +45,135 @@ class complete_profile: UIViewController, UITextFieldDelegate {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
         self.tble_view.separatorColor = .white
+        
+        self.general_WB()
+        
+        
+    }
+    
+    
+    
+    @objc func general_WB() {
+     
+        var parameters:Dictionary<AnyHashable, Any>!
+        
+        ERProgressHud.sharedInstance.showDarkBackgroundView(withTitle: "Please wait...")
+       
+        parameters = [
+            "action"            : "general",
+        ]
+        
+        print("parameters-------\(String(describing: parameters))")
+        
+        AF.request(application_base_url, method: .post, parameters: parameters as? Parameters ).responseJSON {[self]
+            response in
+            
+            switch(response.result) {
+            case .success(_):
+                if let data = response.value {
+                    
+                    let JSON = data as! NSDictionary
+                    print(JSON)
+                    
+                    self.ar = (JSON["Daily_Activity"] as! Array<Any>) as NSArray
+                    self.activity.addObjects(from: ar as! [Any])
+                     
+                    ERProgressHud.sharedInstance.hide()
+                    self.parse_data_for_edit()
+                }
+                
+            case .failure(_):
+                print("Error message:\(String(describing: response.error))")
+                ERProgressHud.sharedInstance.hide()
+                self.please_check_your_internet_connection()
+                
+                break
+            }
+        }
+    }
+    
+    @objc func parse_data_for_edit() {
+        if (self.dict_get_user_full_data != nil) {
+            btn_back.isHidden = false
+            print(self.dict_get_user_full_data as Any)
+            
+            self.tble_view.delegate = self
+            self.tble_view.dataSource = self
+            self.tble_view.reloadData()
+            
+            let indexPath = IndexPath.init(row: 0, section: 0)
+            let cell = self.tble_view.cellForRow(at: indexPath) as! complete_profile_table_cell
+            
+            cell.txt_age.text = (self.dict_get_user_full_data["dob"] as! String)
+            cell.txt_height.text = (self.dict_get_user_full_data["height"] as! String)
+            cell.txt_current_weight.text = "\(self.dict_get_user_full_data["current_wight"]!)"
+            cell.txt_target_weight.text = "\(self.dict_get_user_full_data["target_wight"]!)"
+            cell.txt_daily_activity.text = "\(self.dict_get_user_full_data["daily_activity"]!)"
+            
+            if (self.dict_get_user_full_data["gender"] as! String) == "Female" {
+                self.str_gender_select = "Female"
+                // cell.btn_male.setBackgroundImage(UIImage(named: ""), for: .normal)
+                cell.btn_female.setBackgroundImage(UIImage(named: "blue"), for: .normal)
+                // cell.btn_other.setBackgroundImage(UIImage(named: ""), for: .normal)
+             
+                cell.btn_male.setTitleColor(.black, for: .normal)
+                cell.btn_female.setTitleColor(.white, for: .normal)
+                cell.btn_other.setTitleColor(.black, for: .normal)
+            } else if (self.dict_get_user_full_data["gender"] as! String) == "Male" {
+                self.str_gender_select = "Male"
+                cell.btn_male.setBackgroundImage(UIImage(named: "blue"), for: .normal)
+                // cell.btn_female.setBackgroundImage(UIImage(named: ""), for: .normal)
+                // cell.btn_other.setBackgroundImage(UIImage(named: ""), for: .normal)
+                
+                cell.btn_male.setTitleColor(.white, for: .normal)
+                cell.btn_female.setTitleColor(.black, for: .normal)
+                cell.btn_other.setTitleColor(.black, for: .normal)
+            } else {
+                self.str_gender_select = "Other"
+                // cell.btn_male.setBackgroundImage(UIImage(named: ""), for: .normal)
+                // cell.btn_female.setBackgroundImage(UIImage(named: ""), for: .normal)
+                cell.btn_other.setBackgroundImage(UIImage(named: "blue"), for: .normal)
+                
+                cell.btn_male.setTitleColor(.black, for: .normal)
+                cell.btn_female.setTitleColor(.black, for: .normal)
+                cell.btn_other.setTitleColor(.white, for: .normal)
+            }
+            
+            if (self.dict_get_user_full_data["height_measurement"] as! String) == "ft&in" {
+                self.str_height = "0"
+                cell.lbl_height_message.text = "Click for cm"
+            } else {
+                self.str_height = "1"
+                cell.lbl_height_message.text = "Click for ft & in"
+            }
+            
+            
+            // current weight
+            if (self.dict_get_user_full_data["current_wight_measurement"] as! String) == "KG" {
+                self.str_current_weight = "1"
+                cell.lbl_current_weight_message.text = "Click for LBS"
+                cell.lbl_current_weight_text.text = "LBS"
+            } else {
+                self.str_current_weight = "0"
+                cell.lbl_current_weight_message.text = "Click for KG"
+                cell.lbl_current_weight_text.text = "KG"
+            }
+            
+            // target weight
+            if (self.dict_get_user_full_data["target_wight_measurement"] as! String) == "KG" {
+                self.str_target_weight = "1"
+                cell.lbl_target_weight_message.text = "Click for LBS"
+                cell.lbl_target_weight_text.text = "LBS"
+            } else {
+                self.str_target_weight = "0"
+                cell.lbl_target_weight_message.text = "Click for KG"
+                cell.lbl_target_weight_text.text = "KG"
+            }
+            
+        } else {
+            self.tble_view.delegate = self
+            self.tble_view.dataSource = self
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -112,13 +252,33 @@ class complete_profile: UIViewController, UITextFieldDelegate {
         let indexPath = IndexPath.init(row: 0, section: 0)
         let cell = self.tble_view.cellForRow(at: indexPath) as! complete_profile_table_cell
         
-        let dummyList = ["Light or No Activity", "Lightly Active", "Moderately Active", "Very Active"]
-        
-        RPicker.selectOption(title: "Select", cancelText: "Cancel", dataArray: dummyList, selectedIndex: 0) { (selctedText, atIndex) in
-             
-            cell.txt_daily_activity.text = String(selctedText)
+        // Array to store the names
+        var names: [String] = []
+
+        // Safely unwrap and cast the NSMutableArray
+        if let array = self.activity as? [[String: Any]] {
+            // Iterate over the array of dictionaries
+            for item in array {
+                // Safely extract the name value
+                if let name = item["name"] as? String {
+                    names.append(name)
+                    print(names)
+                } else {
+                    print("Invalid data in dictionary")
+                }
+            }
+            
+            // Print the names array to verify the result
+            print(names)
+            
+            RPicker.selectOption(title: "Select", cancelText: "Cancel", dataArray: names, selectedIndex: 0) { (selctedText, atIndex) in
+                cell.txt_daily_activity.text = String(selctedText)
+            }
+            
+        } else {
+            print("Failed to cast objcArray to array of dictionaries")
         }
-        
+            
     }
     
     @objc func height_click_method() {
@@ -273,9 +433,26 @@ class complete_profile: UIViewController, UITextFieldDelegate {
                                 let defaults = UserDefaults.standard
                                 defaults.setValue(dict, forKey: str_save_login_user_data)
                                 
-                                let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "complete_profile_two_id")
-                                self.navigationController?.pushViewController(push, animated: true)
                                 
+                                 if (self.dict_get_user_full_data == nil) {
+                                    
+                                 } else {
+                                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                                         let actionSheet = NewYorkAlertController(title: "Edit", message: nil, style: .actionSheet)
+                                         
+                                         let cameraa = NewYorkButton(title: "Disease / Medicine / Smoke / Drink", style: .default) { _ in
+                                             
+                                             let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "complete_profile_two_id") as? complete_profile_two
+                                             push!.dict_get_data = self.dict_get_user_full_data
+                                             self.navigationController?.pushViewController(push!, animated: true)
+                                             
+                                         }
+                                         
+                                         let cancel = NewYorkButton(title: "Cancel", style: .cancel)
+                                         actionSheet.addButtons([cameraa, cancel])
+                                         self.present(actionSheet, animated: true)
+                                     }
+                                 }
                                 
                             }
                             else {

@@ -10,6 +10,8 @@ import Alamofire
 
 class complete_profile_two: UIViewController, UITextFieldDelegate {
     
+    var dict_get_data:NSDictionary!
+    
     var str_general_fitness_index = 0
     var str_special_option_index = 0
     
@@ -17,10 +19,16 @@ class complete_profile_two: UIViewController, UITextFieldDelegate {
     var str_smoke_status:String! = ""
     var str_drink_status:String! = ""
     
+    @IBOutlet weak var btn_back:UIButton! {
+        didSet {
+            btn_back.isHidden = true
+            btn_back.addTarget(self, action: #selector(back_click_method), for: .touchUpInside)
+        }
+    }
+    
     @IBOutlet weak var tble_view:UITableView! {
         didSet {
-            tble_view.delegate = self
-            tble_view.dataSource = self
+            
             tble_view.layer.cornerRadius = 22
             tble_view.clipsToBounds = true
         }
@@ -32,6 +40,100 @@ class complete_profile_two: UIViewController, UITextFieldDelegate {
         
         self.tble_view.separatorColor = .white
         
+        print(self.dict_get_data as Any)
+        
+        if (self.dict_get_data != nil) {
+            btn_back.isHidden = false
+            
+            tble_view.delegate = self
+            tble_view.dataSource = self
+            tble_view.reloadData()
+            
+            let indexPath = IndexPath.init(row: 0, section: 0)
+            let cell = self.tble_view.cellForRow(at: indexPath) as! complete_profile_two_table_cell
+            
+            // ["Shedding fat","Building muscles","Improving endurance","Increasing flexibility","Toning","General fitness"]
+            if (self.dict_get_data["Fitness_goal"] as! String) == "Shedding fat" {
+                self.str_general_fitness_index = 0
+            } else if (self.dict_get_data["Fitness_goal"] as! String) == "Building muscles" {
+                self.str_general_fitness_index = 1
+            } else if (self.dict_get_data["Fitness_goal"] as! String) == "Improving endurance" {
+                self.str_general_fitness_index = 2
+            } else if (self.dict_get_data["Fitness_goal"] as! String) == "Increasing flexibility" {
+                self.str_general_fitness_index = 3
+            } else if (self.dict_get_data["Fitness_goal"] as! String) == "Toning" {
+                self.str_general_fitness_index = 4
+            } else if (self.dict_get_data["Fitness_goal"] as! String) == "General fitness" {
+                self.str_general_fitness_index = 5
+            } else {
+                self.str_general_fitness_index = 6
+            }
+            cell.txt_fitness_goal.text = (self.dict_get_data["Fitness_goal"] as! String)
+            
+            // medicine
+            if "\(self.dict_get_data["medicine_take"]!)" == "1" {
+                cell.btn_medicine_yes.setImage(UIImage(named: "check"), for: .normal)
+                cell.btn_medicine_no.setImage(UIImage(named: "uncheck"), for: .normal)
+                
+                self.str_medicine_status = "1"
+            } else {
+                cell.btn_medicine_no.setImage(UIImage(named: "check"), for: .normal)
+                cell.btn_medicine_yes.setImage(UIImage(named: "uncheck"), for: .normal)
+                
+                self.str_medicine_status = "0"
+            }
+            
+            // smoke
+            if "\(self.dict_get_data["smoke"]!)" == "1" {
+                cell.btn_smoke_yes.setImage(UIImage(named: "check"), for: .normal)
+                cell.btn_smoke_no.setImage(UIImage(named: "uncheck"), for: .normal)
+                cell.btn_smoke_occasionally.setImage(UIImage(named: "uncheck"), for: .normal)
+                
+                self.str_smoke_status = "1"
+            } else if "\(self.dict_get_data["smoke"]!)" == "0" {
+                cell.btn_smoke_yes.setImage(UIImage(named: "uncheck"), for: .normal)
+                cell.btn_smoke_no.setImage(UIImage(named: "check"), for: .normal)
+                cell.btn_smoke_occasionally.setImage(UIImage(named: "uncheck"), for: .normal)
+                
+                self.str_smoke_status = "0"
+            } else {
+                cell.btn_smoke_yes.setImage(UIImage(named: "uncheck"), for: .normal)
+                cell.btn_smoke_no.setImage(UIImage(named: "uncheck"), for: .normal)
+                cell.btn_smoke_occasionally.setImage(UIImage(named: "check"), for: .normal)
+                
+                self.str_smoke_status = "2"
+            }
+            
+            // drink
+            if "\(self.dict_get_data["drink"]!)" == "1" {
+                cell.btn_drink_yes.setImage(UIImage(named: "check"), for: .normal)
+                cell.btn_drink_no.setImage(UIImage(named: "uncheck"), for: .normal)
+                cell.btn_drink_occasionally.setImage(UIImage(named: "uncheck"), for: .normal)
+                
+                self.str_drink_status = "1"
+            } else if "\(self.dict_get_data["drink"]!)" == "0" {
+                cell.btn_drink_yes.setImage(UIImage(named: "uncheck"), for: .normal)
+                cell.btn_drink_no.setImage(UIImage(named: "check"), for: .normal)
+                cell.btn_drink_occasionally.setImage(UIImage(named: "uncheck"), for: .normal)
+                
+                self.str_drink_status = "0"
+            } else {
+                cell.btn_drink_yes.setImage(UIImage(named: "uncheck"), for: .normal)
+                cell.btn_drink_no.setImage(UIImage(named: "uncheck"), for: .normal)
+                cell.btn_drink_occasionally.setImage(UIImage(named: "check"), for: .normal)
+                
+                self.str_drink_status = "2"
+            }
+            
+            //
+            cell.txt_select_option.text = "\(self.dict_get_data["disease"]!)"
+            
+        } else {
+            
+            tble_view.delegate = self
+            tble_view.dataSource = self
+            tble_view.reloadData()
+        }
           // self.general_WB()
     }
     
@@ -424,9 +526,15 @@ class complete_profile_two: UIViewController, UITextFieldDelegate {
                                 let defaults = UserDefaults.standard
                                 defaults.setValue(dict, forKey: str_save_login_user_data)
                                 
-                                let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "complete_profile_three_id")
-                                self.navigationController?.pushViewController(push, animated: true)
-                                
+                                if (self.dict_get_data == nil) {
+                                    
+                                    
+                                    
+                                    let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "complete_profile_three_id")
+                                    self.navigationController?.pushViewController(push, animated: true)
+                                } else {
+                                    self.view.makeToast("Successfully updated")
+                                }
                                 
                             }
                             else {
