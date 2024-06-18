@@ -345,13 +345,14 @@ class dashboard: UIViewController, UNUserNotificationCenterDelegate {
         ERProgressHud.sharedInstance.showDarkBackgroundView(withTitle: "Please wait...")
         // Define headers
         let headers = [
-            "content-type": "application/x-www-form-urlencoded",
+            // "content-type": "application/x-www-form-urlencoded",
             "X-RapidAPI-Key": "a549c19e42msh291ffe0591026cep1d1f1ejsnea1fdd0d9fc8",
-            "X-RapidAPI-Host": str_rapid_api_host_for_level
+            "X-RapidAPI-Host": "fitness-calculator.p.rapidapi.com"
         ]
        
         var calculate:Double!
         
+        print(self.dict_dashboard["height_measurement"])
         if (self.dict_dashboard["height_measurement"] as! String) != "cm" {
             // 5 ft = 5 x 30.48
             
@@ -369,7 +370,8 @@ class dashboard: UIViewController, UNUserNotificationCenterDelegate {
             print(calculate as Any)
             
         } else {
-            
+            print("\(self.dict_dashboard["height"]!)")
+            calculate = Double("\(self.dict_dashboard["height"]!)")
         }
     
         var gender = (self.dict_dashboard["gender"] as! String).lowercased()
@@ -377,7 +379,7 @@ class dashboard: UIViewController, UNUserNotificationCenterDelegate {
         //"https://fitness-calculator.p.rapidapi.com/dailycalorie?age=25&gender=male&height=180.08&weight=70&activitylevel=level_1"
         
         "https://fitness-calculator.p.rapidapi.com/dailycalorie?age=\(self.dict_dashboard["dob"] as! String)&gender=\(gender)&height=\(calculate!)&weight=\(self.dict_dashboard["current_wight"] as! String)&activitylevel=\(String(self.str_selected_level))"
-        // Create the request
+        //
         
         debugPrint(dynamic_URL)
         
@@ -625,6 +627,11 @@ class dashboard: UIViewController, UNUserNotificationCenterDelegate {
         let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "calories_burnout_id")
         self.navigationController?.pushViewController(push, animated: true)
     }
+    
+    @objc func right_arrow_click_methd() {
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "days_workout_id")
+        self.navigationController?.pushViewController(push, animated: true)
+    }
 }
 
 //MARK:- TABLE VIEW -
@@ -733,6 +740,8 @@ extension dashboard: UITableViewDataSource , UITableViewDelegate {
         cell.btn_nut_plus.addTarget(self, action: #selector(nut_plus_click_methd), for: .touchUpInside)
         cell.btn_cal_burn.addTarget(self, action: #selector(cal_burnt_click_method), for: .touchUpInside)
         
+        cell.btn_exc_right_arrow.addTarget(self, action: #selector(right_arrow_click_methd), for: .touchUpInside)
+        
         return cell
         
     }
@@ -743,7 +752,7 @@ extension dashboard: UITableViewDataSource , UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 944
+        return 1058
     }
 
 }

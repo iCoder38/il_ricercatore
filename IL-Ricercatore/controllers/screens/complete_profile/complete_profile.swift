@@ -435,7 +435,8 @@ class complete_profile: UIViewController, UITextFieldDelegate {
                                 
                                 
                                  if (self.dict_get_user_full_data == nil) {
-                                    
+                                     let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "complete_profile_two_id") as? complete_profile_two
+                                     self.navigationController?.pushViewController(push!, animated: true)
                                  } else {
                                      DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                                          let actionSheet = NewYorkAlertController(title: "Edit", message: nil, style: .actionSheet)

@@ -916,20 +916,8 @@ class breakfast_food_table_cell : UITableViewCell {
 
 class meal_track_table_cell : UITableViewCell {
     
-    @IBOutlet weak var view_one:UIView! {
-        didSet {
-            view_one.layer.cornerRadius = 6
-            view_one.clipsToBounds = true
-            view_one.backgroundColor = light_purple_color
-        }
-    }
-    @IBOutlet weak var view_two:UIView! {
-        didSet {
-            view_two.layer.cornerRadius = 12
-            view_two.clipsToBounds = true
-            view_two.backgroundColor = light_purple_color
-        }
-    }
+    
+    
     
     @IBOutlet weak var lbl_time:UILabel! {
         didSet {
@@ -1029,6 +1017,8 @@ class dashboard_table_cell : UITableViewCell {
             view_fiber.backgroundColor = .clear
         }
     }
+    
+    @IBOutlet weak var btn_exc_right_arrow:UIButton!
     
     @IBOutlet weak var btn_cal_burn:UIButton! {
         didSet {
@@ -2116,10 +2106,21 @@ class select_meal_table_cell : UITableViewCell {
     @IBOutlet weak var lbl_calories:UILabel!
 }
 
+// /* ******************* TYPE OF EXCERSICE ******************** */
+// /* ********************************************************** */
+class type_of_excercise_table_cell : UITableViewCell {
+    @IBOutlet weak var imagee:UIImageView!
+    @IBOutlet weak var btn_excercise:UIButton!
+    
+    @IBOutlet weak var imagee2:UIImageView!
+    @IBOutlet weak var btn_excercise2:UIButton!
+}
+
 // /* ******************* DAYS WORKOUT ************************* */
 // /* ********************************************************** */
 class days_workout_table_cell : UITableViewCell {
     @IBOutlet weak var lbl_title:UILabel!
+    @IBOutlet weak var btn_delete:UIButton!
 }
 // /* ******************* PERSONALISE WORKOUT ******************* */
 // /* ********************************************************** */

@@ -528,8 +528,6 @@ class complete_profile_two: UIViewController, UITextFieldDelegate {
                                 
                                 if (self.dict_get_data == nil) {
                                     
-                                    
-                                    
                                     let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "complete_profile_three_id")
                                     self.navigationController?.pushViewController(push, animated: true)
                                 } else {

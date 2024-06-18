@@ -23,6 +23,8 @@
 		B939EF102B31846500B9556C /* calorie_information.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939EF0F2B31846500B9556C /* calorie_information.swift */; };
 		B939EF132B318E4100B9556C /* eat_meal_time.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939EF122B318E4100B9556C /* eat_meal_time.swift */; };
 		B939EF162B3190F300B9556C /* edit_meal_calories.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939EF152B3190F300B9556C /* edit_meal_calories.swift */; };
+		B94B1BF92C21B4CA00AC170F /* token_manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94B1BF82C21B4CA00AC170F /* token_manager.swift */; };
+		B94B1BFC2C21BECD00AC170F /* type_of_excercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94B1BFB2C21BECD00AC170F /* type_of_excercise.swift */; };
 		B94DACF72BF20605002CD83E /* health_logs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94DACF62BF20605002CD83E /* health_logs.swift */; };
 		B94DACFA2BF2097E002CD83E /* edit_logs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94DACF92BF2097E002CD83E /* edit_logs.swift */; };
 		B95075892B32C7F800291EAC /* side_bar_menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95075882B32C7F800291EAC /* side_bar_menu.swift */; };
@@ -137,6 +139,8 @@
 		B939EF0F2B31846500B9556C /* calorie_information.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calorie_information.swift; sourceTree = "<group>"; };
 		B939EF122B318E4100B9556C /* eat_meal_time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eat_meal_time.swift; sourceTree = "<group>"; };
 		B939EF152B3190F300B9556C /* edit_meal_calories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = edit_meal_calories.swift; sourceTree = "<group>"; };
+		B94B1BF82C21B4CA00AC170F /* token_manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = token_manager.swift; sourceTree = "<group>"; };
+		B94B1BFB2C21BECD00AC170F /* type_of_excercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = type_of_excercise.swift; sourceTree = "<group>"; };
 		B94DACF62BF20605002CD83E /* health_logs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = health_logs.swift; sourceTree = "<group>"; };
 		B94DACF92BF2097E002CD83E /* edit_logs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = edit_logs.swift; sourceTree = "<group>"; };
 		B95075882B32C7F800291EAC /* side_bar_menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = side_bar_menu.swift; sourceTree = "<group>"; };
@@ -392,6 +396,22 @@
 				B939EF152B3190F300B9556C /* edit_meal_calories.swift */,
 			);
 			path = edit_meal_calories;
+			sourceTree = "<group>";
+		};
+		B94B1BF72C21B4BC00AC170F /* token_manager */ = {
+			isa = PBXGroup;
+			children = (
+				B94B1BF82C21B4CA00AC170F /* token_manager.swift */,
+			);
+			path = token_manager;
+			sourceTree = "<group>";
+		};
+		B94B1BFA2C21BEB300AC170F /* type_of_excercise */ = {
+			isa = PBXGroup;
+			children = (
+				B94B1BFB2C21BECD00AC170F /* type_of_excercise.swift */,
+			);
+			path = type_of_excercise;
 			sourceTree = "<group>";
 		};
 		B94DACF52BF205FB002CD83E /* health_logs */ = {
@@ -700,6 +720,7 @@
 		B9CC8EE82B3309A200130035 /* workout */ = {
 			isa = PBXGroup;
 			children = (
+				B94B1BFA2C21BEB300AC170F /* type_of_excercise */,
 				B9CC8EE92B3309A800130035 /* workout_setting */,
 				B9CC8EEC2B330E3A00130035 /* days_workout */,
 			);
@@ -913,6 +934,7 @@
 		B9E7456E2B29DE90007E018A /* common */ = {
 			isa = PBXGroup;
 			children = (
+				B94B1BF72C21B4BC00AC170F /* token_manager */,
 				B9538BA32B886AF000722BF8 /* same_multiples */,
 				B9EF41672B346AE500335435 /* third_party */,
 				B95075872B32C7E200291EAC /* side_bar_menu */,
@@ -1317,6 +1339,7 @@
 				B92185F42BC520BF0014FF55 /* DayAxisValueFormatter.swift in Sources */,
 				B977AE672B2D97E500EF12BA /* breakfast_food.swift in Sources */,
 				B977AE642B2D90F000EF12BA /* complete_profile_three.swift in Sources */,
+				B94B1BFC2C21BECD00AC170F /* type_of_excercise.swift in Sources */,
 				B9E314272BAD9B6B0027A02F /* add_blood_pressure.swift in Sources */,
 				B9EF417B2B346D5000335435 /* NewYorkAlertViewType.swift in Sources */,
 				B9E745382B29C1E9007E018A /* SceneDelegate.swift in Sources */,
@@ -1334,6 +1357,7 @@
 				B9E5C7C02BEE1246002D3938 /* show_all_cal_burnt_ctivity.swift in Sources */,
 				B9BC35A82B998CEE004C9431 /* sleep.swift in Sources */,
 				B9CC8EEB2B3309C200130035 /* workout_setting.swift in Sources */,
+				B94B1BF92C21B4CA00AC170F /* token_manager.swift in Sources */,
 				B9E745682B29C3A1007E018A /* login.swift in Sources */,
 				B9E314252BAD9B580027A02F /* blood_pressure.swift in Sources */,
 				B9034E702BBD6F1C00AD6924 /* goal_settings.swift in Sources */,

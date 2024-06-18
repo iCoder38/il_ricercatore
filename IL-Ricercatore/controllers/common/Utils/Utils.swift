@@ -114,7 +114,40 @@ class Utils: NSObject {
     
 }
 
+class UserUtility {
+    
+    static func getUserId() -> Int? {
+        guard let person = UserDefaults.standard.value(forKey: str_save_login_user_data) as? [String: Any],
+              let userId = person["userId"] as? Int else {
+            return nil
+        }
+        return userId
+    }
+    
+}
+
 extension UIViewController {
+    
+    func getDayNameAndNumber() -> (String, Int) {
+        // Get the current date
+        let today = Date()
+        
+        // Create a DateFormatter instance for the day name
+        let dayNameFormatter = DateFormatter()
+        dayNameFormatter.dateFormat = "EEEE"
+        
+        // Format the date to get the day name
+        let dayName = dayNameFormatter.string(from: today)
+        
+        // Use Calendar to get the day number
+        let calendar = Calendar.current
+        let weekday = calendar.component(.weekday, from: today)
+        
+        // Map the weekday to Monday = 1, Tuesday = 2, ..., Sunday = 7
+        let dayNumber = (weekday + 5) % 7 + 1
+        
+        return (dayName, dayNumber)
+    }
     
     func weekday_reminder(header:String,body:String,day:Int,get_full_time:String,identifier:String,type:String) {
         var int_hr:Int!

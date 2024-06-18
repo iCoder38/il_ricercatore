@@ -50,6 +50,22 @@ class meal_track: UIViewController {
         }
     }
     
+    @IBOutlet weak var view_one:UIView! {
+        didSet {
+            view_one.layer.cornerRadius = 8
+            view_one.clipsToBounds = true
+            view_one.backgroundColor = light_purple_color
+             
+            
+        }
+    }
+    @IBOutlet weak var view_two:UIView! {
+        didSet {
+            view_two.layer.cornerRadius = 8
+            view_two.clipsToBounds = true
+            view_two.backgroundColor = light_purple_color
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
           
