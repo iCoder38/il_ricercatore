@@ -37,6 +37,16 @@ class type_of_excercise: UIViewController {
         self.tble_view.reloadData()
     }
     
+    @objc func exc_1_click_method() {
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "select_workout_id")
+        self.navigationController?.pushViewController(push, animated: true)
+    }
+    
+    @objc func exc_2_click_method() {
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "select_workout_id")
+        self.navigationController?.pushViewController(push, animated: true)
+    }
+    
 }
 
 //MARK:- TABLE VIEW -
@@ -60,7 +70,11 @@ extension type_of_excercise: UITableViewDataSource , UITableViewDelegate {
             let backgroundView = UIView()
             backgroundView.backgroundColor = .clear
             cell.selectedBackgroundView = backgroundView
-              
+            
+            cell.imagee.image = UIImage(named: "exc_2")
+            cell.btn_excercise.setTitle("Aerobic Excercise", for: .normal)
+            cell.btn_excercise.addTarget(self, action: #selector(exc_1_click_method), for: .touchUpInside)
+            
             return cell
             
         } else {
@@ -72,7 +86,11 @@ extension type_of_excercise: UITableViewDataSource , UITableViewDelegate {
             let backgroundView = UIView()
             backgroundView.backgroundColor = .clear
             cell.selectedBackgroundView = backgroundView
-              
+            
+            cell.imagee2.image = UIImage(named: "exc_1")
+            cell.btn_excercise2.setTitle("GYM Excercise", for: .normal)
+            cell.btn_excercise2.addTarget(self, action: #selector(exc_2_click_method), for: .touchUpInside)
+            
             return cell
             
         }
@@ -86,7 +104,7 @@ extension type_of_excercise: UITableViewDataSource , UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 240
+        return 374
     }
 
 }

@@ -2109,11 +2109,31 @@ class select_meal_table_cell : UITableViewCell {
 // /* ******************* TYPE OF EXCERSICE ******************** */
 // /* ********************************************************** */
 class type_of_excercise_table_cell : UITableViewCell {
-    @IBOutlet weak var imagee:UIImageView!
-    @IBOutlet weak var btn_excercise:UIButton!
+    @IBOutlet weak var imagee:UIImageView! {
+        didSet {
+            imagee.layer.cornerRadius = 8
+            imagee.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var btn_excercise:UIButton! {
+        didSet {
+            btn_excercise.layer.cornerRadius = 8
+            btn_excercise.clipsToBounds = true
+        }
+    }
     
-    @IBOutlet weak var imagee2:UIImageView!
-    @IBOutlet weak var btn_excercise2:UIButton!
+    @IBOutlet weak var imagee2:UIImageView! {
+        didSet {
+            imagee2.layer.cornerRadius = 8
+            imagee2.clipsToBounds = true
+        }
+    }
+    @IBOutlet weak var btn_excercise2:UIButton! {
+        didSet {
+            btn_excercise2.layer.cornerRadius = 8
+            btn_excercise2.clipsToBounds = true
+        }
+    }
 }
 
 // /* ******************* DAYS WORKOUT ************************* */
@@ -2122,6 +2142,16 @@ class days_workout_table_cell : UITableViewCell {
     @IBOutlet weak var lbl_title:UILabel!
     @IBOutlet weak var btn_delete:UIButton!
 }
+
+// /* ******************* SELECT WORKOUT ************************* */
+// /* ********************************************************** */
+class select_workout_table_cell2 : UITableViewCell {
+    @IBOutlet weak var lbl_title:UILabel!
+    @IBOutlet weak var lbl_sub_title:UILabel!
+    @IBOutlet weak var lbl_total_cal:UILabel!
+    @IBOutlet weak var btn_add:UIButton!
+}
+
 // /* ******************* PERSONALISE WORKOUT ******************* */
 // /* ********************************************************** */
 class personalized_workout_table_cell : UITableViewCell {
@@ -2258,8 +2288,8 @@ class select_workout_table_cell : UITableViewCell {
     }
     @IBOutlet weak var lbl_title:UILabel!
     @IBOutlet weak var lbl_sub_title:UILabel!
-    
-    
+    @IBOutlet weak var lbl_cal:UILabel!
+    @IBOutlet weak var btn_add:UIButton!
 }
 
 // /* ************** MONITOR - SLEEP **************************** */

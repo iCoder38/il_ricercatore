@@ -27,7 +27,7 @@ var str_rapid_api_host_for_level = "fitness-calculator.p.rapidapi.com"
 
 var set_URL = "https://calories-burned-by-api-ninjas.p.rapidapi.com/v1/caloriesburned?activity="
 var search_food_query_URL = "https://api.api-ninjas.com/v1/nutrition?query="
-
+var excercise_URL = "https://exercise-db-fitness-workout-gym.p.rapidapi.com/"
 
 
 

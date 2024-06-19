@@ -7286,41 +7286,67 @@ per your dietrary.</string>
                                 <rect key="frame" x="0.0" y="144" width="393" height="596"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="select_workout_table_cell" rowHeight="50" id="mdM-ww-TpR" customClass="select_workout_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="50"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="select_workout_table_cell" rowHeight="60" id="mdM-ww-TpR" customClass="select_workout_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mdM-ww-TpR" id="CSZ-53-JQk">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhF-ab-ZUl">
-                                                    <rect key="frame" x="343" y="11" width="30" height="30"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anna Lain" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLQ-cz-LjE">
+                                                    <rect key="frame" x="20" y="11" width="76.666666666666671" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="22" id="Bx0-eV-nbB"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="16"/>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anna Lain" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZsO-m1-nSt">
+                                                    <rect key="frame" x="20.000000000000004" y="35" width="63.333333333333343" height="16"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="16" id="N7M-ct-2qY"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T0s-kV-SbZ">
+                                                    <rect key="frame" x="344" y="10" width="40" height="40"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="30" id="7hn-BJ-hFt"/>
-                                                        <constraint firstAttribute="height" constant="30" id="Xdh-B9-C73"/>
+                                                        <constraint firstAttribute="height" constant="40" id="JJ6-75-Pr6"/>
+                                                        <constraint firstAttribute="width" constant="40" id="a7E-Io-l7l"/>
                                                     </constraints>
                                                     <color key="tintColor" systemColor="viewFlipsideBackgroundColor"/>
                                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                    <state key="normal" image="plus"/>
+                                                    <state key="normal" image="list.bullet" catalog="system"/>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anna Lain" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLQ-cz-LjE">
-                                                    <rect key="frame" x="20" y="11" width="315" height="30"/>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anna Lain" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W9y-IK-scK">
+                                                    <rect key="frame" x="278" y="22" width="63.333333333333314" height="16"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="16" id="wYE-qg-5Fa"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="zLQ-cz-LjE" firstAttribute="top" secondItem="CSZ-53-JQk" secondAttribute="top" constant="11" id="DG7-Rb-PUv"/>
-                                                <constraint firstItem="zLQ-cz-LjE" firstAttribute="leading" secondItem="CSZ-53-JQk" secondAttribute="leading" constant="20" symbolic="YES" id="JLw-ju-5rY"/>
-                                                <constraint firstAttribute="bottom" secondItem="zLQ-cz-LjE" secondAttribute="bottom" constant="9" id="KHo-8u-v48"/>
-                                                <constraint firstItem="rhF-ab-ZUl" firstAttribute="trailing" secondItem="CSZ-53-JQk" secondAttribute="trailingMargin" id="b0D-sS-rDc"/>
-                                                <constraint firstItem="rhF-ab-ZUl" firstAttribute="top" secondItem="CSZ-53-JQk" secondAttribute="topMargin" id="keP-ND-IRB"/>
-                                                <constraint firstItem="rhF-ab-ZUl" firstAttribute="leading" secondItem="zLQ-cz-LjE" secondAttribute="trailing" constant="8" symbolic="YES" id="oMZ-6T-Fyj"/>
+                                                <constraint firstItem="zLQ-cz-LjE" firstAttribute="top" secondItem="CSZ-53-JQk" secondAttribute="topMargin" id="75R-Fv-t8N"/>
+                                                <constraint firstItem="ZsO-m1-nSt" firstAttribute="leading" secondItem="CSZ-53-JQk" secondAttribute="leadingMargin" id="ECx-s3-FRO"/>
+                                                <constraint firstAttribute="trailing" secondItem="T0s-kV-SbZ" secondAttribute="trailing" constant="9" id="LYf-Jv-XuU"/>
+                                                <constraint firstItem="T0s-kV-SbZ" firstAttribute="top" secondItem="CSZ-53-JQk" secondAttribute="top" constant="10" id="XaR-EP-U0G"/>
+                                                <constraint firstItem="ZsO-m1-nSt" firstAttribute="top" secondItem="zLQ-cz-LjE" secondAttribute="bottom" constant="2" id="XwH-9t-oZy"/>
+                                                <constraint firstItem="W9y-IK-scK" firstAttribute="top" secondItem="CSZ-53-JQk" secondAttribute="top" constant="22" id="cmB-nN-TYY"/>
+                                                <constraint firstItem="zLQ-cz-LjE" firstAttribute="leading" secondItem="CSZ-53-JQk" secondAttribute="leadingMargin" id="hmT-Og-OIR"/>
+                                                <constraint firstAttribute="trailing" secondItem="W9y-IK-scK" secondAttribute="trailing" constant="51.666666666667879" id="qV5-MD-nA4"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="btn_add" destination="T0s-kV-SbZ" id="UbT-Mh-5Ki"/>
+                                            <outlet property="lbl_cal" destination="W9y-IK-scK" id="zbo-qY-IEP"/>
+                                            <outlet property="lbl_sub_title" destination="ZsO-m1-nSt" id="pnu-DI-x7x"/>
                                             <outlet property="lbl_title" destination="zLQ-cz-LjE" id="f59-ZM-ley"/>
                                         </connections>
                                     </tableViewCell>
@@ -7426,7 +7452,7 @@ per your dietrary.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iJ3-vt-wFp" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="16506.106870229007" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="42420.610687022898" y="208.45070422535213"/>
         </scene>
         <!--Workout details-->
         <scene sceneID="EtO-Dh-d7s">
@@ -13962,11 +13988,11 @@ per your dietrary.</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AzD-kE-abh">
-                                <rect key="frame" x="0.0" y="1121" width="414" height="79"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AzD-kE-abh">
+                                <rect key="frame" x="0.0" y="1118" width="414" height="82"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nqp-FP-kCQ" customClass="GrowingTextView" customModule="GrowingTextView">
-                                        <rect key="frame" x="8" y="8" width="366" height="30"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nqp-FP-kCQ" customClass="GrowingTextView" customModule="GrowingTextView">
+                                        <rect key="frame" x="8" y="8" width="366" height="33"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -14040,8 +14066,8 @@ per your dietrary.</string>
                                     <constraint firstAttribute="height" constant="88" id="pTE-iL-MIx"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MRS-Mr-I7C">
-                                <rect key="frame" x="0.0" y="88" width="414" height="1033"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MRS-Mr-I7C">
+                                <rect key="frame" x="0.0" y="88" width="414" height="1030"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="comments_table_cell" rowHeight="80" id="v3c-ya-fdz" customClass="comments_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
@@ -17411,21 +17437,21 @@ per your dietrary.</string>
                                 <rect key="frame" x="0.0" y="94" width="393" height="1106"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="type_one" rowHeight="240" id="ls0-YR-K8u" customClass="type_of_excercise_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="240"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="type_one" rowHeight="374" id="ls0-YR-K8u" customClass="type_of_excercise_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="374"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ls0-YR-K8u" id="74k-35-pvb">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="240"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="374"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome2" translatesAutoresizingMaskIntoConstraints="NO" id="DUF-aj-brz">
-                                                    <rect key="frame" x="20" y="11" width="353" height="150"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exc_1" translatesAutoresizingMaskIntoConstraints="NO" id="DUF-aj-brz">
+                                                    <rect key="frame" x="20" y="11" width="353" height="284"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="150" id="T8D-HM-8Uk"/>
+                                                        <constraint firstAttribute="height" constant="284" id="T8D-HM-8Uk"/>
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSC-D1-T54">
-                                                    <rect key="frame" x="20" y="169" width="353" height="60"/>
+                                                    <rect key="frame" x="20" y="303" width="353" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="vhx-gW-yZN"/>
                                                     </constraints>
@@ -17450,21 +17476,21 @@ per your dietrary.</string>
                                             <outlet property="imagee" destination="DUF-aj-brz" id="c0A-XP-fBk"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="type_two" rowHeight="240" id="6VJ-7Q-zc7" customClass="type_of_excercise_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="290" width="393" height="240"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="type_two" rowHeight="374" id="6VJ-7Q-zc7" customClass="type_of_excercise_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="424" width="393" height="374"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6VJ-7Q-zc7" id="bqZ-WL-Izw">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="240"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="374"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome2" translatesAutoresizingMaskIntoConstraints="NO" id="bfc-9m-pr3">
-                                                    <rect key="frame" x="20" y="11" width="353" height="150"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome2" translatesAutoresizingMaskIntoConstraints="NO" id="bfc-9m-pr3">
+                                                    <rect key="frame" x="20" y="11" width="353" height="284"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="150" id="P8e-QV-CXW"/>
+                                                        <constraint firstAttribute="height" constant="284" id="P8e-QV-CXW"/>
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yND-cA-55c">
-                                                    <rect key="frame" x="20" y="169" width="353" height="60"/>
+                                                    <rect key="frame" x="20" y="303" width="353" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="MgU-HM-fYf"/>
                                                     </constraints>
@@ -17520,6 +17546,14 @@ per your dietrary.</string>
             <point key="canvasLocation" x="41730.534351145034" y="350"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="HYZ-yT-3Ve">
+            <size key="intrinsicContentSize" width="-1" height="30"/>
+        </designable>
+        <designable name="nqp-FP-kCQ">
+            <size key="intrinsicContentSize" width="-1" height="30"/>
+        </designable>
+    </designables>
     <resources>
         <image name="11" width="600" height="167"/>
         <image name="22" width="150" height="126"/>
@@ -17541,6 +17575,7 @@ per your dietrary.</string>
         <image name="diet" width="256" height="256"/>
         <image name="edit" width="24" height="24"/>
         <image name="envelope" catalog="system" width="128" height="85"/>
+        <image name="exc_1" width="512" height="512"/>
         <image name="fasting" width="256" height="256"/>
         <image name="fasting(1)" width="256" height="256"/>
         <image name="footstep" width="512" height="512"/>
