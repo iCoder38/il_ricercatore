@@ -10,14 +10,32 @@ import Alamofire
 
 class days_workout: UIViewController {
 
+    var str_profile_select_from_dashboard:String!
+    
     var arr_mut_dashboard_data:NSMutableArray! = []
     
+    @IBOutlet weak var view_header:UIView! {
+        didSet {
+            view_header.backgroundColor = light_purple_color
+            view_header.layer.cornerRadius = 8
+            view_header.clipsToBounds = true
+        }
+    }
+    
+    @IBOutlet weak var btn_date:UIButton!
+    @IBOutlet weak var lbl_date:UILabel! {
+        didSet {
+            lbl_date.text = Date.getCurrentDateCustom()
+        }
+    }
     @IBOutlet weak var txt_field:UITextField!
     @IBOutlet weak var btn_search:UIButton! {
         didSet {
             btn_search.addTarget(self, action: #selector(search_click_method), for: .touchUpInside)
         }
     }
+    
+    var str_total_exc:String!
     
     @IBOutlet weak var lbl_navigation_title:UILabel! {
         didSet {
@@ -49,24 +67,52 @@ class days_workout: UIViewController {
         super.viewDidLoad()
         self.tble_view.separatorColor = .gray
         
-        // Get the current date
-        let (dayName, dayNumber) = getDayNameAndNumber()
-        self.lbl_navigation_title.text = "\(dayName) - Workout"
-        self.day_number = "\(dayNumber)"
+        if (self.str_profile_select_from_dashboard == "1") {
+            self.lbl_navigation_title.text = "Personalized - Workout"
+            self.lbl_date.text = Date.getCurrentDateCustom()
+        } else {
+            // Get the current date
+            let (dayName, dayNumber) = getDayNameAndNumber()
+            self.lbl_navigation_title.text = "\(dayName) - Workout"
+            self.day_number = "\(dayNumber)"
+        }
         
-        self.my_profile(loader: "yes")
-        
-        
+        self.btn_date.addTarget(self, action: #selector(date_click_method), for: .touchUpInside)
         self.btn_add.addTarget(self, action: #selector(add_click_method), for: .touchUpInside)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.arr_mut_dashboard_data.removeAllObjects()
+        self.my_profile(loader: "yes")
+    }
+    
     @objc func add_click_method() {
-        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "type_of_excercise_id")
-        self.navigationController?.pushViewController(push, animated: true)
+        if (self.str_profile_select_from_dashboard == "1") {
+            
+            let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "select_workout_id") as? select_workout
+            push!.str_profile_dashboard = String(self.str_profile_select_from_dashboard)
+            push!.str_get_date = self.lbl_date.text
+            push!.get_details = self.arr_mut_dashboard_data
+            self.navigationController?.pushViewController(push!, animated: true)
+            
+        } else {
+            let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "type_of_excercise_id")
+            self.navigationController?.pushViewController(push, animated: true)
+        }
+        
     }
     
     @objc func search_click_method() {
         
+    }
+    
+    @objc func date_click_method() {
+        RPicker.selectDate(title: "Select date", cancelText: "Cancel", datePickerMode: .date,maxDate: Date.now, didSelectDate: { (selectedDate) in
+            self.lbl_date.text = selectedDate.dateString("yyyy-MM-dd")
+            
+            self.my_profile(loader: "yes")
+        })
     }
     
     @objc func my_profile(loader:String) {
@@ -89,11 +135,21 @@ class days_workout: UIViewController {
                     "token":String(token_id_is),
                 ]
                 
-                parameters = [
-                    "action"    : "day_wise_excercis_list",
-                    "userId"    : String(myString),
-                    "day"       : String(self.day_number)
-                ]
+                if (self.str_profile_select_from_dashboard == "1") {
+                    parameters = [
+                        "action"    : "myworkoutlist",
+                        "userId"    : String(myString),
+                        "startDate" : String(self.lbl_date.text!),
+                        "enddate"   : String(self.lbl_date.text!),
+                    ]
+                } else {
+                    parameters = [
+                        "action"    : "day_wise_excercis_list",
+                        "userId"    : String(myString),
+                        "day"       : String(self.day_number)
+                    ]
+                }
+                
                 
                 print("parameters-------\(String(describing: parameters))")
                 
@@ -115,9 +171,30 @@ class days_workout: UIViewController {
                                 
                                 var ar : NSArray!
                                 ar = (JSON["data"] as! Array<Any>) as NSArray
-                                print(ar as Any)
+                                // print(ar as Any)
                                 
-                                self.arr_mut_dashboard_data.addObjects(from: ar as! [Any])
+                                if (self.str_profile_select_from_dashboard == "1") {
+                                    self.arr_mut_dashboard_data.removeAllObjects()
+                                    
+                                    for indexx in 0..<ar.count {
+                                        let item2 = ar[indexx] as? [String:Any]
+                                        // print(item2 as Any)
+                                        
+                                        var ar2 : NSArray!
+                                        ar2 = (item2!["json_record_details"] as! Array<Any>) as NSArray
+                                        // print(ar2 as Any)
+                                        // print(ar2.count as Any)
+                                        
+                                        self.arr_mut_dashboard_data.addObjects(from: ar2 as! [Any])
+                                    }
+                                    // print(self.self.arr_mut_dashboard_data as Any)
+                                    // print(self.self.arr_mut_dashboard_data.count as Any)
+                                    
+                                } else {
+                                    self.arr_mut_dashboard_data.addObjects(from: ar as! [Any])
+                                }
+                                
+                                
                                 
                                 self.tble_view.delegate = self
                                 self.tble_view.dataSource = self
@@ -298,16 +375,36 @@ extension days_workout: UITableViewDataSource , UITableViewDelegate {
         let cell:days_workout_table_cell = tableView.dequeueReusableCell(withIdentifier: "days_workout_table_cell") as! days_workout_table_cell
         
         let item = self.arr_mut_dashboard_data[indexPath.row] as? [String:Any]
-        cell.lbl_title.text = (item!["excercise_name"] as! String)
+        print(item as Any)
         
         cell.backgroundColor = .clear
         
         let backgroundView = UIView()
         backgroundView.backgroundColor = .clear
         cell.selectedBackgroundView = backgroundView
-         
-        cell.btn_delete.tag = indexPath.row
-        cell.btn_delete.addTarget(self, action: #selector(delete_button_click_method), for: .touchUpInside)
+        
+        if (self.str_profile_select_from_dashboard == "1") {
+            
+            cell.lbl_title.text = (item!["name"] as! String)
+            
+            if item!["calories_per_hour"] == nil {
+                cell.lbl_sub_title.text = "\(item!["duration_minutes"]!) Min"
+            } else {
+                cell.lbl_sub_title.text = "\(item!["duration_minutes"]!) Min (\(item!["calories_per_hour"]!) Cal)"
+            }
+            
+            cell.btn_delete.isHidden = true
+            
+        } else {
+            
+            cell.btn_delete.isHidden = false
+            cell.btn_delete.tag = indexPath.row
+            cell.btn_delete.addTarget(self, action: #selector(delete_button_click_method), for: .touchUpInside)
+            cell.lbl_title.text = (item!["excercise_name"] as! String)
+            
+        }
+        
+        
         
         return cell
         

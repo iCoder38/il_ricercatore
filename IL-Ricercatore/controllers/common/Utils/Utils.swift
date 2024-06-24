@@ -20,6 +20,9 @@ let date_fomatter_yyyy_MM_dd = "yyyy-MM-dd"
 var app_name = "IL-Recercatore"
 var appstore_URL = "https://www.google.co.in"
 
+// api keys
+var excercise_api_key = "iMmbLV8e289ZG4nuTVCkwg==R8dlRkgN6D60YrAC"
+
 // rapid api
 var str_rapid_api_header = "23faaa439fmsh27a2b4cf902db09p183b39jsn534baaae20b4"
 var str_rapid_api_host = "calories-burned-by-api-ninjas.p.rapidapi.com"
@@ -28,8 +31,11 @@ var str_rapid_api_host_for_level = "fitness-calculator.p.rapidapi.com"
 var set_URL = "https://calories-burned-by-api-ninjas.p.rapidapi.com/v1/caloriesburned?activity="
 var search_food_query_URL = "https://api.api-ninjas.com/v1/nutrition?query="
 var excercise_URL = "https://exercise-db-fitness-workout-gym.p.rapidapi.com/"
+var calories_burned_aerobics_URL = "https://api.api-ninjas.com/v1/caloriesburned?activity="
 
-
+var all_exercise_host = "exercise-db-fitness-workout-gym.p.rapidapi.com"
+var all_exercise_api_key = "a549c19e42msh291ffe0591026cep1d1f1ejsnea1fdd0d9fc8"
+var all_exercise_list_URL = "https://exercise-db-fitness-workout-gym.p.rapidapi.com/exercises"
 
 // days
 var day_sunday = 1

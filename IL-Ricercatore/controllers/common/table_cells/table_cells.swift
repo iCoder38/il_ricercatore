@@ -945,6 +945,8 @@ class dashboard_table_cell : UITableViewCell {
     
     @IBOutlet weak var lbl_cal_eaten:UILabel!
     
+    @IBOutlet weak var lbl_exc_count:UILabel!
+    
     @IBOutlet weak var btn_edit:UIButton!
     @IBOutlet weak var view_profile_name:UIView! {
         didSet {
@@ -2140,7 +2142,12 @@ class type_of_excercise_table_cell : UITableViewCell {
 // /* ********************************************************** */
 class days_workout_table_cell : UITableViewCell {
     @IBOutlet weak var lbl_title:UILabel!
-    @IBOutlet weak var btn_delete:UIButton!
+    @IBOutlet weak var lbl_sub_title:UILabel!
+    @IBOutlet weak var btn_delete:UIButton! {
+        didSet {
+            btn_delete.tintColor = .systemRed
+        }
+    }
 }
 
 // /* ******************* SELECT WORKOUT ************************* */
@@ -2157,6 +2164,7 @@ class select_workout_table_cell2 : UITableViewCell {
 class personalized_workout_table_cell : UITableViewCell {
     @IBOutlet weak var lbl_title:UILabel!
 }
+
 // /* ******************* PERSONALISE DAY ******************* */
 // /* ********************************************************** */
 class personalize_day_table_cell : UITableViewCell {

@@ -47,6 +47,7 @@ class dashboard: UIViewController, UNUserNotificationCenterDelegate {
         
         
     }
+    var exc_count:String!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -261,8 +262,8 @@ class dashboard: UIViewController, UNUserNotificationCenterDelegate {
                                 } else {
                                     
                                 }
-                                self.general()
                                 
+                                self.exc_list_WB()
                                 
                             }
                             else {
@@ -281,6 +282,110 @@ class dashboard: UIViewController, UNUserNotificationCenterDelegate {
                 }
             } else {
                 self.refresh_token_WB()
+            }
+        }
+        
+    }
+    
+    @objc func exc_list_WB() {
+       
+        var parameters:Dictionary<AnyHashable, Any>!
+        
+         
+            ERProgressHud.sharedInstance.showDarkBackgroundView(withTitle: "Please wait...")
+        
+        
+        if let person = UserDefaults.standard.value(forKey: str_save_login_user_data) as? [String:Any] {
+            print(person)
+            
+            let x : Int = person["userId"] as! Int
+            let myString = String(x)
+            
+            if let token_id_is = UserDefaults.standard.string(forKey: str_save_last_api_token) {
+                
+                let headers: HTTPHeaders = [
+                    "token":String(token_id_is),
+                ]
+                
+                let (dayName, dayNumber) = getDayNameAndNumber()
+                
+                parameters = [
+                    "action"    : "day_wise_excercis_list",
+                    "userId"    : String(myString),
+                    "day"       : "\(dayNumber)"
+                ]
+                
+                print("parameters-------\(String(describing: parameters))")
+                
+                AF.request(application_base_url, method: .post, parameters: parameters as? Parameters,headers: headers).responseJSON { [self]
+                    response in
+                    
+                    switch(response.result) {
+                    case .success(_):
+                        if let data = response.value {
+                            
+                            let JSON = data as! NSDictionary
+                            print(JSON)
+                            
+                            var strSuccess : String!
+                            strSuccess = JSON["status"] as? String
+                            
+                            if strSuccess.lowercased() == "success" {
+                                 
+                                
+                                var ar : NSArray!
+                                ar = (JSON["data"] as! Array<Any>) as NSArray
+                                print(ar as Any)
+                                
+                                self.exc_count = "\(ar.count)"
+                                
+                                self.general()
+                            }
+                            else {
+                                TokenManager.shared.refresh_token_WB { token, error in
+                                    if let token = token {
+                                        print("Token received: \(token)")
+                                        
+                                        let str_token = "\(token)"
+                                        UserDefaults.standard.set("", forKey: str_save_last_api_token)
+                                        UserDefaults.standard.set(str_token, forKey: str_save_last_api_token)
+                                        
+                                        self.my_profile(loader: "no")
+                                        
+                                    } else if let error = error {
+                                        print("Failed to refresh token: \(error.localizedDescription)")
+                                        // Handle the error
+                                    }
+                                }
+
+                            }
+                            
+                        }
+                        
+                    case .failure(_):
+                        print("Error message:\(String(describing: response.error))")
+                        ERProgressHud.sharedInstance.hide()
+                        self.please_check_your_internet_connection()
+                        
+                        break
+                    }
+                }
+            } else {
+                TokenManager.shared.refresh_token_WB { token, error in
+                    if let token = token {
+                        print("Token received: \(token)")
+                        
+                        let str_token = "\(token)"
+                        UserDefaults.standard.set("", forKey: str_save_last_api_token)
+                        UserDefaults.standard.set(str_token, forKey: str_save_last_api_token)
+                        
+                        self.my_profile(loader: "no")
+                        
+                    } else if let error = error {
+                        print("Failed to refresh token: \(error.localizedDescription)")
+                        // Handle the error
+                    }
+                }
             }
         }
         
@@ -352,7 +457,7 @@ class dashboard: UIViewController, UNUserNotificationCenterDelegate {
        
         var calculate:Double!
         
-        print(self.dict_dashboard["height_measurement"])
+        // print(self.dict_dashboard["height_measurement"])
         if (self.dict_dashboard["height_measurement"] as! String) != "cm" {
             // 5 ft = 5 x 30.48
             
@@ -615,23 +720,28 @@ class dashboard: UIViewController, UNUserNotificationCenterDelegate {
         let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "all_post_id")
         self.navigationController?.pushViewController(push, animated: true)
     }
+    
     @objc func nut_plus_click_methd() {
         let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "meal_track_id")
         self.navigationController?.pushViewController(push, animated: true)
     }
+    
     @objc func add_glucose_click_methd() {
         let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "blood_glucose_id")
         self.navigationController?.pushViewController(push, animated: true)
     }
+    
     @objc func cal_burnt_click_method() {
-        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "calories_burnout_id")
-        self.navigationController?.pushViewController(push, animated: true)
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "type_of_excercise_id") as? type_of_excercise
+        push!.str_exc_profile = "1"
+        self.navigationController?.pushViewController(push!, animated: true)
     }
     
     @objc func right_arrow_click_methd() {
         let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "days_workout_id")
         self.navigationController?.pushViewController(push, animated: true)
     }
+    
 }
 
 //MARK:- TABLE VIEW -
@@ -666,6 +776,7 @@ extension dashboard: UITableViewDataSource , UITableViewDelegate {
             cell.img_view_profile.sd_imageIndicator = SDWebImageActivityIndicator.grayLarge
             cell.img_view_profile.sd_setImage(with: URL(string: (person["image"] as! String)), placeholderImage: UIImage(named: "logo"))
             
+            cell.lbl_exc_count.text = String(self.exc_count)+" Excercises"
         }
         
         if (self.str_total_calories_id == "") {
@@ -673,6 +784,7 @@ extension dashboard: UITableViewDataSource , UITableViewDelegate {
         } else {
             cell.lbl_cal_eaten.text = "0 to \(self.str_total_calories_id!)"
         }
+        
         
         
         cell.btn_edit.addTarget(self, action: #selector(edit_click_method), for: .touchUpInside)

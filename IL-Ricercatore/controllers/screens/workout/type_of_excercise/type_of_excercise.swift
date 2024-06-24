@@ -9,6 +9,8 @@ import UIKit
 
 class type_of_excercise: UIViewController {
 
+    var str_exc_profile:String!
+    
     @IBOutlet weak var lbl_navigation_title:UILabel! {
         didSet {
             lbl_navigation_title.text = "TYPE OF EXCERCISE"
@@ -38,13 +40,30 @@ class type_of_excercise: UIViewController {
     }
     
     @objc func exc_1_click_method() {
-        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "select_workout_id")
-        self.navigationController?.pushViewController(push, animated: true)
+        
+        if (self.str_exc_profile == "1") {
+            let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "days_workout_id") as? days_workout
+            push!.str_profile_select_from_dashboard = "1"
+            self.navigationController?.pushViewController(push!, animated: true)
+        } else {
+            let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "select_workout_id") as? select_workout
+            push!.exc_type = "1"
+            self.navigationController?.pushViewController(push!, animated: true)
+        }
+        
     }
     
     @objc func exc_2_click_method() {
-        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "select_workout_id")
-        self.navigationController?.pushViewController(push, animated: true)
+        
+        if (self.str_exc_profile == "2") {
+            let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "days_workout_id") as? days_workout
+            push!.str_profile_select_from_dashboard = "2"
+            self.navigationController?.pushViewController(push!, animated: true)
+        } else {
+            let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "select_workout_id") as? select_workout
+            push!.exc_type = "2"
+            self.navigationController?.pushViewController(push!, animated: true)
+        }
     }
     
 }

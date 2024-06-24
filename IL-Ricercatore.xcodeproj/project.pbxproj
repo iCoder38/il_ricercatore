@@ -727,10 +727,10 @@
 		B9CC8EE82B3309A200130035 /* workout */ = {
 			isa = PBXGroup;
 			children = (
+				B9CC8EEC2B330E3A00130035 /* days_workout */,
 				B936A11A2C22C04900CCD0C3 /* select_workout */,
 				B94B1BFA2C21BEB300AC170F /* type_of_excercise */,
 				B9CC8EE92B3309A800130035 /* workout_setting */,
-				B9CC8EEC2B330E3A00130035 /* days_workout */,
 			);
 			path = workout;
 			sourceTree = "<group>";

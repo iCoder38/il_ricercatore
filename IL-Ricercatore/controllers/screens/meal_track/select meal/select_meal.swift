@@ -138,7 +138,6 @@ class select_meal: UIViewController {
         let immutableArray = NSArray(array: self.getData)
         print(immutableArray)
      
-        
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: immutableArray, options: .prettyPrinted)
             
@@ -312,15 +311,10 @@ extension select_meal: UITableViewDataSource , UITableViewDelegate {
         let yes = NewYorkButton(title: "Yes", style: .default) {
             _ in
             let item = self.arr_all_activities_data[indexPath.row] as? [String:Any]
-            // print(item as Any)
             
-            // print(self.array[0] as Any)
-            // print(self.getData as Any)
             self.array.append(item!)
             self.getData.add(item!)
-            // print(self.getData as Any)
-            // print(self.getData.count as Any)
-            // print(self.array as Any)
+            
             
             self.my_profile()
             
