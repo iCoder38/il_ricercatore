@@ -2150,6 +2150,22 @@ class days_workout_table_cell : UITableViewCell {
     }
 }
 
+// /* ******************* GYM EXC DETAILS ********************** */
+// /* ********************************************************** */
+class workout_gym_exc_details_table_cell : UITableViewCell {
+    @IBOutlet weak var lbl_name:UILabel!
+    @IBOutlet weak var lbl_category:UILabel!
+    @IBOutlet weak var lbl_force:UILabel!
+    @IBOutlet weak var lbl_mechanic:UILabel!
+    @IBOutlet weak var lbl_equipment:UILabel!
+    @IBOutlet weak var lbl_instruction:UITextView! {
+        didSet {
+            lbl_instruction.isEditable = false
+        }
+    }
+}
+
+
 // /* ******************* SELECT WORKOUT ************************* */
 // /* ********************************************************** */
 class select_workout_table_cell2 : UITableViewCell {

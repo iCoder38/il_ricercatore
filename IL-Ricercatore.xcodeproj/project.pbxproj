@@ -64,8 +64,10 @@
 		B9E314252BAD9B580027A02F /* blood_pressure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E314242BAD9B580027A02F /* blood_pressure.swift */; };
 		B9E314272BAD9B6B0027A02F /* add_blood_pressure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E314262BAD9B6B0027A02F /* add_blood_pressure.swift */; };
 		B9E3142A2BADBF8E0027A02F /* all_post.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E314292BADBF8E0027A02F /* all_post.swift */; };
+		B9E43C1F2C2AD1A70084AD43 /* workout_gym_exc_details.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E43C1E2C2AD1A70084AD43 /* workout_gym_exc_details.swift */; };
 		B9E5C7BD2BEDFF39002D3938 /* calories_set.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E5C7BC2BEDFF39002D3938 /* calories_set.swift */; };
 		B9E5C7C02BEE1246002D3938 /* show_all_cal_burnt_ctivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E5C7BF2BEE1246002D3938 /* show_all_cal_burnt_ctivity.swift */; };
+		B9E731912C2AF050009EE3B3 /* set_gym_exc_sets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E731902C2AF050009EE3B3 /* set_gym_exc_sets.swift */; };
 		B9E745362B29C1E9007E018A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E745352B29C1E9007E018A /* AppDelegate.swift */; };
 		B9E745382B29C1E9007E018A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E745372B29C1E9007E018A /* SceneDelegate.swift */; };
 		B9E7453A2B29C1E9007E018A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E745392B29C1E9007E018A /* ViewController.swift */; };
@@ -180,8 +182,10 @@
 		B9E314242BAD9B580027A02F /* blood_pressure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = blood_pressure.swift; sourceTree = "<group>"; };
 		B9E314262BAD9B6B0027A02F /* add_blood_pressure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = add_blood_pressure.swift; sourceTree = "<group>"; };
 		B9E314292BADBF8E0027A02F /* all_post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = all_post.swift; sourceTree = "<group>"; };
+		B9E43C1E2C2AD1A70084AD43 /* workout_gym_exc_details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = workout_gym_exc_details.swift; sourceTree = "<group>"; };
 		B9E5C7BC2BEDFF39002D3938 /* calories_set.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calories_set.swift; sourceTree = "<group>"; };
 		B9E5C7BF2BEE1246002D3938 /* show_all_cal_burnt_ctivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = show_all_cal_burnt_ctivity.swift; sourceTree = "<group>"; };
+		B9E731902C2AF050009EE3B3 /* set_gym_exc_sets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = set_gym_exc_sets.swift; sourceTree = "<group>"; };
 		B9E745322B29C1E9007E018A /* IL-Ricercatore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IL-Ricercatore.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E745352B29C1E9007E018A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9E745372B29C1E9007E018A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -727,6 +731,7 @@
 		B9CC8EE82B3309A200130035 /* workout */ = {
 			isa = PBXGroup;
 			children = (
+				B9E43C1B2C2AD15B0084AD43 /* workout_details */,
 				B9CC8EEC2B330E3A00130035 /* days_workout */,
 				B936A11A2C22C04900CCD0C3 /* select_workout */,
 				B94B1BFA2C21BEB300AC170F /* type_of_excercise */,
@@ -841,6 +846,15 @@
 				B9E196882BADC7250005E28C /* all_post_category */,
 			);
 			path = post;
+			sourceTree = "<group>";
+		};
+		B9E43C1B2C2AD15B0084AD43 /* workout_details */ = {
+			isa = PBXGroup;
+			children = (
+				B9E43C1E2C2AD1A70084AD43 /* workout_gym_exc_details.swift */,
+				B9E731902C2AF050009EE3B3 /* set_gym_exc_sets.swift */,
+			);
+			path = workout_details;
 			sourceTree = "<group>";
 		};
 		B9E5C7BB2BEDFF2E002D3938 /* calories_set */ = {
@@ -1333,6 +1347,7 @@
 				B99BCBA82BECAC5E0049EF29 /* weight_reminder.swift in Sources */,
 				B9AD06722BF349AE00F48845 /* food_add.swift in Sources */,
 				B950F9132B9A05C200C01D3B /* add_steps_time.swift in Sources */,
+				B9E731912C2AF050009EE3B3 /* set_gym_exc_sets.swift in Sources */,
 				B92B9B562BD29464003175BA /* add_blood_glucose.swift in Sources */,
 				B95375B82BF48B620063960B /* edit_profile.swift in Sources */,
 				B9E745362B29C1E9007E018A /* AppDelegate.swift in Sources */,
@@ -1381,6 +1396,7 @@
 				B950F9102B9A04B100C01D3B /* steps.swift in Sources */,
 				B9538BA62B886B0C00722BF8 /* api.swift in Sources */,
 				B9DD5A1A2B31B9A3006B2D60 /* water_intake.swift in Sources */,
+				B9E43C1F2C2AD1A70084AD43 /* workout_gym_exc_details.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

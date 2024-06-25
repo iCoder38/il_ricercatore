@@ -94,8 +94,15 @@ class select_workout: UIViewController, UITextFieldDelegate {
         self.btn_continue.addTarget(self, action: #selector(continue_click), for: .touchUpInside)
         
         print(self.get_details as Any)
+        print(self.str_profile_dashboard as Any)
+        
         self.txt_search.delegate = self
         if self.exc_type == "2" {
+            self.btn_search.isHidden = true
+            self.txt_search.delegate = self
+            self.all_exc_list()
+        } else if (self.str_profile_dashboard == "2") {
+            self.exc_type = "2"
             self.btn_search.isHidden = true
             self.txt_search.delegate = self
             self.all_exc_list()
@@ -113,11 +120,13 @@ class select_workout: UIViewController, UITextFieldDelegate {
         
         return true
     }
+    
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
-            // Handle clearing the text field
-            filterContentForSearchText("")
-            return true
-        }
+        // Handle clearing the text field
+        filterContentForSearchText("")
+        return true
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return true
@@ -218,7 +227,7 @@ class select_workout: UIViewController, UITextFieldDelegate {
     
     func checkSelectionState() {
         if (self.exc_type == "2") {
-            isItemSelected = customExercises.contains { $0["status"] == "yes" }
+            isItemSelected = filteredExercises.contains { $0["status"] as! String == "yes" }
         } else {
             isItemSelected = arr_add_custom_array.contains { $0["status"] as? String == "yes" }
         }
@@ -228,7 +237,15 @@ class select_workout: UIViewController, UITextFieldDelegate {
     
     @objc func continue_click() {
         
-        
+        if (self.str_profile_dashboard == "2") {
+            debugPrint("SHOW DETAILS")
+            
+            let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "workout_gym_exc_details_id") as? workout_gym_exc_details
+            push!.exc_id = self.selectedName
+            self.navigationController?.pushViewController(push!, animated: true)
+            
+            return
+        }
         
         print(self.arr_add_custom_array as Any)
         
@@ -420,8 +437,6 @@ class select_workout: UIViewController, UITextFieldDelegate {
                             // print("Raw response string: \(rawString)")
                         }
                         
-                        
-                        
                         // Try to parse the JSON data
                         let json = try JSONSerialization.jsonObject(with: data, options: [])
                         
@@ -431,6 +446,8 @@ class select_workout: UIViewController, UITextFieldDelegate {
                         // Check if the parsed JSON is a dictionary
                         if let jsonObject = json as? [String: Any],
                            let exercisesIds = jsonObject["excercises_ids"] as? [String] {
+                            
+                            print(jsonObject as Any)
                             
                             self.customExercises.removeAll()
                             
@@ -511,6 +528,8 @@ extension select_workout: UITableViewDataSource , UITableViewDelegate {
         if (self.exc_type == "2") {
             
             let item = self.filteredExercises[indexPath.row] as? [String:Any]
+            print(item as Any)
+            
             cell.lbl_title.text = (item!["name"] as! String)
             cell.lbl_sub_title.text = ""
             cell.lbl_cal.text = ""
@@ -557,14 +576,14 @@ extension select_workout: UITableViewDataSource , UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if self.exc_type == "2" {
-            for (index, var item) in customExercises.enumerated() {
+            for (index, var item) in filteredExercises.enumerated() {
                 if index == indexPath.row {
                     item["status"] = "yes"
-                    selectedName = item["name"]
+                    selectedName = (item["name"] as? String)
                 } else {
                     item["status"] = "no"
                 }
-                customExercises[index] = item
+                filteredExercises[index] = item
             }
             
             // Update filteredExercises if filtered

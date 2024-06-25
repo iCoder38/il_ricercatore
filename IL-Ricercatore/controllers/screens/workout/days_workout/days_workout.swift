@@ -23,11 +23,13 @@ class days_workout: UIViewController {
     }
     
     @IBOutlet weak var btn_date:UIButton!
+    
     @IBOutlet weak var lbl_date:UILabel! {
         didSet {
             lbl_date.text = Date.getCurrentDateCustom()
         }
     }
+    
     @IBOutlet weak var txt_field:UITextField!
     @IBOutlet weak var btn_search:UIButton! {
         didSet {
@@ -45,7 +47,6 @@ class days_workout: UIViewController {
     
     @IBOutlet weak var tble_view:UITableView! {
         didSet {
-             
             tble_view.layer.cornerRadius = 22
             tble_view.clipsToBounds = true
         }
@@ -89,6 +90,14 @@ class days_workout: UIViewController {
     
     @objc func add_click_method() {
         if (self.str_profile_select_from_dashboard == "1") {
+            
+            let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "select_workout_id") as? select_workout
+            push!.str_profile_dashboard = String(self.str_profile_select_from_dashboard)
+            push!.str_get_date = self.lbl_date.text
+            push!.get_details = self.arr_mut_dashboard_data
+            self.navigationController?.pushViewController(push!, animated: true)
+            
+        } else if (self.str_profile_select_from_dashboard == "2") {
             
             let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "select_workout_id") as? select_workout
             push!.str_profile_dashboard = String(self.str_profile_select_from_dashboard)
@@ -142,6 +151,13 @@ class days_workout: UIViewController {
                         "startDate" : String(self.lbl_date.text!),
                         "enddate"   : String(self.lbl_date.text!),
                     ]
+                } else if (self.str_profile_select_from_dashboard == "2") {
+                    parameters = [
+                        "action"    : "myworkoutlist_type",
+                        "userId"    : String(myString),
+                        "startDate" : String(self.lbl_date.text!),
+                        "enddate"   : String(self.lbl_date.text!),
+                    ]
                 } else {
                     parameters = [
                         "action"    : "day_wise_excercis_list",
@@ -190,6 +206,18 @@ class days_workout: UIViewController {
                                     // print(self.self.arr_mut_dashboard_data as Any)
                                     // print(self.self.arr_mut_dashboard_data.count as Any)
                                     
+                                } else if (self.str_profile_select_from_dashboard == "2") {
+                                    self.arr_mut_dashboard_data.removeAllObjects()
+                                    
+                                    for indexx in 0..<ar.count {
+                                        let item2 = ar[indexx] as? [String:Any]
+                                         
+                                        
+                                        var ar2 : NSArray!
+                                        ar2 = (item2!["json_record_details"] as! Array<Any>) as NSArray
+                                         
+                                        self.arr_mut_dashboard_data.addObjects(from: ar2 as! [Any])
+                                    }
                                 } else {
                                     self.arr_mut_dashboard_data.addObjects(from: ar as! [Any])
                                 }
@@ -383,7 +411,7 @@ extension days_workout: UITableViewDataSource , UITableViewDelegate {
         backgroundView.backgroundColor = .clear
         cell.selectedBackgroundView = backgroundView
         
-        if (self.str_profile_select_from_dashboard == "1") {
+        if (self.str_profile_select_from_dashboard == "1") { // dashboard > aerobics
             
             cell.lbl_title.text = (item!["name"] as! String)
             
@@ -395,12 +423,23 @@ extension days_workout: UITableViewDataSource , UITableViewDelegate {
             
             cell.btn_delete.isHidden = true
             
+        } else if (self.str_profile_select_from_dashboard == "2") { // dashboard > gym
+             
+            cell.lbl_title.text = (item!["name"] as! String)
+            
+            if item!["reps"] == nil {
+                cell.lbl_sub_title.text = "N.A."
+            } else {
+                cell.lbl_sub_title.text = "\(item!["reps"]!) Reps (\(item!["sets"]!) Sets)"
+            }
+            
+            cell.btn_delete.isHidden = true
         } else {
             
             cell.btn_delete.isHidden = false
             cell.btn_delete.tag = indexPath.row
             cell.btn_delete.addTarget(self, action: #selector(delete_button_click_method), for: .touchUpInside)
-            cell.lbl_title.text = (item!["excercise_name"] as! String)
+            //  cell.lbl_title.text = (item!["excercise_name"] as! String)
             
         }
         
