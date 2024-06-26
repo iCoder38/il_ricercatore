@@ -14,6 +14,8 @@ class days_workout: UIViewController {
     
     var arr_mut_dashboard_data:NSMutableArray! = []
     
+    var workout_id:String!
+    
     @IBOutlet weak var view_header:UIView! {
         didSet {
             view_header.backgroundColor = light_purple_color
@@ -68,9 +70,17 @@ class days_workout: UIViewController {
         super.viewDidLoad()
         self.tble_view.separatorColor = .gray
         
+        print(self.str_profile_select_from_dashboard as Any)
+        
         if (self.str_profile_select_from_dashboard == "1") {
             self.lbl_navigation_title.text = "Personalized - Workout"
             self.lbl_date.text = Date.getCurrentDateCustom()
+        } else if (self.str_profile_select_from_dashboard == "3") {
+            
+            let (dayName, dayNumber) = getDayNameAndNumber()
+            self.lbl_navigation_title.text = "\(dayName) - Workout"
+            self.day_number = "\(dayNumber)"
+            
         } else {
             // Get the current date
             let (dayName, dayNumber) = getDayNameAndNumber()
@@ -95,10 +105,12 @@ class days_workout: UIViewController {
             push!.str_profile_dashboard = String(self.str_profile_select_from_dashboard)
             push!.str_get_date = self.lbl_date.text
             push!.get_details = self.arr_mut_dashboard_data
+            push!.exc_type = "1"
             self.navigationController?.pushViewController(push!, animated: true)
             
             
         } else if (self.str_profile_select_from_dashboard == "2") {
+            debugPrint(self.str_profile_select_from_dashboard as Any)
             
             let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "select_workout_id") as? select_workout
             push!.str_profile_dashboard = String(self.str_profile_select_from_dashboard)
@@ -107,8 +119,14 @@ class days_workout: UIViewController {
             self.navigationController?.pushViewController(push!, animated: true)
             
         } else {
-            let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "type_of_excercise_id")
-            self.navigationController?.pushViewController(push, animated: true)
+            let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "type_of_excercise_id") as? type_of_excercise
+            push!.str_exc_profile = "2"
+            self.navigationController?.pushViewController(push!, animated: true)
+            /*let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "select_workout_id") as? select_workout
+            push!.str_profile_dashboard = "3"
+            push!.str_get_date = self.lbl_date.text
+            push!.get_details = self.arr_mut_dashboard_data
+            self.navigationController?.pushViewController(push!, animated: true)*/
         }
         
     }
@@ -208,17 +226,22 @@ class days_workout: UIViewController {
                                     // print(self.self.arr_mut_dashboard_data.count as Any)
                                     
                                 } else if (self.str_profile_select_from_dashboard == "2") {
-                                    self.arr_mut_dashboard_data.removeAllObjects()
-                                    
-                                    for indexx in 0..<ar.count {
-                                        let item2 = ar[indexx] as? [String:Any]
+                                    if (ar.count != 0) {
+                                        let item2 = ar[0] as? [String:Any]
+                                        self.workout_id = "\(item2!["myworkoutId"]!)"
+                                        self.arr_mut_dashboard_data.removeAllObjects()
                                         
-                                        
-                                        var ar2 : NSArray!
-                                        ar2 = (item2!["json_record_details"] as! Array<Any>) as NSArray
-                                        
-                                        self.arr_mut_dashboard_data.addObjects(from: ar2 as! [Any])
+                                        for indexx in 0..<ar.count {
+                                            let item2 = ar[indexx] as? [String:Any]
+                                            
+                                            
+                                            var ar2 : NSArray!
+                                            ar2 = (item2!["json_record_details"] as! Array<Any>) as NSArray
+                                            
+                                            self.arr_mut_dashboard_data.addObjects(from: ar2 as! [Any])
+                                        }
                                     }
+                                    
                                 } else {
                                     self.arr_mut_dashboard_data.addObjects(from: ar as! [Any])
                                 }
@@ -300,7 +323,36 @@ class days_workout: UIViewController {
         self.present(alert, animated: true, completion: nil)
         
     }
-    
+    @objc func delete_button_click_methodGYM(_ sender:UIButton) {
+        
+        let item = self.arr_mut_dashboard_data[sender.tag] as? [String:Any]
+        print(item as Any)
+        
+        let alert = UIAlertController(title: "Are you sure you want to delete this exercise?", message: nil, preferredStyle: .alert)
+        
+        // Create the confirm action
+        let confirmAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+            // Handle the deletion
+            print("Workout deleted.")
+            // self.delete_api_hit(exc_id: ("\(item!["day_excercise_id"]!)"))
+            
+            print(self.arr_mut_dashboard_data.count)
+            self.arr_mut_dashboard_data.removeObject(at: sender.tag)
+            print(self.arr_mut_dashboard_data.count)
+            self.delete_api_hitGYM()
+        }
+        
+        // Create the cancel action
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        // Add actions to the alert controller
+        alert.addAction(confirmAction)
+        alert.addAction(cancelAction)
+        
+        // Present the alert
+        self.present(alert, animated: true, completion: nil)
+        
+    }
     @objc func delete_api_hit(exc_id:String) {
         var parameters:Dictionary<AnyHashable, Any>!
         ERProgressHud.sharedInstance.showDarkBackgroundView(withTitle: "Please wait...")
@@ -315,6 +367,106 @@ class days_workout: UIViewController {
                 "userId"            : "\(UserUtility.getUserId()!)",
                 "day_excercise_id"  : String(exc_id)
             ]
+            
+            print("parameters-------\(String(describing: parameters))")
+            
+            AF.request(application_base_url, method: .post, parameters: parameters as? Parameters,headers: headers).responseJSON { [self]
+                response in
+                
+                switch(response.result) {
+                case .success(_):
+                    if let data = response.value {
+                        
+                        let JSON = data as! NSDictionary
+                        print(JSON)
+                        
+                        var strSuccess : String!
+                        strSuccess = JSON["status"] as? String
+                        
+                        if strSuccess.lowercased() == "success" {
+                            
+                            self.arr_mut_dashboard_data.removeAllObjects()
+                            self.my_profile(loader: "no")
+                        }
+                        else {
+                            TokenManager.shared.refresh_token_WB { token, error in
+                                if let token = token {
+                                    print("Token received: \(token)")
+                                    
+                                    let str_token = "\(token)"
+                                    UserDefaults.standard.set("", forKey: str_save_last_api_token)
+                                    UserDefaults.standard.set(str_token, forKey: str_save_last_api_token)
+                                    
+                                    self.my_profile(loader: "no")
+                                    
+                                } else if let error = error {
+                                    print("Failed to refresh token: \(error.localizedDescription)")
+                                    // Handle the error
+                                }
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                case .failure(_):
+                    print("Error message:\(String(describing: response.error))")
+                    ERProgressHud.sharedInstance.hide()
+                    self.please_check_your_internet_connection()
+                    
+                    break
+                }
+            }
+        } else {
+            TokenManager.shared.refresh_token_WB { token, error in
+                if let token = token {
+                    print("Token received: \(token)")
+                    
+                    let str_token = "\(token)"
+                    UserDefaults.standard.set("", forKey: str_save_last_api_token)
+                    UserDefaults.standard.set(str_token, forKey: str_save_last_api_token)
+                    
+                    self.my_profile(loader: "no")
+                    
+                } else if let error = error {
+                    print("Failed to refresh token: \(error.localizedDescription)")
+                    // Handle the error
+                }
+            }
+        }
+    }
+    
+    @objc func delete_api_hitGYM() {
+        var parameters:Dictionary<AnyHashable, Any>!
+        ERProgressHud.sharedInstance.showDarkBackgroundView(withTitle: "Please wait...")
+        if let token_id_is = UserDefaults.standard.string(forKey: str_save_last_api_token) {
+            
+            let headers: HTTPHeaders = [
+                "token":String(token_id_is),
+            ]
+            let immutableArray = NSArray(array: self.arr_mut_dashboard_data)
+            print(immutableArray)
+            
+            do {
+                let jsonData = try JSONSerialization.data(withJSONObject: immutableArray, options: .prettyPrinted)
+                
+                if let jsonString = String(data: jsonData, encoding: .utf8) {
+                    print(jsonString)
+                    
+                    parameters = [
+                        "action"            : "myworkoutadd_type",
+                        "userId"            : "\(UserUtility.getUserId()!)",
+                        "myworkoutId"       : String(self.workout_id),
+                        "date"              : String(self.lbl_date.text!),
+                        "json_record_details" : String(jsonString),
+                         
+                    ]
+                    
+                }
+            } catch {
+                print("Error converting to JSON: \(error)")
+            }
+            
             
             print("parameters-------\(String(describing: parameters))")
             
@@ -435,14 +587,19 @@ extension days_workout: UITableViewDataSource , UITableViewDelegate {
                 cell.lbl_sub_title.text = "\(item!["reps"]!) Reps (\(item!["sets"]!) Sets)"
             }
             
-            cell.btn_delete.isHidden = true
+            cell.btn_delete.isHidden = false
+            cell.btn_delete.tag = indexPath.row
+            cell.btn_delete.addTarget(self, action: #selector(delete_button_click_methodGYM), for: .touchUpInside)
+            
         } else {
             
             cell.btn_delete.isHidden = false
+            
+            cell.lbl_title.text = (item!["excercise_name"] as! String)
+            cell.lbl_sub_title.isHidden = true
+            
             cell.btn_delete.tag = indexPath.row
             cell.btn_delete.addTarget(self, action: #selector(delete_button_click_method), for: .touchUpInside)
-            //  cell.lbl_title.text = (item!["excercise_name"] as! String)
-            
         }
         
         

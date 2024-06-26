@@ -738,8 +738,13 @@ class dashboard: UIViewController, UNUserNotificationCenterDelegate {
     }
     
     @objc func right_arrow_click_methd() {
-        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "days_workout_id")
-        self.navigationController?.pushViewController(push, animated: true)
+        
+        let defaults = UserDefaults.standard
+        defaults.set("dashboard_right_arrow", forKey: "key_save_dashboard_right_arrow")
+        
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "days_workout_id") as? days_workout
+        push!.str_profile_select_from_dashboard = "3"
+        self.navigationController?.pushViewController(push!, animated: true)
     }
     
 }

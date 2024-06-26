@@ -9,6 +9,9 @@ import UIKit
 
 class workout_details: UIViewController {
 
+     
+    var str_type_before_submit:String!
+    
     @IBOutlet weak var btn_back:UIButton! {
         didSet {
             btn_back.tintColor = .white
@@ -43,6 +46,8 @@ class workout_details: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(self.str_type_before_submit as Any)
         
         self.tble_view.separatorColor = .clear
         

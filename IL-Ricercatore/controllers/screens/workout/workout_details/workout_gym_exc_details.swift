@@ -11,6 +11,7 @@ import Alamofire
 import UIKit
  
 class ImageViewController: UIViewController {
+    
     var imageUrl: String?
     var imageView: UIImageView? // Make imageView optional
     
@@ -65,6 +66,8 @@ class ImageViewController: UIViewController {
 
 class workout_gym_exc_details: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
+    var str_submit_data_type:String!
+    
     var str_edit:String!
     
     var arr_get_details:NSMutableArray! = []
@@ -118,6 +121,9 @@ class workout_gym_exc_details: UIViewController, UIPageViewControllerDataSource,
      
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        debugPrint(self.exc_id as Any)
+        debugPrint(self.str_submit_data_type as Any)
         
         if (self.str_edit != nil) {
             self.btn_add_exercise.isHidden = true
@@ -242,16 +248,17 @@ class workout_gym_exc_details: UIViewController, UIPageViewControllerDataSource,
         }
     
     @objc func add_exercise_click_method() {
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let myAlert = storyboard.instantiateViewController(withIdentifier: "set_gym_exc_sets_id") as? set_gym_exc_sets
         myAlert!.dict_get_gym_exc_details = self.dict_exc_details
         myAlert!.str_date = String(self.str_get_date)
         myAlert!.arr_list_value = self.arr_get_details
+        myAlert!.str_submit_data_type = "10"
         myAlert!.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         myAlert!.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-        present(myAlert!, animated: true, completion: nil)
-        //        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "set_gym_exc_sets_id") as? set_gym_exc_sets
-        //        self.navigationController?.pushViewController(push!, animated: true)
+        self.present(myAlert!, animated: true, completion: nil)
+        
     }
     
     @objc func workout_details() {

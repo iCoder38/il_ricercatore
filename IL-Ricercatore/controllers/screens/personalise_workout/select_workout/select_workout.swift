@@ -93,11 +93,11 @@ class select_workout: UIViewController, UITextFieldDelegate {
         self.btn_search.addTarget(self, action: #selector(search_workout), for: .touchUpInside)
         self.btn_continue.addTarget(self, action: #selector(continue_click), for: .touchUpInside)
         
-        print(self.get_details as Any)
-        print(self.str_profile_dashboard as Any)
+        // print(self.get_details as Any)
+        // print(self.str_profile_dashboard as Any)
         
         self.txt_search.delegate = self
-        if self.exc_type == "2" {
+        if self.exc_type == "2" { // no dashboard but gym
             self.btn_search.isHidden = true
             self.txt_search.delegate = self
             self.all_exc_list()
@@ -133,8 +133,9 @@ class select_workout: UIViewController, UITextFieldDelegate {
     }
     
     @objc func continue_click_method() {
-        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "workout_details_id")
-        self.navigationController?.pushViewController(push, animated: true)
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "workout_details_id") as? workout_details
+        push!.str_type_before_submit = String(self.exc_type)
+        self.navigationController?.pushViewController(push!, animated: true)
     }
     
     @objc func search_workout() {
@@ -237,21 +238,99 @@ class select_workout: UIViewController, UITextFieldDelegate {
     
     @objc func continue_click() {
         
+        debugPrint(self.str_profile_dashboard as Any)
+        debugPrint(self.exc_type as Any)
+        
         if (self.str_profile_dashboard == "2") {
-            debugPrint("SHOW DETAILS")
+            let (_, dayNumber) = getDayNameAndNumber()
+            let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "workout_gym_exc_details_id") as? workout_gym_exc_details
+            push!.exc_id = self.selectedName
+            push!.str_get_date = "\(dayNumber)"
+            push!.arr_get_details = self.get_details
+            self.navigationController?.pushViewController(push!, animated: true)
             
+            return
+        } else {
+            if (self.exc_type == "2") {
+                let (_, dayNumber) = getDayNameAndNumber()
+                let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "workout_gym_exc_details_id") as? workout_gym_exc_details
+                push!.exc_id = self.selectedName
+                push!.str_get_date = "\(dayNumber)"
+                push!.arr_get_details = self.get_details
+                push!.str_submit_data_type = "NEW"
+                self.navigationController?.pushViewController(push!, animated: true)
+                
+                return
+            } else {
+                for indexx in 0..<self.arr_add_custom_array.count {
+                    let item = self.arr_add_custom_array[indexx] as? [String:Any]
+                    
+                    if (item!["status"] as! String) == "yes" {
+                        print(item as Any)
+                        
+                        let custom = [
+                            "total_calories":"\(item!["total_calories"]!)",
+                            "calories_per_hour":"\(item!["total_calories"]!)",
+                            "duration_minutes":"\(item!["duration_minutes"]!)",
+                            "name":"\(item!["name"]!)",
+                        ]
+                        
+                        self.get_details.add(custom)
+                    }
+                }
+                
+                print(self.get_details as Any)
+                
+                
+                self.add_aerobic_exc_WB(loader: "yes")
+            }
+            
+        }
+            /*debugPrint("SHOW DETAILS")
+            
+        if (self.str_get_date == nil) {
+            
+            
+            
+        } else if (self.str_get_date == "") {
+            
+            for indexx in 0..<self.arr_add_custom_array.count {
+                let item = self.arr_add_custom_array[indexx] as? [String:Any]
+                
+                if (item!["status"] as! String) == "yes" {
+                    print(item as Any)
+                    
+                    let custom = [
+                        "total_calories":"\(item!["total_calories"]!)",
+                        "calories_per_hour":"\(item!["total_calories"]!)",
+                        "duration_minutes":"\(item!["duration_minutes"]!)",
+                        "name":"\(item!["name"]!)",
+                    ]
+                    
+                    self.get_details.add(custom)
+                }
+            }
+            
+            print(self.get_details as Any)
+            
+            
+            self.add_aerobic_exc_WB(loader: "yes")
+            
+        } else {
             let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "workout_gym_exc_details_id") as? workout_gym_exc_details
             push!.exc_id = self.selectedName
             push!.str_get_date = String(self.str_get_date)
             push!.arr_get_details = self.get_details
             self.navigationController?.pushViewController(push!, animated: true)
+        }*/
             
-            return
-        }
+            
+            // return
+        // }
         
-        print(self.arr_add_custom_array as Any)
+        // print(self.arr_add_custom_array as Any)
         
-        for indexx in 0..<self.arr_add_custom_array.count {
+        /*for indexx in 0..<self.arr_add_custom_array.count {
             let item = self.arr_add_custom_array[indexx] as? [String:Any]
             
             if (item!["status"] as! String) == "yes" {
@@ -272,7 +351,7 @@ class select_workout: UIViewController, UITextFieldDelegate {
         
         
         self.add_aerobic_exc_WB(loader: "yes")
-        
+        */
     }
     
     @objc func add_aerobic_exc_WB(loader:String) {
@@ -298,26 +377,29 @@ class select_workout: UIViewController, UITextFieldDelegate {
                 
                 if (self.str_profile_dashboard == "1") {
                     
-                    let immutableArray = NSArray(array: self.get_details)
-                    print(immutableArray)
                     
-                    do {
-                        let jsonData = try JSONSerialization.data(withJSONObject: immutableArray, options: .prettyPrinted)
+                        let immutableArray = NSArray(array: self.get_details)
+                        print(immutableArray)
                         
-                        if let jsonString = String(data: jsonData, encoding: .utf8) {
-                            print(jsonString)
+                        do {
+                            let jsonData = try JSONSerialization.data(withJSONObject: immutableArray, options: .prettyPrinted)
                             
-                            parameters = [
-                                "action"                : "myworkoutadd",
-                                "userId"                : String(myString),
-                                "date"                  : String(self.str_get_date),
-                                "json_record_details"   : String(jsonString),
-                            ]
-                            
+                            if let jsonString = String(data: jsonData, encoding: .utf8) {
+                                print(jsonString)
+                                
+                                parameters = [
+                                    "action"                : "myworkoutadd",
+                                    "userId"                : String(myString),
+                                    "date"                  : String(self.str_get_date),
+                                    "json_record_details"   : String(jsonString),
+                                ]
+                                
+                            }
+                        } catch {
+                            print("Error converting to JSON: \(error)")
                         }
-                    } catch {
-                        print("Error converting to JSON: \(error)")
-                    }
+                    
+                    
                     
                 } else {
                     parameters = [

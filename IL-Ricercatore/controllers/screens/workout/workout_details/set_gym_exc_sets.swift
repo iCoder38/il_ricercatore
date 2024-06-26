@@ -10,6 +10,8 @@ import Alamofire
 
 class set_gym_exc_sets: UIViewController {
     
+    var str_submit_data_type:String!
+    
     var str_date:String!
     
     var str_value:String! = "0"
@@ -114,19 +116,39 @@ class set_gym_exc_sets: UIViewController {
     @objc func add_click_method2() {
         count2 += 1
         lbl_text2.text = "\(count2)"
-        self.str_value_two = "\(count)"
+        self.str_value_two = "\(count2)"
     }
     
     @objc func minus_click_method2() {
         if count2 > 0 {
             count2 -= 1
             lbl_text2.text = "\(count2)"
-            self.str_value_two = "\(count)"
+            self.str_value_two = "\(count2)"
         }
     }
     
     @objc func add_gym_exc() {
-        self.add_gym_exc_dashboard(loader: "yes")
+        
+        let defaults = UserDefaults.standard
+        if let myString = defaults.string(forKey: "key_save_right_arrow") {
+            print("defaults savedString: \(myString)")
+            
+            if let myStringgym = defaults.string(forKey: "key_save_gym") {
+                print("defaults savedString: \(myStringgym)")
+                
+                self.add_gym_exc_dashboardRA(loader: "yes")
+                return
+            }
+            
+            
+            
+        } else {
+            self.add_gym_exc_dashboard(loader: "yes")
+        }
+        
+        
+        
+        
     }
     
     @objc func add_gym_exc_dashboard(loader:String) {
@@ -169,46 +191,26 @@ class set_gym_exc_sets: UIViewController {
                 print(custom2 as Any)
                 print(self.arr_list_value.count as Any)
                 
-                /*let custom: [Any] = [
-                    self.dict_get_gym_exc_details["category"] as? String ?? "",
-                    self.dict_get_gym_exc_details["equipment"] as? String ?? "",
-                    self.dict_get_gym_exc_details["force"] as? String ?? "",
-                    self.dict_get_gym_exc_details["id"] as? String ?? "",
-                    self.dict_get_gym_exc_details["level"] as? String ?? "",
-                    self.dict_get_gym_exc_details["mechanic"] as? String ?? "",
-                    String(self.str_value_one!),
-                    String(self.str_value_two!),
-                    self.dict_get_gym_exc_details["images"]!,
-                    self.dict_get_gym_exc_details["instructions"]!
-                ]
+                let immutableArray = NSArray(array: self.arr_list_value)
+                print(immutableArray)
                 
-                print(custom as Any)
-                print(type(of: custom))*/
-                
-                    let immutableArray = NSArray(array: self.arr_list_value)
-                    print(immutableArray)
+                do {
+                    let jsonData = try JSONSerialization.data(withJSONObject: immutableArray, options: .prettyPrinted)
                     
-                    do {
-                        let jsonData = try JSONSerialization.data(withJSONObject: immutableArray, options: .prettyPrinted)
+                    if let jsonString = String(data: jsonData, encoding: .utf8) {
+                        print(jsonString)
                         
-                        if let jsonString = String(data: jsonData, encoding: .utf8) {
-                            print(jsonString)
-                            
-                            parameters = [
-                                "action"                : "myworkoutadd_type",
-                                "userId"                : String(myString),
-                                "date"                  : String(self.str_date),
-                                "json_record_details"   : String(jsonString),
-                            ]
-                            
-                        }
-                    } catch {
-                        print("Error converting to JSON: \(error)")
+                        parameters = [
+                            "action"                : "myworkoutadd_type",
+                            "userId"                : String(myString),
+                            "date"                  : String(self.str_date),
+                            "json_record_details"   : String(jsonString),
+                        ]
+                        
                     }
-                    
-                
-                
-                
+                } catch {
+                    print("Error converting to JSON: \(error)")
+                }
                 
                 print("parameters-------\(String(describing: parameters))")
                 
@@ -228,12 +230,12 @@ class set_gym_exc_sets: UIViewController {
                             if strSuccess.lowercased() == "success" {
                                 ERProgressHud.sharedInstance.hide()
                                 
-//                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//                                let myAlert = storyboard.instantiateViewController(withIdentifier: "dashboard_id") as? dashboard
-//                                 
-//                                myAlert!.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-//                                myAlert!.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
-//                                self.navigationController?.pushViewController(myAlert!, animated: true)
+                                //                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                                //                                let myAlert = storyboard.instantiateViewController(withIdentifier: "dashboard_id") as? dashboard
+                                //
+                                //                                myAlert!.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+                                //                                myAlert!.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+                                //                                self.navigationController?.pushViewController(myAlert!, animated: true)
                                 let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "dashboard_id") as? dashboard
                                 self.navigationController?.pushViewController(push!, animated: true)
                                 
@@ -248,6 +250,116 @@ class set_gym_exc_sets: UIViewController {
                                             UserDefaults.standard.set(str_token, forKey: str_save_last_api_token)
                                             
                                             self.add_gym_exc_dashboard(loader: "no")
+                                            
+                                        } else if let error = error {
+                                            print("Failed to refresh token: \(error.localizedDescription)")
+                                            // Handle the error
+                                        }
+                                    }
+                                } else {
+                                    self.view.makeToast(JSON["msg"] as? String)
+                                }
+                            }
+                            
+                        }
+                        
+                    case .failure(_):
+                        print("Error message:\(String(describing: response.error))")
+                        ERProgressHud.sharedInstance.hide()
+                        self.please_check_your_internet_connection()
+                        
+                        break
+                    }
+                }
+            } else {
+                TokenManager.shared.refresh_token_WB { token, error in
+                    if let token = token {
+                        print("Token received: \(token)")
+                        
+                        let str_token = "\(token)"
+                        UserDefaults.standard.set("", forKey: str_save_last_api_token)
+                        UserDefaults.standard.set(str_token, forKey: str_save_last_api_token)
+                        
+                        self.add_gym_exc_dashboard(loader: "no")
+                        
+                    } else if let error = error {
+                        print("Failed to refresh token: \(error.localizedDescription)")
+                        // Handle the error
+                    }
+                }
+            }
+        }
+    }
+    
+    @objc func add_gym_exc_dashboardRA(loader:String) {
+        self.dismiss(animated: true, completion: nil)
+        if (loader == "yes") {
+            ERProgressHud.sharedInstance.showDarkBackgroundView(withTitle: "Please wait...")
+        }
+        
+        var parameters:Dictionary<AnyHashable, Any>!
+        
+        if let person = UserDefaults.standard.value(forKey: str_save_login_user_data) as? [String:Any] {
+            
+            if let token_id_is = UserDefaults.standard.string(forKey: str_save_last_api_token) {
+                
+                let headers: HTTPHeaders = [
+                    "token":String(token_id_is),
+                ]
+                
+                let x : Int = person["userId"] as! Int
+                let myString = String(x)
+                
+                parameters = [
+                    "action"            : "day_wise_excercise_add",
+                    "userId"            : String(myString),
+                    "day"               : String(self.str_date),
+                    "excercise_name"    : (self.dict_get_gym_exc_details["name"] as! String),
+                    "excercise_id"      : (self.dict_get_gym_exc_details["id"] as! String),
+                    "excercise_type"    : "2",
+                    "reps"              : String(self.str_value_one),
+                    "sets"              : String(self.str_value_two),
+                    
+                ]
+                
+                print("parameters-------\(String(describing: parameters))")
+                
+                AF.request(application_base_url, method: .post, parameters: parameters as? Parameters,headers: headers).responseJSON {
+                    response in
+                    
+                    switch(response.result) {
+                    case .success(_):
+                        if let data = response.value {
+                            
+                            let JSON = data as! NSDictionary
+                            print(JSON)
+                            
+                            var strSuccess : String!
+                            strSuccess = JSON["status"] as? String
+                            
+                            if strSuccess.lowercased() == "success" {
+                                ERProgressHud.sharedInstance.hide()
+                                
+                                let defaults = UserDefaults.standard
+                                
+                                defaults.set(nil, forKey: "key_save_dashboard_right_arrow")
+                                defaults.set(nil, forKey: "key_save_aerobics")
+                                defaults.set(nil, forKey: "key_save_gym")
+                                
+                                let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "dashboard_id") as? dashboard
+                                self.navigationController?.pushViewController(push!, animated: true)
+                                
+                            } else {
+                                if (JSON["msg"] as? String == your_are_not_auth) {
+                                    TokenManager.shared.refresh_token_WB { token, error in
+                                        if let token = token {
+                                            print("Token received: \(token)")
+                                            
+                                            let str_token = "\(token)"
+                                            UserDefaults.standard.set("", forKey: str_save_last_api_token)
+                                            UserDefaults.standard.set(str_token, forKey: str_save_last_api_token)
+                                            
+                                            self.add_gym_exc_dashboardRA(loader: "no")
                                             
                                         } else if let error = error {
                                             print("Failed to refresh token: \(error.localizedDescription)")

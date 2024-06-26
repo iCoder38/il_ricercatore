@@ -46,8 +46,13 @@ class type_of_excercise: UIViewController {
             push!.str_profile_select_from_dashboard = "1"
             self.navigationController?.pushViewController(push!, animated: true)
         } else {
+            
+            let defaults = UserDefaults.standard
+            defaults.set("aerobics_select", forKey: "key_save_aerobics")
+            
             let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "select_workout_id") as? select_workout
             push!.exc_type = "1"
+            push!.str_get_date = ""
             self.navigationController?.pushViewController(push!, animated: true)
         }
         
@@ -60,8 +65,13 @@ class type_of_excercise: UIViewController {
             push!.str_profile_select_from_dashboard = "2"
             self.navigationController?.pushViewController(push!, animated: true)
         } else {
+            
+            let defaults = UserDefaults.standard
+            defaults.set("gym_select", forKey: "key_save_gym")
+            
             let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "select_workout_id") as? select_workout
             push!.exc_type = "2"
+            push!.str_get_date = ""
             self.navigationController?.pushViewController(push!, animated: true)
         }
     }
@@ -113,8 +123,6 @@ extension type_of_excercise: UITableViewDataSource , UITableViewDelegate {
             return cell
             
         }
-        
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
