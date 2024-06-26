@@ -69,6 +69,8 @@ class set_gym_exc_sets: UIViewController {
     var str_value_one:String! = "0"
     var str_value_two:String! = "0"
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -17616,7 +17616,7 @@ per your dietrary.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ku7-kP-tUO">
-                                <rect key="frame" x="0.0" y="94" width="393" height="646"/>
+                                <rect key="frame" x="0.0" y="303" width="393" height="437"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="workout_gym_exc_details_table_cell" rowHeight="572" id="bds-NS-qzq" customClass="workout_gym_exc_details_table_cell" customModule="IL_Ricercatore" customModuleProvider="target">
@@ -17811,23 +17811,33 @@ per your dietrary.</string>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="arrow.left" catalog="system"/>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AA5-cV-JBZ">
+                                <rect key="frame" x="0.0" y="95" width="393" height="200"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="rwF-c7-VUr"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HWk-UQ-XUJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ku7-kP-tUO" firstAttribute="leading" secondItem="HWk-UQ-XUJ" secondAttribute="leading" id="2eh-2L-PNv"/>
                             <constraint firstItem="Bpx-vZ-KVu" firstAttribute="leading" secondItem="HWk-UQ-XUJ" secondAttribute="leading" id="3Mz-9B-fYe"/>
+                            <constraint firstItem="AA5-cV-JBZ" firstAttribute="leading" secondItem="HWk-UQ-XUJ" secondAttribute="leading" id="57C-6Z-1U6"/>
                             <constraint firstItem="iQi-jS-nPe" firstAttribute="trailing" secondItem="HWk-UQ-XUJ" secondAttribute="trailing" id="7zJ-9j-8iC"/>
                             <constraint firstItem="IhU-0k-70Q" firstAttribute="top" secondItem="Kf6-hv-Iq3" secondAttribute="top" constant="46" id="EzN-6D-vd5"/>
                             <constraint firstItem="bve-Wx-gYJ" firstAttribute="top" secondItem="Kf6-hv-Iq3" secondAttribute="top" constant="43" id="Gjd-8c-Bpb"/>
                             <constraint firstItem="HWk-UQ-XUJ" firstAttribute="trailing" secondItem="IhU-0k-70Q" secondAttribute="trailing" constant="16" id="Hyp-ei-Wsa"/>
                             <constraint firstItem="iQi-jS-nPe" firstAttribute="leading" secondItem="HWk-UQ-XUJ" secondAttribute="leading" id="VTc-n8-Gz7"/>
                             <constraint firstItem="Bpx-vZ-KVu" firstAttribute="trailing" secondItem="HWk-UQ-XUJ" secondAttribute="trailing" id="Xbm-Fz-dsk"/>
-                            <constraint firstItem="ku7-kP-tUO" firstAttribute="top" secondItem="iQi-jS-nPe" secondAttribute="bottom" id="eMv-Lb-F8U"/>
+                            <constraint firstItem="ku7-kP-tUO" firstAttribute="top" secondItem="iQi-jS-nPe" secondAttribute="bottom" constant="209" id="eMv-Lb-F8U"/>
                             <constraint firstItem="Bpx-vZ-KVu" firstAttribute="top" secondItem="ku7-kP-tUO" secondAttribute="bottom" id="fv5-p9-XpB"/>
                             <constraint firstItem="iQi-jS-nPe" firstAttribute="top" secondItem="Kf6-hv-Iq3" secondAttribute="top" id="ghZ-w7-RRO"/>
                             <constraint firstItem="ku7-kP-tUO" firstAttribute="trailing" secondItem="HWk-UQ-XUJ" secondAttribute="trailing" id="h2b-CW-g7X"/>
                             <constraint firstItem="IhU-0k-70Q" firstAttribute="leading" secondItem="bve-Wx-gYJ" secondAttribute="trailing" constant="2" id="iGy-u3-5ld"/>
+                            <constraint firstItem="AA5-cV-JBZ" firstAttribute="trailing" secondItem="HWk-UQ-XUJ" secondAttribute="trailing" id="rlm-Vf-WCJ"/>
+                            <constraint firstItem="AA5-cV-JBZ" firstAttribute="top" secondItem="iQi-jS-nPe" secondAttribute="bottom" constant="1" id="ucB-Uk-C2c"/>
                             <constraint firstItem="bve-Wx-gYJ" firstAttribute="leading" secondItem="HWk-UQ-XUJ" secondAttribute="leading" constant="16" id="uxR-2c-3st"/>
                             <constraint firstAttribute="bottom" secondItem="Bpx-vZ-KVu" secondAttribute="bottom" id="yVg-EN-Su2"/>
                         </constraints>
@@ -17839,6 +17849,7 @@ per your dietrary.</string>
                         <outlet property="btn_back" destination="bve-Wx-gYJ" id="xvD-0z-l5q"/>
                         <outlet property="lbl_navigation_title" destination="IhU-0k-70Q" id="Y3o-5p-ulY"/>
                         <outlet property="tble_view" destination="ku7-kP-tUO" id="Epj-na-uBc"/>
+                        <outlet property="view_scroll" destination="AA5-cV-JBZ" id="f31-yx-8FT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sHW-xx-fi2" sceneMemberID="firstResponder"/>
@@ -18154,8 +18165,8 @@ per your dietrary.</string>
         <image name="person" catalog="system" width="128" height="121"/>
         <image name="phone" catalog="system" width="128" height="115"/>
         <image name="play_video" width="64" height="64"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus" width="24" height="24"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="plus33" width="24" height="24"/>
         <image name="plus_yellow" width="64" height="64"/>
         <image name="quote" width="512" height="512"/>

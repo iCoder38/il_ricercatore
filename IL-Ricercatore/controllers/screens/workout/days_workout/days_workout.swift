@@ -454,6 +454,18 @@ extension days_workout: UITableViewDataSource , UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
          
+        if (self.str_profile_select_from_dashboard == "2") {
+         debugPrint("DASHBAORD > GYM")
+            
+            let item = self.arr_mut_dashboard_data[indexPath.row] as? [String:Any]
+            print(item as Any)
+            
+            let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "workout_gym_exc_details_id") as? workout_gym_exc_details
+            push!.str_edit = "yes"
+            push!.exc_id = "\(item!["id"]!)"
+            self.navigationController?.pushViewController(push!, animated: true)
+            
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
