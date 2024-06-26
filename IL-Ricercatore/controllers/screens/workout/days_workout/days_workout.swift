@@ -97,6 +97,7 @@ class days_workout: UIViewController {
             push!.get_details = self.arr_mut_dashboard_data
             self.navigationController?.pushViewController(push!, animated: true)
             
+            
         } else if (self.str_profile_select_from_dashboard == "2") {
             
             let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "select_workout_id") as? select_workout
@@ -125,7 +126,7 @@ class days_workout: UIViewController {
     }
     
     @objc func my_profile(loader:String) {
-       
+        
         var parameters:Dictionary<AnyHashable, Any>!
         
         if (loader == "yes") {
@@ -211,18 +212,16 @@ class days_workout: UIViewController {
                                     
                                     for indexx in 0..<ar.count {
                                         let item2 = ar[indexx] as? [String:Any]
-                                         
+                                        
                                         
                                         var ar2 : NSArray!
                                         ar2 = (item2!["json_record_details"] as! Array<Any>) as NSArray
-                                         
+                                        
                                         self.arr_mut_dashboard_data.addObjects(from: ar2 as! [Any])
                                     }
                                 } else {
                                     self.arr_mut_dashboard_data.addObjects(from: ar as! [Any])
                                 }
-                                
-                                
                                 
                                 self.tble_view.delegate = self
                                 self.tble_view.dataSource = self
@@ -244,7 +243,7 @@ class days_workout: UIViewController {
                                         // Handle the error
                                     }
                                 }
-
+                                
                             }
                             
                         }
@@ -275,9 +274,7 @@ class days_workout: UIViewController {
                 }
             }
         }
-        
     }
-    
     
     //
     @objc func delete_button_click_method(_ sender:UIButton) {
@@ -425,7 +422,12 @@ extension days_workout: UITableViewDataSource , UITableViewDelegate {
             
         } else if (self.str_profile_select_from_dashboard == "2") { // dashboard > gym
              
-            cell.lbl_title.text = (item!["name"] as! String)
+            if item!["name"] == nil {
+                cell.lbl_title.text = "N.A."
+            } else {
+                cell.lbl_title.text = (item!["name"] as! String)
+            }
+            
             
             if item!["reps"] == nil {
                 cell.lbl_sub_title.text = "N.A."

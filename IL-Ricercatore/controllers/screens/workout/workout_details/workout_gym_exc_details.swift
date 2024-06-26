@@ -10,6 +10,10 @@ import Alamofire
 
 class workout_gym_exc_details: UIViewController {
     
+    var arr_get_details:NSMutableArray! = []
+    
+    var str_get_date:String!
+    
     var exc_id:String!
     var dict_exc_details:NSDictionary!
     
@@ -53,7 +57,9 @@ class workout_gym_exc_details: UIViewController {
     @objc func add_exercise_click_method() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let myAlert = storyboard.instantiateViewController(withIdentifier: "set_gym_exc_sets_id") as? set_gym_exc_sets
-        // myAlert!.dict_booking_details = self.get_booking_data_for_pickup
+        myAlert!.dict_get_gym_exc_details = self.dict_exc_details
+        myAlert!.str_date = String(self.str_get_date)
+        myAlert!.arr_list_value = self.arr_get_details
         myAlert!.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
         myAlert!.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         present(myAlert!, animated: true, completion: nil)

@@ -242,6 +242,8 @@ class select_workout: UIViewController, UITextFieldDelegate {
             
             let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "workout_gym_exc_details_id") as? workout_gym_exc_details
             push!.exc_id = self.selectedName
+            push!.str_get_date = String(self.str_get_date)
+            push!.arr_get_details = self.get_details
             self.navigationController?.pushViewController(push!, animated: true)
             
             return
