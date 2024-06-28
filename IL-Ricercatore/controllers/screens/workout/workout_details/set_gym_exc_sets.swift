@@ -130,7 +130,7 @@ class set_gym_exc_sets: UIViewController {
     @objc func add_gym_exc() {
         
         let defaults = UserDefaults.standard
-        if let myString = defaults.string(forKey: "key_save_right_arrow") {
+        if let myString = defaults.string(forKey: "key_save_dashboard_right_arrow") {
             print("defaults savedString: \(myString)")
             
             if let myStringgym = defaults.string(forKey: "key_save_gym") {
@@ -143,7 +143,15 @@ class set_gym_exc_sets: UIViewController {
             
             
         } else {
-            self.add_gym_exc_dashboard(loader: "yes")
+            
+            
+            
+                
+                self.add_gym_exc_dashboard(loader: "yes")
+                return
+            
+            
+            
         }
         
         
@@ -200,12 +208,18 @@ class set_gym_exc_sets: UIViewController {
                     if let jsonString = String(data: jsonData, encoding: .utf8) {
                         print(jsonString)
                         
-                        parameters = [
-                            "action"                : "myworkoutadd_type",
-                            "userId"                : String(myString),
-                            "date"                  : String(self.str_date),
-                            "json_record_details"   : String(jsonString),
-                        ]
+                        let defaults = UserDefaults.standard
+                        if let currentDate = defaults.string(forKey: "key_gym_select_from_dashboard_push") {
+                            print("defaults savedString: \(currentDate)")
+                            
+                            parameters = [
+                                "action"                : "myworkoutadd_type",
+                                "userId"                : String(myString),
+                                "date"                  : String(currentDate),
+                                "json_record_details"   : String(jsonString),
+                            ]
+                        }
+                        
                         
                     }
                 } catch {
@@ -229,6 +243,14 @@ class set_gym_exc_sets: UIViewController {
                             
                             if strSuccess.lowercased() == "success" {
                                 ERProgressHud.sharedInstance.hide()
+                                
+                                let defaults = UserDefaults.standard
+                                
+                                defaults.set(nil, forKey: "key_save_dashboard_right_arrow")
+                                defaults.set(nil, forKey: "key_save_aerobics")
+                                defaults.set(nil, forKey: "key_save_gym")
+                                defaults.set(nil, forKey: "key_save_day")
+                                defaults.set(nil, forKey: "key_gym_select_from_dashboard_push")
                                 
                                 //                                let storyboard = UIStoryboard(name: "Main", bundle: nil)
                                 //                                let myAlert = storyboard.instantiateViewController(withIdentifier: "dashboard_id") as? dashboard
@@ -310,17 +332,37 @@ class set_gym_exc_sets: UIViewController {
                 let x : Int = person["userId"] as! Int
                 let myString = String(x)
                 
-                parameters = [
-                    "action"            : "day_wise_excercise_add",
-                    "userId"            : String(myString),
-                    "day"               : String(self.str_date),
-                    "excercise_name"    : (self.dict_get_gym_exc_details["name"] as! String),
-                    "excercise_id"      : (self.dict_get_gym_exc_details["id"] as! String),
-                    "excercise_type"    : "2",
-                    "reps"              : String(self.str_value_one),
-                    "sets"              : String(self.str_value_two),
+                let defaults = UserDefaults.standard
+                if let myString2 = defaults.string(forKey: "key_save_day") {
+                    print("defaults savedString: \(myString2)")
                     
-                ]
+                    parameters = [
+                        "action"            : "day_wise_excercise_add",
+                        "userId"            : String(myString),
+                        "day"               : String(myString2),
+                        "excercise_name"    : (self.dict_get_gym_exc_details["name"] as! String),
+                        "excercise_id"      : (self.dict_get_gym_exc_details["id"] as! String),
+                        "excercise_type"    : "2",
+                        "reps"              : String(self.str_value_one),
+                        "sets"              : String(self.str_value_two),
+                        
+                    ]
+                     
+                } else {
+                    parameters = [
+                        "action"            : "day_wise_excercise_add",
+                        "userId"            : String(myString),
+                        "day"               : String(self.str_date),
+                        "excercise_name"    : (self.dict_get_gym_exc_details["name"] as! String),
+                        "excercise_id"      : (self.dict_get_gym_exc_details["id"] as! String),
+                        "excercise_type"    : "2",
+                        "reps"              : String(self.str_value_one),
+                        "sets"              : String(self.str_value_two),
+                        
+                    ]
+                }
+                
+                
                 
                 print("parameters-------\(String(describing: parameters))")
                 
@@ -345,6 +387,7 @@ class set_gym_exc_sets: UIViewController {
                                 defaults.set(nil, forKey: "key_save_dashboard_right_arrow")
                                 defaults.set(nil, forKey: "key_save_aerobics")
                                 defaults.set(nil, forKey: "key_save_gym")
+                                defaults.set(nil, forKey: "key_save_day")
                                 
                                 let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "dashboard_id") as? dashboard
                                 self.navigationController?.pushViewController(push!, animated: true)

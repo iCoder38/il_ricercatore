@@ -732,6 +732,13 @@ class dashboard: UIViewController, UNUserNotificationCenterDelegate {
     }
     
     @objc func cal_burnt_click_method() {
+        
+        let defaults = UserDefaults.standard
+        
+        defaults.set(nil, forKey: "key_save_dashboard_right_arrow")
+        defaults.set(nil, forKey: "key_save_aerobics")
+        defaults.set(nil, forKey: "key_save_gym")
+        
         let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "type_of_excercise_id") as? type_of_excercise
         push!.str_exc_profile = "1"
         self.navigationController?.pushViewController(push!, animated: true)

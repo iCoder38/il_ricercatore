@@ -61,6 +61,10 @@ class type_of_excercise: UIViewController {
     @objc func exc_2_click_method() {
         
         if (self.str_exc_profile == "1") { // from dashboard
+            
+            let defaults = UserDefaults.standard
+            defaults.set(Date.getCurrentDateCustom(), forKey: "key_gym_select_from_dashboard_push")
+            
             let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "days_workout_id") as? days_workout
             push!.str_profile_select_from_dashboard = "2"
             self.navigationController?.pushViewController(push!, animated: true)

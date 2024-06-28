@@ -446,8 +446,8 @@
             filePath = "IL-Ricercatore/controllers/screens/personalise_workout/select_workout/select_workout.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "634"
-            endingLineNumber = "634"
+            startingLineNumber = "660"
+            endingLineNumber = "660"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -462,8 +462,8 @@
             filePath = "IL-Ricercatore/controllers/screens/personalise_workout/select_workout/select_workout.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "614"
-            endingLineNumber = "614"
+            startingLineNumber = "640"
+            endingLineNumber = "640"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -478,8 +478,8 @@
             filePath = "IL-Ricercatore/controllers/screens/personalise_workout/select_workout/select_workout.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "549"
-            endingLineNumber = "549"
+            startingLineNumber = "575"
+            endingLineNumber = "575"
             landmarkName = "all_exc_list()"
             landmarkType = "7">
          </BreakpointContent>
@@ -494,8 +494,8 @@
             filePath = "IL-Ricercatore/controllers/screens/personalise_workout/select_workout/select_workout.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "622"
-            endingLineNumber = "622"
+            startingLineNumber = "648"
+            endingLineNumber = "648"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -510,8 +510,8 @@
             filePath = "IL-Ricercatore/controllers/screens/personalise_workout/select_workout/select_workout.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "621"
-            endingLineNumber = "621"
+            startingLineNumber = "647"
+            endingLineNumber = "647"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -526,8 +526,8 @@
             filePath = "IL-Ricercatore/controllers/screens/personalise_workout/select_workout/select_workout.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "615"
-            endingLineNumber = "615"
+            startingLineNumber = "641"
+            endingLineNumber = "641"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -542,8 +542,8 @@
             filePath = "IL-Ricercatore/controllers/screens/personalise_workout/select_workout/select_workout.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "711"
-            endingLineNumber = "711"
+            startingLineNumber = "737"
+            endingLineNumber = "737"
             landmarkName = "tableView(_:didDeselectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -558,8 +558,8 @@
             filePath = "IL-Ricercatore/controllers/screens/personalise_workout/select_workout/select_workout.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "705"
-            endingLineNumber = "705"
+            startingLineNumber = "731"
+            endingLineNumber = "731"
             landmarkName = "tableView(_:didDeselectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -574,8 +574,8 @@
             filePath = "IL-Ricercatore/controllers/screens/personalise_workout/select_workout/select_workout.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "708"
-            endingLineNumber = "708"
+            startingLineNumber = "734"
+            endingLineNumber = "734"
             landmarkName = "tableView(_:didDeselectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -590,8 +590,8 @@
             filePath = "IL-Ricercatore/controllers/screens/personalise_workout/select_workout/select_workout.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "534"
-            endingLineNumber = "534"
+            startingLineNumber = "560"
+            endingLineNumber = "560"
             landmarkName = "all_exc_list()"
             landmarkType = "7">
          </BreakpointContent>
@@ -606,24 +606,8 @@
             filePath = "IL-Ricercatore/controllers/screens/workout/days_workout/days_workout.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "448"
-            endingLineNumber = "448"
-            landmarkName = "delete_api_hitGYM()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D22AA640-963D-4556-81FA-2E7B43CA9E83"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IL-Ricercatore/controllers/screens/workout/days_workout/days_workout.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "471"
-            endingLineNumber = "471"
+            startingLineNumber = "505"
+            endingLineNumber = "505"
             landmarkName = "delete_api_hitGYM()"
             landmarkType = "7">
          </BreakpointContent>
@@ -638,8 +622,8 @@
             filePath = "IL-Ricercatore/controllers/screens/workout/days_workout/days_workout.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "339"
-            endingLineNumber = "339"
+            startingLineNumber = "396"
+            endingLineNumber = "396"
             landmarkName = "delete_button_click_methodGYM(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -654,8 +638,8 @@
             filePath = "IL-Ricercatore/controllers/screens/workout/days_workout/days_workout.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "481"
-            endingLineNumber = "481"
+            startingLineNumber = "538"
+            endingLineNumber = "538"
             landmarkName = "delete_api_hitGYM()"
             landmarkType = "7">
          </BreakpointContent>
@@ -695,15 +679,31 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "248A0B5F-336D-439D-B8DA-0E3BC58077D2"
+            uuid = "B6F98E1B-6530-414E-8286-16A1BEF109DA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IL-Ricercatore/controllers/screens/workout/days_workout/days_workout.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "add_click_method()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "945C5E22-5991-4A50-B388-1C94215FA1D3"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IL-Ricercatore/controllers/screens/workout/workout_details/set_gym_exc_sets.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "325"
-            endingLineNumber = "325"
+            startingLineNumber = "367"
+            endingLineNumber = "367"
             landmarkName = "add_gym_exc_dashboardRA(loader:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -711,16 +711,80 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A3B80A9B-7DB2-4B5E-9B3E-205C471A37A6"
+            uuid = "A044DCE2-B935-4651-95C8-B40BA056EA32"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IL-Ricercatore/controllers/screens/workout/type_of_excercise/type_of_excercise.swift"
+            filePath = "IL-Ricercatore/controllers/screens/workout/workout_details/set_gym_exc_sets.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "exc_1_click_method()"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
+            landmarkName = "add_gym_exc_dashboard(loader:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "67B6FC5F-4EE0-4032-A78E-34697615C9A9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IL-Ricercatore/controllers/screens/personalise_workout/select_workout/select_workout.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "436"
+            endingLineNumber = "436"
+            landmarkName = "add_aerobic_exc_WB(loader:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B8672C6F-F5A4-429F-9F03-1195320B9A1A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IL-Ricercatore/controllers/screens/personalise_workout/select_workout/select_workout.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "454"
+            endingLineNumber = "454"
+            landmarkName = "add_aerobic_exc_WB(loader:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E701427B-6C56-49A3-B29B-A5902B9AE77E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IL-Ricercatore/controllers/screens/workout/days_workout/days_workout.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "528"
+            endingLineNumber = "528"
+            landmarkName = "delete_api_hitGYM()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "45AF14DF-57A7-44DF-BD82-82E44B507254"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IL-Ricercatore/controllers/screens/workout/workout_details/set_gym_exc_sets.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "249"
+            endingLineNumber = "249"
+            landmarkName = "add_gym_exc_dashboard(loader:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

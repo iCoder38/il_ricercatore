@@ -33,26 +33,43 @@ class side_bar_menu: UIViewController {
         let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "friends_id")
         self.navigationController?.pushViewController(push, animated: true)
     }
+    
     @objc func tracker_click_method() {
         let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "calorie_information_id")
         self.navigationController?.pushViewController(push, animated: true)
     }
+    
     @objc func reminder_click_method() {
         let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "reminders_id")
         self.navigationController?.pushViewController(push, animated: true)
     }
+    
     @objc func workout_setting_click_method() {
-        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "workout_setting_id")
-        self.navigationController?.pushViewController(push, animated: true)
+        
+        let defaults = UserDefaults.standard
+        
+        defaults.set(nil, forKey: "key_save_dashboard_right_arrow")
+        defaults.set(nil, forKey: "key_save_aerobics")
+        defaults.set(nil, forKey: "key_save_gym")
+        
+         
+//        defaults.set("dashboard_right_arrow", forKey: "key_save_dashboard_right_arrow")
+        
+        let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "workout_setting_id") as? workout_setting
+        push!.str_from_where = "side_bar_menu_option"
+        self.navigationController?.pushViewController(push!, animated: true)
     }
+    
     @objc func personalized_workout_click_method() {
         let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "health_logs_id")
         self.navigationController?.pushViewController(push, animated: true)
     }
+    
     @objc func dashboard_click_method() {
         let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "dashboard_id")
         self.navigationController?.pushViewController(push, animated: true)
     }
+    
     @objc func goal_setting_click_method() {
         let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "goal_settings_id")
         self.navigationController?.pushViewController(push, animated: true)

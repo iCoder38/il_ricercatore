@@ -10,6 +10,9 @@ import Alamofire
 
 class days_workout: UIViewController {
 
+    
+    var str_what_day_user_select:String!
+    
     var str_profile_select_from_dashboard:String!
     
     var arr_mut_dashboard_data:NSMutableArray! = []
@@ -70,6 +73,7 @@ class days_workout: UIViewController {
         super.viewDidLoad()
         self.tble_view.separatorColor = .gray
         
+        print(self.str_what_day_user_select as Any)
         print(self.str_profile_select_from_dashboard as Any)
         
         if (self.str_profile_select_from_dashboard == "1") {
@@ -77,9 +81,37 @@ class days_workout: UIViewController {
             self.lbl_date.text = Date.getCurrentDateCustom()
         } else if (self.str_profile_select_from_dashboard == "3") {
             
-            let (dayName, dayNumber) = getDayNameAndNumber()
-            self.lbl_navigation_title.text = "\(dayName) - Workout"
-            self.day_number = "\(dayNumber)"
+            if (self.str_what_day_user_select != nil) {
+                
+                if (self.str_what_day_user_select == "1") {
+                    self.lbl_navigation_title.text = "Monday - Workout"
+                    self.day_number = String(self.str_what_day_user_select)
+                } else if (self.str_what_day_user_select == "2") {
+                    self.lbl_navigation_title.text = "Tuesday - Workout"
+                    self.day_number = String(self.str_what_day_user_select)
+                } else if (self.str_what_day_user_select == "3") {
+                    self.lbl_navigation_title.text = "Wednesday - Workout"
+                    self.day_number = String(self.str_what_day_user_select)
+                } else if (self.str_what_day_user_select == "4") {
+                    self.lbl_navigation_title.text = "Thursday - Workout"
+                    self.day_number = String(self.str_what_day_user_select)
+                } else if (self.str_what_day_user_select == "5") {
+                    self.lbl_navigation_title.text = "Friday - Workout"
+                    self.day_number = String(self.str_what_day_user_select)
+                } else if (self.str_what_day_user_select == "6") {
+                    self.lbl_navigation_title.text = "Saturday - Workout"
+                    self.day_number = String(self.str_what_day_user_select)
+                } else {
+                    self.lbl_navigation_title.text = "Sunday - Workout"
+                    self.day_number = String(self.str_what_day_user_select)
+                }
+                
+            } else {
+                let (dayName, dayNumber) = getDayNameAndNumber()
+                self.lbl_navigation_title.text = "\(dayName) - Workout"
+                self.day_number = "\(dayNumber)"
+            }
+            
             
         } else {
             // Get the current date
@@ -119,9 +151,24 @@ class days_workout: UIViewController {
             self.navigationController?.pushViewController(push!, animated: true)
             
         } else {
-            let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "type_of_excercise_id") as? type_of_excercise
-            push!.str_exc_profile = "2"
-            self.navigationController?.pushViewController(push!, animated: true)
+            
+            
+            if (self.str_what_day_user_select != nil) {
+                let defaults = UserDefaults.standard
+                defaults.set(self.str_what_day_user_select, forKey: "key_save_day")
+                
+                let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "type_of_excercise_id") as? type_of_excercise
+                push!.str_exc_profile = "2"
+                self.navigationController?.pushViewController(push!, animated: true)
+            } else {
+                let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "type_of_excercise_id") as? type_of_excercise
+                push!.str_exc_profile = "2"
+                self.navigationController?.pushViewController(push!, animated: true)
+            }
+            
+            
+            
+            
             /*let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "select_workout_id") as? select_workout
             push!.str_profile_dashboard = "3"
             push!.str_get_date = self.lbl_date.text
@@ -178,11 +225,21 @@ class days_workout: UIViewController {
                         "enddate"   : String(self.lbl_date.text!),
                     ]
                 } else {
-                    parameters = [
-                        "action"    : "day_wise_excercis_list",
-                        "userId"    : String(myString),
-                        "day"       : String(self.day_number)
-                    ]
+                    
+                    if (self.str_what_day_user_select != nil) {
+                        parameters = [
+                            "action"    : "day_wise_excercis_list",
+                            "userId"    : String(myString),
+                            "day"       : String(self.str_what_day_user_select)
+                        ]
+                    } else {
+                        parameters = [
+                            "action"    : "day_wise_excercis_list",
+                            "userId"    : String(myString),
+                            "day"       : String(self.day_number)
+                        ]
+                    }
+                    
                 }
                 
                 
@@ -596,7 +653,12 @@ extension days_workout: UITableViewDataSource , UITableViewDelegate {
             cell.btn_delete.isHidden = false
             
             cell.lbl_title.text = (item!["excercise_name"] as! String)
-            cell.lbl_sub_title.isHidden = true
+            if "\(item!["excercise_type"]!)" == "1" {
+                cell.lbl_sub_title.text = "Aerobics"
+            } else {
+                cell.lbl_sub_title.text = "\(item!["reps"]!) Reps (\(item!["sets"]!) Sets)"
+            }
+            cell.lbl_sub_title.isHidden = false
             
             cell.btn_delete.tag = indexPath.row
             cell.btn_delete.addTarget(self, action: #selector(delete_button_click_method), for: .touchUpInside)
@@ -621,6 +683,17 @@ extension days_workout: UITableViewDataSource , UITableViewDelegate {
             push!.str_edit = "yes"
             push!.exc_id = "\(item!["id"]!)"
             self.navigationController?.pushViewController(push!, animated: true)
+            
+        } else {
+            let item = self.arr_mut_dashboard_data[indexPath.row] as? [String:Any]
+            print(item as Any)
+            
+            if "\(item!["excercise_type"]!)" != "1" {
+                let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "workout_gym_exc_details_id") as? workout_gym_exc_details
+                push!.str_edit = "yes"
+                push!.exc_id = "\(item!["excercise_id"]!)"
+                self.navigationController?.pushViewController(push!, animated: true)
+            }
             
         }
     }

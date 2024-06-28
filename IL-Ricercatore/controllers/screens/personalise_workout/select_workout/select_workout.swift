@@ -402,15 +402,33 @@ class select_workout: UIViewController, UITextFieldDelegate {
                     
                     
                 } else {
-                    parameters = [
-                        "action"            : "day_wise_excercise_add",
-                        "userId"            : String(myString),
-                        "day"               : String(dayNumber),
-                        "excercise_name"    : String(self.selectedName!),
-                        "excercise_id"      : String(self.selectedName!),
-                        "excercise_type"    : String("1"),
+                    
+                    let defaults = UserDefaults.standard
+                    if let myString2 = defaults.string(forKey: "key_save_day") {
+                        print("defaults savedString: \(myString2)")
                         
-                    ]
+                        parameters = [
+                            "action"            : "day_wise_excercise_add",
+                            "userId"            : String(myString),
+                            "day"               : String(myString2),
+                            "excercise_name"    : String(self.selectedName!),
+                            "excercise_id"      : String(self.selectedName!),
+                            "excercise_type"    : String("1"),
+                            
+                        ]
+                        
+                    } else {
+                        parameters = [
+                            "action"            : "day_wise_excercise_add",
+                            "userId"            : String(myString),
+                            "day"               : String(dayNumber),
+                            "excercise_name"    : String(self.selectedName!),
+                            "excercise_id"      : String(self.selectedName!),
+                            "excercise_type"    : String("1"),
+                            
+                        ]
+                    }
+                    
                 }
                 
                 
@@ -432,6 +450,14 @@ class select_workout: UIViewController, UITextFieldDelegate {
                             
                             if strSuccess.lowercased() == "success" {
                                 ERProgressHud.sharedInstance.hide()
+                                
+                                let defaults = UserDefaults.standard
+                                
+                                defaults.set(nil, forKey: "key_save_dashboard_right_arrow")
+                                defaults.set(nil, forKey: "key_save_aerobics")
+                                defaults.set(nil, forKey: "key_save_gym")
+                                defaults.set(nil, forKey: "key_save_day")
+                                
                                 if let navigationController = self.navigationController {
                                     for viewController in navigationController.viewControllers {
                                         if let screen1VC = viewController as? days_workout {
