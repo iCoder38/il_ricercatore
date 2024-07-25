@@ -1,0 +1,1820 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		954C65DC212E54C567406C7D /* Pods_IL_RicercatoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F91823D86349C8CA52D202EE /* Pods_IL_RicercatoreTests.framework */; };
+		B9014D4D2C4E377700320620 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B9014D4C2C4E377700320620 /* GoogleService-Info.plist */; };
+		B9014D502C4E566300320620 /* health_reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9014D4F2C4E566300320620 /* health_reminder.swift */; };
+		B9034E6D2BBD5D1B00AD6924 /* meal_track.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9034E6C2BBD5D1B00AD6924 /* meal_track.swift */; };
+		B9034E702BBD6F1C00AD6924 /* goal_settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9034E6F2BBD6F1C00AD6924 /* goal_settings.swift */; };
+		B907E3F62BD62E96000B1B5D /* comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = B907E3F52BD62E96000B1B5D /* comments.swift */; };
+		B92185F42BC520BF0014FF55 /* DayAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92185F32BC520BE0014FF55 /* DayAxisValueFormatter.swift */; };
+		B92ACF572BBE8D4300158E9B /* goal_settings_water.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92ACF562BBE8D4300158E9B /* goal_settings_water.swift */; };
+		B92B9B562BD29464003175BA /* add_blood_glucose.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92B9B552BD29464003175BA /* add_blood_glucose.swift */; };
+		B92B9B592BD294AF003175BA /* blood_glucose.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92B9B582BD294AF003175BA /* blood_glucose.swift */; };
+		B92C1D552BE8F4200054E7D7 /* water_reminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92C1D542BE8F4200054E7D7 /* water_reminders.swift */; };
+		B93581192B342D5800DEA73C /* personalised_workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93581182B342D5800DEA73C /* personalised_workout.swift */; };
+		B939EF072B316DF400B9556C /* dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939EF062B316DF400B9556C /* dashboard.swift */; };
+		B939EF0A2B316F0900B9556C /* all_text.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939EF092B316F0900B9556C /* all_text.swift */; };
+		B939EF0D2B31778700B9556C /* all_colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939EF0C2B31778700B9556C /* all_colors.swift */; };
+		B939EF102B31846500B9556C /* calorie_information.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939EF0F2B31846500B9556C /* calorie_information.swift */; };
+		B939EF132B318E4100B9556C /* eat_meal_time.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939EF122B318E4100B9556C /* eat_meal_time.swift */; };
+		B939EF162B3190F300B9556C /* edit_meal_calories.swift in Sources */ = {isa = PBXBuildFile; fileRef = B939EF152B3190F300B9556C /* edit_meal_calories.swift */; };
+		B94B1BF92C21B4CA00AC170F /* token_manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94B1BF82C21B4CA00AC170F /* token_manager.swift */; };
+		B94B1BFC2C21BECD00AC170F /* type_of_excercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94B1BFB2C21BECD00AC170F /* type_of_excercise.swift */; };
+		B94DACF72BF20605002CD83E /* health_logs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94DACF62BF20605002CD83E /* health_logs.swift */; };
+		B94DACFA2BF2097E002CD83E /* edit_logs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94DACF92BF2097E002CD83E /* edit_logs.swift */; };
+		B95075892B32C7F800291EAC /* side_bar_menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95075882B32C7F800291EAC /* side_bar_menu.swift */; };
+		B950F9102B9A04B100C01D3B /* steps.swift in Sources */ = {isa = PBXBuildFile; fileRef = B950F90F2B9A04B100C01D3B /* steps.swift */; };
+		B950F9132B9A05C200C01D3B /* add_steps_time.swift in Sources */ = {isa = PBXBuildFile; fileRef = B950F9122B9A05C200C01D3B /* add_steps_time.swift */; };
+		B95375B82BF48B620063960B /* edit_profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B95375B72BF48B620063960B /* edit_profile.swift */; };
+		B9538BA62B886B0C00722BF8 /* api.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9538BA52B886B0C00722BF8 /* api.swift */; };
+		B9701D032C4A425E00DEBEFD /* chat_screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9701D022C4A425E00DEBEFD /* chat_screen.swift */; };
+		B977AE572B2D7C0F00EF12BA /* create_an_account.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977AE562B2D7C0F00EF12BA /* create_an_account.swift */; };
+		B977AE5B2B2D814800EF12BA /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977AE5A2B2D814800EF12BA /* Utils.swift */; };
+		B977AE5E2B2D824100EF12BA /* complete_profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977AE5D2B2D824100EF12BA /* complete_profile.swift */; };
+		B977AE612B2D8BE200EF12BA /* complete_profile_two.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977AE602B2D8BE200EF12BA /* complete_profile_two.swift */; };
+		B977AE642B2D90F000EF12BA /* complete_profile_three.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977AE632B2D90F000EF12BA /* complete_profile_three.swift */; };
+		B977AE672B2D97E500EF12BA /* breakfast_food.swift in Sources */ = {isa = PBXBuildFile; fileRef = B977AE662B2D97E500EF12BA /* breakfast_food.swift */; };
+		B98303C52BD0FC6800C82F23 /* search_friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98303C42BD0FC6800C82F23 /* search_friends.swift */; };
+		B98303C82BD0FF7800C82F23 /* user_profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98303C72BD0FF7800C82F23 /* user_profile.swift */; };
+		B99743B72C46984F00815854 /* get_started.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99743B62C46984F00815854 /* get_started.swift */; };
+		B99BC7522C495DE60099FDA8 /* list_of_all_trackers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99BC7512C495DE60099FDA8 /* list_of_all_trackers.swift */; };
+		B99BCBA82BECAC5E0049EF29 /* weight_reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99BCBA72BECAC5E0049EF29 /* weight_reminder.swift */; };
+		B99E926C2BEDF98C0080B801 /* calories_burnout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B99E926B2BEDF98C0080B801 /* calories_burnout.swift */; };
+		B9AD06722BF349AE00F48845 /* food_add.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AD06712BF349AE00F48845 /* food_add.swift */; };
+		B9B371F72BAD576900A64F06 /* add_heart_rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B371F62BAD576900A64F06 /* add_heart_rate.swift */; };
+		B9B371F92BAD57EC00A64F06 /* heart.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B371F82BAD57EC00A64F06 /* heart.swift */; };
+		B9B371FC2BAD7CCD00A64F06 /* weight.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B371FB2BAD7CCD00A64F06 /* weight.swift */; };
+		B9B371FF2BAD7CDF00A64F06 /* add_weight.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B371FE2BAD7CDF00A64F06 /* add_weight.swift */; };
+		B9B503292BEBB929003D467A /* walk_reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B503282BEBB929003D467A /* walk_reminder.swift */; };
+		B9BC35A82B998CEE004C9431 /* sleep.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BC35A72B998CEE004C9431 /* sleep.swift */; };
+		B9BC35AB2B99AD23004C9431 /* add_sleep_time.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9BC35AA2B99AD23004C9431 /* add_sleep_time.swift */; };
+		B9CC8EE12B32F3AE00130035 /* invite_friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CC8EE02B32F3AE00130035 /* invite_friends.swift */; };
+		B9CC8EE42B32F74F00130035 /* friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CC8EE32B32F74F00130035 /* friends.swift */; };
+		B9CC8EE72B33017700130035 /* reminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CC8EE62B33017700130035 /* reminders.swift */; };
+		B9CC8EEB2B3309C200130035 /* workout_setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CC8EEA2B3309C200130035 /* workout_setting.swift */; };
+		B9CC8EEE2B330E6600130035 /* days_workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CC8EED2B330E6600130035 /* days_workout.swift */; };
+		B9CDD1862B875E25003E98B1 /* disease_list.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9CDD1852B875E25003E98B1 /* disease_list.swift */; };
+		B9DD5A172B31B303006B2D60 /* track_meal_reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DD5A162B31B303006B2D60 /* track_meal_reminder.swift */; };
+		B9DD5A1A2B31B9A3006B2D60 /* water_intake.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DD5A192B31B9A3006B2D60 /* water_intake.swift */; };
+		B9DD5A1D2B31BDF7006B2D60 /* set_up_water_tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DD5A1C2B31BDF7006B2D60 /* set_up_water_tracker.swift */; };
+		B9DD5A202B31C5B9006B2D60 /* water_reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9DD5A1F2B31C5B9006B2D60 /* water_reminder.swift */; };
+		B9E1968B2BADC7400005E28C /* daily_q.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E1968A2BADC7400005E28C /* daily_q.swift */; };
+		B9E314252BAD9B580027A02F /* blood_pressure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E314242BAD9B580027A02F /* blood_pressure.swift */; };
+		B9E314272BAD9B6B0027A02F /* add_blood_pressure.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E314262BAD9B6B0027A02F /* add_blood_pressure.swift */; };
+		B9E3142A2BADBF8E0027A02F /* all_post.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E314292BADBF8E0027A02F /* all_post.swift */; };
+		B9E43C1F2C2AD1A70084AD43 /* workout_gym_exc_details.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E43C1E2C2AD1A70084AD43 /* workout_gym_exc_details.swift */; };
+		B9E5C7BD2BEDFF39002D3938 /* calories_set.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E5C7BC2BEDFF39002D3938 /* calories_set.swift */; };
+		B9E5C7C02BEE1246002D3938 /* show_all_cal_burnt_ctivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E5C7BF2BEE1246002D3938 /* show_all_cal_burnt_ctivity.swift */; };
+		B9E731912C2AF050009EE3B3 /* set_gym_exc_sets.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E731902C2AF050009EE3B3 /* set_gym_exc_sets.swift */; };
+		B9E745362B29C1E9007E018A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E745352B29C1E9007E018A /* AppDelegate.swift */; };
+		B9E745382B29C1E9007E018A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E745372B29C1E9007E018A /* SceneDelegate.swift */; };
+		B9E7453A2B29C1E9007E018A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E745392B29C1E9007E018A /* ViewController.swift */; };
+		B9E7453D2B29C1E9007E018A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9E7453B2B29C1E9007E018A /* Main.storyboard */; };
+		B9E7453F2B29C1EB007E018A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9E7453E2B29C1EB007E018A /* Assets.xcassets */; };
+		B9E745422B29C1EB007E018A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9E745402B29C1EB007E018A /* LaunchScreen.storyboard */; };
+		B9E7454D2B29C1EB007E018A /* IL_RicercatoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E7454C2B29C1EB007E018A /* IL_RicercatoreTests.swift */; };
+		B9E745572B29C1EB007E018A /* IL_RicercatoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E745562B29C1EB007E018A /* IL_RicercatoreUITests.swift */; };
+		B9E745592B29C1EB007E018A /* IL_RicercatoreUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E745582B29C1EB007E018A /* IL_RicercatoreUITestsLaunchTests.swift */; };
+		B9E745682B29C3A1007E018A /* login.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E745672B29C3A1007E018A /* login.swift */; };
+		B9E7456D2B29DE34007E018A /* welcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E7456C2B29DE34007E018A /* welcome.swift */; };
+		B9E745712B29DEB3007E018A /* table_cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E745702B29DEB3007E018A /* table_cells.swift */; };
+		B9E77A492BEB5CEF00D1CDE8 /* workout_reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E77A482BEB5CEF00D1CDE8 /* workout_reminder.swift */; };
+		B9EF41602B344D8F00335435 /* personalize_day.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EF415F2B344D8F00335435 /* personalize_day.swift */; };
+		B9EF41632B3456FE00335435 /* select_workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EF41622B3456FE00335435 /* select_workout.swift */; };
+		B9EF41662B3459E900335435 /* workout_details.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EF41652B3459E900335435 /* workout_details.swift */; };
+		B9EF416A2B346AFB00335435 /* ERProgressHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EF41692B346AFB00335435 /* ERProgressHud.swift */; };
+		B9EF41742B346D5000335435 /* ActionSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EF416C2B346D4D00335435 /* ActionSheetView.swift */; };
+		B9EF41752B346D5000335435 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EF416D2B346D4D00335435 /* Color.swift */; };
+		B9EF41762B346D5000335435 /* LeftPaddingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EF416E2B346D4E00335435 /* LeftPaddingTextField.swift */; };
+		B9EF41772B346D5000335435 /* NewYorkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EF416F2B346D4E00335435 /* NewYorkButton.swift */; };
+		B9EF41782B346D5000335435 /* UIStackView+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EF41702B346D4F00335435 /* UIStackView+Utility.swift */; };
+		B9EF41792B346D5000335435 /* NewYorkAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EF41712B346D4F00335435 /* NewYorkAlertController.swift */; };
+		B9EF417A2B346D5000335435 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EF41722B346D4F00335435 /* AlertView.swift */; };
+		B9EF417B2B346D5000335435 /* NewYorkAlertViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EF41732B346D5000335435 /* NewYorkAlertViewType.swift */; };
+		B9EF417E2B3472A200335435 /* RPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EF417D2B3472A200335435 /* RPicker.swift */; };
+		B9F0EB6D2BF38B24005A597C /* select_meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F0EB6C2BF38B24005A597C /* select_meal.swift */; };
+		B9F846A42BBC309800A89CAF /* post_details.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F846A32BBC309800A89CAF /* post_details.swift */; };
+		B9F886DB2BE8A57600060C3A /* faq.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F886DA2BE8A57600060C3A /* faq.swift */; };
+		B9F886DE2BE8AFBC00060C3A /* weight_goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F886DD2BE8AFBC00060C3A /* weight_goal.swift */; };
+		C5BFC0301EE4F9A443CD5D07 /* Pods_IL_Ricercatore_IL_RicercatoreUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4D337E89B1732A3FAD1C904 /* Pods_IL_Ricercatore_IL_RicercatoreUITests.framework */; };
+		CC2907F9E3711E9DA121E7AC /* Pods_IL_Ricercatore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4EB8D2179DF5A2785A7CF0E /* Pods_IL_Ricercatore.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B9E745492B29C1EB007E018A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B9E7452A2B29C1E9007E018A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B9E745312B29C1E9007E018A;
+			remoteInfo = "IL-Ricercatore";
+		};
+		B9E745532B29C1EB007E018A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B9E7452A2B29C1E9007E018A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B9E745312B29C1E9007E018A;
+			remoteInfo = "IL-Ricercatore";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		37669438789C7F68AA5C6193 /* Pods-IL-RicercatoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IL-RicercatoreTests.release.xcconfig"; path = "Target Support Files/Pods-IL-RicercatoreTests/Pods-IL-RicercatoreTests.release.xcconfig"; sourceTree = "<group>"; };
+		41EE878E12E347167FE8E153 /* Pods-IL-Ricercatore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IL-Ricercatore.debug.xcconfig"; path = "Target Support Files/Pods-IL-Ricercatore/Pods-IL-Ricercatore.debug.xcconfig"; sourceTree = "<group>"; };
+		5DE6109515CCDBC0794AEA68 /* Pods-IL-RicercatoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IL-RicercatoreTests.debug.xcconfig"; path = "Target Support Files/Pods-IL-RicercatoreTests/Pods-IL-RicercatoreTests.debug.xcconfig"; sourceTree = "<group>"; };
+		973EE5CB037F7C4106DAA343 /* Pods-IL-Ricercatore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IL-Ricercatore.release.xcconfig"; path = "Target Support Files/Pods-IL-Ricercatore/Pods-IL-Ricercatore.release.xcconfig"; sourceTree = "<group>"; };
+		B4D337E89B1732A3FAD1C904 /* Pods_IL_Ricercatore_IL_RicercatoreUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IL_Ricercatore_IL_RicercatoreUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4EB8D2179DF5A2785A7CF0E /* Pods_IL_Ricercatore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IL_Ricercatore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9014D4C2C4E377700320620 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B9014D4F2C4E566300320620 /* health_reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = health_reminder.swift; sourceTree = "<group>"; };
+		B9034E6C2BBD5D1B00AD6924 /* meal_track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = meal_track.swift; sourceTree = "<group>"; };
+		B9034E6F2BBD6F1C00AD6924 /* goal_settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goal_settings.swift; sourceTree = "<group>"; };
+		B907E3F52BD62E96000B1B5D /* comments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = comments.swift; sourceTree = "<group>"; };
+		B92185F32BC520BE0014FF55 /* DayAxisValueFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayAxisValueFormatter.swift; sourceTree = "<group>"; };
+		B92ACF562BBE8D4300158E9B /* goal_settings_water.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = goal_settings_water.swift; sourceTree = "<group>"; };
+		B92B9B552BD29464003175BA /* add_blood_glucose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = add_blood_glucose.swift; sourceTree = "<group>"; };
+		B92B9B582BD294AF003175BA /* blood_glucose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = blood_glucose.swift; sourceTree = "<group>"; };
+		B92C1D542BE8F4200054E7D7 /* water_reminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = water_reminders.swift; sourceTree = "<group>"; };
+		B93581182B342D5800DEA73C /* personalised_workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = personalised_workout.swift; sourceTree = "<group>"; };
+		B939EF062B316DF400B9556C /* dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dashboard.swift; sourceTree = "<group>"; };
+		B939EF092B316F0900B9556C /* all_text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = all_text.swift; sourceTree = "<group>"; };
+		B939EF0C2B31778700B9556C /* all_colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = all_colors.swift; sourceTree = "<group>"; };
+		B939EF0F2B31846500B9556C /* calorie_information.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calorie_information.swift; sourceTree = "<group>"; };
+		B939EF122B318E4100B9556C /* eat_meal_time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eat_meal_time.swift; sourceTree = "<group>"; };
+		B939EF152B3190F300B9556C /* edit_meal_calories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = edit_meal_calories.swift; sourceTree = "<group>"; };
+		B94B1BF82C21B4CA00AC170F /* token_manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = token_manager.swift; sourceTree = "<group>"; };
+		B94B1BFB2C21BECD00AC170F /* type_of_excercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = type_of_excercise.swift; sourceTree = "<group>"; };
+		B94DACF62BF20605002CD83E /* health_logs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = health_logs.swift; sourceTree = "<group>"; };
+		B94DACF92BF2097E002CD83E /* edit_logs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = edit_logs.swift; sourceTree = "<group>"; };
+		B95075882B32C7F800291EAC /* side_bar_menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = side_bar_menu.swift; sourceTree = "<group>"; };
+		B950F90F2B9A04B100C01D3B /* steps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = steps.swift; sourceTree = "<group>"; };
+		B950F9122B9A05C200C01D3B /* add_steps_time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = add_steps_time.swift; sourceTree = "<group>"; };
+		B95375B72BF48B620063960B /* edit_profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = edit_profile.swift; sourceTree = "<group>"; };
+		B9538BA52B886B0C00722BF8 /* api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = api.swift; sourceTree = "<group>"; };
+		B9701D022C4A425E00DEBEFD /* chat_screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chat_screen.swift; sourceTree = "<group>"; };
+		B977AE562B2D7C0F00EF12BA /* create_an_account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = create_an_account.swift; sourceTree = "<group>"; };
+		B977AE5A2B2D814800EF12BA /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		B977AE5D2B2D824100EF12BA /* complete_profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = complete_profile.swift; sourceTree = "<group>"; };
+		B977AE602B2D8BE200EF12BA /* complete_profile_two.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = complete_profile_two.swift; sourceTree = "<group>"; };
+		B977AE632B2D90F000EF12BA /* complete_profile_three.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = complete_profile_three.swift; sourceTree = "<group>"; };
+		B977AE662B2D97E500EF12BA /* breakfast_food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = breakfast_food.swift; sourceTree = "<group>"; };
+		B98303C42BD0FC6800C82F23 /* search_friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = search_friends.swift; sourceTree = "<group>"; };
+		B98303C72BD0FF7800C82F23 /* user_profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user_profile.swift; sourceTree = "<group>"; };
+		B99743B62C46984F00815854 /* get_started.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = get_started.swift; sourceTree = "<group>"; };
+		B99BC7512C495DE60099FDA8 /* list_of_all_trackers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = list_of_all_trackers.swift; sourceTree = "<group>"; };
+		B99BCBA72BECAC5E0049EF29 /* weight_reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weight_reminder.swift; sourceTree = "<group>"; };
+		B99E926B2BEDF98C0080B801 /* calories_burnout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calories_burnout.swift; sourceTree = "<group>"; };
+		B9AD06712BF349AE00F48845 /* food_add.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = food_add.swift; sourceTree = "<group>"; };
+		B9B371F62BAD576900A64F06 /* add_heart_rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = add_heart_rate.swift; sourceTree = "<group>"; };
+		B9B371F82BAD57EC00A64F06 /* heart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = heart.swift; sourceTree = "<group>"; };
+		B9B371FB2BAD7CCD00A64F06 /* weight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weight.swift; sourceTree = "<group>"; };
+		B9B371FE2BAD7CDF00A64F06 /* add_weight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = add_weight.swift; sourceTree = "<group>"; };
+		B9B503282BEBB929003D467A /* walk_reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = walk_reminder.swift; sourceTree = "<group>"; };
+		B9BC35A72B998CEE004C9431 /* sleep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sleep.swift; sourceTree = "<group>"; };
+		B9BC35AA2B99AD23004C9431 /* add_sleep_time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = add_sleep_time.swift; sourceTree = "<group>"; };
+		B9CC8EE02B32F3AE00130035 /* invite_friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = invite_friends.swift; sourceTree = "<group>"; };
+		B9CC8EE32B32F74F00130035 /* friends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = friends.swift; sourceTree = "<group>"; };
+		B9CC8EE62B33017700130035 /* reminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reminders.swift; sourceTree = "<group>"; };
+		B9CC8EEA2B3309C200130035 /* workout_setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = workout_setting.swift; sourceTree = "<group>"; };
+		B9CC8EED2B330E6600130035 /* days_workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = days_workout.swift; sourceTree = "<group>"; };
+		B9CDD1852B875E25003E98B1 /* disease_list.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = disease_list.swift; sourceTree = "<group>"; };
+		B9DD5A162B31B303006B2D60 /* track_meal_reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = track_meal_reminder.swift; sourceTree = "<group>"; };
+		B9DD5A192B31B9A3006B2D60 /* water_intake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = water_intake.swift; sourceTree = "<group>"; };
+		B9DD5A1C2B31BDF7006B2D60 /* set_up_water_tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = set_up_water_tracker.swift; sourceTree = "<group>"; };
+		B9DD5A1F2B31C5B9006B2D60 /* water_reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = water_reminder.swift; sourceTree = "<group>"; };
+		B9E1968A2BADC7400005E28C /* daily_q.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = daily_q.swift; sourceTree = "<group>"; };
+		B9E314242BAD9B580027A02F /* blood_pressure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = blood_pressure.swift; sourceTree = "<group>"; };
+		B9E314262BAD9B6B0027A02F /* add_blood_pressure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = add_blood_pressure.swift; sourceTree = "<group>"; };
+		B9E314292BADBF8E0027A02F /* all_post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = all_post.swift; sourceTree = "<group>"; };
+		B9E43C1E2C2AD1A70084AD43 /* workout_gym_exc_details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = workout_gym_exc_details.swift; sourceTree = "<group>"; };
+		B9E5C7BC2BEDFF39002D3938 /* calories_set.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calories_set.swift; sourceTree = "<group>"; };
+		B9E5C7BF2BEE1246002D3938 /* show_all_cal_burnt_ctivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = show_all_cal_burnt_ctivity.swift; sourceTree = "<group>"; };
+		B9E731902C2AF050009EE3B3 /* set_gym_exc_sets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = set_gym_exc_sets.swift; sourceTree = "<group>"; };
+		B9E745322B29C1E9007E018A /* IL-Ricercatore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "IL-Ricercatore.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9E745352B29C1E9007E018A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B9E745372B29C1E9007E018A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B9E745392B29C1E9007E018A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B9E7453C2B29C1E9007E018A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B9E7453E2B29C1EB007E018A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B9E745412B29C1EB007E018A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B9E745432B29C1EB007E018A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9E745482B29C1EB007E018A /* IL-RicercatoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IL-RicercatoreTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9E7454C2B29C1EB007E018A /* IL_RicercatoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IL_RicercatoreTests.swift; sourceTree = "<group>"; };
+		B9E745522B29C1EB007E018A /* IL-RicercatoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "IL-RicercatoreUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9E745562B29C1EB007E018A /* IL_RicercatoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IL_RicercatoreUITests.swift; sourceTree = "<group>"; };
+		B9E745582B29C1EB007E018A /* IL_RicercatoreUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IL_RicercatoreUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B9E745672B29C3A1007E018A /* login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = login.swift; sourceTree = "<group>"; };
+		B9E7456C2B29DE34007E018A /* welcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = welcome.swift; sourceTree = "<group>"; };
+		B9E745702B29DEB3007E018A /* table_cells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = table_cells.swift; sourceTree = "<group>"; };
+		B9E77A482BEB5CEF00D1CDE8 /* workout_reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = workout_reminder.swift; sourceTree = "<group>"; };
+		B9EF415F2B344D8F00335435 /* personalize_day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = personalize_day.swift; sourceTree = "<group>"; };
+		B9EF41622B3456FE00335435 /* select_workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = select_workout.swift; sourceTree = "<group>"; };
+		B9EF41652B3459E900335435 /* workout_details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = workout_details.swift; sourceTree = "<group>"; };
+		B9EF41692B346AFB00335435 /* ERProgressHud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ERProgressHud.swift; sourceTree = "<group>"; };
+		B9EF416C2B346D4D00335435 /* ActionSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetView.swift; sourceTree = "<group>"; };
+		B9EF416D2B346D4D00335435 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		B9EF416E2B346D4E00335435 /* LeftPaddingTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftPaddingTextField.swift; sourceTree = "<group>"; };
+		B9EF416F2B346D4E00335435 /* NewYorkButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewYorkButton.swift; sourceTree = "<group>"; };
+		B9EF41702B346D4F00335435 /* UIStackView+Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+Utility.swift"; sourceTree = "<group>"; };
+		B9EF41712B346D4F00335435 /* NewYorkAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewYorkAlertController.swift; sourceTree = "<group>"; };
+		B9EF41722B346D4F00335435 /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		B9EF41732B346D5000335435 /* NewYorkAlertViewType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewYorkAlertViewType.swift; sourceTree = "<group>"; };
+		B9EF417D2B3472A200335435 /* RPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPicker.swift; sourceTree = "<group>"; };
+		B9F0EB6C2BF38B24005A597C /* select_meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = select_meal.swift; sourceTree = "<group>"; };
+		B9F846A32BBC309800A89CAF /* post_details.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = post_details.swift; sourceTree = "<group>"; };
+		B9F886DA2BE8A57600060C3A /* faq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = faq.swift; sourceTree = "<group>"; };
+		B9F886DD2BE8AFBC00060C3A /* weight_goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weight_goal.swift; sourceTree = "<group>"; };
+		E0D7EEB5A7075BA29381C28A /* Pods-IL-Ricercatore-IL-RicercatoreUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IL-Ricercatore-IL-RicercatoreUITests.debug.xcconfig"; path = "Target Support Files/Pods-IL-Ricercatore-IL-RicercatoreUITests/Pods-IL-Ricercatore-IL-RicercatoreUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E4D7AAAD93B5AF1DD06172AC /* Pods-IL-Ricercatore-IL-RicercatoreUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IL-Ricercatore-IL-RicercatoreUITests.release.xcconfig"; path = "Target Support Files/Pods-IL-Ricercatore-IL-RicercatoreUITests/Pods-IL-Ricercatore-IL-RicercatoreUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F91823D86349C8CA52D202EE /* Pods_IL_RicercatoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IL_RicercatoreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B9E7452F2B29C1E9007E018A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC2907F9E3711E9DA121E7AC /* Pods_IL_Ricercatore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9E745452B29C1EB007E018A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				954C65DC212E54C567406C7D /* Pods_IL_RicercatoreTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9E7454F2B29C1EB007E018A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C5BFC0301EE4F9A443CD5D07 /* Pods_IL_Ricercatore_IL_RicercatoreUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0AC6ED1148B5CD67C04CEDDE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				41EE878E12E347167FE8E153 /* Pods-IL-Ricercatore.debug.xcconfig */,
+				973EE5CB037F7C4106DAA343 /* Pods-IL-Ricercatore.release.xcconfig */,
+				E0D7EEB5A7075BA29381C28A /* Pods-IL-Ricercatore-IL-RicercatoreUITests.debug.xcconfig */,
+				E4D7AAAD93B5AF1DD06172AC /* Pods-IL-Ricercatore-IL-RicercatoreUITests.release.xcconfig */,
+				5DE6109515CCDBC0794AEA68 /* Pods-IL-RicercatoreTests.debug.xcconfig */,
+				37669438789C7F68AA5C6193 /* Pods-IL-RicercatoreTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		12C9891AD7E3D278FC623DD9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B4EB8D2179DF5A2785A7CF0E /* Pods_IL_Ricercatore.framework */,
+				B4D337E89B1732A3FAD1C904 /* Pods_IL_Ricercatore_IL_RicercatoreUITests.framework */,
+				F91823D86349C8CA52D202EE /* Pods_IL_RicercatoreTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B9014D4E2C4E565700320620 /* health_reminder */ = {
+			isa = PBXGroup;
+			children = (
+				B9014D4F2C4E566300320620 /* health_reminder.swift */,
+			);
+			path = health_reminder;
+			sourceTree = "<group>";
+		};
+		B9034E6B2BBD5D1100AD6924 /* meal_track */ = {
+			isa = PBXGroup;
+			children = (
+				B9034E6C2BBD5D1B00AD6924 /* meal_track.swift */,
+				B9F0EB6B2BF38B17005A597C /* select meal */,
+			);
+			path = meal_track;
+			sourceTree = "<group>";
+		};
+		B9034E6E2BBD6F1000AD6924 /* goal_settings */ = {
+			isa = PBXGroup;
+			children = (
+				B9F886DC2BE8AFAC00060C3A /* weight_goal */,
+				B9034E6F2BBD6F1C00AD6924 /* goal_settings.swift */,
+				B92ACF552BBE8D2E00158E9B /* goal_settings_water */,
+			);
+			path = goal_settings;
+			sourceTree = "<group>";
+		};
+		B907E3F42BD62E8A000B1B5D /* comments */ = {
+			isa = PBXGroup;
+			children = (
+				B907E3F52BD62E96000B1B5D /* comments.swift */,
+			);
+			path = comments;
+			sourceTree = "<group>";
+		};
+		B92ACF552BBE8D2E00158E9B /* goal_settings_water */ = {
+			isa = PBXGroup;
+			children = (
+				B92ACF562BBE8D4300158E9B /* goal_settings_water.swift */,
+			);
+			path = goal_settings_water;
+			sourceTree = "<group>";
+		};
+		B92B9B542BD29447003175BA /* blood_glucose */ = {
+			isa = PBXGroup;
+			children = (
+				B92B9B582BD294AF003175BA /* blood_glucose.swift */,
+				B92B9B572BD29490003175BA /* add_blood_glucose */,
+			);
+			path = blood_glucose;
+			sourceTree = "<group>";
+		};
+		B92B9B572BD29490003175BA /* add_blood_glucose */ = {
+			isa = PBXGroup;
+			children = (
+				B92B9B552BD29464003175BA /* add_blood_glucose.swift */,
+			);
+			path = add_blood_glucose;
+			sourceTree = "<group>";
+		};
+		B92C1D522BE8F31D0054E7D7 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		B92C1D532BE8F4150054E7D7 /* water */ = {
+			isa = PBXGroup;
+			children = (
+				B92C1D542BE8F4200054E7D7 /* water_reminders.swift */,
+			);
+			path = water;
+			sourceTree = "<group>";
+		};
+		B93581172B342D3F00DEA73C /* personalise_workout */ = {
+			isa = PBXGroup;
+			children = (
+				B93581182B342D5800DEA73C /* personalised_workout.swift */,
+				B9EF415E2B344D7B00335435 /* personalize_day */,
+				B9EF41612B3456F100335435 /* select_workout */,
+				B9EF41642B3459C900335435 /* workout_details */,
+			);
+			path = personalise_workout;
+			sourceTree = "<group>";
+		};
+		B936A11A2C22C04900CCD0C3 /* select_workout */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = select_workout;
+			sourceTree = "<group>";
+		};
+		B939EF052B316DDF00B9556C /* dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				B939EF062B316DF400B9556C /* dashboard.swift */,
+			);
+			path = dashboard;
+			sourceTree = "<group>";
+		};
+		B939EF082B316EFE00B9556C /* all_text */ = {
+			isa = PBXGroup;
+			children = (
+				B939EF092B316F0900B9556C /* all_text.swift */,
+			);
+			path = all_text;
+			sourceTree = "<group>";
+		};
+		B939EF0B2B31777D00B9556C /* all_colors */ = {
+			isa = PBXGroup;
+			children = (
+				B939EF0C2B31778700B9556C /* all_colors.swift */,
+			);
+			path = all_colors;
+			sourceTree = "<group>";
+		};
+		B939EF0E2B31845500B9556C /* calorie_information */ = {
+			isa = PBXGroup;
+			children = (
+				B939EF0F2B31846500B9556C /* calorie_information.swift */,
+			);
+			path = calorie_information;
+			sourceTree = "<group>";
+		};
+		B939EF112B318E3100B9556C /* eat_meal_time */ = {
+			isa = PBXGroup;
+			children = (
+				B939EF122B318E4100B9556C /* eat_meal_time.swift */,
+			);
+			path = eat_meal_time;
+			sourceTree = "<group>";
+		};
+		B939EF142B3190DF00B9556C /* edit_meal_calories */ = {
+			isa = PBXGroup;
+			children = (
+				B939EF152B3190F300B9556C /* edit_meal_calories.swift */,
+			);
+			path = edit_meal_calories;
+			sourceTree = "<group>";
+		};
+		B94B1BF72C21B4BC00AC170F /* token_manager */ = {
+			isa = PBXGroup;
+			children = (
+				B94B1BF82C21B4CA00AC170F /* token_manager.swift */,
+			);
+			path = token_manager;
+			sourceTree = "<group>";
+		};
+		B94B1BFA2C21BEB300AC170F /* type_of_excercise */ = {
+			isa = PBXGroup;
+			children = (
+				B94B1BFB2C21BECD00AC170F /* type_of_excercise.swift */,
+			);
+			path = type_of_excercise;
+			sourceTree = "<group>";
+		};
+		B94DACF52BF205FB002CD83E /* health_logs */ = {
+			isa = PBXGroup;
+			children = (
+				B94DACF62BF20605002CD83E /* health_logs.swift */,
+				B94DACF82BF2096E002CD83E /* edit_logs */,
+			);
+			path = health_logs;
+			sourceTree = "<group>";
+		};
+		B94DACF82BF2096E002CD83E /* edit_logs */ = {
+			isa = PBXGroup;
+			children = (
+				B94DACF92BF2097E002CD83E /* edit_logs.swift */,
+			);
+			path = edit_logs;
+			sourceTree = "<group>";
+		};
+		B95075872B32C7E200291EAC /* side_bar_menu */ = {
+			isa = PBXGroup;
+			children = (
+				B95075882B32C7F800291EAC /* side_bar_menu.swift */,
+			);
+			path = side_bar_menu;
+			sourceTree = "<group>";
+		};
+		B950F90E2B9A049900C01D3B /* steps */ = {
+			isa = PBXGroup;
+			children = (
+				B950F90F2B9A04B100C01D3B /* steps.swift */,
+				B950F9112B9A059E00C01D3B /* add_steps_time */,
+			);
+			path = steps;
+			sourceTree = "<group>";
+		};
+		B950F9112B9A059E00C01D3B /* add_steps_time */ = {
+			isa = PBXGroup;
+			children = (
+				B950F9122B9A05C200C01D3B /* add_steps_time.swift */,
+			);
+			path = add_steps_time;
+			sourceTree = "<group>";
+		};
+		B95375B62BF48B410063960B /* edit_profile */ = {
+			isa = PBXGroup;
+			children = (
+				B95375B72BF48B620063960B /* edit_profile.swift */,
+				B9D2438B2BF5D4D2004B1A78 /* edit_complete_profile */,
+			);
+			path = edit_profile;
+			sourceTree = "<group>";
+		};
+		B9538BA32B886AF000722BF8 /* same_multiples */ = {
+			isa = PBXGroup;
+			children = (
+				B9538BA42B886B0200722BF8 /* api */,
+			);
+			path = same_multiples;
+			sourceTree = "<group>";
+		};
+		B9538BA42B886B0200722BF8 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				B9538BA52B886B0C00722BF8 /* api.swift */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
+		B9701D012C4A425400DEBEFD /* chat */ = {
+			isa = PBXGroup;
+			children = (
+				B9701D022C4A425E00DEBEFD /* chat_screen.swift */,
+			);
+			path = chat;
+			sourceTree = "<group>";
+		};
+		B977AE552B2D7BF900EF12BA /* create_an_account */ = {
+			isa = PBXGroup;
+			children = (
+				B977AE562B2D7C0F00EF12BA /* create_an_account.swift */,
+			);
+			path = create_an_account;
+			sourceTree = "<group>";
+		};
+		B977AE582B2D7C2900EF12BA /* screens */ = {
+			isa = PBXGroup;
+			children = (
+				B9701D012C4A425400DEBEFD /* chat */,
+				B99BC7502C495DCE0099FDA8 /* list_of_tracker */,
+				B99743B52C46984300815854 /* get_started_now */,
+				B95375B62BF48B410063960B /* edit_profile */,
+				B9AD06702BF349A000F48845 /* food_add */,
+				B94DACF52BF205FB002CD83E /* health_logs */,
+				B99E926A2BEDF97F0080B801 /* calories_burnout */,
+				B92C1D522BE8F31D0054E7D7 /* New Group */,
+				B98303C22BD0F70100C82F23 /* faq */,
+				B9034E6E2BBD6F1000AD6924 /* goal_settings */,
+				B9034E6B2BBD5D1100AD6924 /* meal_track */,
+				B9E314282BADBF850027A02F /* post */,
+				B9BC35A52B998CA6004C9431 /* chart_monitors */,
+				B9E745662B29C388007E018A /* login */,
+				B9E7456B2B29DE29007E018A /* welcome */,
+				B977AE552B2D7BF900EF12BA /* create_an_account */,
+				B977AE5C2B2D823100EF12BA /* complete_profile */,
+				B977AE5F2B2D8BD200EF12BA /* complete_profile_two */,
+				B977AE622B2D90DD00EF12BA /* complete_profile_three */,
+				B977AE652B2D97C100EF12BA /* breakfast_food */,
+				B939EF052B316DDF00B9556C /* dashboard */,
+				B939EF0E2B31845500B9556C /* calorie_information */,
+				B939EF112B318E3100B9556C /* eat_meal_time */,
+				B939EF142B3190DF00B9556C /* edit_meal_calories */,
+				B9DD5A152B31B2EB006B2D60 /* track_meal_reminder */,
+				B9DD5A182B31B998006B2D60 /* water_intake */,
+				B9DD5A1E2B31C5AB006B2D60 /* water_reminder */,
+				B9CC8EDF2B32F38E00130035 /* invite_friends */,
+				B9CC8EE22B32F74500130035 /* friends */,
+				B98303C32BD0FC4E00C82F23 /* search_friends */,
+				B98303C62BD0FF6B00C82F23 /* user_profile */,
+				B9CC8EE52B33016D00130035 /* reminders */,
+				B9CC8EE82B3309A200130035 /* workout */,
+				B93581172B342D3F00DEA73C /* personalise_workout */,
+			);
+			path = screens;
+			sourceTree = "<group>";
+		};
+		B977AE592B2D813D00EF12BA /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B977AE5A2B2D814800EF12BA /* Utils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		B977AE5C2B2D823100EF12BA /* complete_profile */ = {
+			isa = PBXGroup;
+			children = (
+				B977AE5D2B2D824100EF12BA /* complete_profile.swift */,
+			);
+			path = complete_profile;
+			sourceTree = "<group>";
+		};
+		B977AE5F2B2D8BD200EF12BA /* complete_profile_two */ = {
+			isa = PBXGroup;
+			children = (
+				B977AE602B2D8BE200EF12BA /* complete_profile_two.swift */,
+			);
+			path = complete_profile_two;
+			sourceTree = "<group>";
+		};
+		B977AE622B2D90DD00EF12BA /* complete_profile_three */ = {
+			isa = PBXGroup;
+			children = (
+				B977AE632B2D90F000EF12BA /* complete_profile_three.swift */,
+			);
+			path = complete_profile_three;
+			sourceTree = "<group>";
+		};
+		B977AE652B2D97C100EF12BA /* breakfast_food */ = {
+			isa = PBXGroup;
+			children = (
+				B977AE662B2D97E500EF12BA /* breakfast_food.swift */,
+			);
+			path = breakfast_food;
+			sourceTree = "<group>";
+		};
+		B98303C22BD0F70100C82F23 /* faq */ = {
+			isa = PBXGroup;
+			children = (
+				B9F886DA2BE8A57600060C3A /* faq.swift */,
+			);
+			path = faq;
+			sourceTree = "<group>";
+		};
+		B98303C32BD0FC4E00C82F23 /* search_friends */ = {
+			isa = PBXGroup;
+			children = (
+				B98303C42BD0FC6800C82F23 /* search_friends.swift */,
+			);
+			path = search_friends;
+			sourceTree = "<group>";
+		};
+		B98303C62BD0FF6B00C82F23 /* user_profile */ = {
+			isa = PBXGroup;
+			children = (
+				B98303C72BD0FF7800C82F23 /* user_profile.swift */,
+			);
+			path = user_profile;
+			sourceTree = "<group>";
+		};
+		B99743B52C46984300815854 /* get_started_now */ = {
+			isa = PBXGroup;
+			children = (
+				B99743B62C46984F00815854 /* get_started.swift */,
+			);
+			path = get_started_now;
+			sourceTree = "<group>";
+		};
+		B99BC7502C495DCE0099FDA8 /* list_of_tracker */ = {
+			isa = PBXGroup;
+			children = (
+				B99BC7512C495DE60099FDA8 /* list_of_all_trackers.swift */,
+			);
+			path = list_of_tracker;
+			sourceTree = "<group>";
+		};
+		B99BCBA62BECAC530049EF29 /* weight_reminder */ = {
+			isa = PBXGroup;
+			children = (
+				B99BCBA72BECAC5E0049EF29 /* weight_reminder.swift */,
+			);
+			path = weight_reminder;
+			sourceTree = "<group>";
+		};
+		B99E926A2BEDF97F0080B801 /* calories_burnout */ = {
+			isa = PBXGroup;
+			children = (
+				B99E926B2BEDF98C0080B801 /* calories_burnout.swift */,
+				B9E5C7BE2BEE122F002D3938 /* show_all_activity */,
+				B9E5C7BB2BEDFF2E002D3938 /* calories_set */,
+			);
+			path = calories_burnout;
+			sourceTree = "<group>";
+		};
+		B9AD06702BF349A000F48845 /* food_add */ = {
+			isa = PBXGroup;
+			children = (
+				B9AD06712BF349AE00F48845 /* food_add.swift */,
+			);
+			path = food_add;
+			sourceTree = "<group>";
+		};
+		B9B371F42BAD573D00A64F06 /* heart */ = {
+			isa = PBXGroup;
+			children = (
+				B9B371F82BAD57EC00A64F06 /* heart.swift */,
+				B9B371F52BAD574700A64F06 /* add_heart_rate */,
+			);
+			path = heart;
+			sourceTree = "<group>";
+		};
+		B9B371F52BAD574700A64F06 /* add_heart_rate */ = {
+			isa = PBXGroup;
+			children = (
+				B9B371F62BAD576900A64F06 /* add_heart_rate.swift */,
+			);
+			path = add_heart_rate;
+			sourceTree = "<group>";
+		};
+		B9B371FA2BAD7CC200A64F06 /* weight */ = {
+			isa = PBXGroup;
+			children = (
+				B9B371FB2BAD7CCD00A64F06 /* weight.swift */,
+				B9B371FD2BAD7CD400A64F06 /* add_weight */,
+			);
+			path = weight;
+			sourceTree = "<group>";
+		};
+		B9B371FD2BAD7CD400A64F06 /* add_weight */ = {
+			isa = PBXGroup;
+			children = (
+				B9B371FE2BAD7CDF00A64F06 /* add_weight.swift */,
+			);
+			path = add_weight;
+			sourceTree = "<group>";
+		};
+		B9B503272BEBB91B003D467A /* walk_reminder */ = {
+			isa = PBXGroup;
+			children = (
+				B9B503282BEBB929003D467A /* walk_reminder.swift */,
+			);
+			path = walk_reminder;
+			sourceTree = "<group>";
+		};
+		B9BC35A52B998CA6004C9431 /* chart_monitors */ = {
+			isa = PBXGroup;
+			children = (
+				B92B9B542BD29447003175BA /* blood_glucose */,
+				B9E314232BAD9B4C0027A02F /* add_blood_pressure */,
+				B950F90E2B9A049900C01D3B /* steps */,
+				B9BC35A62B998CDB004C9431 /* sleep */,
+				B9B371F42BAD573D00A64F06 /* heart */,
+				B9B371FA2BAD7CC200A64F06 /* weight */,
+			);
+			path = chart_monitors;
+			sourceTree = "<group>";
+		};
+		B9BC35A62B998CDB004C9431 /* sleep */ = {
+			isa = PBXGroup;
+			children = (
+				B9BC35A72B998CEE004C9431 /* sleep.swift */,
+				B9BC35A92B99AD14004C9431 /* add_sleep_time */,
+			);
+			path = sleep;
+			sourceTree = "<group>";
+		};
+		B9BC35A92B99AD14004C9431 /* add_sleep_time */ = {
+			isa = PBXGroup;
+			children = (
+				B9BC35AA2B99AD23004C9431 /* add_sleep_time.swift */,
+			);
+			path = add_sleep_time;
+			sourceTree = "<group>";
+		};
+		B9CC8EDF2B32F38E00130035 /* invite_friends */ = {
+			isa = PBXGroup;
+			children = (
+				B9CC8EE02B32F3AE00130035 /* invite_friends.swift */,
+			);
+			path = invite_friends;
+			sourceTree = "<group>";
+		};
+		B9CC8EE22B32F74500130035 /* friends */ = {
+			isa = PBXGroup;
+			children = (
+				B9CC8EE32B32F74F00130035 /* friends.swift */,
+			);
+			path = friends;
+			sourceTree = "<group>";
+		};
+		B9CC8EE52B33016D00130035 /* reminders */ = {
+			isa = PBXGroup;
+			children = (
+				B9014D4E2C4E565700320620 /* health_reminder */,
+				B99BCBA62BECAC530049EF29 /* weight_reminder */,
+				B9B503272BEBB91B003D467A /* walk_reminder */,
+				B9E77A472BEB5CDA00D1CDE8 /* workout */,
+				B92C1D532BE8F4150054E7D7 /* water */,
+				B9CC8EE62B33017700130035 /* reminders.swift */,
+			);
+			path = reminders;
+			sourceTree = "<group>";
+		};
+		B9CC8EE82B3309A200130035 /* workout */ = {
+			isa = PBXGroup;
+			children = (
+				B9E43C1B2C2AD15B0084AD43 /* workout_details */,
+				B9CC8EEC2B330E3A00130035 /* days_workout */,
+				B936A11A2C22C04900CCD0C3 /* select_workout */,
+				B94B1BFA2C21BEB300AC170F /* type_of_excercise */,
+				B9CC8EE92B3309A800130035 /* workout_setting */,
+			);
+			path = workout;
+			sourceTree = "<group>";
+		};
+		B9CC8EE92B3309A800130035 /* workout_setting */ = {
+			isa = PBXGroup;
+			children = (
+				B9CC8EEA2B3309C200130035 /* workout_setting.swift */,
+			);
+			path = workout_setting;
+			sourceTree = "<group>";
+		};
+		B9CC8EEC2B330E3A00130035 /* days_workout */ = {
+			isa = PBXGroup;
+			children = (
+				B9CC8EED2B330E6600130035 /* days_workout.swift */,
+			);
+			path = days_workout;
+			sourceTree = "<group>";
+		};
+		B9CDD1832B875DF5003E98B1 /* custom_alert */ = {
+			isa = PBXGroup;
+			children = (
+				B9CDD1842B875E03003E98B1 /* disease_list */,
+			);
+			path = custom_alert;
+			sourceTree = "<group>";
+		};
+		B9CDD1842B875E03003E98B1 /* disease_list */ = {
+			isa = PBXGroup;
+			children = (
+				B9CDD1852B875E25003E98B1 /* disease_list.swift */,
+			);
+			path = disease_list;
+			sourceTree = "<group>";
+		};
+		B9D2438B2BF5D4D2004B1A78 /* edit_complete_profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = edit_complete_profile;
+			sourceTree = "<group>";
+		};
+		B9DD5A152B31B2EB006B2D60 /* track_meal_reminder */ = {
+			isa = PBXGroup;
+			children = (
+				B9DD5A162B31B303006B2D60 /* track_meal_reminder.swift */,
+				B9DD5A1B2B31BDE3006B2D60 /* set_up_water_tracker */,
+			);
+			path = track_meal_reminder;
+			sourceTree = "<group>";
+		};
+		B9DD5A182B31B998006B2D60 /* water_intake */ = {
+			isa = PBXGroup;
+			children = (
+				B9DD5A192B31B9A3006B2D60 /* water_intake.swift */,
+			);
+			path = water_intake;
+			sourceTree = "<group>";
+		};
+		B9DD5A1B2B31BDE3006B2D60 /* set_up_water_tracker */ = {
+			isa = PBXGroup;
+			children = (
+				B9DD5A1C2B31BDF7006B2D60 /* set_up_water_tracker.swift */,
+			);
+			path = set_up_water_tracker;
+			sourceTree = "<group>";
+		};
+		B9DD5A1E2B31C5AB006B2D60 /* water_reminder */ = {
+			isa = PBXGroup;
+			children = (
+				B9DD5A1F2B31C5B9006B2D60 /* water_reminder.swift */,
+			);
+			path = water_reminder;
+			sourceTree = "<group>";
+		};
+		B9E196882BADC7250005E28C /* all_post_category */ = {
+			isa = PBXGroup;
+			children = (
+				B9E314292BADBF8E0027A02F /* all_post.swift */,
+			);
+			path = all_post_category;
+			sourceTree = "<group>";
+		};
+		B9E196892BADC7340005E28C /* daily_q */ = {
+			isa = PBXGroup;
+			children = (
+				B9E1968A2BADC7400005E28C /* daily_q.swift */,
+			);
+			path = daily_q;
+			sourceTree = "<group>";
+		};
+		B9E314232BAD9B4C0027A02F /* add_blood_pressure */ = {
+			isa = PBXGroup;
+			children = (
+				B9E314242BAD9B580027A02F /* blood_pressure.swift */,
+				B9E314262BAD9B6B0027A02F /* add_blood_pressure.swift */,
+			);
+			path = add_blood_pressure;
+			sourceTree = "<group>";
+		};
+		B9E314282BADBF850027A02F /* post */ = {
+			isa = PBXGroup;
+			children = (
+				B907E3F42BD62E8A000B1B5D /* comments */,
+				B9F846A22BBC308C00A89CAF /* post_details */,
+				B9E196892BADC7340005E28C /* daily_q */,
+				B9E196882BADC7250005E28C /* all_post_category */,
+			);
+			path = post;
+			sourceTree = "<group>";
+		};
+		B9E43C1B2C2AD15B0084AD43 /* workout_details */ = {
+			isa = PBXGroup;
+			children = (
+				B9E43C1E2C2AD1A70084AD43 /* workout_gym_exc_details.swift */,
+				B9E731902C2AF050009EE3B3 /* set_gym_exc_sets.swift */,
+			);
+			path = workout_details;
+			sourceTree = "<group>";
+		};
+		B9E5C7BB2BEDFF2E002D3938 /* calories_set */ = {
+			isa = PBXGroup;
+			children = (
+				B9E5C7BC2BEDFF39002D3938 /* calories_set.swift */,
+			);
+			path = calories_set;
+			sourceTree = "<group>";
+		};
+		B9E5C7BE2BEE122F002D3938 /* show_all_activity */ = {
+			isa = PBXGroup;
+			children = (
+				B9E5C7BF2BEE1246002D3938 /* show_all_cal_burnt_ctivity.swift */,
+			);
+			path = show_all_activity;
+			sourceTree = "<group>";
+		};
+		B9E745292B29C1E9007E018A = {
+			isa = PBXGroup;
+			children = (
+				B9E745342B29C1E9007E018A /* IL-Ricercatore */,
+				B9E7454B2B29C1EB007E018A /* IL-RicercatoreTests */,
+				B9E745552B29C1EB007E018A /* IL-RicercatoreUITests */,
+				B9E745332B29C1E9007E018A /* Products */,
+				0AC6ED1148B5CD67C04CEDDE /* Pods */,
+				12C9891AD7E3D278FC623DD9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B9E745332B29C1E9007E018A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B9E745322B29C1E9007E018A /* IL-Ricercatore.app */,
+				B9E745482B29C1EB007E018A /* IL-RicercatoreTests.xctest */,
+				B9E745522B29C1EB007E018A /* IL-RicercatoreUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B9E745342B29C1E9007E018A /* IL-Ricercatore */ = {
+			isa = PBXGroup;
+			children = (
+				B9E745652B29C341007E018A /* controllers */,
+				B9E745352B29C1E9007E018A /* AppDelegate.swift */,
+				B9E745372B29C1E9007E018A /* SceneDelegate.swift */,
+				B9E745392B29C1E9007E018A /* ViewController.swift */,
+				B9E7453B2B29C1E9007E018A /* Main.storyboard */,
+				B9E7453E2B29C1EB007E018A /* Assets.xcassets */,
+				B9E745402B29C1EB007E018A /* LaunchScreen.storyboard */,
+				B9E745432B29C1EB007E018A /* Info.plist */,
+				B9014D4C2C4E377700320620 /* GoogleService-Info.plist */,
+			);
+			path = "IL-Ricercatore";
+			sourceTree = "<group>";
+		};
+		B9E7454B2B29C1EB007E018A /* IL-RicercatoreTests */ = {
+			isa = PBXGroup;
+			children = (
+				B9E7454C2B29C1EB007E018A /* IL_RicercatoreTests.swift */,
+			);
+			path = "IL-RicercatoreTests";
+			sourceTree = "<group>";
+		};
+		B9E745552B29C1EB007E018A /* IL-RicercatoreUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B9E745562B29C1EB007E018A /* IL_RicercatoreUITests.swift */,
+				B9E745582B29C1EB007E018A /* IL_RicercatoreUITestsLaunchTests.swift */,
+			);
+			path = "IL-RicercatoreUITests";
+			sourceTree = "<group>";
+		};
+		B9E745652B29C341007E018A /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B9CDD1832B875DF5003E98B1 /* custom_alert */,
+				B9E7456E2B29DE90007E018A /* common */,
+				B977AE582B2D7C2900EF12BA /* screens */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		B9E745662B29C388007E018A /* login */ = {
+			isa = PBXGroup;
+			children = (
+				B9E745672B29C3A1007E018A /* login.swift */,
+			);
+			path = login;
+			sourceTree = "<group>";
+		};
+		B9E7456B2B29DE29007E018A /* welcome */ = {
+			isa = PBXGroup;
+			children = (
+				B9E7456C2B29DE34007E018A /* welcome.swift */,
+			);
+			path = welcome;
+			sourceTree = "<group>";
+		};
+		B9E7456E2B29DE90007E018A /* common */ = {
+			isa = PBXGroup;
+			children = (
+				B94B1BF72C21B4BC00AC170F /* token_manager */,
+				B9538BA32B886AF000722BF8 /* same_multiples */,
+				B9EF41672B346AE500335435 /* third_party */,
+				B95075872B32C7E200291EAC /* side_bar_menu */,
+				B939EF0B2B31777D00B9556C /* all_colors */,
+				B939EF082B316EFE00B9556C /* all_text */,
+				B977AE592B2D813D00EF12BA /* Utils */,
+				B9E7456F2B29DE9B007E018A /* table_cells */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		B9E7456F2B29DE9B007E018A /* table_cells */ = {
+			isa = PBXGroup;
+			children = (
+				B9E745702B29DEB3007E018A /* table_cells.swift */,
+			);
+			path = table_cells;
+			sourceTree = "<group>";
+		};
+		B9E77A472BEB5CDA00D1CDE8 /* workout */ = {
+			isa = PBXGroup;
+			children = (
+				B9E77A482BEB5CEF00D1CDE8 /* workout_reminder.swift */,
+			);
+			path = workout;
+			sourceTree = "<group>";
+		};
+		B9EF415E2B344D7B00335435 /* personalize_day */ = {
+			isa = PBXGroup;
+			children = (
+				B9EF415F2B344D8F00335435 /* personalize_day.swift */,
+			);
+			path = personalize_day;
+			sourceTree = "<group>";
+		};
+		B9EF41612B3456F100335435 /* select_workout */ = {
+			isa = PBXGroup;
+			children = (
+				B9EF41622B3456FE00335435 /* select_workout.swift */,
+			);
+			path = select_workout;
+			sourceTree = "<group>";
+		};
+		B9EF41642B3459C900335435 /* workout_details */ = {
+			isa = PBXGroup;
+			children = (
+				B9EF41652B3459E900335435 /* workout_details.swift */,
+			);
+			path = workout_details;
+			sourceTree = "<group>";
+		};
+		B9EF41672B346AE500335435 /* third_party */ = {
+			isa = PBXGroup;
+			children = (
+				B92185F32BC520BE0014FF55 /* DayAxisValueFormatter.swift */,
+				B9EF417C2B34729800335435 /* rpicker */,
+				B9EF416B2B346D3B00335435 /* alert */,
+				B9EF41682B346AEF00335435 /* progress */,
+			);
+			path = third_party;
+			sourceTree = "<group>";
+		};
+		B9EF41682B346AEF00335435 /* progress */ = {
+			isa = PBXGroup;
+			children = (
+				B9EF41692B346AFB00335435 /* ERProgressHud.swift */,
+			);
+			path = progress;
+			sourceTree = "<group>";
+		};
+		B9EF416B2B346D3B00335435 /* alert */ = {
+			isa = PBXGroup;
+			children = (
+				B9EF416C2B346D4D00335435 /* ActionSheetView.swift */,
+				B9EF41722B346D4F00335435 /* AlertView.swift */,
+				B9EF416D2B346D4D00335435 /* Color.swift */,
+				B9EF416E2B346D4E00335435 /* LeftPaddingTextField.swift */,
+				B9EF41712B346D4F00335435 /* NewYorkAlertController.swift */,
+				B9EF41732B346D5000335435 /* NewYorkAlertViewType.swift */,
+				B9EF416F2B346D4E00335435 /* NewYorkButton.swift */,
+				B9EF41702B346D4F00335435 /* UIStackView+Utility.swift */,
+			);
+			path = alert;
+			sourceTree = "<group>";
+		};
+		B9EF417C2B34729800335435 /* rpicker */ = {
+			isa = PBXGroup;
+			children = (
+				B9EF417D2B3472A200335435 /* RPicker.swift */,
+			);
+			path = rpicker;
+			sourceTree = "<group>";
+		};
+		B9F0EB6B2BF38B17005A597C /* select meal */ = {
+			isa = PBXGroup;
+			children = (
+				B9F0EB6C2BF38B24005A597C /* select_meal.swift */,
+			);
+			path = "select meal";
+			sourceTree = "<group>";
+		};
+		B9F846A22BBC308C00A89CAF /* post_details */ = {
+			isa = PBXGroup;
+			children = (
+				B9F846A32BBC309800A89CAF /* post_details.swift */,
+			);
+			path = post_details;
+			sourceTree = "<group>";
+		};
+		B9F886DC2BE8AFAC00060C3A /* weight_goal */ = {
+			isa = PBXGroup;
+			children = (
+				B9F886DD2BE8AFBC00060C3A /* weight_goal.swift */,
+			);
+			path = weight_goal;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B9E745312B29C1E9007E018A /* IL-Ricercatore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B9E7455C2B29C1EB007E018A /* Build configuration list for PBXNativeTarget "IL-Ricercatore" */;
+			buildPhases = (
+				736889431D12FAD76075FB3B /* [CP] Check Pods Manifest.lock */,
+				B9E7452E2B29C1E9007E018A /* Sources */,
+				B9E7452F2B29C1E9007E018A /* Frameworks */,
+				B9E745302B29C1E9007E018A /* Resources */,
+				E8EF89B01C5BD6E00875EBC0 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "IL-Ricercatore";
+			productName = "IL-Ricercatore";
+			productReference = B9E745322B29C1E9007E018A /* IL-Ricercatore.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B9E745472B29C1EB007E018A /* IL-RicercatoreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B9E7455F2B29C1EB007E018A /* Build configuration list for PBXNativeTarget "IL-RicercatoreTests" */;
+			buildPhases = (
+				BCB55EE2A01CC79D72B88454 /* [CP] Check Pods Manifest.lock */,
+				B9E745442B29C1EB007E018A /* Sources */,
+				B9E745452B29C1EB007E018A /* Frameworks */,
+				B9E745462B29C1EB007E018A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B9E7454A2B29C1EB007E018A /* PBXTargetDependency */,
+			);
+			name = "IL-RicercatoreTests";
+			productName = "IL-RicercatoreTests";
+			productReference = B9E745482B29C1EB007E018A /* IL-RicercatoreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B9E745512B29C1EB007E018A /* IL-RicercatoreUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B9E745622B29C1EB007E018A /* Build configuration list for PBXNativeTarget "IL-RicercatoreUITests" */;
+			buildPhases = (
+				14D3EF41E7A6FE6B2B3572CA /* [CP] Check Pods Manifest.lock */,
+				B9E7454E2B29C1EB007E018A /* Sources */,
+				B9E7454F2B29C1EB007E018A /* Frameworks */,
+				B9E745502B29C1EB007E018A /* Resources */,
+				89E71777415587DFBF4B59FE /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B9E745542B29C1EB007E018A /* PBXTargetDependency */,
+			);
+			name = "IL-RicercatoreUITests";
+			productName = "IL-RicercatoreUITests";
+			productReference = B9E745522B29C1EB007E018A /* IL-RicercatoreUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B9E7452A2B29C1E9007E018A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					B9E745312B29C1E9007E018A = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+					B9E745472B29C1EB007E018A = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = B9E745312B29C1E9007E018A;
+					};
+					B9E745512B29C1EB007E018A = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = B9E745312B29C1E9007E018A;
+					};
+				};
+			};
+			buildConfigurationList = B9E7452D2B29C1E9007E018A /* Build configuration list for PBXProject "IL-Ricercatore" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B9E745292B29C1E9007E018A;
+			productRefGroup = B9E745332B29C1E9007E018A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B9E745312B29C1E9007E018A /* IL-Ricercatore */,
+				B9E745472B29C1EB007E018A /* IL-RicercatoreTests */,
+				B9E745512B29C1EB007E018A /* IL-RicercatoreUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B9E745302B29C1E9007E018A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9E745422B29C1EB007E018A /* LaunchScreen.storyboard in Resources */,
+				B9014D4D2C4E377700320620 /* GoogleService-Info.plist in Resources */,
+				B9E7453F2B29C1EB007E018A /* Assets.xcassets in Resources */,
+				B9E7453D2B29C1E9007E018A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9E745462B29C1EB007E018A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9E745502B29C1EB007E018A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		14D3EF41E7A6FE6B2B3572CA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IL-Ricercatore-IL-RicercatoreUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		736889431D12FAD76075FB3B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IL-Ricercatore-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		89E71777415587DFBF4B59FE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IL-Ricercatore-IL-RicercatoreUITests/Pods-IL-Ricercatore-IL-RicercatoreUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IL-Ricercatore-IL-RicercatoreUITests/Pods-IL-Ricercatore-IL-RicercatoreUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IL-Ricercatore-IL-RicercatoreUITests/Pods-IL-Ricercatore-IL-RicercatoreUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BCB55EE2A01CC79D72B88454 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IL-RicercatoreTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8EF89B01C5BD6E00875EBC0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IL-Ricercatore/Pods-IL-Ricercatore-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IL-Ricercatore/Pods-IL-Ricercatore-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IL-Ricercatore/Pods-IL-Ricercatore-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B9E7452E2B29C1E9007E018A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9B371FC2BAD7CCD00A64F06 /* weight.swift in Sources */,
+				B92B9B592BD294AF003175BA /* blood_glucose.swift in Sources */,
+				B98303C52BD0FC6800C82F23 /* search_friends.swift in Sources */,
+				B9CC8EE12B32F3AE00130035 /* invite_friends.swift in Sources */,
+				B9DD5A172B31B303006B2D60 /* track_meal_reminder.swift in Sources */,
+				B9F886DB2BE8A57600060C3A /* faq.swift in Sources */,
+				B939EF162B3190F300B9556C /* edit_meal_calories.swift in Sources */,
+				B939EF0A2B316F0900B9556C /* all_text.swift in Sources */,
+				B9CC8EE42B32F74F00130035 /* friends.swift in Sources */,
+				B9EF417A2B346D5000335435 /* AlertView.swift in Sources */,
+				B9B503292BEBB929003D467A /* walk_reminder.swift in Sources */,
+				B9BC35AB2B99AD23004C9431 /* add_sleep_time.swift in Sources */,
+				B9EF41602B344D8F00335435 /* personalize_day.swift in Sources */,
+				B939EF072B316DF400B9556C /* dashboard.swift in Sources */,
+				B93581192B342D5800DEA73C /* personalised_workout.swift in Sources */,
+				B9E1968B2BADC7400005E28C /* daily_q.swift in Sources */,
+				B9B371FF2BAD7CDF00A64F06 /* add_weight.swift in Sources */,
+				B9EF41762B346D5000335435 /* LeftPaddingTextField.swift in Sources */,
+				B95075892B32C7F800291EAC /* side_bar_menu.swift in Sources */,
+				B98303C82BD0FF7800C82F23 /* user_profile.swift in Sources */,
+				B9EF41782B346D5000335435 /* UIStackView+Utility.swift in Sources */,
+				B9EF41772B346D5000335435 /* NewYorkButton.swift in Sources */,
+				B99743B72C46984F00815854 /* get_started.swift in Sources */,
+				B9F0EB6D2BF38B24005A597C /* select_meal.swift in Sources */,
+				B92ACF572BBE8D4300158E9B /* goal_settings_water.swift in Sources */,
+				B9E7453A2B29C1E9007E018A /* ViewController.swift in Sources */,
+				B9E5C7BD2BEDFF39002D3938 /* calories_set.swift in Sources */,
+				B9CDD1862B875E25003E98B1 /* disease_list.swift in Sources */,
+				B939EF0D2B31778700B9556C /* all_colors.swift in Sources */,
+				B977AE612B2D8BE200EF12BA /* complete_profile_two.swift in Sources */,
+				B9EF41792B346D5000335435 /* NewYorkAlertController.swift in Sources */,
+				B977AE572B2D7C0F00EF12BA /* create_an_account.swift in Sources */,
+				B99BCBA82BECAC5E0049EF29 /* weight_reminder.swift in Sources */,
+				B9AD06722BF349AE00F48845 /* food_add.swift in Sources */,
+				B950F9132B9A05C200C01D3B /* add_steps_time.swift in Sources */,
+				B9E731912C2AF050009EE3B3 /* set_gym_exc_sets.swift in Sources */,
+				B92B9B562BD29464003175BA /* add_blood_glucose.swift in Sources */,
+				B95375B82BF48B620063960B /* edit_profile.swift in Sources */,
+				B9E745362B29C1E9007E018A /* AppDelegate.swift in Sources */,
+				B94DACF72BF20605002CD83E /* health_logs.swift in Sources */,
+				B9E7456D2B29DE34007E018A /* welcome.swift in Sources */,
+				B9CC8EE72B33017700130035 /* reminders.swift in Sources */,
+				B94DACFA2BF2097E002CD83E /* edit_logs.swift in Sources */,
+				B92C1D552BE8F4200054E7D7 /* water_reminders.swift in Sources */,
+				B9EF41662B3459E900335435 /* workout_details.swift in Sources */,
+				B939EF102B31846500B9556C /* calorie_information.swift in Sources */,
+				B9DD5A1D2B31BDF7006B2D60 /* set_up_water_tracker.swift in Sources */,
+				B92185F42BC520BF0014FF55 /* DayAxisValueFormatter.swift in Sources */,
+				B977AE672B2D97E500EF12BA /* breakfast_food.swift in Sources */,
+				B977AE642B2D90F000EF12BA /* complete_profile_three.swift in Sources */,
+				B94B1BFC2C21BECD00AC170F /* type_of_excercise.swift in Sources */,
+				B9E314272BAD9B6B0027A02F /* add_blood_pressure.swift in Sources */,
+				B9EF417B2B346D5000335435 /* NewYorkAlertViewType.swift in Sources */,
+				B9E745382B29C1E9007E018A /* SceneDelegate.swift in Sources */,
+				B9EF41742B346D5000335435 /* ActionSheetView.swift in Sources */,
+				B9EF41752B346D5000335435 /* Color.swift in Sources */,
+				B977AE5E2B2D824100EF12BA /* complete_profile.swift in Sources */,
+				B9E3142A2BADBF8E0027A02F /* all_post.swift in Sources */,
+				B9E745712B29DEB3007E018A /* table_cells.swift in Sources */,
+				B9EF417E2B3472A200335435 /* RPicker.swift in Sources */,
+				B9E77A492BEB5CEF00D1CDE8 /* workout_reminder.swift in Sources */,
+				B99BC7522C495DE60099FDA8 /* list_of_all_trackers.swift in Sources */,
+				B9B371F92BAD57EC00A64F06 /* heart.swift in Sources */,
+				B9DD5A202B31C5B9006B2D60 /* water_reminder.swift in Sources */,
+				B9F846A42BBC309800A89CAF /* post_details.swift in Sources */,
+				B9B371F72BAD576900A64F06 /* add_heart_rate.swift in Sources */,
+				B9701D032C4A425E00DEBEFD /* chat_screen.swift in Sources */,
+				B9E5C7C02BEE1246002D3938 /* show_all_cal_burnt_ctivity.swift in Sources */,
+				B9BC35A82B998CEE004C9431 /* sleep.swift in Sources */,
+				B9CC8EEB2B3309C200130035 /* workout_setting.swift in Sources */,
+				B94B1BF92C21B4CA00AC170F /* token_manager.swift in Sources */,
+				B9E745682B29C3A1007E018A /* login.swift in Sources */,
+				B9E314252BAD9B580027A02F /* blood_pressure.swift in Sources */,
+				B9034E702BBD6F1C00AD6924 /* goal_settings.swift in Sources */,
+				B9CC8EEE2B330E6600130035 /* days_workout.swift in Sources */,
+				B9F886DE2BE8AFBC00060C3A /* weight_goal.swift in Sources */,
+				B9EF416A2B346AFB00335435 /* ERProgressHud.swift in Sources */,
+				B9EF41632B3456FE00335435 /* select_workout.swift in Sources */,
+				B9034E6D2BBD5D1B00AD6924 /* meal_track.swift in Sources */,
+				B977AE5B2B2D814800EF12BA /* Utils.swift in Sources */,
+				B99E926C2BEDF98C0080B801 /* calories_burnout.swift in Sources */,
+				B907E3F62BD62E96000B1B5D /* comments.swift in Sources */,
+				B939EF132B318E4100B9556C /* eat_meal_time.swift in Sources */,
+				B9014D502C4E566300320620 /* health_reminder.swift in Sources */,
+				B950F9102B9A04B100C01D3B /* steps.swift in Sources */,
+				B9538BA62B886B0C00722BF8 /* api.swift in Sources */,
+				B9DD5A1A2B31B9A3006B2D60 /* water_intake.swift in Sources */,
+				B9E43C1F2C2AD1A70084AD43 /* workout_gym_exc_details.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9E745442B29C1EB007E018A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9E7454D2B29C1EB007E018A /* IL_RicercatoreTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9E7454E2B29C1EB007E018A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B9E745572B29C1EB007E018A /* IL_RicercatoreUITests.swift in Sources */,
+				B9E745592B29C1EB007E018A /* IL_RicercatoreUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B9E7454A2B29C1EB007E018A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B9E745312B29C1E9007E018A /* IL-Ricercatore */;
+			targetProxy = B9E745492B29C1EB007E018A /* PBXContainerItemProxy */;
+		};
+		B9E745542B29C1EB007E018A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B9E745312B29C1E9007E018A /* IL-Ricercatore */;
+			targetProxy = B9E745532B29C1EB007E018A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B9E7453B2B29C1E9007E018A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B9E7453C2B29C1E9007E018A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B9E745402B29C1EB007E018A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B9E745412B29C1EB007E018A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B9E7455A2B29C1EB007E018A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B9E7455B2B29C1EB007E018A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B9E7455D2B29C1EB007E018A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41EE878E12E347167FE8E153 /* Pods-IL-Ricercatore.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = NHVZESNL9B;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "IL-Ricercatore/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "IL-Recercatore";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSContactsUsageDescription = "IL-Recercatore would like to access your contacts to send app invite request to Friends and Family.";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.evs.dev.IL-Ricercatore";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		B9E7455E2B29C1EB007E018A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 973EE5CB037F7C4106DAA343 /* Pods-IL-Ricercatore.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = NHVZESNL9B;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "IL-Ricercatore/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "IL-Recercatore";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_NSContactsUsageDescription = "IL-Recercatore would like to access your contacts to send app invite request to Friends and Family.";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.evs.dev.IL-Ricercatore";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		B9E745602B29C1EB007E018A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DE6109515CCDBC0794AEA68 /* Pods-IL-RicercatoreTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NHVZESNL9B;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.evs.dev.IL-RicercatoreTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IL-Ricercatore.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/IL-Ricercatore";
+			};
+			name = Debug;
+		};
+		B9E745612B29C1EB007E018A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37669438789C7F68AA5C6193 /* Pods-IL-RicercatoreTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NHVZESNL9B;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.evs.dev.IL-RicercatoreTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IL-Ricercatore.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/IL-Ricercatore";
+			};
+			name = Release;
+		};
+		B9E745632B29C1EB007E018A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0D7EEB5A7075BA29381C28A /* Pods-IL-Ricercatore-IL-RicercatoreUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NHVZESNL9B;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.evs.dev.IL-RicercatoreUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "IL-Ricercatore";
+			};
+			name = Debug;
+		};
+		B9E745642B29C1EB007E018A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4D7AAAD93B5AF1DD06172AC /* Pods-IL-Ricercatore-IL-RicercatoreUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NHVZESNL9B;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.evs.dev.IL-RicercatoreUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "IL-Ricercatore";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B9E7452D2B29C1E9007E018A /* Build configuration list for PBXProject "IL-Ricercatore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9E7455A2B29C1EB007E018A /* Debug */,
+				B9E7455B2B29C1EB007E018A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B9E7455C2B29C1EB007E018A /* Build configuration list for PBXNativeTarget "IL-Ricercatore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9E7455D2B29C1EB007E018A /* Debug */,
+				B9E7455E2B29C1EB007E018A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B9E7455F2B29C1EB007E018A /* Build configuration list for PBXNativeTarget "IL-RicercatoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9E745602B29C1EB007E018A /* Debug */,
+				B9E745612B29C1EB007E018A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B9E745622B29C1EB007E018A /* Build configuration list for PBXNativeTarget "IL-RicercatoreUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9E745632B29C1EB007E018A /* Debug */,
+				B9E745642B29C1EB007E018A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B9E7452A2B29C1E9007E018A /* Project object */;
+}
