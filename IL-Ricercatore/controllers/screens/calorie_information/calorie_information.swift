@@ -341,31 +341,65 @@ extension calorie_information: UITableViewDataSource , UITableViewDelegate {
         cell.txt_carbs.delegate = self
         cell.txt_protien.delegate = self
         
-        cell.txt_fat.text = "\(self.dict_get_value["fatInTake"]!)"
-        cell.txt_carbs.text = "\(self.dict_get_value["varbsInTake"]!)"
-        cell.txt_protien.text = "\(self.dict_get_value["protineInTake"]!)"
         
-        
-        if let fatGrams = calculateFatsGrams(caloriesString: "\(self.dict_get_value["cal_total"]!)", proteinPercentageString: "\(self.dict_get_value["fatInTake"]!)") {
-            cell.lbl_fats_cal.text = "\(fatGrams) g"
-            self.store_fats = "\(fatGrams)"
+        if "\(self.dict_get_value["fatInTake"]!)" == "" {
+            
+            cell.txt_fat.text = "20"
+            cell.txt_carbs.text = "50"
+            cell.txt_protien.text = "30"
+            
+            if let fatGrams = calculateFatsGrams(caloriesString: "20", proteinPercentageString: "\(self.dict_get_value["fatInTake"]!)") {
+                cell.lbl_fats_cal.text = "\(fatGrams) g"
+                self.store_fats = "\(fatGrams)"
+            } else {
+                print("Failed to calculate carbs grams due to invalid input")
+            }
+            
+            if let carbsGrams = calculateCarbsGrams(caloriesString: "50", proteinPercentageString: "\(self.dict_get_value["varbsInTake"]!)") {
+                cell.lbl_carbs_cal.text = "\(carbsGrams) g"
+                self.store_carbs = "\(carbsGrams)"
+            } else {
+                print("Failed to calculate carbs grams due to invalid input")
+            }
+            
+            if let proteinGrams = calculateFatsGrams(caloriesString: "30", proteinPercentageString: "\(self.dict_get_value["protineInTake"]!)") {
+                cell.lbl_protien_cal.text = "\(proteinGrams) g"
+                self.store_protien = "\(proteinGrams)"
+            } else {
+                print("Failed to calculate carbs grams due to invalid input")
+            }
+            
         } else {
-            print("Failed to calculate carbs grams due to invalid input")
+        
+            cell.txt_fat.text = "\(self.dict_get_value["fatInTake"]!)"
+            cell.txt_carbs.text = "\(self.dict_get_value["varbsInTake"]!)"
+            cell.txt_protien.text = "\(self.dict_get_value["protineInTake"]!)"
+            
+            
+            if let fatGrams = calculateFatsGrams(caloriesString: "\(self.dict_get_value["cal_total"]!)", proteinPercentageString: "\(self.dict_get_value["fatInTake"]!)") {
+                cell.lbl_fats_cal.text = "\(fatGrams) g"
+                self.store_fats = "\(fatGrams)"
+            } else {
+                print("Failed to calculate carbs grams due to invalid input")
+            }
+            
+            if let carbsGrams = calculateCarbsGrams(caloriesString: "\(self.dict_get_value["cal_total"]!)", proteinPercentageString: "\(self.dict_get_value["varbsInTake"]!)") {
+                cell.lbl_carbs_cal.text = "\(carbsGrams) g"
+                self.store_carbs = "\(carbsGrams)"
+            } else {
+                print("Failed to calculate carbs grams due to invalid input")
+            }
+            
+            if let proteinGrams = calculateFatsGrams(caloriesString: "\(self.dict_get_value["cal_total"]!)", proteinPercentageString: "\(self.dict_get_value["protineInTake"]!)") {
+                cell.lbl_protien_cal.text = "\(proteinGrams) g"
+                self.store_protien = "\(proteinGrams)"
+            } else {
+                print("Failed to calculate carbs grams due to invalid input")
+            }
+            
         }
         
-        if let carbsGrams = calculateCarbsGrams(caloriesString: "\(self.dict_get_value["cal_total"]!)", proteinPercentageString: "\(self.dict_get_value["varbsInTake"]!)") {
-            cell.lbl_carbs_cal.text = "\(carbsGrams) g"
-            self.store_carbs = "\(carbsGrams)"
-        } else {
-            print("Failed to calculate carbs grams due to invalid input")
-        }
         
-        if let proteinGrams = calculateFatsGrams(caloriesString: "\(self.dict_get_value["cal_total"]!)", proteinPercentageString: "\(self.dict_get_value["protineInTake"]!)") {
-            cell.lbl_protien_cal.text = "\(proteinGrams) g"
-            self.store_protien = "\(proteinGrams)"
-        } else {
-            print("Failed to calculate carbs grams due to invalid input")
-        }
         
         
         

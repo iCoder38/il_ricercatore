@@ -594,6 +594,7 @@ class complete_profile_table_cell : UITableViewCell {
             txt_height.backgroundColor = .clear
             txt_height.placeholder = "Height"
             txt_height.setLeftPaddingPoints(20)
+            txt_height.keyboardType = .numberPad
         }
     }
     
@@ -683,10 +684,24 @@ class complete_profile_table_cell : UITableViewCell {
     }
     
     @IBOutlet weak var btn_daily_activity:UIButton!
-    @IBOutlet weak var btn_height:UIButton!
+    @IBOutlet weak var btn_height:UIButton! {
+        didSet {
+            btn_height.isHidden = true
+        }
+    }
     
-    @IBOutlet weak var lbl_height_select_popup:UILabel!
-    @IBOutlet weak var lbl_height_message:UILabel!
+    @IBOutlet weak var lbl_height_select_popup:UILabel! {
+        didSet {
+            lbl_height_select_popup.text = "cm"
+        }
+    }
+    
+    @IBOutlet weak var lbl_height_message:UILabel! {
+        didSet {
+            lbl_height_message.isHidden = true
+        }
+    }
+    
     @IBOutlet weak var btn_height_select_popup:UIButton!
     
     @IBOutlet weak var btn_current_weight:UIButton!

@@ -12,7 +12,7 @@ class complete_profile: UIViewController, UITextFieldDelegate {
     
     var dict_get_user_full_data:NSDictionary!
     
-    var str_height:String! = "0"
+    var str_height:String! = "1"
     
     var str_current_weight:String! = "0"
     var str_target_weight:String! = "0"
@@ -173,6 +173,7 @@ class complete_profile: UIViewController, UITextFieldDelegate {
         } else {
             self.tble_view.delegate = self
             self.tble_view.dataSource = self
+            self.tble_view.reloadData()
         }
     }
     
@@ -536,7 +537,7 @@ class complete_profile: UIViewController, UITextFieldDelegate {
     
     
     @objc func height_pop_up_click_method() {
-        let indexPath = IndexPath.init(row: 0, section: 0)
+        /*let indexPath = IndexPath.init(row: 0, section: 0)
         let cell = self.tble_view.cellForRow(at: indexPath) as! complete_profile_table_cell
         
         if (self.str_height == "0") {
@@ -563,7 +564,7 @@ class complete_profile: UIViewController, UITextFieldDelegate {
             
         }
         
-        self.tble_view.reloadData()
+        self.tble_view.reloadData()*/
     }
     
     @objc func current_weight_pop_up_click_method() {
@@ -646,6 +647,7 @@ extension complete_profile: UITableViewDataSource , UITableViewDelegate {
         cell.btn_daily_activity.addTarget(self, action: #selector(daily_activity_click_method), for: .touchUpInside)
         cell.btn_height.addTarget(self, action: #selector(height_click_method), for: .touchUpInside)
         
+        cell.btn_height_select_popup.isUserInteractionEnabled = false
         cell.btn_height_select_popup.addTarget(self, action: #selector(height_pop_up_click_method), for: .touchUpInside)
         
         cell.btn_current_weight.addTarget(self, action: #selector(current_weight_pop_up_click_method), for: .touchUpInside)

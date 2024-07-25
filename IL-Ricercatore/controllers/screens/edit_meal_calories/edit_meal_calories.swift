@@ -337,44 +337,93 @@ extension edit_meal_calories: UITableViewDataSource , UITableViewDelegate {
         
         cell.lbl_total_cal.text = "\(self.dict_get_value["cal_total"]!)"
         
-        cell.txt_breakfast.text = "\(self.dict_get_value["calbudget_breakfast"]!)"
-        cell.txt_morning_snack.text = "\(self.dict_get_value["calbudget_morningSnack"]!)"
-        cell.txt_lunch.text = "\(self.dict_get_value["calbudget_lunch"]!)"
-        cell.txt_eve_snack.text = "\(self.dict_get_value["calbudget_eveningSnack"]!)"
-        cell.txt_dinner.text = "\(self.dict_get_value["calbudget_dinner"]!)"
-        
-        //
-        if let percentage1 = calculatePercentage(userValueString: "\(self.dict_get_value["calbudget_breakfast"]!)", serverValueString: "\(self.dict_get_value["cal_total"]!)") {
-            cell.lbl_break_fast_two.text = "\(percentage1) Cal"
+        if "\(self.dict_get_value["calbudget_breakfast"]!)" == "" {
+            debugPrint("test")
+            
+            cell.txt_breakfast.text = "25"
+            cell.txt_morning_snack.text = "12.5"
+            cell.txt_lunch.text = "25"
+            cell.txt_eve_snack.text = "12.5"
+            cell.txt_dinner.text = "25"
+            
+            
+            if let percentage1 = calculatePercentage(userValueString: "25", serverValueString: "\(self.dict_get_value["cal_total"]!)") {
+                cell.lbl_break_fast_two.text = "\(percentage1) Cal"
+            } else {
+                print("Failed to calculate percentage")
+            }
+            
+            
+            if let percentage2 = calculatePercentage(userValueString: "12.5", serverValueString: "\(self.dict_get_value["cal_total"]!)") {
+                cell.lbl_morning_snack_two.text = "\(percentage2) Cal"
+            } else {
+                print("Failed to calculate percentage")
+            }
+            
+            if let percentage3 = calculatePercentage(userValueString: "25", serverValueString: "\(self.dict_get_value["cal_total"]!)") {
+                cell.lbl_lunch_two.text = "\(percentage3) Cal"
+            } else {
+                print("Failed to calculate percentage")
+            }
+            
+            if let percentage4 = calculatePercentage(userValueString: "12.5", serverValueString: "\(self.dict_get_value["cal_total"]!)") {
+                cell.lbl_evening_snack_two.text = "\(percentage4) Cal"
+            } else {
+                print("Failed to calculate percentage")
+            }
+            
+            
+            if let percentage5 = calculatePercentage(userValueString: "25", serverValueString: "\(self.dict_get_value["cal_total"]!)") {
+                cell.lbl_dinner_two.text = "\(percentage5) Cal"
+            } else {
+                print("Failed to calculate percentage")
+            }
+
         } else {
-            print("Failed to calculate percentage")
+        
+            cell.txt_breakfast.text = "\(self.dict_get_value["calbudget_breakfast"]!)"
+            cell.txt_morning_snack.text = "\(self.dict_get_value["calbudget_morningSnack"]!)"
+            cell.txt_lunch.text = "\(self.dict_get_value["calbudget_lunch"]!)"
+            cell.txt_eve_snack.text = "\(self.dict_get_value["calbudget_eveningSnack"]!)"
+            cell.txt_dinner.text = "\(self.dict_get_value["calbudget_dinner"]!)"
+            
+            //
+            if let percentage1 = calculatePercentage(userValueString: "\(self.dict_get_value["calbudget_breakfast"]!)", serverValueString: "\(self.dict_get_value["cal_total"]!)") {
+                cell.lbl_break_fast_two.text = "\(percentage1) Cal"
+            } else {
+                print("Failed to calculate percentage")
+            }
+            
+            
+            if let percentage2 = calculatePercentage(userValueString: "\(self.dict_get_value["calbudget_morningSnack"]!)", serverValueString: "\(self.dict_get_value["cal_total"]!)") {
+                cell.lbl_morning_snack_two.text = "\(percentage2) Cal"
+            } else {
+                print("Failed to calculate percentage")
+            }
+            
+            if let percentage3 = calculatePercentage(userValueString: "\(self.dict_get_value["calbudget_lunch"]!)", serverValueString: "\(self.dict_get_value["cal_total"]!)") {
+                cell.lbl_lunch_two.text = "\(percentage3) Cal"
+            } else {
+                print("Failed to calculate percentage")
+            }
+            
+            if let percentage4 = calculatePercentage(userValueString: "\(self.dict_get_value["calbudget_eveningSnack"]!)", serverValueString: "\(self.dict_get_value["cal_total"]!)") {
+                cell.lbl_evening_snack_two.text = "\(percentage4) Cal"
+            } else {
+                print("Failed to calculate percentage")
+            }
+            
+            
+            if let percentage5 = calculatePercentage(userValueString: "\(self.dict_get_value["calbudget_dinner"]!)", serverValueString: "\(self.dict_get_value["cal_total"]!)") {
+                cell.lbl_dinner_two.text = "\(percentage5) Cal"
+            } else {
+                print("Failed to calculate percentage")
+            }
+            
         }
         
         
-        if let percentage2 = calculatePercentage(userValueString: "\(self.dict_get_value["calbudget_morningSnack"]!)", serverValueString: "\(self.dict_get_value["cal_total"]!)") {
-            cell.lbl_morning_snack_two.text = "\(percentage2) Cal"
-        } else {
-            print("Failed to calculate percentage")
-        }
         
-        if let percentage3 = calculatePercentage(userValueString: "\(self.dict_get_value["calbudget_lunch"]!)", serverValueString: "\(self.dict_get_value["cal_total"]!)") {
-            cell.lbl_lunch_two.text = "\(percentage3) Cal"
-        } else {
-            print("Failed to calculate percentage")
-        }
-        
-        if let percentage4 = calculatePercentage(userValueString: "\(self.dict_get_value["calbudget_eveningSnack"]!)", serverValueString: "\(self.dict_get_value["cal_total"]!)") {
-            cell.lbl_evening_snack_two.text = "\(percentage4) Cal"
-        } else {
-            print("Failed to calculate percentage")
-        }
-        
-        
-        if let percentage5 = calculatePercentage(userValueString: "\(self.dict_get_value["calbudget_dinner"]!)", serverValueString: "\(self.dict_get_value["cal_total"]!)") {
-            cell.lbl_dinner_two.text = "\(percentage5) Cal"
-        } else {
-            print("Failed to calculate percentage")
-        }
         
         
         

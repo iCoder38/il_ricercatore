@@ -604,7 +604,7 @@ class water_intake: UIViewController {
         let indexPath = IndexPath.init(row: 0, section: 0)
         let cell = self.tble_view.cellForRow(at: indexPath) as! water_intake_table_cell
         
-        RPicker.selectDate(title: "Select date", cancelText: "Cancel", datePickerMode: .date,maxDate: Date.now, didSelectDate: { (selectedDate) in
+        RPicker.selectDate(title: "Select date", cancelText: "Cancel", datePickerMode: .date,minDate: Date().dateByAddingDays(-6), maxDate: Date.now, didSelectDate: { (selectedDate) in
             // cell.btn_date.setTitle(selectedDate.dateString("yyyy-MM-dd"), for: .normal)
             cell.lbl_date.text = selectedDate.dateString("MM-dd-yyyy")
             // self.meal_track_record_WB(loader: "yes")

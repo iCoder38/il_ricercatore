@@ -148,7 +148,7 @@ class create_an_account: UIViewController, UITextFieldDelegate {
                         
                     }
                     else {
-                        // self.login_refresh_token_wb()
+                        ERProgressHud.sharedInstance.hide()
                     }
                     
                 }

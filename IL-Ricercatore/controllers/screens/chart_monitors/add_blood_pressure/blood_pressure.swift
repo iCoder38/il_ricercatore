@@ -12,6 +12,9 @@ import Alamofire
 
 class blood_pressure: UIViewController {
     
+    let startDatePicker = UIDatePicker()
+    let endDatePicker = UIDatePicker()
+    
     lazy var formatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.maximumFractionDigits = 1
@@ -432,16 +435,15 @@ class blood_pressure: UIViewController {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
         
         // Date pickers
-        let startDatePicker = UIDatePicker()
+        
         startDatePicker.datePickerMode = .date
         startDatePicker.maximumDate = Date() // Maximum date is today
-        startDatePicker.minimumDate = Calendar.current.date(byAdding: .day, value: -6, to: Date()) // Minimum date is 6 days ago
+        // startDatePicker.minimumDate = Calendar.current.date(byAdding: .day, value: -40, to: Date()) // Minimum date is 6 days ago
         startDatePicker.addTarget(self, action: #selector(startDateChanged(_:)), for: .valueChanged)
         
-        let endDatePicker = UIDatePicker()
         endDatePicker.datePickerMode = .date
         endDatePicker.maximumDate = Date() // Maximum date is today
-        endDatePicker.minimumDate = Calendar.current.date(byAdding: .day, value: -6, to: Date()) // Minimum date is 6 days ago
+        // endDatePicker.minimumDate = Calendar.current.date(byAdding: .day, value: -40, to: Date()) // Minimum date is 6 days ago
         endDatePicker.addTarget(self, action: #selector(endDateChanged(_:)), for: .valueChanged)
         
         // Stack view for date pickers
@@ -479,6 +481,13 @@ class blood_pressure: UIViewController {
     }
     
     @objc func startDateChanged(_ sender: UIDatePicker) {
+        
+        var startDate2 = sender.date
+        let maxEndDate = Calendar.current.date(byAdding: .day, value: 7, to: startDate2)
+        endDatePicker.maximumDate = maxEndDate
+        // Optionally, update the minimum date of the endDatePicker to the selected start date
+        endDatePicker.minimumDate = startDate2
+        
         startDate = sender.date
     }
     
@@ -512,8 +521,7 @@ class blood_pressure: UIViewController {
         
         self.submit_date_WB(status: "yes")
         
-    }
-}
+    }}
 
 //MARK:- TABLE VIEW -
 extension blood_pressure: UITableViewDataSource , UITableViewDelegate, ChartViewDelegate {

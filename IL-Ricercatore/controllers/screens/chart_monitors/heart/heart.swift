@@ -35,9 +35,6 @@ class heart: UIViewController, ChartViewDelegate {
     var arr_7_days:NSMutableArray! = []
     var str_do_not_change:String! = "0"
     
-    var str_start_date:String!
-    var str_end_date:String!
-    
     let startDatePicker = UIDatePicker()
     let endDatePicker = UIDatePicker()
     
@@ -582,6 +579,9 @@ class heart: UIViewController, ChartViewDelegate {
     var startDate: Date?
     var endDate: Date?
     
+    var str_start_date:String!
+    var str_end_date:String!
+    
     @objc func showDateSelectionPopup() {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
         
@@ -589,12 +589,12 @@ class heart: UIViewController, ChartViewDelegate {
         
         startDatePicker.datePickerMode = .date
         startDatePicker.maximumDate = Date() // Maximum date is today
-        startDatePicker.minimumDate = Calendar.current.date(byAdding: .day, value: -6, to: Date()) // Minimum date is 6 days ago
+        // startDatePicker.minimumDate = Calendar.current.date(byAdding: .day, value: -40, to: Date()) // Minimum date is 6 days ago
         startDatePicker.addTarget(self, action: #selector(startDateChanged(_:)), for: .valueChanged)
         
         endDatePicker.datePickerMode = .date
         endDatePicker.maximumDate = Date() // Maximum date is today
-        endDatePicker.minimumDate = Calendar.current.date(byAdding: .day, value: -6, to: Date()) // Minimum date is 6 days ago
+        // endDatePicker.minimumDate = Calendar.current.date(byAdding: .day, value: -40, to: Date()) // Minimum date is 6 days ago
         endDatePicker.addTarget(self, action: #selector(endDateChanged(_:)), for: .valueChanged)
         
         // Stack view for date pickers
@@ -673,7 +673,6 @@ class heart: UIViewController, ChartViewDelegate {
         self.submit_date_WB(status: "yes")
         
     }
-    
     
     
 }

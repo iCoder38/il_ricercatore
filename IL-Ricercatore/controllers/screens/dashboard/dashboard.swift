@@ -476,6 +476,8 @@ class dashboard: UIViewController, UNUserNotificationCenterDelegate {
             print("\(person["current_wight"]!)")
             print("\(person["current_wight_measurement"]!)")
             
+            // height": 5 ft 4 inch
+            
             let currentWeight = Double("\(person["current_wight"]!)")
             let height = Double("\(person["height"]!)")
             let age = Double("\(person["dob"]!)")
@@ -496,11 +498,146 @@ class dashboard: UIViewController, UNUserNotificationCenterDelegate {
             self.str_total_calories_count = "\(result)"
             
             
-            daily_q_WB()
+            self.edit_profile_WB()
             
             
         }
         
+    }
+    
+    @objc func edit_profile_WB() {
+         
+        
+        var parameters:Dictionary<AnyHashable, Any>!
+        
+//        ERProgressHud.sharedInstance.showDarkBackgroundView(withTitle: "Please wait...")
+        
+        if let person = UserDefaults.standard.value(forKey: str_save_login_user_data) as? [String:Any] {
+            print(person)
+            
+            let x : Int = person["userId"] as! Int
+            let myString = String(x)
+            
+            if let token_id_is = UserDefaults.standard.string(forKey: str_save_last_api_token) {
+                
+                let headers: HTTPHeaders = [
+                    "token":String(token_id_is),
+                ]
+                
+                parameters = [
+                    "action"        : "editprofile",
+                    "userId"        : String(myString),
+                    "cal_total"      : String(self.str_total_calories_count),
+                    
+                ]
+                
+                
+                print("parameters-------\(String(describing: parameters))")
+                
+                AF.request(application_base_url, method: .post, parameters: parameters as? Parameters,headers: headers).responseJSON {
+                    response in
+                    
+                    switch(response.result) {
+                    case .success(_):
+                        if let data = response.value {
+                            
+                            let JSON = data as! NSDictionary
+                            print(JSON)
+                            
+                            var strSuccess : String!
+                            strSuccess = JSON["status"] as? String
+                            
+                            if strSuccess.lowercased() == "success" {
+                                ERProgressHud.sharedInstance.hide()
+                                
+                                var dict: Dictionary<AnyHashable, Any>
+                                dict = JSON["data"] as! Dictionary<AnyHashable, Any>
+                                
+                                let defaults = UserDefaults.standard
+                                defaults.setValue(dict, forKey: str_save_login_user_data)
+                                
+                                /*let push = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "complete_profile_two_id")
+                                 self.navigationController?.pushViewController(push, animated: true)*/
+                                
+                                self.daily_q_WB()
+                                
+                            }
+                            else {
+                                self.refresh_token_WB3()
+                            }
+                            
+                        }
+                        
+                    case .failure(_):
+                        print("Error message:\(String(describing: response.error))")
+                        ERProgressHud.sharedInstance.hide()
+                        self.please_check_your_internet_connection()
+                        
+                        break
+                    }
+                }
+            } else {
+                self.refresh_token_WB3()
+            }
+        }
+        
+    }
+    
+    @objc func refresh_token_WB3() {
+        
+        var parameters:Dictionary<AnyHashable, Any>!
+        
+        
+        if let person = UserDefaults.standard.value(forKey: str_save_login_user_data) as? [String:Any] {
+            
+            let x : Int = person["userId"] as! Int
+            let myString = String(x)
+            
+            parameters = [
+                "action"    : "gettoken",
+                "userId"    : String(myString),
+                "email"     : (person["email"] as! String),
+                "role"      : "Member"
+            ]
+        }
+        
+        print("parameters-------\(String(describing: parameters))")
+        
+        AF.request(application_base_url, method: .post, parameters: parameters as? Parameters).responseJSON {
+            response in
+            
+            switch(response.result) {
+            case .success(_):
+                if let data = response.value {
+                    
+                    let JSON = data as! NSDictionary
+                    print(JSON)
+                    
+                    var strSuccess : String!
+                    strSuccess = JSON["status"] as? String
+                    
+                    if strSuccess.lowercased() == "success" {
+                        
+                        let str_token = (JSON["AuthToken"] as! String)
+                        UserDefaults.standard.set("", forKey: str_save_last_api_token)
+                        UserDefaults.standard.set(str_token, forKey: str_save_last_api_token)
+                        
+                        self.edit_profile_WB()
+                        
+                    } else {
+                        ERProgressHud.sharedInstance.hide()
+                    }
+                    
+                }
+                
+            case .failure(_):
+                print("Error message:\(String(describing: response.error))")
+                ERProgressHud.sharedInstance.hide()
+                self.please_check_your_internet_connection()
+                
+                break
+            }
+        }
     }
     
     @objc func get_level_from_rapid() {
